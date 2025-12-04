@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying the footer
  *
@@ -15,8 +16,8 @@
 	<div class="container-full mx-auto px-4 lg:px-8">
 
 		<!-- Top Section: Quality Certifications -->
-		<div class="flex flex-col lg:flex-row justify-between items-center mb-12 pb-12 border-b border-gray-300">
-			<h3 class="text-2xl lg:text-3xl font-bold text-dark mb-6 lg:mb-0">
+		<div class="flex flex-col lg:flex-row justify-between md:items-center mb-12 pb-12 border-b border-gray-300">
+			<h3 class="text-2xl lg:text-3xl font-medium text-dark mb-6 lg:mb-0">
 				Comprometidos con la calidad
 			</h3>
 			<div class="flex gap-6">
@@ -26,19 +27,12 @@
 		</div>
 
 		<!-- Main Footer Content -->
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8 lg:gap-12 mb-12">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 md:gap-8 lg:gap-12 mb-12">
 
 			<!-- Logo & Social Media -->
-			<div class="lg:col-span-1">
+			<div class="lg:col-span-1 mb-12">
 				<div class="mb-6">
-					<?php if (has_custom_logo()): ?>
-						<?php the_custom_logo(); ?>
-					<?php else: ?>
-						<a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
-							<img src="<?php echo get_template_directory_uri(); ?>/assets/images/logo.svg"
-								alt="<?php bloginfo('name'); ?>" class="h-10 w-auto">
-						</a>
-					<?php endif; ?>
+					<?php comsatel_footer_logo(); ?>
 				</div>
 
 				<!-- Social Media Icons -->
@@ -82,44 +76,59 @@
 			</div>
 
 			<!-- Empresa Column -->
-			<div class="lg:col-span-1">
-				<h4 class="text-lg font-bold text-dark mb-4">Empresa</h4>
+			<div class="lg:col-span-1 border-b border-gray-200">
+				<h4 class="text-lg font-bold text-dark my-4 cursor-pointer accordion-title flex items-center justify-between lg:cursor-default">
+					Empresa
+					<span class="flex-shrink-0 text-red-500 lg:hidden">
+						<svg class="arrow-up-footer w-4 h-4 transform -rotate-45 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="20" height="24"
+							viewBox="0 0 30 24" fill="none">
+							<path d="M16.6251 0.624611C17.0251 0.224673 17.5676 0 18.1333 0C18.699 0 19.2415 0.224673 19.6416 0.624611L29.2416 10.2246C29.6415 10.6247 29.8662 11.1672 29.8662 11.7329C29.8662 12.2986 29.6415 12.8411 29.2416 13.2411L19.6416 22.8411C19.2393 23.2297 18.7004 23.4448 18.141 23.4399C17.5817 23.4351 17.0466 23.2107 16.6511 22.8152C16.2555 22.4196 16.0312 21.8846 16.0263 21.3252C16.0214 20.7658 16.2365 20.227 16.6251 19.8246L22.4 13.8662H2.13333C1.56754 13.8662 1.02492 13.6414 0.624839 13.2414C0.224761 12.8413 0 12.2987 0 11.7329C0 11.1671 0.224761 10.6245 0.624839 10.2244C1.02492 9.82431 1.56754 9.59954 2.13333 9.59954H22.4L16.6251 3.64114C16.2251 3.24109 16.0005 2.69856 16.0005 2.13288C16.0005 1.56719 16.2251 1.02467 16.6251 0.624611Z"
+								fill="#1E1E1E" />
+						</svg>
+					</span>
+				</h4>
 				<?php
 				wp_nav_menu(array(
 					'theme_location' => 'footer-empresa',
-					'menu_class' => 'space-y-3',
+					'menu_class' => 'accordion-content space-y-3 max-h-0 opacity-0 lg:max-h-full lg:opacity-100 overflow-hidden transition-all duration-300',
 					'container' => 'nav',
 					'fallback_cb' => function () {
-						?>
-					<nav class="space-y-3">
+				?>
+					<nav class="accordion-content space-y-3 max-h-0 opacity-0 lg:max-h-full lg:opacity-100 overflow-hidden transition-all duration-300">
 						<a href="#" class="block text-gray-600 hover:text-primary transition-colors">Club Xperience</a>
 						<a href="#" class="block text-gray-600 hover:text-primary transition-colors">Acerca de Comsatel</a>
 						<a href="#" class="block text-gray-600 hover:text-primary transition-colors">Blog</a>
-						<a href="#" class="block text-gray-600 hover:text-primary transition-colors">Preguntas
-							frecuentes</a>
-						<a href="#" class="block text-gray-600 hover:text-primary transition-colors">Trabaja con
-							nosotros</a>
+						<a href="#" class="block text-gray-600 hover:text-primary transition-colors">Preguntas frecuentes</a>
+						<a href="#" class="block text-gray-600 hover:text-primary transition-colors">Trabaja con nosotros</a>
 						<a href="#" class="block text-gray-600 hover:text-primary transition-colors">Números de cuenta</a>
-						<a href="#" class="block text-gray-600 hover:text-primary transition-colors">Calculador de
-							ahorro</a>
+						<a href="#" class="block text-gray-600 hover:text-primary transition-colors">Calculador de ahorro</a>
 					</nav>
-					<?php
+				<?php
 					},
 				));
 				?>
 			</div>
 
 			<!-- Avisos legales Column -->
-			<div class="lg:col-span-1">
-				<h4 class="text-lg font-bold text-dark mb-4">Avisos legales</h4>
+			<div class="lg:col-span-1 border-b border-gray-200">
+				<h4 class="text-lg font-bold text-dark my-4 cursor-pointer accordion-title flex items-center justify-between lg:cursor-default">
+					Avisos Legales
+					<span class="flex-shrink-0 text-red-500 lg:hidden">
+						<svg class="arrow-up-footer w-4 h-4 transform -rotate-45 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="20" height="24"
+							viewBox="0 0 30 24" fill="none">
+							<path d="M16.6251 0.624611C17.0251 0.224673 17.5676 0 18.1333 0C18.699 0 19.2415 0.224673 19.6416 0.624611L29.2416 10.2246C29.6415 10.6247 29.8662 11.1672 29.8662 11.7329C29.8662 12.2986 29.6415 12.8411 29.2416 13.2411L19.6416 22.8411C19.2393 23.2297 18.7004 23.4448 18.141 23.4399C17.5817 23.4351 17.0466 23.2107 16.6511 22.8152C16.2555 22.4196 16.0312 21.8846 16.0263 21.3252C16.0214 20.7658 16.2365 20.227 16.6251 19.8246L22.4 13.8662H2.13333C1.56754 13.8662 1.02492 13.6414 0.624839 13.2414C0.224761 12.8413 0 12.2987 0 11.7329C0 11.1671 0.224761 10.6245 0.624839 10.2244C1.02492 9.82431 1.56754 9.59954 2.13333 9.59954H22.4L16.6251 3.64114C16.2251 3.24109 16.0005 2.69856 16.0005 2.13288C16.0005 1.56719 16.2251 1.02467 16.6251 0.624611Z"
+								fill="#1E1E1E" />
+						</svg>
+					</span>
+				</h4>
 				<?php
 				wp_nav_menu(array(
 					'theme_location' => 'footer-legal',
-					'menu_class' => 'space-y-3',
+					'menu_class' => 'accordion-content space-y-3 max-h-0 opacity-0 lg:max-h-full lg:opacity-100 overflow-hidden transition-all duration-300',
 					'container' => 'nav',
 					'fallback_cb' => function () {
-						?>
-					<nav class="space-y-3">
+				?>
+					<nav class="accordion-content space-y-3 max-h-0 opacity-0 lg:max-h-full lg:opacity-100 overflow-hidden transition-all duration-300">
 						<a href="#" class="block text-gray-600 hover:text-primary transition-colors">Términos y
 							condiciones</a>
 						<a href="#" class="block text-gray-600 hover:text-primary transition-colors">Política de Protección
@@ -129,7 +138,7 @@
 						<a href="#" class="block text-gray-600 hover:text-primary transition-colors">Promociones</a>
 						<a href="#" class="block text-gray-600 hover:text-primary transition-colors">Actualiza tus datos</a>
 					</nav>
-					<?php
+				<?php
 					},
 				));
 				?>
@@ -137,20 +146,29 @@
 
 			<!-- Contacto Column -->
 			<div class="lg:col-span-1">
-				<h4 class="text-lg font-bold text-dark mb-4">Contacto</h4>
+				<h4 class="text-lg font-bold text-dark my-4 cursor-pointer accordion-title flex items-center justify-between lg:cursor-default">
+					Contacto
+					<span class="flex-shrink-0 text-red-500 lg:hidden">
+						<svg class="arrow-up-footer w-4 h-4 transform -rotate-45 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="20" height="24"
+							viewBox="0 0 30 24" fill="none">
+							<path d="M16.6251 0.624611C17.0251 0.224673 17.5676 0 18.1333 0C18.699 0 19.2415 0.224673 19.6416 0.624611L29.2416 10.2246C29.6415 10.6247 29.8662 11.1672 29.8662 11.7329C29.8662 12.2986 29.6415 12.8411 29.2416 13.2411L19.6416 22.8411C19.2393 23.2297 18.7004 23.4448 18.141 23.4399C17.5817 23.4351 17.0466 23.2107 16.6511 22.8152C16.2555 22.4196 16.0312 21.8846 16.0263 21.3252C16.0214 20.7658 16.2365 20.227 16.6251 19.8246L22.4 13.8662H2.13333C1.56754 13.8662 1.02492 13.6414 0.624839 13.2414C0.224761 12.8413 0 12.2987 0 11.7329C0 11.1671 0.224761 10.6245 0.624839 10.2244C1.02492 9.82431 1.56754 9.59954 2.13333 9.59954H22.4L16.6251 3.64114C16.2251 3.24109 16.0005 2.69856 16.0005 2.13288C16.0005 1.56719 16.2251 1.02467 16.6251 0.624611Z"
+								fill="#1E1E1E" />
+						</svg>
+					</span>
+				</h4>
 				<?php
 				wp_nav_menu(array(
 					'theme_location' => 'footer-contacto',
-					'menu_class' => 'space-y-3',
+					'menu_class' => 'accordion-content space-y-3 max-h-0 opacity-0 lg:max-h-full lg:opacity-100 overflow-hidden transition-all duration-300',
 					'container' => 'nav',
 					'fallback_cb' => function () {
-						?>
-					<nav class="space-y-3 mb-6">
+				?>
+					<nav class="accordion-content space-y-3 max-h-0 opacity-0 lg:max-h-full lg:opacity-100 overflow-hidden transition-all duration-300">
 						<a href="#" class="block text-gray-600 hover:text-primary transition-colors">Nuestras oficinas</a>
 						<a href="#" class="block text-gray-600 hover:text-primary transition-colors">Ticket de soporte</a>
 						<a href="#" class="block text-gray-600 hover:text-primary transition-colors">Portal facturas</a>
 					</nav>
-					<?php
+				<?php
 					},
 				));
 				?>
@@ -161,7 +179,7 @@
 
 				<!-- Libro de reclamaciones Button -->
 				<a href="#"
-					class="inline-flex items-center gap-2 px-4 py-3 border-2 border-dark text-dark rounded-lg hover:bg-dark hover:text-white transition-all font-semibold text-sm">
+					class="inline-flex items-center gap-2 px-4 py-3 border-[1px] border-dark text-dark rounded-md hover:bg-dark hover:text-white transition-all font-semibold text-sm">
 					<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 							d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
@@ -174,10 +192,10 @@
 		<!-- Bottom Section: Copyright -->
 		<div class="pt-8 border-t border-gray-300">
 			<div class="flex flex-col md:flex-row justify-between items-center gap-4">
-				<p class="text-sm text-gray-600 text-center md:text-left">
+				<p class="text-sm text-gray-600 text-center md:text-left mb-0">
 					© <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. Todos los derechos reservados.
 				</p>
-				<div class="flex gap-4 text-sm">
+				<div class="md:flex flex-col gap-4 text-sm">
 					<a href="#" class="text-gray-600 hover:text-primary transition-colors">Política de Privacidad</a>
 					<span class="text-gray-400">|</span>
 					<a href="#" class="text-gray-600 hover:text-primary transition-colors">Términos de Servicio</a>
@@ -193,12 +211,86 @@
 <?php wp_footer(); ?>
 
 </body>
+
 <script>
 	// Mobile menu toggle
-	document.getElementById('mobile-menu-toggle').addEventListener('click', function () {
+	document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
 		const menu = document.getElementById('mobile-menu');
 		menu.classList.toggle('hidden');
 	});
+
+	function toggleFAQ(button) {
+		const faqItem = button.parentElement;
+		const answer = faqItem.querySelector('.accordion-content');
+		const arrow = button.querySelector('.arrow-up');
+
+		const isClosed = answer.classList.contains('max-h-0');
+
+		// Cerrar otros acordeones
+		document.querySelectorAll('.accordion-content').forEach(item => {
+			if (item !== answer) {
+				item.classList.remove('max-h-96');
+				item.classList.add('max-h-0', 'opacity-0');
+			}
+		});
+
+		// Resetear rotación de otras flechas a posición cerrada (-rotate-45)
+		document.querySelectorAll('.arrow-up').forEach(icon => {
+			if (icon !== arrow) {
+				icon.classList.remove('rotate-45');
+				icon.classList.add('-rotate-45');
+			}
+		});
+
+		// Toggle del acordeón actual
+		if (isClosed) {
+			// Abrir
+			answer.classList.remove('max-h-0', 'opacity-0');
+			answer.classList.add('max-h-96');
+			arrow.classList.remove('-rotate-45');
+			arrow.classList.add('rotate-45');
+		} else {
+			// Cerrar
+			answer.classList.remove('max-h-96');
+			answer.classList.add('max-h-0', 'opacity-0');
+			arrow.classList.remove('rotate-45');
+			arrow.classList.add('-rotate-45');
+		}
+	}
+
+	// Función para Footer Accordion (solo en mobile)
+	function initFooterAccordion() {
+		const accordionTitles = document.querySelectorAll('.accordion-title');
+
+		accordionTitles.forEach(title => {
+			title.addEventListener('click', function() {
+				// Solo funcionar en mobile (menos de 1024px)
+				if (window.innerWidth >= 1024) return;
+
+				const content = this.nextElementSibling;
+				const arrow = this.querySelector('.arrow-up-footer');
+				const isClosed = content.classList.contains('max-h-0');
+
+				// Toggle del acordeón actual
+				if (isClosed) {
+					// Abrir
+					content.classList.remove('max-h-0', 'opacity-0');
+					content.classList.add('max-h-96');
+					arrow.classList.remove('-rotate-45');
+					arrow.classList.add('rotate-45');
+				} else {
+					// Cerrar
+					content.classList.remove('max-h-96');
+					content.classList.add('max-h-0', 'opacity-0');
+					arrow.classList.remove('rotate-45');
+					arrow.classList.add('-rotate-45');
+				}
+			});
+		});
+	}
+
+	// Inicializar footer accordion cuando el DOM esté listo
+	document.addEventListener('DOMContentLoaded', initFooterAccordion);
 </script>
 
 </html>

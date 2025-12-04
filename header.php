@@ -19,7 +19,7 @@
 <body <?php body_class(); ?>>
 	<?php wp_body_open(); ?>
 	<div id="page" class="site">
-		<a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'comsatel'); ?></a>
+		<!-- <a class="skip-link screen-reader-text" href="#primary"><?php esc_html_e('Skip to content', 'comsatel'); ?></a> -->
 
 		<!-- Header -->
 		<header id="masthead" class="absolute top-0 left-0 right-0 z-50">
@@ -41,13 +41,21 @@
 					<!-- Desktop Navigation -->
 					<nav class="hidden lg:flex items-center space-x-8" data-aos="fade-down" data-aos-delay="200">
 						<?php
+						// Definimos el HTML de la línea animada
+						$animated_line = '<span class="absolute left-0 bottom-0 h-0.5 w-0 bg-red-600 group-hover:w-full transition-all duration-300"></span>';
+
+						// Usaremos un filtro para la clase del <a>
 						wp_nav_menu(array(
 							'theme_location' => 'menu-1',
 							'menu_class' => 'flex items-center list-none space-x-8 mb-0',
 							'container' => false,
 							'fallback_cb' => false,
-							'link_before' => '<span class="text-white hover:text-gray-200 transition-colors duration-200">',
-							'link_after' => '</span>',
+							// Estas clases se aplicarán al <a>
+							'items_wrap' => '<ul id="%1$s" class="%2$s">%3$s</ul>',
+							// El contenido antes y después del texto del enlace
+							'link_before' => '<span class="transition-colors duration-200">',
+							// Se inserta la línea animada justo después del texto del enlace (dentro del <a>)
+							'link_after' => '</span>' . $animated_line,
 						));
 						?>
 					</nav>

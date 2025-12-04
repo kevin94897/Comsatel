@@ -55,31 +55,53 @@ function comsatel_scripts()
 	// Tailwind compilado
 	wp_enqueue_style('comsatel-tailwind', get_template_directory_uri() . '/tailwind-output.css', [], _S_VERSION);
 
-	// Tus estilos globales (los que creaste dentro de /src/)
+	// Tus estilos globales
 	wp_enqueue_style(
 		'comsatel-global',
 		get_template_directory_uri() . '/src/global.css',
-		['comsatel-tailwind'], // Se carga después de Tailwind
-		filemtime(get_template_directory() . '/src/global.css') // actualiza versión automáticamente
+		['comsatel-tailwind'],
+		filemtime(get_template_directory() . '/src/global.css')
 	);
 
-	// Style.css (requerido por WordPress)
+	// Style.css WP
 	wp_enqueue_style('comsatel-style', get_stylesheet_uri(), [], wp_get_theme()->get('Version'));
-	wp_style_add_data('comsatel-style', 'rtl', 'replace');
 
-	wp_enqueue_script('comsatel-navigation', get_template_directory_uri() . '/js/navigation.js', [], _S_VERSION, true);
+	// ⬇⬇⬇ SWIPER CSS + JS (AGREGAR AQUÍ)
+	wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', [], '11.0.0');
 
-	// AOS (Animate On Scroll) Library
+	wp_enqueue_script(
+		'swiper-js',
+		'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js',
+		[],
+		'11.0.0',
+		true
+	);
+
+	// Inicializar Swiper al cargar
+	wp_add_inline_script('swiper-js', "
+		document.addEventListener('DOMContentLoaded', function(){
+			new Swiper('.myTestimonialSlider', {
+				loop: true,
+				slidesPerView: 1,
+				spaceBetween: 30,
+				navigation: {
+					nextEl: '.testimonial-next',
+					prevEl: '.testimonial-prev',
+				},
+			});
+		});
+	");
+
+	// AOS
 	wp_enqueue_style('aos-css', 'https://unpkg.com/aos@2.3.1/dist/aos.css', [], '2.3.1');
 	wp_enqueue_script('aos-js', 'https://unpkg.com/aos@2.3.1/dist/aos.js', [], '2.3.1', true);
-
-	// Initialize AOS
 	wp_add_inline_script('aos-js', 'AOS.init({ duration: 800, easing: "ease-in-out", once: true, offset: 100 });');
 
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
 }
+
 add_action('wp_enqueue_scripts', 'comsatel_scripts');
 
 
@@ -143,6 +165,52 @@ function comsatel_setup()
 	);
 }
 add_action('after_setup_theme', 'comsatel_setup');
+
+
+/**
+ * Custom Footer Logo
+ */
+function comsatel_register_footer_logo()
+{
+	add_theme_support('footer-logo', array(
+		'height' => 90,
+		'width'  => 240,
+		'flex-width'  => true,
+		'flex-height' => true,
+	));
+}
+add_action('after_setup_theme', 'comsatel_register_footer_logo');
+
+function comsatel_footer_logo()
+{
+	$footer_logo_id = get_theme_mod('footer_logo');
+
+	if ($footer_logo_id) {
+		$footer_logo_url = wp_get_attachment_image_url($footer_logo_id, 'full');
+		echo '<img src="' . esc_url($footer_logo_url) . '" class="footer-logo" alt="Footer Logo">';
+	} else {
+		// Si no subes uno, usa el mismo del header como fallback
+		if (has_custom_logo()) {
+			echo get_custom_logo();
+		}
+	}
+}
+
+function comsatel_customize_register($wp_customize)
+{
+
+	$wp_customize->add_setting('footer_logo', array(
+		'default'   => '',
+		'transport' => 'refresh',
+	));
+
+	$wp_customize->add_control(new WP_Customize_Media_Control($wp_customize, 'footer_logo', array(
+		'label'    => __('Logo Footer', 'comsatel'),
+		'section'  => 'title_tagline',
+		'mime_type' => 'image',
+	)));
+}
+add_action('customize_register', 'comsatel_customize_register');
 
 
 /**
@@ -296,3 +364,17 @@ if (defined('JETPACK__VERSION')) {
 }
 
 add_filter('show_admin_bar', '__return_false');
+
+/**
+ * Añade las clases de Tailwind 'group relative' a los elementos <li> del menú principal.
+ */
+function add_tailwind_group_class_to_menu_li($classes, $item, $args)
+{
+	// Aplicar solo al menú que tiene el theme_location 'menu-1'
+	if ($args->theme_location === 'menu-1') {
+		// Añade la clase 'group' y 'relative' al <li>
+		$classes[] = 'group relative';
+	}
+	return $classes;
+}
+add_filter('nav_menu_css_class', 'add_tailwind_group_class_to_menu_li', 10, 3);

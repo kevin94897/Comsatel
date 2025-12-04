@@ -530,13 +530,13 @@ a {
 }
 
 a:visited {
-	color: #800080;
+	color: currentColor;
 }
 
 a:hover,
 a:focus,
 a:active {
-	color: #191970;
+	color: currentColor;
 }
 
 a:focus {
