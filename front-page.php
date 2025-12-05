@@ -35,23 +35,23 @@ get_header(); ?>
     <section class="bg-dark">
         <div
             class="flex flex-row gap-4 items-center lg:justify-center py-4 px-4 overflow-x-scroll lg:overflow-x-hidden w-full whitespace-nowrap">
-            <a href="#"
-                class="px-8 py-2 bg-red-600 text-white text-center rounded-full hover:bg-primary transition-all duration-200 font-semibold"
+            <a href="#challenge"
+                class="btn btn-primary"
                 data-aos="zoom-in" data-aos-delay="100">
                 Desafío
             </a>
-            <a href="#"
-                class="px-8 py-2 bg-transparent text-white text-center rounded-full hover:bg-white hover:text-black transition-all duration-200 font-semibold"
+            <a href="#solutions"
+                class="btn btn-outline-white"
                 data-aos="zoom-in" data-aos-delay="200">
                 Portafolio de soluciones
             </a>
-            <a href="#"
-                class="px-8 py-2 bg-transparent text-white text-center rounded-full hover:bg-white hover:text-black transition-all duration-200 font-semibold"
+            <a href="#testimonials"
+                class="btn btn-outline-white"
                 data-aos="zoom-in" data-aos-delay="300">
                 Testimonios
             </a>
-            <a href="#"
-                class="px-8 py-2 bg-transparent text-white text-center rounded-full hover:bg-white hover:text-black transition-all duration-200 font-semibold"
+            <a href="#faqs"
+                class="btn btn-outline-white"
                 data-aos="zoom-in" data-aos-delay="400">
                 Preguntas frecuentes
             </a>
@@ -59,26 +59,27 @@ get_header(); ?>
     </section>
 
     <!-- Intro Section -->
-    <section class="pt-16 lg:pt-24 pb-16 lg:pb-16 bg-gray-50 motion-safe:animate-fade-in">
+    <section class="py-12 lg:py-16 bg-gray-50 motion-safe:animate-fade-in" id="challenge">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="max-w-4xl mx-auto text-center">
                 <p class="text-sm text-gray uppercase tracking-wider mb-4" data-aos="fade-down">Desafío</p>
-                <p class="leading-relaxed mb-16 md:text-2xl text-xl font-semibold tracking-[-0.08px]" data-aos="fade-up" data-aos-delay="100">
+                <p class="leading-relaxed mb-0 md:text-2xl text-xl font-semibold tracking-[-0.08px]" data-aos="fade-up" data-aos-delay="100">
                     Las operaciones de transporte enfrentan riesgos de robos, accidentes y pérdida de control en ruta.
                     El reto es mantener la seguridad del vehículo, la carga y el conductor en todo momento.
                 </p>
-                <p class="text-sm text-gray uppercase tracking-wider mb-4" data-aos="fade-down" data-aos-delay="200">Portafolio de soluciones</p>
-                <h2 class="text-2xl lg:text-4xl font-semibold mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <span class="text-primary">Nuestras soluciones de seguridad en el transporte en ruta</span>
-                </h2>
             </div>
         </div>
     </section>
 
     <!-- Solutions Grid -->
-    <section class="pb-16 lg:pb-24 bg-gray-50">
+    <section class="pb-16 lg:pb-24 pt-8 bg-gray-50" id="solutions">
         <div class="container mx-auto px-4 lg:px-8">
-
+            <div class="max-w-4xl mx-auto text-center mb-16">
+                <p class="text-sm text-gray uppercase tracking-wider mb-4" data-aos="fade-down" data-aos-delay="200">Portafolio de soluciones</p>
+                <h2 class="text-2xl lg:text-4xl font-semibold mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <span class="text-primary">Nuestras soluciones de seguridad en el transporte en ruta</span>
+                </h2>
+            </div>
             <!-- Solution 1: Sistema de video -->
             <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12 lg:mb-20">
                 <div class="order-2 lg:order-1" data-aos="zoom-in" data-aos-duration="1000">
@@ -147,20 +148,12 @@ get_header(); ?>
                         de nuestro sistema GPS/Glonass, lo brinda información en tiempo real y acceso a reportes
                         detallados para mejorar la productividad.
                     </p>
-                    <a href="#"
-                        class="group relative inline-flex items-center text-primary font-semibold hover:text-primary transition-colors duration-300">
-
-                        <span class="relative">
-                            VER MÁS: RASTREO Y GESTIÓN DE FLOTAS
-
-                            <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-primary group-hover:w-full transition-all duration-300"></span>
-                        </span>
-
-                        <svg class="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
+                    <?php
+                    get_template_part('inc/componentes/button-arrow', null, array(
+                        'text' => 'VER MÁS: RASTREO Y GESTIÓN DE FLOTAS',
+                        'url'  => '#'
+                    ));
+                    ?>
                 </div>
             </div>
 
@@ -177,20 +170,12 @@ get_header(); ?>
                         Protege tu mercadería durante todo el trayecto con un sistema de bloqueo electrónico satelital
                         de alta seguridad para garantía que llegue sin incidentes.
                     </p>
-                    <a href="#"
-                        class="group relative inline-flex items-center text-primary font-semibold hover:text-primary transition-colors duration-300">
-
-                        <span class="relative">
-                            VER MÁS: THUNDERLOCK CARGA Y ACTIVOS
-
-                            <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-primary group-hover:w-full transition-all duration-300"></span>
-                        </span>
-
-                        <svg class="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path>
-                        </svg>
-                    </a>
+                    <?php
+                    get_template_part('inc/componentes/button-arrow', null, array(
+                        'text' => 'VER MÁS: THUNDERLOCK CARGA Y ACTIVOS',
+                        'url'  => '#'
+                    ));
+                    ?>
                 </div>
             </div>
 
@@ -208,21 +193,12 @@ get_header(); ?>
                         emergencia, alertando de manera temprana en casos de robo o violencia que puedan afectar a la
                         seguridad.
                     </p>
-                    <a href="#"
-                        class="group relative inline-flex items-center text-primary font-semibold hover:text-primary transition-colors duration-300">
-
-                        <span class="relative">
-                            VER MÁS: ASISTENCIA AL CONDUCTOR
-
-                            <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-primary group-hover:w-full transition-all duration-300"></span>
-                        </span>
-
-                        <svg class="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                    </a>
+                    <?php
+                    get_template_part('inc/componentes/button-arrow', null, array(
+                        'text' => 'VER MÁS: ASISTENCIA AL CONDUCTOR',
+                        'url'  => '#'
+                    ));
+                    ?>
                 </div>
             </div>
 
@@ -239,21 +215,12 @@ get_header(); ?>
                         Nuestro kit combina y sincroniza en punto de contacto ideal porque lo puede adquirir para
                         facilitar asegurados, ayuda como complemento de todas nuestras soluciones tecnológicas.
                     </p>
-                    <a href="#"
-                        class="group relative inline-flex items-center text-primary font-semibold hover:text-primary transition-colors duration-300">
-
-                        <span class="relative">
-                            VER MÁS: COMBUSTION Y GESTIÓN DE RUTA
-
-                            <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-primary group-hover:w-full transition-all duration-300"></span>
-                        </span>
-
-                        <svg class="w-5 h-5 ml-2 transition-transform duration-300 group-hover:translate-x-1" fill="none"
-                            stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                        </svg>
-                    </a>
+                    <?php
+                    get_template_part('inc/componentes/button-arrow', null, array(
+                        'text' => 'VER MÁS: COMBUSTION Y GESTIÓN DE RUTA',
+                        'url'  => '#'
+                    ));
+                    ?>
                 </div>
             </div>
 
@@ -261,7 +228,7 @@ get_header(); ?>
     </section>
 
     <!-- CTA Section -->
-    <section class="py-16 lg:py-24 bg-gray-50">
+    <section class="py-16 lg:py-24 bg-gray-50" id="cta">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="text-center md:mb-12">
                 <h2 class="text-2xl lg:text-4xl font-semibold text-primary mb-4" data-aos="fade-up">
@@ -288,10 +255,10 @@ get_header(); ?>
                                 Accede a una cotización o calcula el ahorro que tu operación puede obtener con nuestra solución.
                             </p>
                             <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                                <a href="#" class="btn-primary text-white">
+                                <a href="#" class="btn btn-primary text-white">
                                     Cotiza ahora
                                 </a>
-                                <a href="#" class="btn-outline">
+                                <a href="#" class="btn btn-outline">
                                     Calcula tu ahorro
                                 </a>
                             </div>

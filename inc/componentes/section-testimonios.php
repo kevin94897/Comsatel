@@ -1,5 +1,5 @@
 <!-- Trust Section -->
-<section class="py-16 lg:py-24 bg-gray-50 relative">
+<section class="py-16 lg:py-24 bg-gray-50 relative" id="testimonials">
     <div class="container mx-auto px-4 lg:px-8">
 
         <div class="flex items-end">
@@ -55,14 +55,12 @@
                                 <strong>María Torres,</strong> Gerente de Operaciones, Abril 2022
                             </p>
                             <span class="border-t border-[#FF4D4D] h-2 inline-block mr-2 w-full mb-4"></span>
-                            <a href="#"
-                                class="inline-flex items-center text-primary font-semibold hover:text-red-700 transition-colors">
-                                LEER CASO COMPLETO
-                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                </svg>
-                            </a>
+                            <?php
+                            get_template_part('inc/componentes/button-arrow', null, array(
+                                'text' => 'LEER CASO COMPLETO',
+                                'url'  => '#'
+                            ));
+                            ?>
                         </div>
                     </div>
                 </div>
@@ -84,14 +82,12 @@
                                 <strong>María Torres,</strong> Gerente de Operaciones, Abril 2022
                             </p>
                             <span class="border-t border-[#FF4D4D] h-2 inline-block mr-2 w-full mb-4"></span>
-                            <a href="#"
-                                class="inline-flex items-center text-primary font-semibold hover:text-red-700 transition-colors">
-                                LEER CASO COMPLETO
-                                <svg class="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                                </svg>
-                            </a>
+                            <?php
+                            get_template_part('inc/componentes/button-arrow', null, array(
+                                'text' => 'LEER CASO COMPLETO',
+                                'url'  => '#'
+                            ));
+                            ?>
                         </div>
                     </div>
 

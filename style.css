@@ -529,14 +529,14 @@ a {
 	color: #4169e1;
 }
 
-a:visited {
-	color: currentColor;
-}
+/* a:visited {
+	color: white;
+} */
 
 a:hover,
 a:focus,
 a:active {
-	color: currentColor;
+	color: white;
 }
 
 a:focus {
@@ -556,7 +556,7 @@ input[type="reset"],
 input[type="submit"] {
 	border: 1px solid;
 	border-color: #ccc #ccc #bbb;
-	border-radius: 3px;
+	/* border-radius: 3px; */
 	background: #e6e6e6;
 	color: rgba(0, 0, 0, 0.8);
 	line-height: 1;
@@ -598,9 +598,9 @@ input[type="datetime-local"],
 input[type="color"],
 textarea {
 	color: #666;
-	border: 1px solid #ccc;
-	border-radius: 3px;
-	padding: 3px;
+	/* border: 1px solid #ccc; */
+	/* border-radius: 3px; */
+	/* padding: 3px; */
 }
 
 input[type="text"]:focus,
@@ -623,7 +623,7 @@ textarea:focus {
 }
 
 select {
-	border: 1px solid #ccc;
+	/* border: 1px solid #ccc; */
 }
 
 textarea {

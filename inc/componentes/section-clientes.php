@@ -1,5 +1,5 @@
 <!-- SECCIÓN CLIENTES -->
-<section class="h-[600px] relative flex-col lg:flex hidden">
+<section class="h-[600px] relative flex-col lg:flex hidden" id="clients">
     <!-- Background Image -->
     <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/comsatel_soluciones-clientes.png');">

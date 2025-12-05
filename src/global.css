@@ -88,6 +88,7 @@ html {
 
   body,
   button,
+  select,
   a {
     font-family: 'Poppins', sans-serif !important;
   }
@@ -194,7 +195,7 @@ a:hover {
   justify-content: center;
   padding: 0.75rem 2rem;
   font-family: var(--font-primary);
-  font-size: 1rem;
+  font-size: 0.75rem;
   font-weight: 600;
   line-height: 1;
   text-align: center;
@@ -220,7 +221,7 @@ a:hover {
   background-color: var(--color-primary-dark);
   transition: all var(--transition-base);
   border-color: var(--color-primary-dark);
-  color: var(--color-white);
+  color: var(--color-white) !important;
 }
 
 .btn-primary:active {
@@ -239,7 +240,7 @@ a:hover {
 
 .btn-secondary:hover {
   background-color: var(--color-black);
-  color: var(--color-white);
+  color: var(--color-white) !important;
   transition: all var(--transition-base);
 }
 
@@ -256,9 +257,27 @@ a:hover {
 
 .btn-outline:hover {
   background-color: var(--color-black);
-  color: var(--color-white);
+  color: var(--color-white) !important;
   transition: all var(--transition-base);
   border-color: var(--color-black);
+}
+
+/* Outline Button WHITE*/
+.btn-outline-white {
+  background-color: transparent;
+  color: var(--color-white);
+  border-color: var(--color-white);
+  border-radius: var(--radius-full);
+  padding: 0.5rem 2rem;
+  border-width: 2px;
+  line-height: initial;
+}
+
+.btn-outline-white:hover {
+  background-color: var(--color-white);
+  color: var(--color-black) !important;
+  transition: all var(--transition-base);
+  border-color: var(--color-white);
 }
 
 /* White Button (for dark backgrounds) */
@@ -270,7 +289,7 @@ a:hover {
 
 .btn-white:hover {
   background-color: transparent;
-  color: var(--color-white);
+  color: var(--color-white) !important;
   border-color: var(--color-white);
 }
 
@@ -308,6 +327,12 @@ a:hover {
   opacity: 0.5;
   cursor: not-allowed;
   pointer-events: none;
+}
+
+@media (min-width: 1024px) {
+  .btn {
+    font-size: 1rem;
+  }
 }
 
 /* ==========================================================================
@@ -565,34 +590,160 @@ a:hover {
 /* ==========================================================================
    12. Forms
    ========================================================================== */
-.form-input,
-.form-textarea,
-.form-select {
+
+/* Inputs de texto, email, number, etc. */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+input[type="password"],
+.form-input {
   width: 100%;
-  padding: 0.75rem 1rem;
+  padding: 0.75rem 1.5rem;
   font-family: var(--font-primary);
-  font-size: 1rem;
-  color: var(--color-dark);
+  /* font-size: 1rem; */
+  font-weight: 500;
+  color: var(--color-black);
   background-color: var(--color-white);
-  border: 2px solid var(--color-light-gray);
+  border: 1px solid var(--color-black);
   border-radius: var(--radius-md);
   transition: all var(--transition-base);
-}
-
-.form-input:focus,
-.form-textarea:focus,
-.form-select:focus {
   outline: none;
-  border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(227, 30, 37, 0.1);
 }
 
-.form-label {
-  display: block;
-  margin-bottom: 0.5rem;
-  font-weight: 600;
-  color: var(--color-dark);
+/* Responsive: tamaños en móvil y desktop */
+@media (max-width: 768px) {
+
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="search"],
+  input[type="password"],
+  .form-input {
+    /* height: 40px; */
+    /* font-size: 0.875rem; */
+  }
 }
+
+@media (min-width: 769px) {
+
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="search"],
+  input[type="password"],
+  .form-input {
+    /* height: 56px; */
+    /* font-size: 1.25rem; */
+  }
+}
+
+/* Focus state */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="password"]:focus,
+.form-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(227, 30, 37, 0.2);
+}
+
+/* Textarea */
+textarea,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  outline: none;
+  min-height: 120px;
+  resize: vertical;
+}
+
+textarea:focus,
+.form-textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(227, 30, 37, 0.2);
+}
+
+/* Select */
+select,
+.form-select {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231E1E1E' d='M6 9L1 4h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  padding-right: 3rem;
+}
+
+@media (max-width: 768px) {
+
+  select,
+  .form-select {
+    height: 40px;
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 769px) {
+
+  select,
+  .form-select {
+    height: 56px;
+    font-size: 1.25rem;
+  }
+}
+
+select:focus,
+.form-select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(227, 30, 37, 0.2);
+}
+
+/* Label */
+.form-label,
+label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-black);
+}
+
+/* Placeholder */
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-gray);
+  opacity: 0.6;
+}
+
 
 /* ==========================================================================
    13. Responsive Visibility
@@ -632,11 +783,63 @@ body,
 
 /*ESTILOS CUSTOMS*/
 
+footer nav a {
+  color: var(--color-black) !important;
+}
+
+footer nav a:hover {
+  color: var(--color-primary-light) !important;
+}
 
 footer nav a:last-child {
   margin-bottom: 20px !important;
 }
 
-a.text-white {
+/* a.text-white {
   color: white !important;
+} */
+
+/* ==========================================================================
+   15. Header Styles - Dark & Light Versions
+   ========================================================================== */
+
+/* Header Navigation - Dark Version (for front-page with dark background) */
+.header-nav-dark a {
+  color: var(--color-white);
+  position: relative;
+  padding-bottom: 0.25rem;
+  transition: color var(--transition-base);
+}
+
+.header-nav-dark a:hover {
+  color: var(--color-white);
+}
+
+/* Header Navigation - Light Version (for internal pages with white background) */
+.header-nav-light a {
+  color: var(--color-black);
+  position: relative;
+  padding-bottom: 0.25rem;
+  transition: color var(--transition-base);
+}
+
+.header-nav-light a:hover {
+  color: var(--color-primary-light);
+}
+
+/* Active menu item */
+.header-nav-dark .current-menu-item a,
+.header-nav-dark .current_page_item a {
+  color: var(--color-white);
+}
+
+.header-nav-light .current-menu-item a,
+.header-nav-light .current_page_item a {
+  color: var(--color-primary-light);
+}
+
+/* Ensure the animated underline works for both versions */
+.header-nav-dark a .absolute,
+.header-nav-light a .absolute {
+  background-color: var(--color-primary-light);
 }

@@ -536,14 +536,14 @@ a {
 	color: #4169e1;
 }
 
-a:visited {
-	color: currentColor;
-}
+/* a:visited {
+	color: white;
+} */
 
 a:hover,
 a:focus,
 a:active {
-	color: currentColor;
+	color: white;
 }
 
 a:focus {
@@ -605,9 +605,9 @@ input[type="datetime-local"],
 input[type="color"],
 textarea {
 	color: #666;
-	border: 1px solid #ccc;
+	/* border: 1px solid #ccc; */
 	border-radius: 3px;
-	padding: 3px;
+	/* padding: 3px; */
 }
 
 input[type="text"]:focus,
@@ -630,7 +630,7 @@ textarea:focus {
 }
 
 select {
-	border: 1px solid #ccc;
+	/* border: 1px solid #ccc; */
 }
 
 textarea {
