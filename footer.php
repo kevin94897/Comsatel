@@ -195,7 +195,7 @@
 				<p class="text-sm text-gray-600 text-center md:text-left mb-0">
 					© <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. Todos los derechos reservados.
 				</p>
-				<div class="md:flex flex-col gap-4 text-sm">
+				<div class="md:flex-row flex-col gap-4 text-sm">
 					<a href="#" class="text-gray-600 hover:text-primary transition-colors">Política de Privacidad</a>
 					<span class="text-gray-400">|</span>
 					<a href="#" class="text-gray-600 hover:text-primary transition-colors">Términos de Servicio</a>

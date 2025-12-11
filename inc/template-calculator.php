@@ -13,8 +13,8 @@ get_header();
     <section class="">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="max-w-6xl mx-auto">
-                <div class="min-h-screen flex items-center justify-center">
-                    <div class="flex items-start md:flex-row flex-col md:gap-24 gap-4">
+                <div class="min-h-screen flex md:items-center items-start md:justify-center justify-start">
+                    <div class="flex items-start md:flex-row flex-col md:gap-24 gap-4 md:mt-0 mt-32">
                         <div class="basis-[30%]">
                             <h2 class="text-2xl md:text-4xl font-medium text-black mb-2">
                                 Calcule cuánto podría ahorrar
@@ -98,7 +98,7 @@ get_header();
                                             <select
                                                 id="fuel-unit"
                                                 name="fuel_unit"
-                                                class="w-full max-w-[150px] md:h-[56px] h-[40px]">
+                                                class="w-full max-w-[150px] md:h-[56px] h-[40px] leading-none">
                                                 <option value="km_gl">KM / GL</option>
                                                 <option value="km_l">KM / L</option>
                                             </select>
