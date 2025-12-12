@@ -1,33 +1,5 @@
 <?php
 
-/**
- * Componente: Sección con tabs y contenido anidado
- *
- * Args esperados:
- * $args = array(
- *    'section_id' => 'unique-id',
- *    'eyebrow' => 'PLANES',
- *    'title' => 'Elige el producto que mejor se adapta a ti',
- *    'description' => 'Descubre cómo nuestras soluciones...',
- *    'tabs' => array(
- *       array(
- *          'id' => 'premium',
- *          'label' => 'Clocator Premium',
- *          'content_tabs' => array(
- *             array(
- *                'id' => 'feature-1',
- *                'label' => 'Bloqueo robusto',
- *                'image' => 'url-to-image.jpg',
- *                'description' => 'Controla aperturas en tiempo real...'
- *             ),
- *             // ... more nested tabs
- *          )
- *       ),
- *       // ... more main tabs
- *    )
- * )
- */
-
 $section_id = $args['section_id'] ?? 'tabbed-section';
 $eyebrow = $args['eyebrow'] ?? '';
 $title = $args['title'] ?? '';
@@ -39,35 +11,35 @@ if (empty($tabs))
     return;
 ?>
 
-<section class="py-16 lg:py-24 bg-gray-50" id="<?php echo esc_attr($section_id); ?>">
-    <div class="container-fluid py-4 lg:py-8 mb-32"
+<section class="py-8 lg:py-16" id="<?php echo esc_attr($section_id); ?>">
+    <div class="container-fluid py-6 lg:py-8 md:mb-32 mb-12"
         style="background-image: url('<?php echo esc_url($background_image); ?>');">
         <div class=" mx-auto px-4 lg:px-8 max-w-2xl">
             <!-- Header -->
             <div class="text-center">
                 <?php if ($eyebrow): ?>
-                    <p class="text-sm text-gray uppercase tracking-wider mb-4" data-aos="fade-down">
+                    <p class="text-sm text-gray uppercase tracking-wider mb-4" data-aos="fade-in">
                         <?php echo esc_html($eyebrow); ?>
                     </p>
                 <?php endif; ?>
 
                 <?php if ($title): ?>
-                    <h2 class="text-2xl lg:text-4xl font-semibold text-primary mb-4" data-aos="fade-up">
+                    <h2 class="text-2xl lg:text-4xl font-semibold text-primary mb-4" data-aos="fade-in">
                         <?php echo esc_html($title); ?>
                     </h2>
                 <?php endif; ?>
 
                 <?php if ($description): ?>
-                    <p class="text-lg" data-aos="fade-up" data-aos-delay="100">
+                    <p class="max-w-2xl mx-auto aos-init aos-animate" data-aos="fade-in" data-aos-delay="100">
                         <?php echo esc_html($description); ?>
                     </p>
                 <?php endif; ?>
 
                 <!-- Main Tabs Navigation -->
-                <div class="flex flex-wrap justify-center gap-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex flex-wrap justify-center gap-2" data-aos="fade-in" data-aos-delay="200">
                     <?php foreach ($tabs as $index => $tab): ?>
                         <button
-                            class="main-tab-btn px-6 py-3 rounded-full font-medium transition-all duration-300 <?php echo $index === 0 ? 'bg-dark text-white' : 'bg-white text-gray-900 hover:bg-gray-100'; ?>"
+                            class="main-tab-btn px-6 py-3 rounded-full font-medium transition-all duration-300 text-sm <?php echo $index === 0 ? 'bg-dark text-white' : 'bg-white text-gray-900 hover:bg-gray-100'; ?>"
                             data-tab="<?php echo esc_attr($tab['id']); ?>"
                             data-section="<?php echo esc_attr($section_id); ?>">
                             <?php echo esc_html($tab['label']); ?>
@@ -84,9 +56,9 @@ if (empty($tabs))
             <div class="main-tab-content <?php echo $tab_index === 0 ? '' : 'hidden'; ?>"
                 data-tab-content="<?php echo esc_attr($tab['id']); ?>" data-section="<?php echo esc_attr($section_id); ?>">
 
-                <div class="grid lg:grid-cols-[300px_1fr] gap-8 items-start">
+                <div class="grid lg:grid-cols-[300px_1fr] md:gap-8 gap-4 items-start">
                     <!-- Nested Tabs Navigation (Left Side) -->
-                    <div class="space-y-2" data-aos="fade-right">
+                    <div class="space-y-2 order-2 lg:order-1" data-aos="fade-right">
                         <?php foreach ($tab['content_tabs'] as $content_index => $content_tab): ?>
                             <button
                                 class="nested-tab-btn w-full text-left px-6 py-4 rounded-md transition-all duration-300 <?php echo $content_index === 0 ? 'bg-dark text-white' : 'bg-white text-gray-900 hover:bg-gray-100'; ?>"
@@ -99,7 +71,7 @@ if (empty($tabs))
                     </div>
 
                     <!-- Nested Content (Right Side) -->
-                    <div class="nested-content-wrapper">
+                    <div class="nested-content-wrapper order-1 lg:order-2">
                         <?php foreach ($tab['content_tabs'] as $content_index => $content_tab): ?>
                             <div class="nested-tab-content <?php echo $content_index === 0 ? '' : 'hidden'; ?>"
                                 data-nested-content="<?php echo esc_attr($content_tab['id']); ?>"
@@ -108,7 +80,7 @@ if (empty($tabs))
 
                                 <div class="rounded-md overflow-hidden" data-aos="zoom-in">
                                     <?php if (!empty($content_tab['image'])): ?>
-                                        <div class="relative aspect-video">
+                                        <div class="relative aspect-square md:aspect-video">
                                             <img src="<?php echo esc_url($content_tab['image']); ?>"
                                                 alt="<?php echo esc_attr($content_tab['label']); ?>"
                                                 class="w-full h-full object-cover">
@@ -116,8 +88,8 @@ if (empty($tabs))
                                     <?php endif; ?>
 
                                     <?php if (!empty($content_tab['description'])): ?>
-                                        <div class="py-8">
-                                            <p class="text-lg leading-relaxed">
+                                        <div class="md:py-6 py-4">
+                                            <p class="md:text-lg text-sm leading-relaxed mb-0 ">
                                                 <?php echo esc_html($content_tab['description']); ?>
                                             </p>
                                         </div>
@@ -133,12 +105,12 @@ if (empty($tabs))
 </section>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         // Main tabs functionality
         const mainTabButtons = document.querySelectorAll('.main-tab-btn');
 
         mainTabButtons.forEach(button => {
-            button.addEventListener('click', function () {
+            button.addEventListener('click', function() {
                 const tabId = this.dataset.tab;
                 const sectionId = this.dataset.section;
 
@@ -162,7 +134,7 @@ if (empty($tabs))
         const nestedTabButtons = document.querySelectorAll('.nested-tab-btn');
 
         nestedTabButtons.forEach(button => {
-            button.addEventListener('click', function () {
+            button.addEventListener('click', function() {
                 const nestedTabId = this.dataset.nestedTab;
                 const parentId = this.dataset.parent;
                 const sectionId = this.dataset.section;

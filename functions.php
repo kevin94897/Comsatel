@@ -103,6 +103,17 @@ function comsatel_scripts()
 	wp_enqueue_script('aos-js', 'https://unpkg.com/aos@2.3.1/dist/aos.js', [], '2.3.1', true);
 	wp_add_inline_script('aos-js', 'AOS.init({ duration: 800, easing: "ease-in-out", once: true, offset: 100 });');
 
+	// Blog Scripts (solo en la plantilla de blog)
+	if (is_page_template('template-blog.php')) {
+		wp_enqueue_script(
+			'comsatel-blog-js',
+			get_template_directory_uri() . '/js/blog.js',
+			['jquery'],
+			filemtime(get_template_directory() . '/js/blog.js'),
+			true
+		);
+	}
+
 	// Calculator Script (solo en la página de calculadora)
 	if (is_page_template('inc/template-calculator.php')) {
 		wp_enqueue_script(
@@ -400,3 +411,8 @@ add_filter('nav_menu_css_class', 'add_tailwind_group_class_to_menu_li', 10, 3);
  * Include AJAX handlers for calculator
  */
 require get_template_directory() . '/inc/ajax-calculator.php';
+
+/**
+ * Include AJAX handlers for blog
+ */
+require get_template_directory() . '/inc/ajax-blog.php';

@@ -1,8 +1,7 @@
 <?php
+
 /**
- * The template for displaying all single posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
+ * The template for displaying all single posts (Blog)
  *
  * @package comsatel
  */
@@ -10,31 +9,124 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main id="primary" class="site-main bg-gray-50">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+	<!-- Hero Banner -->
+	<section class="relative min-h-[400px] flex items-end <?php echo wp_title(); ?>">
+		<!-- Background Image -->
+		<div class="absolute inset-0 bg-cover bg-top bg-no-repeat"
+			style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/comsatel_blog_single_banner.png');">
+		</div>
 
-			get_template_part( 'template-parts/content', get_post_type() );
+		<!-- Content -->
+		<div class="container-full md:mx-auto md:px-4 lg:px-8 relative z-10">
+			<div class="">
+				<!-- <span class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span> -->
+				<h1 class="text-2xl md:text-4xl lg:text-5xl uppercase font-bold text-white mb-10 leading-tight max-w-2xl" data-aos="fade-up"
+					data-aos-duration="1000">
+					¡Prepara tu Ruta del feriado largo!
+				</h1>
+			</div>
+		</div>
 
-			the_post_navigation(
-				array(
-					'prev_text' => '<span class="nav-subtitle">' . esc_html__( 'Previous:', 'comsatel' ) . '</span> <span class="nav-title">%title</span>',
-					'next_text' => '<span class="nav-subtitle">' . esc_html__( 'Next:', 'comsatel' ) . '</span> <span class="nav-title">%title</span>',
-				)
-			);
+		<!-- Tracking Pin Graphic (Optional) -->
+		<div class="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
+			<div class="relative">
+				<!-- You can add your custom tracking pin SVG or icon here -->
+			</div>
+		</div>
+	</section>
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+	<?php while (have_posts()) : the_post(); ?>
 
-		endwhile; // End of the loop.
-		?>
+		<!-- Breadcrumbs -->
+		<section class="py-6 md:py-12">
+			<div class="container mx-auto px-4">
+				<nav class="flex items-center gap-2 text-sm text-gray-600 whitespace-nowrap overflow-x-auto scroll-smooth">
+					<a href="<?php echo home_url(); ?>" class="hover:text-primary transition-colors text-gray">Inicio</a>
+					<span>></span>
+					<a href="<?php echo home_url('/blog/'); ?>" class="hover:text-primary transition-colors text-gray">Blog</a>
+					<span>></span>
+					<span class="text-dark"><?php the_title(); ?></span>
+				</nav>
+			</div>
+		</section>
 
-	</main><!-- #main -->
+		<!-- Article Header -->
+		<article id="post-<?php the_ID(); ?>" <?php post_class(''); ?>>
+			<div class="container mx-auto px-4 py-8 md:py-12">
+				<div class="max-w-4xl mx-auto">
+
+					<!-- Title -->
+					<h1 class="text-2xl md:text-4xl lg:text-5xl font-bold text-primary mb-6 leading-tight text-center">
+						<?php the_title(); ?>
+					</h1>
+
+					<!-- Meta Information -->
+					<div class="flex flex-wrap items-center gap-4 md:gap-6 mb-12 md:text-sm text-xs text-gray-600 justify-center">
+						<!-- Author -->
+						<div class="flex items-center gap-2">
+							<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
+								<path d="M3.523 14.7923C4.373 14.1616 5.299 13.6635 6.301 13.298C7.30283 12.9327 8.36917 12.75 9.5 12.75C10.6308 12.75 11.6972 12.9327 12.699 13.298C13.701 13.6635 14.627 14.1616 15.477 14.7923C16.0987 14.1089 16.5912 13.3179 16.9548 12.4192C17.3183 11.5206 17.5 10.5475 17.5 9.5C17.5 7.28333 16.7208 5.39583 15.1625 3.8375C13.6042 2.27917 11.7167 1.5 9.5 1.5C7.28333 1.5 5.39583 2.27917 3.8375 3.8375C2.27917 5.39583 1.5 7.28333 1.5 9.5C1.5 10.5475 1.68175 11.5206 2.04525 12.4192C2.40875 13.3179 2.90133 14.1089 3.523 14.7923ZM9.50025 10.25C8.58725 10.25 7.81733 9.93667 7.1905 9.31C6.5635 8.68317 6.25 7.91325 6.25 7.00025C6.25 6.08725 6.56333 5.31733 7.19 4.6905C7.81683 4.0635 8.58675 3.75 9.49975 3.75C10.4128 3.75 11.1827 4.06333 11.8095 4.69C12.4365 5.31683 12.75 6.08675 12.75 6.99975C12.75 7.91275 12.4367 8.68267 11.81 9.3095C11.1832 9.9365 10.4133 10.25 9.50025 10.25ZM9.5 19C8.18083 19 6.94333 18.7519 5.7875 18.2558C4.63167 17.7596 3.62625 17.0839 2.77125 16.2288C1.91608 15.3738 1.24042 14.3683 0.74425 13.2125C0.248083 12.0567 0 10.8192 0 9.5C0 8.18083 0.248083 6.94333 0.74425 5.7875C1.24042 4.63167 1.91608 3.62625 2.77125 2.77125C3.62625 1.91608 4.63167 1.24042 5.7875 0.74425C6.94333 0.248084 8.18083 0 9.5 0C10.8192 0 12.0567 0.248084 13.2125 0.74425C14.3683 1.24042 15.3738 1.91608 16.2288 2.77125C17.0839 3.62625 17.7596 4.63167 18.2558 5.7875C18.7519 6.94333 19 8.18083 19 9.5C19 10.8192 18.7519 12.0567 18.2558 13.2125C17.7596 14.3683 17.0839 15.3738 16.2288 16.2288C15.3738 17.0839 14.3683 17.7596 13.2125 18.2558C12.0567 18.7519 10.8192 19 9.5 19ZM9.5 17.5C10.4025 17.5 11.2727 17.3548 12.1105 17.0645C12.9483 16.774 13.6923 16.3679 14.3422 15.8462C13.6923 15.3436 12.958 14.9519 12.1395 14.6712C11.3208 14.3904 10.441 14.25 9.5 14.25C8.559 14.25 7.67758 14.3888 6.85575 14.6663C6.03392 14.9439 5.30125 15.3372 4.65775 15.8462C5.30775 16.3679 6.05167 16.774 6.8895 17.0645C7.72733 17.3548 8.5975 17.5 9.5 17.5ZM9.5 8.75C9.9975 8.75 10.4135 8.58267 10.748 8.248C11.0827 7.9135 11.25 7.4975 11.25 7C11.25 6.5025 11.0827 6.0865 10.748 5.752C10.4135 5.41733 9.9975 5.25 9.5 5.25C9.0025 5.25 8.5865 5.41733 8.252 5.752C7.91733 6.0865 7.75 6.5025 7.75 7C7.75 7.4975 7.91733 7.9135 8.252 8.248C8.5865 8.58267 9.0025 8.75 9.5 8.75Z" fill="#FF4D4D" />
+							</svg>
+							<span>Equipo Comsatel</span>
+						</div>
+
+						<!-- Date -->
+						<div class="flex items-center gap-2">
+							<svg xmlns="http://www.w3.org/2000/svg" width="17" height="20" viewBox="0 0 17 20" fill="none">
+								<path d="M1.80775 19.1152C1.30258 19.1152 0.875 18.9403 0.525 18.5903C0.175 18.2402 0 17.8127 0 17.3075V3.923C0 3.41783 0.175 2.99025 0.525 2.64025C0.875 2.29025 1.30258 2.11525 1.80775 2.11525H3.19225V0H4.73075V2.11525H12.3077V0H13.8077V2.11525H15.1923C15.6974 2.11525 16.125 2.29025 16.475 2.64025C16.825 2.99025 17 3.41783 17 3.923V17.3075C17 17.8127 16.825 18.2402 16.475 18.5903C16.125 18.9403 15.6974 19.1152 15.1923 19.1152H1.80775ZM1.80775 17.6152H15.1923C15.2692 17.6152 15.3398 17.5832 15.4038 17.519C15.4679 17.455 15.5 17.3845 15.5 17.3075V7.923H1.5V17.3075C1.5 17.3845 1.53208 17.455 1.59625 17.519C1.66025 17.5832 1.73075 17.6152 1.80775 17.6152ZM1.5 6.423H15.5V3.923C15.5 3.846 15.4679 3.7755 15.4038 3.7115C15.3398 3.64733 15.2692 3.61525 15.1923 3.61525H1.80775C1.73075 3.61525 1.66025 3.64733 1.59625 3.7115C1.53208 3.7755 1.5 3.846 1.5 3.923V6.423ZM8.5 11.6922C8.25517 11.6922 8.0465 11.606 7.874 11.4335C7.70167 11.2612 7.6155 11.0525 7.6155 10.8075C7.6155 10.5627 7.70167 10.354 7.874 10.1815C8.0465 10.0092 8.25517 9.923 8.5 9.923C8.74483 9.923 8.9535 10.0092 9.126 10.1815C9.29833 10.354 9.3845 10.5627 9.3845 10.8075C9.3845 11.0525 9.29833 11.2612 9.126 11.4335C8.9535 11.606 8.74483 11.6922 8.5 11.6922ZM4.5 11.6922C4.25517 11.6922 4.0465 11.606 3.874 11.4335C3.70167 11.2612 3.6155 11.0525 3.6155 10.8075C3.6155 10.5627 3.70167 10.354 3.874 10.1815C4.0465 10.0092 4.25517 9.923 4.5 9.923C4.74483 9.923 4.9535 10.0092 5.126 10.1815C5.29833 10.354 5.3845 10.5627 5.3845 10.8075C5.3845 11.0525 5.29833 11.2612 5.126 11.4335C4.9535 11.606 4.74483 11.6922 4.5 11.6922ZM12.5 11.6922C12.2552 11.6922 12.0465 11.606 11.874 11.4335C11.7017 11.2612 11.6155 11.0525 11.6155 10.8075C11.6155 10.5627 11.7017 10.354 11.874 10.1815C12.0465 10.0092 12.2552 9.923 12.5 9.923C12.7448 9.923 12.9535 10.0092 13.126 10.1815C13.2983 10.354 13.3845 10.5627 13.3845 10.8075C13.3845 11.0525 13.2983 11.2612 13.126 11.4335C12.9535 11.606 12.7448 11.6922 12.5 11.6922ZM8.5 15.6152C8.25517 15.6152 8.0465 15.529 7.874 15.3565C7.70167 15.1842 7.6155 14.9756 7.6155 14.7308C7.6155 14.4858 7.70167 14.2771 7.874 14.1047C8.0465 13.9322 8.25517 13.846 8.5 13.846C8.74483 13.846 8.9535 13.9322 9.126 14.1047C9.29833 14.2771 9.3845 14.4858 9.3845 14.7308C9.3845 14.9756 9.29833 15.1842 9.126 15.3565C8.9535 15.529 8.74483 15.6152 8.5 15.6152ZM4.5 15.6152C4.25517 15.6152 4.0465 15.529 3.874 15.3565C3.70167 15.1842 3.6155 14.9756 3.6155 14.7308C3.6155 14.4858 3.70167 14.2771 3.874 14.1047C4.0465 13.9322 4.25517 13.846 4.5 13.846C4.74483 13.846 4.9535 13.9322 5.126 14.1047C5.29833 14.2771 5.3845 14.4858 5.3845 14.7308C5.3845 14.9756 5.29833 15.1842 5.126 15.3565C4.9535 15.529 4.74483 15.6152 4.5 15.6152ZM12.5 15.6152C12.2552 15.6152 12.0465 15.529 11.874 15.3565C11.7017 15.1842 11.6155 14.9756 11.6155 14.7308C11.6155 14.4858 11.7017 14.2771 11.874 14.1047C12.0465 13.9322 12.2552 13.846 12.5 13.846C12.7448 13.846 12.9535 13.9322 13.126 14.1047C13.2983 14.2771 13.3845 14.4858 13.3845 14.7308C13.3845 14.9756 13.2983 15.1842 13.126 15.3565C12.9535 15.529 12.7448 15.6152 12.5 15.6152Z" fill="#FF4D4D" />
+							</svg>
+							<span><?php echo get_the_date('d \d\e F, Y'); ?></span>
+						</div>
+
+						<!-- Reading Time -->
+						<div class="flex items-center gap-2">
+							<svg xmlns="http://www.w3.org/2000/svg" width="21" height="19" viewBox="0 0 21 19" fill="none">
+								<path d="M10.1115 18.6115C8.932 18.6115 7.82692 18.3884 6.79625 17.9423C5.76542 17.4961 4.86667 16.8897 4.1 16.123C3.33333 15.3563 2.72692 14.4576 2.28075 13.4268C1.83458 12.3961 1.6115 11.291 1.6115 10.1115C1.6115 8.932 1.83458 7.82692 2.28075 6.79625C2.72692 5.76542 3.33333 4.86667 4.1 4.1C4.86667 3.33333 5.76542 2.72692 6.79625 2.28075C7.82692 1.83458 8.932 1.6115 10.1115 1.6115C11.291 1.6115 12.3961 1.83458 13.4268 2.28075C14.4576 2.72692 15.3563 3.33333 16.123 4.1C16.8897 4.86667 17.4961 5.76542 17.9423 6.79625C18.3884 7.82692 18.6115 8.932 18.6115 10.1115C18.6115 11.291 18.3884 12.3961 17.9423 13.4268C17.4961 14.4576 16.8897 15.3563 16.123 16.123C15.3563 16.8897 14.4576 17.4961 13.4268 17.9423C12.3961 18.3884 11.291 18.6115 10.1115 18.6115ZM13.0845 14.1385L14.1385 13.0845L10.8615 9.80775V5.1115H9.3615V10.4153L13.0845 14.1385ZM3.86525 0L4.91925 1.05375L1.05375 4.91925L0 3.86525L3.86525 0ZM16.3577 0L20.223 3.86525L19.1693 4.91925L15.3038 1.05375L16.3577 0ZM10.1115 17.1115C12.0552 17.1115 13.7078 16.4308 15.0693 15.0693C16.4308 13.7078 17.1115 12.0552 17.1115 10.1115C17.1115 8.16784 16.4308 6.51525 15.0693 5.15375C13.7078 3.79225 12.0552 3.1115 10.1115 3.1115C8.16783 3.1115 6.51525 3.79225 5.15375 5.15375C3.79225 6.51525 3.1115 8.16784 3.1115 10.1115C3.1115 12.0552 3.79225 13.7078 5.15375 15.0693C6.51525 16.4308 8.16783 17.1115 10.1115 17.1115Z" fill="#FF4D4D" />
+							</svg>
+							<span><?php echo comsatel_reading_time(); ?> de lectura</span>
+						</div>
+					</div>
+
+					<!-- Featured Image -->
+					<?php if (has_post_thumbnail()) : ?>
+						<div class="mb-8 md:mb-12 rounded-xl overflow-hidden">
+							<?php the_post_thumbnail('large', array('class' => 'w-full h-auto')); ?>
+						</div>
+					<?php endif; ?>
+
+					<!-- Content -->
+					<div class="prose prose-lg max-w-none blog-content">
+						<?php the_content(); ?>
+					</div>
+
+					<!-- Tags -->
+					<?php
+					$tags = get_the_tags();
+					if ($tags) :
+					?>
+						<div class="mt-8 pt-8 border-t border-gray-200">
+							<div class="flex flex-wrap gap-2">
+								<?php foreach ($tags as $tag) : ?>
+									<a href="<?php echo get_tag_link($tag->term_id); ?>" class="px-4 py-2 bg-gray-100 hover:bg-primary hover:text-white text-sm font-medium rounded-full transition-colors duration-200">
+										<?php echo $tag->name; ?>
+									</a>
+								<?php endforeach; ?>
+							</div>
+						</div>
+					<?php endif; ?>
+
+				</div>
+			</div>
+		</article>
+
+		<!-- Related Products Slider -->
+		<?php get_template_part('inc/componentes/section', 'productos-interes'); ?>
+
+	<?php endwhile; ?>
+
+</main>
 
 <?php
-get_sidebar();
 get_footer();

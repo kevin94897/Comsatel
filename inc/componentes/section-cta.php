@@ -1,5 +1,5 @@
 <!-- CTA Section -->
-<section class="py-16 lg:py-24 bg-gray-50" id="cta">
+<section class="py-16 lg:py-24" id="cta">
     <div class="container mx-auto px-4 lg:px-8">
         <div class="text-center md:mb-12">
             <h2 class="text-2xl lg:text-4xl font-semibold text-primary mb-4" data-aos="fade-up">

@@ -23,7 +23,7 @@
 
 		<?php
 		// Detectar si estamos en front-page o template producto-gps
-		$is_transparent_header = is_front_page() || is_page_template('inc/template-producto-gps.php');
+		$is_transparent_header = is_front_page() || is_page_template('inc/template-producto-gps.php') || is_page_template('template-blog.php') || is_single();
 
 		$header_bg_class = $is_transparent_header ? '' : 'bg-white ';
 		$text_color_class = $is_transparent_header ? 'text-white' : 'text-gray-900';
@@ -57,7 +57,7 @@
 							$footer_logo_id = get_theme_mod('footer_logo');
 							if ($footer_logo_id):
 								$footer_logo_url = wp_get_attachment_image_url($footer_logo_id, 'full');
-								?>
+							?>
 								<a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
 									<img src="<?php echo esc_url($footer_logo_url); ?>" class="w-auto"
 										alt="<?php bloginfo('name'); ?>">
