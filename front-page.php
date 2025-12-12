@@ -17,7 +17,8 @@ get_header(); ?>
         <!-- Content -->
         <div class="container-full md:mx-auto md:px-4 lg:px-8 relative z-10">
             <div class="max-w-3xl">
-                <h1 class="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-20 leading-tight" data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-20 leading-tight" data-aos="fade-up"
+                    data-aos-duration="1000">
                     SEGURIDAD EN EL<br>
                     TRANSPORTE EN RUTA
                 </h1>
@@ -32,38 +33,43 @@ get_header(); ?>
         </div>
     </section>
 
-    <section class="bg-dark">
-        <div
-            class="flex flex-row gap-4 items-center lg:justify-center py-4 px-4 overflow-x-scroll lg:overflow-x-hidden w-full whitespace-nowrap">
-            <a href="#challenge"
-                class="btn btn-primary"
-                data-aos="zoom-in" data-aos-delay="100">
-                Desafío
-            </a>
-            <a href="#solutions"
-                class="btn btn-outline-white"
-                data-aos="zoom-in" data-aos-delay="200">
-                Portafolio de soluciones
-            </a>
-            <a href="#testimonials"
-                class="btn btn-outline-white"
-                data-aos="zoom-in" data-aos-delay="300">
-                Testimonios
-            </a>
-            <a href="#faqs"
-                class="btn btn-outline-white"
-                data-aos="zoom-in" data-aos-delay="400">
-                Preguntas frecuentes
-            </a>
-        </div>
-    </section>
+    <?php
+    $nav_buttons = array(
+        array(
+            'label' => 'Desafío',
+            'url' => '#challenge',
+            'style' => 'btn-primary',
+            'delay' => 100
+        ),
+        array(
+            'label' => 'Portafolio de soluciones',
+            'url' => '#solutions',
+            'style' => 'btn-outline-white',
+            'delay' => 200
+        ),
+        array(
+            'label' => 'Testimonios',
+            'url' => '#testimonials',
+            'style' => 'btn-outline-white',
+            'delay' => 300
+        ),
+        array(
+            'label' => 'Preguntas frecuentes',
+            'url' => '#faqs',
+            'style' => 'btn-outline-white',
+            'delay' => 400
+        ),
+    );
+    get_template_part('inc/componentes/section-nav-buttons', null, array('buttons' => $nav_buttons));
+    ?>
 
     <!-- Intro Section -->
     <section class="py-12 lg:py-16 bg-gray-50 motion-safe:animate-fade-in" id="challenge">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="max-w-4xl mx-auto text-center">
                 <p class="text-sm text-gray uppercase tracking-wider mb-4" data-aos="fade-down">Desafío</p>
-                <p class="leading-relaxed mb-0 md:text-2xl text-xl font-semibold tracking-[-0.08px]" data-aos="fade-up" data-aos-delay="100">
+                <p class="leading-relaxed mb-0 md:text-2xl text-xl font-semibold tracking-[-0.08px]" data-aos="fade-up"
+                    data-aos-delay="100">
                     Las operaciones de transporte enfrentan riesgos de robos, accidentes y pérdida de control en ruta.
                     El reto es mantener la seguridad del vehículo, la carga y el conductor en todo momento.
                 </p>
@@ -75,7 +81,8 @@ get_header(); ?>
     <section class="pb-16 lg:pb-24 pt-8 bg-gray-50" id="solutions">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="max-w-4xl mx-auto text-center mb-16">
-                <p class="text-sm text-gray uppercase tracking-wider mb-4" data-aos="fade-down" data-aos-delay="200">Portafolio de soluciones</p>
+                <p class="text-sm text-gray uppercase tracking-wider mb-4" data-aos="fade-down" data-aos-delay="200">
+                    Portafolio de soluciones</p>
                 <h2 class="text-2xl lg:text-4xl font-semibold mb-4" data-aos="fade-up" data-aos-delay="300">
                     <span class="text-primary">Nuestras soluciones de seguridad en el transporte en ruta</span>
                 </h2>
@@ -84,7 +91,8 @@ get_header(); ?>
             <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12 lg:mb-20">
                 <div class="order-2 lg:order-1" data-aos="zoom-in" data-aos-duration="1000">
                     <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_soluciones-img-01.png"
-                        alt="Sistema de video" class="rounded-2xl shadow-lg w-full transition-transform duration-500 hover:scale-105">
+                        alt="Sistema de video"
+                        class="rounded-2xl shadow-lg w-full transition-transform duration-500 hover:scale-105">
                 </div>
                 <div class="order-1 lg:order-2" data-aos="fade-left" data-aos-delay="200">
                     <p class="text-sm uppercase tracking-tighter mb-3 text-primary font-medium">Beneficios</p>
@@ -138,7 +146,8 @@ get_header(); ?>
             <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12 lg:mb-20">
                 <div class="order-2" data-aos="zoom-in" data-aos-duration="1000">
                     <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_soluciones-img-02.png"
-                        alt="Sistema de rastreo satelital" class="rounded-2xl shadow-lg w-full transition-transform duration-500 hover:scale-105">
+                        alt="Sistema de rastreo satelital"
+                        class="rounded-2xl shadow-lg w-full transition-transform duration-500 hover:scale-105">
                 </div>
                 <div class="order-1" data-aos="fade-right" data-aos-delay="200">
                     <p class="text-sm uppercase tracking-wider mb-3 text-primary font-medium">Servicio de rastreo</p>
@@ -151,7 +160,7 @@ get_header(); ?>
                     <?php
                     get_template_part('inc/componentes/button-arrow', null, array(
                         'text' => 'VER MÁS: RASTREO Y GESTIÓN DE FLOTAS',
-                        'url'  => '#'
+                        'url' => '#'
                     ));
                     ?>
                 </div>
@@ -161,7 +170,8 @@ get_header(); ?>
             <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12 lg:mb-20">
                 <div class="order-2 lg:order-1" data-aos="zoom-in" data-aos-duration="1000">
                     <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_soluciones-img-03.png"
-                        alt="Sello electrónico ThunderLock" class="rounded-2xl shadow-lg w-full transition-transform duration-500 hover:scale-105">
+                        alt="Sello electrónico ThunderLock"
+                        class="rounded-2xl shadow-lg w-full transition-transform duration-500 hover:scale-105">
                 </div>
                 <div class="order-1 lg:order-2" data-aos="fade-left" data-aos-delay="200">
                     <p class="text-sm uppercase tracking-wider mb-3 text-primary font-medium">Solución</p>
@@ -173,7 +183,7 @@ get_header(); ?>
                     <?php
                     get_template_part('inc/componentes/button-arrow', null, array(
                         'text' => 'VER MÁS: THUNDERLOCK CARGA Y ACTIVOS',
-                        'url'  => '#'
+                        'url' => '#'
                     ));
                     ?>
                 </div>
@@ -183,7 +193,8 @@ get_header(); ?>
             <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12 lg:mb-20">
                 <div class="order-2" data-aos="zoom-in" data-aos-duration="1000">
                     <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_soluciones-img-04.png"
-                        alt="Botón de pánico y buzzer" class="rounded-2xl shadow-lg w-full transition-transform duration-500 hover:scale-105">
+                        alt="Botón de pánico y buzzer"
+                        class="rounded-2xl shadow-lg w-full transition-transform duration-500 hover:scale-105">
                 </div>
                 <div class="order-1" data-aos="fade-right" data-aos-delay="200">
                     <p class="text-sm uppercase tracking-wider mb-3 text-primary font-medium">Solución</p>
@@ -196,7 +207,7 @@ get_header(); ?>
                     <?php
                     get_template_part('inc/componentes/button-arrow', null, array(
                         'text' => 'VER MÁS: ASISTENCIA AL CONDUCTOR',
-                        'url'  => '#'
+                        'url' => '#'
                     ));
                     ?>
                 </div>
@@ -206,7 +217,8 @@ get_header(); ?>
             <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
                 <div class="order-2 lg:order-1" data-aos="zoom-in" data-aos-duration="1000">
                     <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_soluciones-img-05.png"
-                        alt="Kit Dual" class="rounded-2xl shadow-lg w-full transition-transform duration-500 hover:scale-105">
+                        alt="Kit Dual"
+                        class="rounded-2xl shadow-lg w-full transition-transform duration-500 hover:scale-105">
                 </div>
                 <div class="order-1 lg:order-2" data-aos="fade-left" data-aos-delay="200">
                     <p class="text-sm uppercase tracking-wider mb-3 text-primary font-medium">Controla y mantente</p>
@@ -218,7 +230,7 @@ get_header(); ?>
                     <?php
                     get_template_part('inc/componentes/button-arrow', null, array(
                         'text' => 'VER MÁS: COMBUSTION Y GESTIÓN DE RUTA',
-                        'url'  => '#'
+                        'url' => '#'
                     ));
                     ?>
                 </div>
@@ -227,47 +239,8 @@ get_header(); ?>
         </div>
     </section>
 
-    <!-- CTA Section -->
-    <section class="py-16 lg:py-24 bg-gray-50" id="cta">
-        <div class="container mx-auto px-4 lg:px-8">
-            <div class="text-center md:mb-12">
-                <h2 class="text-2xl lg:text-4xl font-semibold text-primary mb-4" data-aos="fade-up">
-                    ¿Listo para optimizar la seguridad de tu flota?
-                </h2>
-                <p class="max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                    Cotiza tu solución y descubre cómo nuestras herramientas pueden transformar tu operación con
-                    tecnologías de identificación y control.
-                </p>
-            </div>
-
-            <div class="max-w-5xl mx-auto">
-                <div class="rounded-2xl p-2 lg:p-12" data-aos="zoom-in" data-aos-delay="200">
-                    <div class="flex flex-col-reverse lg:flex-row gap-8 relative">
-                        <div class="w-full">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_soluciones-dispositivos.png"
-                                alt="Plataforma en múltiples dispositivos" class="">
-                        </div>
-                        <div class="md:absolute top-0 right-0 shadow-lg p-8 md:max-w-[500px] bg-white rounded-2xl text-center">
-                            <h3 class="text-2xl lg:text-2xl font-semibold text-black mb-4">
-                                Impulsa la seguridad de tu flota desde aquí
-                            </h3>
-                            <p class="mb-6">
-                                Accede a una cotización o calcula el ahorro que tu operación puede obtener con nuestra solución.
-                            </p>
-                            <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                                <a href="#" class="btn btn-primary text-white">
-                                    Cotiza ahora
-                                </a>
-                                <a href="#" class="btn btn-outline">
-                                    Calcula tu ahorro
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <!-- SECCIÓN CTA -->
+    <?php get_template_part('inc/componentes/section-cta'); ?>
 
     <!-- SECCIÓN TESTIMONIOS -->
     <?php include get_template_directory() . '/inc/componentes/section-testimonios.php'; ?>
