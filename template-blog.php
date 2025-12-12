@@ -22,7 +22,7 @@ get_header();
         <div class="container-full md:mx-auto md:px-4 lg:px-8 relative z-10">
             <div class="">
                 <span class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>
-                <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-10 leading-tight" data-aos="fade-up"
+                <h1 class="text-2xl md:text-4xl lg:text-5xl font-bold text-white mb-10 leading-tight mt-2" data-aos="fade-up"
                     data-aos-duration="1000">
                     BLOG
                 </h1>
@@ -55,7 +55,7 @@ get_header();
                 </div>
 
                 <!-- Filter Wrapper -->
-                <div class="md:w-full md:w-auto md:w-[200px]">
+                <div class="md:w-auto md:w-[200px]">
                     <select id="blog-filter" class="text-sm w-full px-4 py-3 font-normal text-black bg-white border border-black rounded-md transition-all duration-200 outline-none cursor-pointer appearance-none focus:border-primary focus:ring-2 focus:ring-primary/20 md:pr-12 pr-8 leading-none" aria-label="Filtrar posts">
                         <option value="date">Relevancia</option>
                         <option value="title">Título</option>

@@ -58,7 +58,7 @@ get_header();
 				<div class="max-w-4xl mx-auto">
 
 					<!-- Title -->
-					<h1 class="text-2xl md:text-4xl lg:text-5xl font-bold text-primary mb-6 leading-tight text-center">
+					<h1 class="text-2xl md:text-4xl lg:text-5xl font-semibold text-primary mb-6 leading-tight text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
 						<?php the_title(); ?>
 					</h1>
 
