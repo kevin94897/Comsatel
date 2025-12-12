@@ -12,7 +12,7 @@ get_header();
 <main id="primary" class="site-main bg-gray-50">
 
     <!-- Hero Banner -->
-    <section class="relative min-h-[400px] flex items-end <?php echo wp_title(); ?>">
+    <section class="relative min-h-[500px] flex items-end <?php echo wp_title(); ?>">
         <!-- Background Image -->
         <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/comsatel_blog_banner.png');">

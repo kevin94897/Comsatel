@@ -15,15 +15,19 @@ get_header();
 	<section class="relative min-h-[400px] flex items-end <?php echo wp_title(); ?>">
 		<!-- Background Image -->
 		<div class="absolute inset-0 bg-cover bg-top bg-no-repeat"
-			style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/comsatel_blog_single_banner.png');">
+			style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/comsatel_blog_single_banner.png');"
+			data-aos="fade-in"
+			data-aos-duration="1200">
 		</div>
 
 		<!-- Content -->
 		<div class="container-full md:mx-auto md:px-4 lg:px-8 relative z-10">
 			<div class="">
-				<!-- <span class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span> -->
-				<h1 class="text-2xl md:text-4xl lg:text-5xl uppercase font-bold text-white mb-10 leading-tight max-w-2xl" data-aos="fade-up"
-					data-aos-duration="1000">
+				<h1 class="text-2xl md:text-4xl lg:text-5xl uppercase font-bold text-white mb-10 leading-tight max-w-2xl"
+					data-aos="fade-in"
+					data-aos-duration="1000"
+					data-aos-easing="ease-out-cubic"
+					data-aos-delay="300">
 					¡Prepara tu Ruta del feriado largo!
 				</h1>
 			</div>
@@ -42,7 +46,10 @@ get_header();
 		<!-- Breadcrumbs -->
 		<section class="py-6 md:py-12">
 			<div class="container mx-auto px-4">
-				<nav class="flex items-center gap-2 text-sm text-gray-600 whitespace-nowrap overflow-x-auto scroll-smooth">
+				<nav class="flex items-center gap-2 text-sm text-gray-600 whitespace-nowrap overflow-x-auto scroll-smooth"
+					data-aos="fade-in"
+					data-aos-duration="800"
+					data-aos-delay="100">
 					<a href="<?php echo home_url(); ?>" class="hover:text-primary transition-colors text-gray">Inicio</a>
 					<span>></span>
 					<a href="<?php echo home_url('/blog/'); ?>" class="hover:text-primary transition-colors text-gray">Blog</a>
@@ -58,12 +65,19 @@ get_header();
 				<div class="max-w-4xl mx-auto">
 
 					<!-- Title -->
-					<h1 class="text-2xl md:text-4xl lg:text-5xl font-semibold text-primary mb-6 leading-tight text-center" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
+					<h1 class="text-2xl md:text-4xl lg:text-5xl font-semibold text-primary mb-6 leading-tight text-center"
+						data-aos="fade-up"
+						data-aos-duration="1000"
+						data-aos-easing="ease-out-cubic"
+						data-aos-delay="200">
 						<?php the_title(); ?>
 					</h1>
 
 					<!-- Meta Information -->
-					<div class="flex flex-wrap items-center gap-4 md:gap-6 mb-12 md:text-sm text-xs text-gray-600 justify-center">
+					<div class="flex flex-wrap items-center gap-4 md:gap-6 mb-12 md:text-sm text-xs text-gray-600 justify-center"
+						data-aos="fade-up"
+						data-aos-duration="800"
+						data-aos-delay="400">
 						<!-- Author -->
 						<div class="flex items-center gap-2">
 							<svg xmlns="http://www.w3.org/2000/svg" width="19" height="19" viewBox="0 0 19 19" fill="none">
@@ -91,13 +105,20 @@ get_header();
 
 					<!-- Featured Image -->
 					<?php if (has_post_thumbnail()) : ?>
-						<div class="mb-8 md:mb-12 rounded-xl overflow-hidden">
+						<div class="mb-8 md:mb-12 rounded-xl overflow-hidden"
+							data-aos="zoom-in"
+							data-aos-duration="1000"
+							data-aos-delay="600">
 							<?php the_post_thumbnail('large', array('class' => 'w-full h-auto')); ?>
 						</div>
 					<?php endif; ?>
 
 					<!-- Content -->
-					<div class="prose prose-lg max-w-none blog-content">
+					<div class="prose prose-lg max-w-none blog-content"
+						data-aos="fade-up"
+						data-aos-duration="1000"
+						data-aos-delay="800"
+						data-aos-anchor-placement="top-bottom">
 						<?php the_content(); ?>
 					</div>
 
@@ -106,13 +127,26 @@ get_header();
 					$tags = get_the_tags();
 					if ($tags) :
 					?>
-						<div class="mt-8 pt-8 border-t border-gray-200">
+						<div class="mt-8 pt-8 border-t border-gray-200"
+							data-aos="fade-up"
+							data-aos-duration="800"
+							data-aos-delay="200">
 							<div class="flex flex-wrap gap-2">
-								<?php foreach ($tags as $tag) : ?>
-									<a href="<?php echo get_tag_link($tag->term_id); ?>" class="px-4 py-2 bg-gray-100 hover:bg-primary hover:text-white text-sm font-medium rounded-full transition-colors duration-200">
+								<?php
+								$delay = 300;
+								foreach ($tags as $tag) :
+								?>
+									<a href="<?php echo get_tag_link($tag->term_id); ?>"
+										class="px-4 py-2 bg-gray-100 hover:bg-primary hover:text-white text-sm font-medium rounded-full transition-colors duration-200"
+										data-aos="fade-in"
+										data-aos-duration="600"
+										data-aos-delay="<?php echo $delay; ?>">
 										<?php echo $tag->name; ?>
 									</a>
-								<?php endforeach; ?>
+								<?php
+									$delay += 100;
+								endforeach;
+								?>
 							</div>
 						</div>
 					<?php endif; ?>
@@ -122,7 +156,11 @@ get_header();
 		</article>
 
 		<!-- Related Products Slider -->
-		<?php get_template_part('inc/componentes/section', 'productos-interes'); ?>
+		<div data-aos="fade-up"
+			data-aos-duration="1000"
+			data-aos-delay="200">
+			<?php get_template_part('inc/componentes/section', 'productos-interes'); ?>
+		</div>
 
 	<?php endwhile; ?>
 
@@ -130,3 +168,4 @@ get_header();
 
 <?php
 get_footer();
+?>
