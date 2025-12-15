@@ -412,7 +412,18 @@ add_filter('nav_menu_css_class', 'add_tailwind_group_class_to_menu_li', 10, 3);
  */
 require get_template_directory() . '/inc/ajax-calculator.php';
 
+
 /**
  * Include AJAX handlers for blog
  */
 require get_template_directory() . '/inc/ajax-blog.php';
+
+/**
+ * Include AJAX handlers for Libro de Reclamaciones
+ */
+require get_template_directory() . '/inc/ajax-libro-reclamaciones.php';
+
+/**
+ * Include AJAX handlers for Contacto
+ */
+require get_template_directory() . '/inc/ajax-contacto.php';

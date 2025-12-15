@@ -60,7 +60,7 @@ get_header();
     }
 
     /* Animación de pulso en hover */
-    .anchor-btn:hover {
+    /* .anchor-btn:hover {
         animation: subtle-pulse 2s infinite;
     }
 
@@ -74,7 +74,7 @@ get_header();
         50% {
             box-shadow: 0 10px 35px -5px rgba(255, 77, 77, 0.3);
         }
-    }
+    } */
 
     /* Mejora del sticky */
     .sticky-menu {
@@ -125,7 +125,8 @@ get_header();
 
     <section class="py-8 md:py-16 relative">
         <div class="container mx-auto px-4">
-            <section class="container mx-auto px-4 py-12 grid md:grid-cols-3 gap-10">
+            <h2 class="md:text-4xl text-2xl font-semibold text-primary mb-12 text-center">Política de Protección de Datos Personales</h2>
+            <section class="grid md:grid-cols-3 gap-10">
 
                 <!-- LEFT COLUMN (Sticky) -->
                 <aside class="md:col-span-1"
@@ -138,7 +139,7 @@ get_header();
                             data-target="#aspectos"
                             class="anchor-btn p-4 border rounded-md bg-white shadow hover:bg-gray-50 flex items-center justify-between transition w-full text-left">
                             <span class="font-medium mr-4">Aspectos Generales</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11" fill="none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11" fill="none" class="min-w-[12px]">
                                 <path d="M7.793 0.292786C7.98053 0.105315 8.23484 0 8.5 0C8.76516 0 9.01947 0.105315 9.207 0.292786L13.707 4.79279C13.8945 4.98031 13.9998 5.23462 13.9998 5.49979C13.9998 5.76495 13.8945 6.01926 13.707 6.20679L9.207 10.7068C9.0184 10.8889 8.7658 10.9897 8.5036 10.9875C8.2414 10.9852 7.99059 10.88 7.80518 10.6946C7.61977 10.5092 7.5146 10.2584 7.51233 9.99619C7.51005 9.73399 7.61084 9.48139 7.793 9.29279L10.5 6.49979H1C0.734784 6.49979 0.48043 6.39443 0.292893 6.20689C0.105357 6.01936 0 5.765 0 5.49979C0 5.23457 0.105357 4.98022 0.292893 4.79268C0.48043 4.60514 0.734784 4.49979 1 4.49979H10.5L7.793 1.70679C7.60553 1.51926 7.50021 1.26495 7.50021 0.999786C7.50021 0.734622 7.60553 0.480314 7.793 0.292786Z" fill="#FF4D4D" />
                             </svg>
                         </button>
@@ -147,16 +148,7 @@ get_header();
                             data-target="#tratamiento"
                             class="anchor-btn p-4 border rounded-md bg-white shadow hover:bg-gray-50 flex items-center justify-between transition w-full text-left">
                             <span class="font-medium mr-4">Tratamiento de los Datos Personales</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11" fill="none">
-                                <path d="M7.793 0.292786C7.98053 0.105315 8.23484 0 8.5 0C8.76516 0 9.01947 0.105315 9.207 0.292786L13.707 4.79279C13.8945 4.98031 13.9998 5.23462 13.9998 5.49979C13.9998 5.76495 13.8945 6.01926 13.707 6.20679L9.207 10.7068C9.0184 10.8889 8.7658 10.9897 8.5036 10.9875C8.2414 10.9852 7.99059 10.88 7.80518 10.6946C7.61977 10.5092 7.5146 10.2584 7.51233 9.99619C7.51005 9.73399 7.61084 9.48139 7.793 9.29279L10.5 6.49979H1C0.734784 6.49979 0.48043 6.39443 0.292893 6.20689C0.105357 6.01936 0 5.765 0 5.49979C0 5.23457 0.105357 4.98022 0.292893 4.79268C0.48043 4.60514 0.734784 4.49979 1 4.49979H10.5L7.793 1.70679C7.60553 1.51926 7.50021 1.26495 7.50021 0.999786C7.50021 0.734622 7.60553 0.480314 7.793 0.292786Z" fill="#FF4D4D" />
-                            </svg>
-                        </button>
-
-                        <button
-                            data-target="#finalidad"
-                            class="anchor-btn p-4 border rounded-md bg-white shadow hover:bg-gray-50 flex items-center justify-between transition w-full text-left">
-                            <span class="font-medium mr-4">Finalidad del Tratamiento</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11" fill="none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11" fill="none" class="min-w-[12px]">
                                 <path d="M7.793 0.292786C7.98053 0.105315 8.23484 0 8.5 0C8.76516 0 9.01947 0.105315 9.207 0.292786L13.707 4.79279C13.8945 4.98031 13.9998 5.23462 13.9998 5.49979C13.9998 5.76495 13.8945 6.01926 13.707 6.20679L9.207 10.7068C9.0184 10.8889 8.7658 10.9897 8.5036 10.9875C8.2414 10.9852 7.99059 10.88 7.80518 10.6946C7.61977 10.5092 7.5146 10.2584 7.51233 9.99619C7.51005 9.73399 7.61084 9.48139 7.793 9.29279L10.5 6.49979H1C0.734784 6.49979 0.48043 6.39443 0.292893 6.20689C0.105357 6.01936 0 5.765 0 5.49979C0 5.23457 0.105357 4.98022 0.292893 4.79268C0.48043 4.60514 0.734784 4.49979 1 4.49979H10.5L7.793 1.70679C7.60553 1.51926 7.50021 1.26495 7.50021 0.999786C7.50021 0.734622 7.60553 0.480314 7.793 0.292786Z" fill="#FF4D4D" />
                             </svg>
                         </button>
@@ -165,11 +157,19 @@ get_header();
                             data-target="#transferencia"
                             class="anchor-btn p-4 border rounded-md bg-white shadow hover:bg-gray-50 flex items-center justify-between transition w-full text-left">
                             <span class="font-medium mr-4">Transferencia de Datos Personales</span>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11" fill="none">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11" fill="none" class="min-w-[12px]">
                                 <path d="M7.793 0.292786C7.98053 0.105315 8.23484 0 8.5 0C8.76516 0 9.01947 0.105315 9.207 0.292786L13.707 4.79279C13.8945 4.98031 13.9998 5.23462 13.9998 5.49979C13.9998 5.76495 13.8945 6.01926 13.707 6.20679L9.207 10.7068C9.0184 10.8889 8.7658 10.9897 8.5036 10.9875C8.2414 10.9852 7.99059 10.88 7.80518 10.6946C7.61977 10.5092 7.5146 10.2584 7.51233 9.99619C7.51005 9.73399 7.61084 9.48139 7.793 9.29279L10.5 6.49979H1C0.734784 6.49979 0.48043 6.39443 0.292893 6.20689C0.105357 6.01936 0 5.765 0 5.49979C0 5.23457 0.105357 4.98022 0.292893 4.79268C0.48043 4.60514 0.734784 4.49979 1 4.49979H10.5L7.793 1.70679C7.60553 1.51926 7.50021 1.26495 7.50021 0.999786C7.50021 0.734622 7.60553 0.480314 7.793 0.292786Z" fill="#FF4D4D" />
                             </svg>
                         </button>
 
+                        <button
+                            data-target="#finalidad"
+                            class="anchor-btn p-4 border rounded-md bg-white shadow hover:bg-gray-50 flex items-center justify-between transition w-full text-left">
+                            <span class="font-medium mr-4">Finalidad del Tratamiento</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11" fill="none" class="min-w-[12px]">
+                                <path d="M7.793 0.292786C7.98053 0.105315 8.23484 0 8.5 0C8.76516 0 9.01947 0.105315 9.207 0.292786L13.707 4.79279C13.8945 4.98031 13.9998 5.23462 13.9998 5.49979C13.9998 5.76495 13.8945 6.01926 13.707 6.20679L9.207 10.7068C9.0184 10.8889 8.7658 10.9897 8.5036 10.9875C8.2414 10.9852 7.99059 10.88 7.80518 10.6946C7.61977 10.5092 7.5146 10.2584 7.51233 9.99619C7.51005 9.73399 7.61084 9.48139 7.793 9.29279L10.5 6.49979H1C0.734784 6.49979 0.48043 6.39443 0.292893 6.20689C0.105357 6.01936 0 5.765 0 5.49979C0 5.23457 0.105357 4.98022 0.292893 4.79268C0.48043 4.60514 0.734784 4.49979 1 4.49979H10.5L7.793 1.70679C7.60553 1.51926 7.50021 1.26495 7.50021 0.999786C7.50021 0.734622 7.60553 0.480314 7.793 0.292786Z" fill="#FF4D4D" />
+                            </svg>
+                        </button>
                     </div>
                 </aside>
 
@@ -199,6 +199,17 @@ get_header();
                     </section>
 
                     <!-- SECTION 3 -->
+                    <section id="transferencia"
+                        data-aos="fade-up"
+                        data-aos-duration="1000"
+                        data-aos-delay="200">
+                        <h2 class="text-2xl font-semibold text-dark mb-4">Transferencia de Datos Personales</h2>
+                        <p class="text-gray-700 leading-relaxed">
+                            1- COMSATEL, con domicilio en Diego Gavilán N° 165, Magdalena, será responsable del uso, tratamiento y seguridad de los datos personales que yo le proporcione o que éste recopile, los que estarán almacenados en un banco de datos de su titularidad y que serán gestionados y tratados con todas las medidas de seguridad y confidencialidad por cualquiera de sus oficinas, la cual conservará los datos personales mientras sean necesarios para cumplir con las finalidades por las cuales se recopilaron o hasta que sean modificados, dependiendo de la naturaleza de los mismos, con la finalidad de utilizarlos en gestiones comerciales y administrativas. COMSATEL se obliga limitar el acceso a los datos personales a los que tienen acceso en virtud de la suscripción y/o ejecución del presente acuerdo, al personal estrictamente necesario para cumplir con la prestación de servicios a su cargo, comprometiéndose a suscribir con sus empleados y terceros de quienes se valga para el cumplimiento de sus obligaciones derivadas del presente acuerdo, un convenio de confidencialidad que disponga cuando menos, las mismas obligaciones de confidencialidad que las que son de su cargo
+                        </p>
+                    </section>
+
+                    <!-- SECTION 4 -->
                     <section id="finalidad"
                         data-aos="fade-up"
                         data-aos-duration="1000"
@@ -206,17 +217,6 @@ get_header();
                         <h2 class="text-2xl font-semibold text-dark mb-4">Finalidad del Tratamiento</h2>
                         <p class="text-gray-700 leading-relaxed">
                             2- Finalidad del tratamiento de datos personales. Mis datos personales serán utilizados a través de canales presenciales y no presenciales con las siguientes finalidades: i) se me informe a través de cualquier medio de comunicación física o electrónica (teléfono, correo electrónico, medios telemáticos, aplicativos de mensajes instantáneos, SMS, redes sociales, páginas web, WhatsApp o cualquier otra aplicación móvil, o medios similares creados o por crearse) cualquier hecho o evento referido a la relación comercial establecida entre las partes, tales como bienes o servicios vendidos, precio de venta, condiciones de venta, instalaciones, plazos y datos similares; ii) se me envíe, a través de cualquier medio de comunicación física o electrónica (teléfono, correo electrónico, medios telemáticos, aplicativos de mensajes instantáneos, SMS, redes sociales, páginas web, WhatsApp o cualquier otra aplicación móvil, o medios similares creados o por crearse) publicidad, obsequios e información sobre los diferentes productos que provee COMSATEL iii) se realicen actividades de mercadeo (informes comerciales, estadísticas, encuestas y estudios de mercado); iv) se verifique que la información que se proporcione sea correcta, verdadera y se encuentre actualizada. COMSATEL podrá dar tratamiento a mis datos personales de manera directa o a través de proveedores de servicio que serán considerados como encargados de tratamiento de mis datos personales.
-                        </p>
-                    </section>
-
-                    <!-- SECTION 4 -->
-                    <section id="transferencia"
-                        data-aos="fade-up"
-                        data-aos-duration="1000"
-                        data-aos-delay="200">
-                        <h2 class="text-2xl font-semibold text-dark mb-4">Transferencia de Datos Personales</h2>
-                        <p class="text-gray-700 leading-relaxed">
-                            Aquí va el texto de esta sección...
                         </p>
                     </section>
 
@@ -285,7 +285,13 @@ get_header();
         }
     });
 </script>
-
+<style>
+    .site-main,
+    .container,
+    .container-full {
+        overflow: visible !important;
+    }
+</style>
 <?php
 get_footer();
 ?>

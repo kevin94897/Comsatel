@@ -199,11 +199,11 @@ a:hover {
   line-height: 1;
   text-align: center;
   text-decoration: none;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   border-radius: var(--radius-md);
   cursor: pointer;
   transition: all var(--transition-base);
-  white-space: nowrap;
+  /* white-space: nowrap; */
 }
 
 /* Primary Button */
@@ -250,7 +250,7 @@ a:hover {
   border-color: var(--color-black);
   border-radius: var(--radius-full);
   padding: 0.5rem 2rem;
-  border-width: 2px;
+  border-width: 1px;
   line-height: initial;
 }
 
@@ -626,7 +626,7 @@ input[type="password"],
   color: var(--color-black);
   background-color: var(--color-white);
   border: 1px solid var(--color-black);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   transition: all var(--transition-base);
   outline: none;
 }
@@ -643,7 +643,8 @@ input[type="password"],
   input[type="password"],
   .form-input {
     /* height: 40px; */
-    /* font-size: 0.875rem; */
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
   }
 }
 
@@ -706,11 +707,11 @@ select,
   padding: 0.75rem 1.5rem;
   font-family: var(--font-primary);
   font-size: 1rem;
-  font-weight: 600;
+  font-weight: 500;
   color: var(--color-black);
   background-color: var(--color-white);
   border: 1px solid var(--color-black);
-  border-radius: var(--radius-md);
+  border-radius: var(--radius-sm);
   transition: all var(--transition-base);
   outline: none;
   cursor: pointer;
@@ -719,6 +720,7 @@ select,
   /* background-repeat: no-repeat;
   background-position: right 1rem center; */
   padding-right: 3rem;
+  line-height: 100%;
 }
 
 @media (max-width: 768px) {
@@ -728,6 +730,7 @@ select,
   input {
     height: 40px;
     font-size: 0.875rem;
+    padding: 0.5rem 1rem;
   }
 }
 
@@ -737,7 +740,7 @@ select,
   .form-select,
   input {
     height: 56px;
-    font-size: 1.25rem;
+    /* font-size: 1.25rem; */
   }
 }
 
