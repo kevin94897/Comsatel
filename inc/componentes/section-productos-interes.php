@@ -87,13 +87,13 @@
                                             <?php echo wp_trim_words(get_the_excerpt(), 15, '...'); ?>
                                         </p>
 
-                                        <!-- Read More Link -->
-                                        <span class="inline-flex items-center justify-end gap-2 text-sm font-bold text-primary uppercase tracking-wider transition-all duration-200 group-hover:gap-3 mt-auto">
-                                            LEER MÁS
-                                            <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-200 group-hover:translate-x-1">
-                                                <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                                            </svg>
-                                        </span>
+                                        <?php
+                                        get_template_part('inc/componentes/button-arrow', null, array(
+                                            'text' => 'LEER MÁS',
+                                            'url' => get_the_permalink(),
+                                            'class' => 'mt-4 justify-end'
+                                        ));
+                                        ?>
                                     </div>
                                 </a>
                             </article>

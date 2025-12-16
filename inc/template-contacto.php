@@ -301,12 +301,12 @@ get_header();
 
             <div class="cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                 <div class="bg-white rounded-md overflow-hidden transition-all duration-200 shadow-md hover:shadow-xl hover:-translate-y-2 flex flex-col h-full animate-fadeInUp">
-                    <a href="#" class="no-underline text-inherit flex flex-col h-full group">
-                        <div class="p-4">
+                    <a href="" class="no-underline text-inherit flex flex-col h-full group">
+                        <div class="p-6">
                             <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_contacto_img.png" alt="Contacto" class="w-full h-auto">
                         </div>
 
-                        <div class="md:p-6 p-4 flex flex-col gap-2 flex-1">
+                        <div class="!pt-0 md:p-6 p-4 flex flex-col gap-2 flex-1">
                             <!-- Ubicacion -->
                             <span class="text-xs md:text-lg text-[#47444D] flex items-center gap-2 font-semibold">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none" class="w-4 h-4">
@@ -336,23 +336,23 @@ get_header();
                             </div>
 
                             <!-- Botón Leer Más -->
-                            <span class="inline-flex items-center justify-start gap-2 text-sm font-bold text-primary uppercase tracking-wider transition-all duration-200 group-hover:gap-3 mt-2">
-                                Ver Ubicación
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11" fill="none" class="min-w-[12px]">
-                                    <path d="M7.793 0.292786C7.98053 0.105315 8.23484 0 8.5 0C8.76516 0 9.01947 0.105315 9.207 0.292786L13.707 4.79279C13.8945 4.98031 13.9998 5.23462 13.9998 5.49979C13.9998 5.76495 13.8945 6.01926 13.707 6.20679L9.207 10.7068C9.0184 10.8889 8.7658 10.9897 8.5036 10.9875C8.2414 10.9852 7.99059 10.88 7.80518 10.6946C7.61977 10.5092 7.5146 10.2584 7.51233 9.99619C7.51005 9.73399 7.61084 9.48139 7.793 9.29279L10.5 6.49979H1C0.734784 6.49979 0.48043 6.39443 0.292893 6.20689C0.105357 6.01936 0 5.765 0 5.49979C0 5.23457 0.105357 4.98022 0.292893 4.79268C0.48043 4.60514 0.734784 4.49979 1 4.49979H10.5L7.793 1.70679C7.60553 1.51926 7.50021 1.26495 7.50021 0.999786C7.50021 0.734622 7.60553 0.480314 7.793 0.292786Z" fill="#FF4D4D" />
-                                </svg>
-                            </span>
+                            <?php
+                            get_template_part('inc/componentes/button-arrow', null, array(
+                                'text' => 'VER UBICACIÓN',
+                                'class' => 'mt-4'
+                            ));
+                            ?>
                         </div>
                     </a>
                 </div>
 
                 <div class="bg-white rounded-md overflow-hidden transition-all duration-200 shadow-md hover:shadow-xl hover:-translate-y-2 flex flex-col h-full animate-fadeInUp">
-                    <a href="#" class="no-underline text-inherit flex flex-col h-full group">
-                        <div class="p-4">
+                    <a href="" class="no-underline text-inherit flex flex-col h-full group">
+                        <div class="p-6">
                             <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_contacto_img.png" alt="Contacto" class="w-full h-auto">
                         </div>
 
-                        <div class="md:p-6 p-4 flex flex-col gap-2 flex-1">
+                        <div class="!pt-0 md:p-6 p-4 flex flex-col gap-2 flex-1">
                             <!-- Ubicacion -->
                             <span class="text-xs md:text-lg text-[#47444D] flex items-center gap-2 font-semibold">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none" class="w-4 h-4">
@@ -382,23 +382,23 @@ get_header();
                             </div>
 
                             <!-- Botón Leer Más -->
-                            <span class="inline-flex items-center justify-start gap-2 text-sm font-bold text-primary uppercase tracking-wider transition-all duration-200 group-hover:gap-3 mt-2">
-                                Ver Ubicación
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11" fill="none" class="min-w-[12px]">
-                                    <path d="M7.793 0.292786C7.98053 0.105315 8.23484 0 8.5 0C8.76516 0 9.01947 0.105315 9.207 0.292786L13.707 4.79279C13.8945 4.98031 13.9998 5.23462 13.9998 5.49979C13.9998 5.76495 13.8945 6.01926 13.707 6.20679L9.207 10.7068C9.0184 10.8889 8.7658 10.9897 8.5036 10.9875C8.2414 10.9852 7.99059 10.88 7.80518 10.6946C7.61977 10.5092 7.5146 10.2584 7.51233 9.99619C7.51005 9.73399 7.61084 9.48139 7.793 9.29279L10.5 6.49979H1C0.734784 6.49979 0.48043 6.39443 0.292893 6.20689C0.105357 6.01936 0 5.765 0 5.49979C0 5.23457 0.105357 4.98022 0.292893 4.79268C0.48043 4.60514 0.734784 4.49979 1 4.49979H10.5L7.793 1.70679C7.60553 1.51926 7.50021 1.26495 7.50021 0.999786C7.50021 0.734622 7.60553 0.480314 7.793 0.292786Z" fill="#FF4D4D" />
-                                </svg>
-                            </span>
+                            <?php
+                            get_template_part('inc/componentes/button-arrow', null, array(
+                                'text' => 'VER UBICACIÓN',
+                                'class' => 'mt-4'
+                            ));
+                            ?>
                         </div>
                     </a>
                 </div>
 
                 <div class="bg-white rounded-md overflow-hidden transition-all duration-200 shadow-md hover:shadow-xl hover:-translate-y-2 flex flex-col h-full animate-fadeInUp">
-                    <a href="#" class="no-underline text-inherit flex flex-col h-full group">
-                        <div class="p-4">
+                    <a href="" class="no-underline text-inherit flex flex-col h-full group">
+                        <div class="p-6">
                             <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_contacto_img.png" alt="Contacto" class="w-full h-auto">
                         </div>
 
-                        <div class="md:p-6 p-4 flex flex-col gap-2 flex-1">
+                        <div class="!pt-0 md:p-6 p-4 flex flex-col gap-2 flex-1">
                             <!-- Ubicacion -->
                             <span class="text-xs md:text-lg text-[#47444D] flex items-center gap-2 font-semibold">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none" class="w-4 h-4">
@@ -428,23 +428,23 @@ get_header();
                             </div>
 
                             <!-- Botón Leer Más -->
-                            <span class="inline-flex items-center justify-start gap-2 text-sm font-bold text-primary uppercase tracking-wider transition-all duration-200 group-hover:gap-3 mt-2">
-                                Ver Ubicación
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11" fill="none" class="min-w-[12px]">
-                                    <path d="M7.793 0.292786C7.98053 0.105315 8.23484 0 8.5 0C8.76516 0 9.01947 0.105315 9.207 0.292786L13.707 4.79279C13.8945 4.98031 13.9998 5.23462 13.9998 5.49979C13.9998 5.76495 13.8945 6.01926 13.707 6.20679L9.207 10.7068C9.0184 10.8889 8.7658 10.9897 8.5036 10.9875C8.2414 10.9852 7.99059 10.88 7.80518 10.6946C7.61977 10.5092 7.5146 10.2584 7.51233 9.99619C7.51005 9.73399 7.61084 9.48139 7.793 9.29279L10.5 6.49979H1C0.734784 6.49979 0.48043 6.39443 0.292893 6.20689C0.105357 6.01936 0 5.765 0 5.49979C0 5.23457 0.105357 4.98022 0.292893 4.79268C0.48043 4.60514 0.734784 4.49979 1 4.49979H10.5L7.793 1.70679C7.60553 1.51926 7.50021 1.26495 7.50021 0.999786C7.50021 0.734622 7.60553 0.480314 7.793 0.292786Z" fill="#FF4D4D" />
-                                </svg>
-                            </span>
+                            <?php
+                            get_template_part('inc/componentes/button-arrow', null, array(
+                                'text' => 'VER UBICACIÓN',
+                                'class' => 'mt-4'
+                            ));
+                            ?>
                         </div>
                     </a>
                 </div>
 
                 <div class="bg-white rounded-md overflow-hidden transition-all duration-200 shadow-md hover:shadow-xl hover:-translate-y-2 flex flex-col h-full animate-fadeInUp">
-                    <a href="#" class="no-underline text-inherit flex flex-col h-full group">
-                        <div class="p-4">
+                    <a href="" class="no-underline text-inherit flex flex-col h-full group">
+                        <div class="p-6">
                             <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_contacto_img.png" alt="Contacto" class="w-full h-auto">
                         </div>
 
-                        <div class="md:p-6 p-4 flex flex-col gap-2 flex-1">
+                        <div class="!pt-0 md:p-6 p-4 flex flex-col gap-2 flex-1">
                             <!-- Ubicacion -->
                             <span class="text-xs md:text-lg text-[#47444D] flex items-center gap-2 font-semibold">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none" class="w-4 h-4">
@@ -474,23 +474,23 @@ get_header();
                             </div>
 
                             <!-- Botón Leer Más -->
-                            <span class="inline-flex items-center justify-start gap-2 text-sm font-bold text-primary uppercase tracking-wider transition-all duration-200 group-hover:gap-3 mt-2">
-                                Ver Ubicación
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11" fill="none" class="min-w-[12px]">
-                                    <path d="M7.793 0.292786C7.98053 0.105315 8.23484 0 8.5 0C8.76516 0 9.01947 0.105315 9.207 0.292786L13.707 4.79279C13.8945 4.98031 13.9998 5.23462 13.9998 5.49979C13.9998 5.76495 13.8945 6.01926 13.707 6.20679L9.207 10.7068C9.0184 10.8889 8.7658 10.9897 8.5036 10.9875C8.2414 10.9852 7.99059 10.88 7.80518 10.6946C7.61977 10.5092 7.5146 10.2584 7.51233 9.99619C7.51005 9.73399 7.61084 9.48139 7.793 9.29279L10.5 6.49979H1C0.734784 6.49979 0.48043 6.39443 0.292893 6.20689C0.105357 6.01936 0 5.765 0 5.49979C0 5.23457 0.105357 4.98022 0.292893 4.79268C0.48043 4.60514 0.734784 4.49979 1 4.49979H10.5L7.793 1.70679C7.60553 1.51926 7.50021 1.26495 7.50021 0.999786C7.50021 0.734622 7.60553 0.480314 7.793 0.292786Z" fill="#FF4D4D" />
-                                </svg>
-                            </span>
+                            <?php
+                            get_template_part('inc/componentes/button-arrow', null, array(
+                                'text' => 'VER UBICACIÓN',
+                                'class' => 'mt-4'
+                            ));
+                            ?>
                         </div>
                     </a>
                 </div>
 
                 <div class="bg-white rounded-md overflow-hidden transition-all duration-200 shadow-md hover:shadow-xl hover:-translate-y-2 flex flex-col h-full animate-fadeInUp">
-                    <a href="#" class="no-underline text-inherit flex flex-col h-full group">
-                        <div class="p-4">
+                    <a href="" class="no-underline text-inherit flex flex-col h-full group">
+                        <div class="p-6">
                             <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_contacto_img.png" alt="Contacto" class="w-full h-auto">
                         </div>
 
-                        <div class="md:p-6 p-4 flex flex-col gap-2 flex-1">
+                        <div class="!pt-0 md:p-6 p-4 flex flex-col gap-2 flex-1">
                             <!-- Ubicacion -->
                             <span class="text-xs md:text-lg text-[#47444D] flex items-center gap-2 font-semibold">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none" class="w-4 h-4">
@@ -520,23 +520,23 @@ get_header();
                             </div>
 
                             <!-- Botón Leer Más -->
-                            <span class="inline-flex items-center justify-start gap-2 text-sm font-bold text-primary uppercase tracking-wider transition-all duration-200 group-hover:gap-3 mt-2">
-                                Ver Ubicación
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11" fill="none" class="min-w-[12px]">
-                                    <path d="M7.793 0.292786C7.98053 0.105315 8.23484 0 8.5 0C8.76516 0 9.01947 0.105315 9.207 0.292786L13.707 4.79279C13.8945 4.98031 13.9998 5.23462 13.9998 5.49979C13.9998 5.76495 13.8945 6.01926 13.707 6.20679L9.207 10.7068C9.0184 10.8889 8.7658 10.9897 8.5036 10.9875C8.2414 10.9852 7.99059 10.88 7.80518 10.6946C7.61977 10.5092 7.5146 10.2584 7.51233 9.99619C7.51005 9.73399 7.61084 9.48139 7.793 9.29279L10.5 6.49979H1C0.734784 6.49979 0.48043 6.39443 0.292893 6.20689C0.105357 6.01936 0 5.765 0 5.49979C0 5.23457 0.105357 4.98022 0.292893 4.79268C0.48043 4.60514 0.734784 4.49979 1 4.49979H10.5L7.793 1.70679C7.60553 1.51926 7.50021 1.26495 7.50021 0.999786C7.50021 0.734622 7.60553 0.480314 7.793 0.292786Z" fill="#FF4D4D" />
-                                </svg>
-                            </span>
+                            <?php
+                            get_template_part('inc/componentes/button-arrow', null, array(
+                                'text' => 'VER UBICACIÓN',
+                                'class' => 'mt-4'
+                            ));
+                            ?>
                         </div>
                     </a>
                 </div>
 
                 <div class="bg-white rounded-md overflow-hidden transition-all duration-200 shadow-md hover:shadow-xl hover:-translate-y-2 flex flex-col h-full animate-fadeInUp">
-                    <a href="#" class="no-underline text-inherit flex flex-col h-full group">
-                        <div class="p-4">
+                    <a href="" class="no-underline text-inherit flex flex-col h-full group">
+                        <div class="p-6">
                             <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_contacto_img.png" alt="Contacto" class="w-full h-auto">
                         </div>
 
-                        <div class="md:p-6 p-4 flex flex-col gap-2 flex-1">
+                        <div class="!pt-0 md:p-6 p-4 flex flex-col gap-2 flex-1">
                             <!-- Ubicacion -->
                             <span class="text-xs md:text-lg text-[#47444D] flex items-center gap-2 font-semibold">
                                 <svg xmlns="http://www.w3.org/2000/svg" width="14" height="16" viewBox="0 0 14 16" fill="none" class="w-4 h-4">
@@ -566,12 +566,12 @@ get_header();
                             </div>
 
                             <!-- Botón Leer Más -->
-                            <span class="inline-flex items-center justify-start gap-2 text-sm font-bold text-primary uppercase tracking-wider transition-all duration-200 group-hover:gap-3 mt-2">
-                                Ver Ubicación
-                                <svg xmlns="http://www.w3.org/2000/svg" width="14" height="11" viewBox="0 0 14 11" fill="none" class="min-w-[12px]">
-                                    <path d="M7.793 0.292786C7.98053 0.105315 8.23484 0 8.5 0C8.76516 0 9.01947 0.105315 9.207 0.292786L13.707 4.79279C13.8945 4.98031 13.9998 5.23462 13.9998 5.49979C13.9998 5.76495 13.8945 6.01926 13.707 6.20679L9.207 10.7068C9.0184 10.8889 8.7658 10.9897 8.5036 10.9875C8.2414 10.9852 7.99059 10.88 7.80518 10.6946C7.61977 10.5092 7.5146 10.2584 7.51233 9.99619C7.51005 9.73399 7.61084 9.48139 7.793 9.29279L10.5 6.49979H1C0.734784 6.49979 0.48043 6.39443 0.292893 6.20689C0.105357 6.01936 0 5.765 0 5.49979C0 5.23457 0.105357 4.98022 0.292893 4.79268C0.48043 4.60514 0.734784 4.49979 1 4.49979H10.5L7.793 1.70679C7.60553 1.51926 7.50021 1.26495 7.50021 0.999786C7.50021 0.734622 7.60553 0.480314 7.793 0.292786Z" fill="#FF4D4D" />
-                                </svg>
-                            </span>
+                            <?php
+                            get_template_part('inc/componentes/button-arrow', null, array(
+                                'text' => 'VER UBICACIÓN',
+                                'class' => 'mt-4'
+                            ));
+                            ?>
                         </div>
                     </a>
                 </div>
@@ -582,7 +582,7 @@ get_header();
 
     <!-- Modal de Mapa -->
     <div id="map-modal" class="fixed inset-0 bg-black bg-opacity-75 z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white rounded-md max-w-5xl w-full relative animate-fadeInUp">
+        <div class="bg-white rounded-md max-w-5xl w-full relative animate-fadeInUp min-h-[500px]">
             <!-- Header del Modal -->
             <div class="flex items-center justify-between p-6 border-b">
                 <h3 id="modal-title" class="text-2xl font-semibold text-dark mb-0">Lima - Oficina Administrativa</h3>
@@ -594,8 +594,8 @@ get_header();
             </div>
 
             <!-- Contenido del Modal - Iframe del Mapa -->
-            <div class="p-6 relative">
-                <div class="relative w-full" style="padding-bottom: 56.25%;">
+            <div class="md:p-6 p-4 relative">
+                <div class="relative w-full min-h-[500px]" style="padding-bottom: 56.25%;">
                     <iframe
                         id="map-iframe"
                         class="absolute top-0 left-0 w-full h-full rounded-md"
@@ -608,7 +608,7 @@ get_header();
                 </div>
 
                 <!-- Información adicional -->
-                <div class="mt-6 p-4 rounded-md max-w-xl absolute ml-6 top-5 bg-white">
+                <div class="md:mt-6 mt-4 p-4 rounded-md max-w-xl absolute md:ml-6 md:top-5 top-0 md:top-5 bg-white">
                     <div class="flex items-start gap-1 mb-4">
                         <div class="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" viewBox="0 0 16 20" fill="none">

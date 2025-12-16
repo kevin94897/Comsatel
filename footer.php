@@ -207,6 +207,8 @@
 
 </div><!-- #page -->
 
+<?php get_template_part('inc/componentes/whatsapp-button'); ?>
+
 <?php wp_footer(); ?>
 
 </body>

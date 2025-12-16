@@ -37,7 +37,7 @@ $rel        = esc_attr($args['rel']);
 $show_arrow = (bool) $args['show_arrow'];
 
 // Construir clases
-$button_classes = 'group relative inline-flex items-center text-primary font-semibold hover:text-primary transition-colors duration-300';
+$button_classes = 'group relative inline-flex items-center text-primary font-semishow_arrowbold hover:text-primary transition-colors duration-300';
 if (!empty($class)) {
     $button_classes .= ' ' . $class;
 }
@@ -62,7 +62,7 @@ if ($target === '_blank' && empty($rel)) {
 ?>
 
 <a <?php echo implode(' ', $link_attrs); ?>>
-    <span class="relative">
+    <span class="relative text-sm md:text-lg font-semibold">
         <?php echo $text; ?>
         <span class="absolute left-0 bottom-0 h-0.5 w-0 bg-primary group-hover:w-full transition-all duration-300"></span>
     </span>
