@@ -23,7 +23,10 @@
 
 		<?php
 		// Detectar si estamos en front-page o template producto-gps
-		$is_transparent_header = is_front_page() || is_page_template('inc/template-producto-gps.php') || is_page_template('template-blog.php') || is_single() || is_page_template('inc/template-tyc.php') || is_page_template('inc/template-gestion.php') || is_page_template('inc/template-contacto.php');
+		$is_transparent_header = is_front_page() || is_page_template('inc/template-producto-gps.php')
+			|| is_page_template('template-blog.php') || is_single() || is_page_template('inc/template-tyc.php')
+			|| is_page_template('inc/template-gestion.php') || is_page_template('inc/template-contacto.php')
+			|| is_page_template('inc/template-soluciones.php');
 
 		$header_bg_class = $is_transparent_header ? '' : 'bg-white ';
 		$text_color_class = $is_transparent_header ? 'text-white' : 'text-gray-900';
