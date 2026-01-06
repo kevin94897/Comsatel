@@ -213,85 +213,8 @@
 
 </body>
 
-<script>
-	// Mobile menu toggle
-	document.getElementById('mobile-menu-toggle').addEventListener('click', function() {
-		const menu = document.getElementById('mobile-menu');
-		menu.classList.toggle('hidden');
-	});
+<?php wp_footer(); ?>
 
-	function toggleFAQ(button) {
-		const faqItem = button.parentElement;
-		const answer = faqItem.querySelector('.accordion-content');
-		const arrow = button.querySelector('.arrow-up');
-
-		const isClosed = answer.classList.contains('max-h-0');
-
-		// Cerrar otros acordeones
-		document.querySelectorAll('.accordion-content').forEach(item => {
-			if (item !== answer) {
-				item.classList.remove('max-h-96');
-				item.classList.add('max-h-0', 'opacity-0');
-			}
-		});
-
-		// Resetear rotación de otras flechas a posición cerrada (-rotate-45)
-		document.querySelectorAll('.arrow-up').forEach(icon => {
-			if (icon !== arrow) {
-				icon.classList.remove('rotate-45');
-				icon.classList.add('-rotate-45');
-			}
-		});
-
-		// Toggle del acordeón actual
-		if (isClosed) {
-			// Abrir
-			answer.classList.remove('max-h-0', 'opacity-0');
-			answer.classList.add('max-h-96');
-			arrow.classList.remove('-rotate-45');
-			arrow.classList.add('rotate-45');
-		} else {
-			// Cerrar
-			answer.classList.remove('max-h-96');
-			answer.classList.add('max-h-0', 'opacity-0');
-			arrow.classList.remove('rotate-45');
-			arrow.classList.add('-rotate-45');
-		}
-	}
-
-	// Función para Footer Accordion (solo en mobile)
-	function initFooterAccordion() {
-		const accordionTitles = document.querySelectorAll('.accordion-title');
-
-		accordionTitles.forEach(title => {
-			title.addEventListener('click', function() {
-				// Solo funcionar en mobile (menos de 1024px)
-				if (window.innerWidth >= 1024) return;
-
-				const content = this.nextElementSibling;
-				const arrow = this.querySelector('.arrow-up-footer');
-				const isClosed = content.classList.contains('max-h-0');
-
-				// Toggle del acordeón actual
-				if (isClosed) {
-					// Abrir
-					content.classList.remove('max-h-0', 'opacity-0');
-					content.classList.add('max-h-96');
-					arrow.classList.remove('-rotate-45');
-					arrow.classList.add('rotate-45');
-				} else {
-					// Cerrar
-					content.classList.remove('max-h-96');
-					content.classList.add('max-h-0', 'opacity-0');
-					arrow.classList.remove('rotate-45');
-					arrow.classList.add('-rotate-45');
-				}
-			});
-		});
-	}
-
-	// Inicializar footer accordion cuando el DOM esté listo
-	document.addEventListener('DOMContentLoaded', initFooterAccordion);
-</script>
+</body>
 
 </html>

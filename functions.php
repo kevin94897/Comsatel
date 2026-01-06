@@ -128,6 +128,15 @@ function comsatel_scripts()
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
+
+	// Main theme scripts
+	wp_enqueue_script(
+		'comsatel-scripts',
+		get_template_directory_uri() . '/js/scripts.js',
+		['jquery'],
+		filemtime(get_template_directory() . '/js/scripts.js'),
+		true
+	);
 }
 
 add_action('wp_enqueue_scripts', 'comsatel_scripts', 99);
@@ -406,6 +415,20 @@ function add_tailwind_group_class_to_menu_li($classes, $item, $args)
 	return $classes;
 }
 add_filter('nav_menu_css_class', 'add_tailwind_group_class_to_menu_li', 10, 3);
+
+add_filter('nav_menu_link_attributes', function ($atts, $item, $args) {
+
+	if (!empty($item->classes)) {
+		// Convierte las clases del <li> en string
+		$classes = implode(' ', $item->classes);
+
+		// Agrega las clases al <a>
+		$atts['class'] = trim(($atts['class'] ?? '') . ' ' . $classes);
+	}
+
+	return $atts;
+}, 10, 3);
+
 
 /**
  * Include AJAX handlers for calculator

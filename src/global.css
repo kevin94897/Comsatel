@@ -268,7 +268,7 @@ a:hover {
   border-color: var(--color-white);
   border-radius: var(--radius-full);
   padding: 0.5rem 2rem;
-  border-width: 2px;
+  border-width: 1px;
   line-height: initial;
 }
 
@@ -483,7 +483,7 @@ a:hover {
 }
 
 /* Text Alignment */
-.text-center {
+/* .text-center {
   text-align: center;
 }
 
@@ -493,7 +493,7 @@ a:hover {
 
 .text-right {
   text-align: right;
-}
+} */
 
 /* Font Weights */
 .font-light {
@@ -867,6 +867,221 @@ footer nav a:last-child {
   background-color: var(--color-primary-light);
 }
 
+/* Mega menú flotante y centrado */
+/* ============================================
+   MEGA MENU STYLES
+   ============================================ */
+
+/* Posicionamiento del megamenú */
+#mega-menu {
+  top: 80px;
+  /* Ajustado para quedar debajo del header */
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  transform: translateX(-50%) translateY(10px);
+}
+
+#mega-menu.visible {
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Estados del megamenú */
+#mega-menu.opacity-0 {
+  opacity: 0;
+}
+
+#mega-menu.opacity-100 {
+  opacity: 1;
+}
+
+#mega-menu.invisible {
+  visibility: hidden;
+}
+
+#mega-menu.visible {
+  visibility: visible;
+}
+
+#mega-menu.pointer-events-none {
+  pointer-events: none;
+}
+
+#mega-menu.pointer-events-auto {
+  pointer-events: auto;
+}
+
+/* Tabs laterales */
+.menu-tab-item {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.menu-tab-item.active {
+  background-color: rgba(239, 68, 68, 0.05);
+}
+
+.menu-tab-item svg {
+  transition: opacity 0.2s ease;
+}
+
+/* Contenido de las tabs */
+.tab-content {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Secciones del megamenú */
+
+.mega-menu-section ul li {
+  list-style: none;
+}
+
+.mega-menu-section ul li a {
+  position: relative;
+  display: inline-block;
+}
+
+.mega-menu-section ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: #dc2626;
+  transition: width 0.3s ease;
+}
+
+.mega-menu-section ul li a:hover::after {
+  width: 100%;
+}
+
+/* Iconos de las secciones */
+.mega-menu-section h4 svg,
+.mega-menu-section h4 span {
+  flex-shrink: 0;
+}
+
+/* Ajustes para el header cuando el megamenú está activo */
+#masthead.bg-dark {
+  background-color: rgba(17, 24, 39, 0.95);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1023px) {
+  #mega-menu {
+    display: none !important;
+  }
+}
+
+/* Smooth scroll behavior para el cierre del menú */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mejoras de accesibilidad */
+.menu-tab-item:focus,
+.mega-menu-section ul li a:focus {
+  outline: 2px solid #dc2626;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Animación de entrada para items del menú */
+.mega-menu-section ul li {
+  animation: slideInLeft 0.3s ease forwards;
+  animation-delay: calc(var(--item-index) * 0.05s);
+  opacity: 0;
+}
+
+.mega-menu-section ul li:nth-child(1) {
+  --item-index: 1;
+  animation-delay: 0.05s;
+}
+
+.mega-menu-section ul li:nth-child(2) {
+  --item-index: 2;
+  animation-delay: 0.1s;
+}
+
+.mega-menu-section ul li:nth-child(3) {
+  --item-index: 3;
+  animation-delay: 0.15s;
+}
+
+.mega-menu-section ul li:nth-child(4) {
+  --item-index: 4;
+  animation-delay: 0.2s;
+}
+
+.mega-menu-section ul li:nth-child(5) {
+  --item-index: 5;
+  animation-delay: 0.25s;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Hover effect para las tabs */
+.menu-tab-item:hover {
+  background-color: rgba(243, 244, 246, 0.8);
+}
+
+.menu-tab-item.active:hover {
+  background-color: rgba(239, 68, 68, 0.08);
+}
+
+/* Separador vertical entre tabs y contenido */
+.menu-tab-item+.menu-tab-item {
+  margin-top: 0;
+}
+
+/* Tab contents visibility */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active,
+.tab-content:not(.hidden) {
+  display: grid;
+}
+
+.tab-content.hidden {
+  display: none !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 /* ==========================================================================
    16. Blog Animations
    ========================================================================== */
@@ -978,4 +1193,39 @@ footer nav a:last-child {
   -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
   overflow: hidden;
+}
+
+/* ==========================================================================
+   15. Mobile Menu Navigation (Hierarchical)
+   ========================================================================== */
+#mobile-menu {
+  transition: all 0.3s ease-in-out;
+}
+
+#mobile-menu.active {
+  display: block !important;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.mobile-menu-level {
+  display: none;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.mobile-menu-level.active {
+  display: block;
+  animation: slideInLevel 0.3s ease-out;
+}
+
+@keyframes slideInLevel {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }

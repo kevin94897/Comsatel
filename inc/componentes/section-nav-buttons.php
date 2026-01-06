@@ -65,7 +65,7 @@ $component_id = 'scroll-buttons-' . uniqid();
     <div class="container-full mx-auto px-4">
         <div class="relative flex gap-1 p-2 lg:justify-center lg:overflow-visible overflow-x-auto overflow-y-hidden hide-scrollbar">
             <!-- Bubble que se mueve -->
-            <span class="animated-bubble absolute inset-0 bg-primary mix-blend-difference rounded-full z-0 my-2 opacity-0"
+            <span class="animated-bubble absolute inset-0 bg-primary mix-blend-difference rounded-full z-0 my-2 opacity-0 md:block hidden"
                 id="<?php echo esc_attr($component_id); ?>-bubble"></span>
 
             <?php foreach ($buttons as $index => $button):
