@@ -12,7 +12,7 @@
             <p class="m-0 leading-snug" id="whatsapp-message-text">¡Hola! ¿En qué podemos ayudarte?</p>
             <!-- Close button for balloon -->
             <button onclick="closeBalloon(event)" class="absolute -top-2 -left-2 bg-gray-200 hover:bg-gray-300 rounded-full p-1 transition-colors">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-gray-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-black" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
                 </svg>
             </button>

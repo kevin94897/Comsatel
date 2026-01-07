@@ -19,7 +19,8 @@ get_header();
         <!-- Content -->
         <div class="container-full md:mx-auto md:px-4 lg:px-8 relative z-10">
             <div class="max-w-3xl">
-                <h1 class="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-20 leading-tight" data-aos="fade-up"
+                <span class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>
+                <h1 class="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-20 leading-tight mt-2" data-aos="fade-up"
                     data-aos-duration="1000">
                     CANDADO GPS
                 </h1>
@@ -76,14 +77,15 @@ get_header();
     get_template_part('inc/componentes/section-nav-buttons', null, array('buttons' => $nav_buttons));
     ?>
 
-    <section class="pt-16 lg:pt-24" id="challenge">
+    <!-- Intro Section -->
+    <section class="py-12 lg:py-16 bg-gray-50 motion-safe:animate-fade-in" id="challenge">
         <div class="container mx-auto px-4 lg:px-8">
-            <div class="text-center">
-                <p class="text-sm text-primary uppercase tracking-wider mb-4">
-                    DESAFÍO
-                </p>
-                <p class="max-w-2xl mx-auto" data-aos="fade-up" data-aos-delay="100">
-                    El transporte de carga se expone a aperturas no autorizadas y robos en ruta por eso esta solución asegura accesos críticos y alerta en tiempo real ante cualquier intento de manipulación
+            <div class="max-w-4xl mx-auto text-center">
+                <p class="text-sm text-gray uppercase tracking-wider mb-4" data-aos="fade-down">Desafío</p>
+                <p class="leading-relaxed mb-0 md:text-2xl text-xl font-semibold tracking-[-0.08px]" data-aos="fade-up"
+                    data-aos-delay="100">
+                    Las operaciones de transporte enfrentan riesgos de robos, accidentes y pérdida de control en ruta.
+                    El reto es mantener la seguridad del vehículo, la carga y el conductor en todo momento.
                 </p>
             </div>
         </div>

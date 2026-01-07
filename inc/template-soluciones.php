@@ -17,7 +17,8 @@ get_header(); ?>
         <!-- Content -->
         <div class="container-full md:mx-auto md:px-4 lg:px-8 relative z-10">
             <div class="max-w-3xl">
-                <h1 class="text-3xl md:text-4xl lg:text-6xl font-bold text-white mb-20 leading-tight" data-aos="fade-up"
+                <span class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>
+                <h1 class="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-20 leading-tight mt-2" data-aos="fade-up"
                     data-aos-duration="1000">
                     SEGURIDAD EN EL<br>
                     TRANSPORTE EN RUTA
@@ -79,14 +80,24 @@ get_header(); ?>
 
     <!-- Solutions Grid -->
     <section class="pb-16 lg:pb-24 pt-8 bg-gray-50" id="solutions">
-        <div class="container mx-auto px-4 lg:px-8">
-            <div class="max-w-4xl mx-auto text-center mb-16">
-                <p class="text-sm text-gray uppercase tracking-wider mb-4" data-aos="fade-down" data-aos-delay="200">
-                    Portafolio de soluciones</p>
-                <h2 class="text-2xl lg:text-4xl font-semibold mb-4" data-aos="fade-up" data-aos-delay="300">
-                    <span class="text-primary">Nuestras soluciones de seguridad en el transporte en ruta</span>
-                </h2>
+        <div class="container-fluid py-6 lg:py-16 md:mb-20 mb-16 bg-cover bg-center bg-no-repeat"
+            style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/comsatel_gps-title-banner-02.png');">
+            <div class=" mx-auto px-4 lg:px-8 max-w-3xl">
+                <!-- Header -->
+                <div class="text-center">
+                    <p class="text-sm text-gray uppercase tracking-wider mb-4" data-aos="fade-in">
+                        PORTAFOLIO DE SOLUCIONES
+                    </p>
+
+                    <h2 class="text-2xl lg:text-4xl font-semibold text-primary mb-4" data-aos="fade-in">
+                        Nuestras soluciones de seguridad en el transporte en ruta
+                    </h2>
+
+                </div>
             </div>
+        </div>
+
+        <div class="container mx-auto px-4 lg:px-8">
             <!-- Solution 1: Sistema de video -->
             <div class="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center mb-12 lg:mb-20">
                 <div class="order-2 lg:order-1" data-aos="zoom-in" data-aos-duration="1000">
@@ -244,9 +255,6 @@ get_header(); ?>
 
     <!-- SECCIÓN TESTIMONIOS -->
     <?php include get_template_directory() . '/inc/componentes/section-testimonios.php'; ?>
-
-    <!-- SECCIÓN CLIENTES -->
-    <?php include get_template_directory() . '/inc/componentes/section-clientes.php'; ?>
 
     <!-- SECCIÓN FAQ -->
     <?php include get_template_directory() . '/inc/componentes/section-faqs.php'; ?>

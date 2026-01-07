@@ -3,7 +3,7 @@
     <div class="bg-white rounded-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto shadow-2xl transform transition-all">
         <!-- Modal Header -->
         <div class="relative p-8 pb-6 text-center">
-            <button id="close-modal" class="absolute top-6 right-6 text-gray-400 hover:text-gray-600 transition-colors bg-transparent border-none">
+            <button id="close-modal" class="absolute top-6 right-6 text-gray-400 hover:text-black transition-colors bg-transparent border-none">
                 <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
                 </svg>

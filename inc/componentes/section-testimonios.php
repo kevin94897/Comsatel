@@ -1,11 +1,11 @@
 <!-- Trust Section -->
-<section class="py-16 lg:py-24 bg-gray-50 relative" id="testimonials">
+<section class="py-16 lg:py-24 relative" id="testimonials">
     <div class="container mx-auto px-4 lg:px-8">
 
         <div class="flex items-end">
             <div class="max-w-2xl flex-1">
                 <p class="text-sm text-gray-400 uppercase tracking-wider mb-4">Testimonios</p>
-                <h2 class="text-2xl lg:text-4xl font-semibold text-black mb-4">Confiado por todo el país</h2>
+                <h2 class="text-2xl lg:text-4xl font-semibold text-black mb-4">Confiado por empresas de transporte y logística en todo el país</h2>
                 <p class="mb-8">Historias reales de clientes que han recuperado sus vehículos gracias a nuestras soluciones.</p>
             </div>
 

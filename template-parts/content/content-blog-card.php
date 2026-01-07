@@ -26,12 +26,12 @@
 
         <div class="md:p-6 p-4 flex flex-col gap-4 flex-1">
             <!-- Título -->
-            <h3 class="md:text-xl text-sm font-bold leading-tight text-dark transition-colors duration-200 group-hover:text-primary m-0">
+            <h3 class="md:text-xl text-sm font-semibold leading-tight text-dark transition-colors duration-200 group-hover:text-primary m-0">
                 <?php the_title(); ?>
             </h3>
 
             <!-- Meta información -->
-            <div class="flex items-center gap-2 text-sm text-gray-500 text-xs">
+            <div class="flex items-center gap-2 text-sm text-gray-500 text-xs my-2">
                 <span class="flex items-center gap-1">
                     <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M8 14.5C11.5899 14.5 14.5 11.5899 14.5 8C14.5 4.41015 11.5899 1.5 8 1.5C4.41015 1.5 1.5 4.41015 1.5 8C1.5 11.5899 4.41015 14.5 8 14.5Z" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" />
@@ -46,7 +46,7 @@
             </div>
 
             <!-- Extracto -->
-            <div class="md:text-[15px] text-[12px] leading-relaxed text-gray-600 flex-1">
+            <div class="md:text-[15px] text-[12px] leading-relaxed text-black flex-1">
                 <?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?>
             </div>
 

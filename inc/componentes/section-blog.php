@@ -68,7 +68,7 @@ if (!$blog_query->have_posts()) {
                                     <?php the_title(); ?>
                                 </a>
                             </h3>
-                            <div class="text-gray-600 mb-6 line-clamp-3">
+                            <div class="text-black mb-6 line-clamp-3">
                                 <?php the_excerpt(); ?>
                             </div>
                             <a href="<?php the_permalink(); ?>" class="text-primary font-medium hover:text-primary-dark inline-flex items-center gap-2 mt-auto group">

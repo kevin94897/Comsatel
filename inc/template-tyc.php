@@ -8,22 +8,10 @@ get_header();
 ?>
 
 <style>
-    /* Animaciones modernas para el menú */
     .anchor-btn {
         position: relative;
         overflow: hidden;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-    }
-
-    .anchor-btn::before {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: -100%;
-        width: 100%;
-        height: 100%;
-        background: linear-gradient(90deg, transparent, rgba(255, 77, 77, 0.1), transparent);
-        transition: left 0.5s ease;
     }
 
     .anchor-btn:hover::before {
@@ -31,8 +19,7 @@ get_header();
     }
 
     .anchor-btn:hover {
-        transform: translateX(8px);
-        box-shadow: 0 10px 25px -5px rgba(255, 77, 77, 0.2);
+        /* box-shadow: 0 10px 25px -5px rgba(255, 77, 77, 0.2); */
         border-color: #FF4D4D;
     }
 
@@ -40,7 +27,7 @@ get_header();
         background: linear-gradient(135deg, #FF4D4D 0%, #ff6b6b 100%);
         color: white;
         border-color: #FF4D4D;
-        box-shadow: 0 10px 25px -5px rgba(255, 77, 77, 0.4);
+        /* box-shadow: 0 10px 25px -5px rgba(255, 77, 77, 0.4); */
     }
 
     .anchor-btn.active span {
@@ -55,35 +42,28 @@ get_header();
         transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    .anchor-btn:hover svg {
-        transform: translateX(4px);
-    }
-
-    /* Animación de pulso en hover */
-    /* .anchor-btn:hover {
-        animation: subtle-pulse 2s infinite;
-    }
-
-    @keyframes subtle-pulse {
-
-        0%,
-        100% {
-            box-shadow: 0 10px 25px -5px rgba(255, 77, 77, 0.2);
-        }
-
-        50% {
-            box-shadow: 0 10px 35px -5px rgba(255, 77, 77, 0.3);
-        }
-    } */
-
     /* Mejora del sticky */
     .sticky-menu {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 100px;
+        z-index: 10;
         transition: all 0.3s ease;
     }
 
     /* Animación de entrada para las secciones */
     section[id] {
         scroll-margin-top: 100px;
+    }
+
+    @media (min-width: 768px) {
+        .anchor-btn:hover svg {
+            transform: translateX(4px);
+        }
+
+        .anchor-btn:hover {
+            transform: translateX(8px);
+        }
     }
 </style>
 
@@ -129,10 +109,7 @@ get_header();
             <section class="grid md:grid-cols-3 gap-10">
 
                 <!-- LEFT COLUMN (Sticky) -->
-                <aside class="md:col-span-1"
-                    data-aos="fade-right"
-                    data-aos-duration="1000"
-                    data-aos-delay="200">
+                <aside class="md:col-span-1">
                     <div class="sticky top-24 flex flex-col gap-3 sticky-menu">
 
                         <button

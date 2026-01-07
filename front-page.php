@@ -289,7 +289,7 @@ get_header(); ?>
                             Soporte y Monitoreo 24/7
                         </h2>
 
-                        <p class="text-sm text-gray-600 transition-colors duration-300 md:group-hover:!text-white mb-0">
+                        <p class="text-sm text-black transition-colors duration-300 md:group-hover:!text-white mb-0">
                             Nuestro equipo de seguridad y tráfico cuida tu flota sin descanso.
                         </p>
                     </div>
@@ -309,7 +309,7 @@ get_header(); ?>
                         <h2
                             class="text-base md:text-xl font-semibold text-primary mb-2 uppercase tracking-wide transition-colors duration-300 md:group-hover:!text-white">
                             +50 Mil Vehículos Activos</h2>
-                        <p class="text-sm text-gray-600 transition-colors duration-300 md:group-hover:!text-white mb-0">
+                        <p class="text-sm text-black transition-colors duration-300 md:group-hover:!text-white mb-0">
                             Ubica,
                             gestiona y protege tus activos con nuestra tecnología GPS.</p>
                     </div>
@@ -328,7 +328,7 @@ get_header(); ?>
                         <h2
                             class="text-base md:text-xl font-semibold text-primary mb-2 uppercase tracking-wide transition-colors duration-300 md:group-hover:!text-white">
                             +10 Mil Recuperaciones</h2>
-                        <p class="text-sm text-gray-600 transition-colors duration-300 md:group-hover:!text-white mb-0">
+                        <p class="text-sm text-black transition-colors duration-300 md:group-hover:!text-white mb-0">
                             Centro
                             de control 24/7 y equipo especializado en acción inmediata.</p>
                     </div>

@@ -4,12 +4,12 @@
 
             <!-- LEFT CONTENT -->
             <div data-aos="fade-right" data-aos-duration="900" data-aos-delay="100">
-                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+                <h2 class="text-3xl md:text-4xl font-semibold text-gray-900 leading-tight">
                     Se parte de la comunidad <br>
                     Comsatel
                 </h2>
 
-                <p class="text-gray-600 mt-4 max-w-md">
+                <p class="text-black mt-4 max-w-md">
                     Recibe contenido técnico, recomendaciones, casos reales y guías para mejorar
                     la seguridad de tu operación.
                 </p>

@@ -12,7 +12,7 @@ if (empty($tabs))
 ?>
 
 <section class="py-8 lg:py-16" id="<?php echo esc_attr($section_id); ?>">
-    <div class="container-fluid py-6 lg:py-8 md:mb-32 mb-12"
+    <div class="container-fluid py-6 lg:py-16 md:mb-20 mb-16 bg-cover bg-center bg-no-repeat"
         style="background-image: url('<?php echo esc_url($background_image); ?>');">
         <div class=" mx-auto px-4 lg:px-8 max-w-2xl">
             <!-- Header -->
@@ -127,6 +127,12 @@ if (empty($tabs))
                     content.classList.add('hidden');
                 });
                 document.querySelector(`.main-tab-content[data-tab-content="${tabId}"][data-section="${sectionId}"]`).classList.remove('hidden');
+
+                // Scroll section into center
+                document.getElementById(sectionId).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
             });
         });
 
@@ -152,6 +158,12 @@ if (empty($tabs))
                     content.classList.add('hidden');
                 });
                 document.querySelector(`.nested-tab-content[data-nested-content="${nestedTabId}"][data-parent="${parentId}"][data-section="${sectionId}"]`).classList.remove('hidden');
+
+                // Scroll section into center
+                document.getElementById(sectionId).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
             });
         });
     });

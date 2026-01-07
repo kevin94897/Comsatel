@@ -26,7 +26,7 @@
 		$is_transparent_header = is_front_page() || is_page_template('inc/template-producto-gps.php')
 			|| is_page_template('template-blog.php') || is_single() || is_page_template('inc/template-tyc.php')
 			|| is_page_template('inc/template-gestion.php') || is_page_template('inc/template-contacto.php')
-			|| is_page_template('inc/template-soluciones.php');
+			|| is_page_template('inc/template-soluciones.php') || is_page_template('inc/template-cookies.php');
 
 		$header_bg_class = $is_transparent_header ? '' : 'bg-white ';
 		$text_color_class = $is_transparent_header ? 'text-white' : 'text-gray-900';
@@ -211,7 +211,7 @@
 																<li>
 																	<a href="<?php echo esc_url($link_url); ?>"
 																		target="<?php echo esc_attr($link_target); ?>"
-																		class="text-gray-600 hover:text-red-600 cursor-pointer transition-colors text-xs block">
+																		class="text-black hover:text-red-600 cursor-pointer transition-colors text-xs block">
 																		<?php echo esc_html($link_title); ?>
 																	</a>
 																</li>
@@ -271,7 +271,7 @@
 																<li>
 																	<a href="<?php echo esc_url($link_url); ?>"
 																		target="<?php echo esc_attr($link_target); ?>"
-																		class="text-gray-600 hover:text-red-600 transition-colors text-xs block">
+																		class="text-black hover:text-red-600 transition-colors text-xs block">
 																		<?php echo esc_html($link_title); ?>
 																	</a>
 																</li>
@@ -329,7 +329,7 @@
 																<li>
 																	<a href="<?php echo esc_url($link_url); ?>"
 																		target="<?php echo esc_attr($link_target); ?>"
-																		class="text-gray-600 hover:text-red-600 transition-colors text-xs block">
+																		class="text-black hover:text-red-600 transition-colors text-xs block">
 																		<?php echo esc_html($link_title); ?>
 																	</a>
 																</li>
@@ -388,7 +388,7 @@
 											</svg>
 										</span>
 										<span
-											class="text-gray-600 font-medium group-hover/item:text-gray-900 text-xs">CLocator</span>
+											class="text-black font-medium group-hover/item:text-gray-900 text-xs">CLocator</span>
 									</a>
 
 									<a href="#"
@@ -402,7 +402,7 @@
 											</svg>
 										</span>
 										<span
-											class="text-gray-600 font-medium group-hover/item:text-gray-900 text-xs">C-Go</span>
+											class="text-black font-medium group-hover/item:text-gray-900 text-xs">C-Go</span>
 									</a>
 
 									<a href="#"
@@ -416,7 +416,7 @@
 											</svg>
 										</span>
 										<span
-											class="text-gray-600 font-medium group-hover/item:text-gray-900 text-xs">Tracksolid</span>
+											class="text-black font-medium group-hover/item:text-gray-900 text-xs">Tracksolid</span>
 									</a>
 
 									<a href="#"
@@ -430,7 +430,7 @@
 											</svg>
 										</span>
 										<span
-											class="text-gray-600 font-medium group-hover/item:text-gray-900 text-xs">CLVideo</span>
+											class="text-black font-medium group-hover/item:text-gray-900 text-xs">CLVideo</span>
 									</a>
 
 									<a href="#"
@@ -444,7 +444,7 @@
 											</svg>
 										</span>
 										<span
-											class="text-gray-600 font-medium group-hover/item:text-gray-900 text-xs">Trackmobile</span>
+											class="text-black font-medium group-hover/item:text-gray-900 text-xs">Trackmobile</span>
 									</a>
 								</div>
 							</div>
@@ -488,7 +488,7 @@
 												<rect width="900" height="200" y="400" fill="#007A33" />
 											</svg>
 										</div>
-										<span class="text-sm font-medium text-gray-600 group-hover/item:text-gray-900">Bolivia</span>
+										<span class="text-sm font-medium text-black group-hover/item:text-gray-900">Bolivia</span>
 									</a>
 
 									<!-- Colombia -->
@@ -506,7 +506,7 @@
 												<rect width="900" height="150" y="450" fill="#CE1126" />
 											</svg>
 										</div>
-										<span class="text-sm font-medium text-gray-600 group-hover/item:text-gray-900">Colombia</span>
+										<span class="text-sm font-medium text-black group-hover/item:text-gray-900">Colombia</span>
 									</a>
 								</div>
 							</div>
@@ -586,7 +586,7 @@
 												</svg>
 											</span>
 											<span
-												class="text-gray-600 font-medium group-hover/item:text-gray-900 text-xs">CLocator</span>
+												class="text-black font-medium group-hover/item:text-gray-900 text-xs">CLocator</span>
 										</a>
 
 										<a href="#"
@@ -600,7 +600,7 @@
 												</svg>
 											</span>
 											<span
-												class="text-gray-600 font-medium group-hover/item:text-gray-900 text-xs">C-Go</span>
+												class="text-black font-medium group-hover/item:text-gray-900 text-xs">C-Go</span>
 										</a>
 
 										<a href="#"
@@ -614,7 +614,7 @@
 												</svg>
 											</span>
 											<span
-												class="text-gray-600 font-medium group-hover/item:text-gray-900 text-xs">Tracksolid</span>
+												class="text-black font-medium group-hover/item:text-gray-900 text-xs">Tracksolid</span>
 										</a>
 
 										<a href="#"
@@ -628,7 +628,7 @@
 												</svg>
 											</span>
 											<span
-												class="text-gray-600 font-medium group-hover/item:text-gray-900 text-xs">CLVideo</span>
+												class="text-black font-medium group-hover/item:text-gray-900 text-xs">CLVideo</span>
 										</a>
 
 										<a href="#"
@@ -642,7 +642,7 @@
 												</svg>
 											</span>
 											<span
-												class="text-gray-600 font-medium group-hover/item:text-gray-900 text-xs">Trackmobile</span>
+												class="text-black font-medium group-hover/item:text-gray-900 text-xs">Trackmobile</span>
 										</a>
 									</div>
 								</div>
@@ -798,7 +798,7 @@
 											<rect width="900" height="200" y="400" fill="#007A33" />
 										</svg>
 									</div>
-									<span class="text-sm font-medium text-gray-600">Bolivia</span>
+									<span class="text-sm font-medium text-black">Bolivia</span>
 								</a>
 								<a href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors">
 									<div class="w-6 h-6 rounded-full overflow-hidden relative shadow-sm shrink-0">
@@ -812,7 +812,7 @@
 											<rect width="900" height="150" y="450" fill="#CE1126" />
 										</svg>
 									</div>
-									<span class="text-sm font-medium text-gray-600">Colombia</span>
+									<span class="text-sm font-medium text-black">Colombia</span>
 								</a>
 							</div>
 						</div>

@@ -96,13 +96,13 @@ Se agregaron estilos para `.blog-content` en `global.css`:
 
 ### Tipografía
 - `text-3xl md:text-4xl lg:text-5xl` - Títulos responsive
-- `font-bold`, `font-semibold` - Pesos de fuente
+- `font-semibold`, `font-semibold` - Pesos de fuente
 - `leading-tight`, `leading-relaxed` - Line heights
 
 ### Colores
 - `text-primary` - Rojo corporativo
 - `text-dark` - Texto oscuro
-- `text-gray-600` - Texto secundario
+- `text-black` - Texto secundario
 - `bg-gradient-to-r from-primary to-red-600` - Gradiente
 
 ### Efectos

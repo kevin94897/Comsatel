@@ -12,7 +12,7 @@ get_header();
 <main id="primary" class="site-main bg-gray-50">
 
 	<!-- Hero Banner -->
-	<section class="relative min-h-[400px] flex items-end <?php echo wp_title(); ?>">
+	<section class="relative min-h-[500px] flex items-end <?php echo wp_title(); ?>">
 		<!-- Background Image -->
 		<div class="absolute inset-0 bg-cover bg-top bg-no-repeat"
 			style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/comsatel_blog_single_banner.png');"
@@ -23,7 +23,11 @@ get_header();
 		<!-- Content -->
 		<div class="container-full md:mx-auto md:px-4 lg:px-8 relative z-10">
 			<div class="">
-				<h1 class="text-2xl md:text-4xl lg:text-5xl uppercase font-bold text-white mb-10 leading-tight max-w-2xl"
+				<span class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"
+					data-aos="fade-right"
+					data-aos-duration="800"
+					data-aos-delay="200"></span>
+				<h1 class="text-2xl md:text-4xl lg:text-5xl uppercase font-semibold text-white mb-10 leading-tight max-w-2xl mt-2"
 					data-aos="fade-in"
 					data-aos-duration="1000"
 					data-aos-easing="ease-out-cubic"
@@ -46,7 +50,7 @@ get_header();
 		<!-- Breadcrumbs -->
 		<section class="py-6 md:py-12">
 			<div class="container mx-auto px-4">
-				<nav class="flex items-center gap-2 text-sm text-gray-600 whitespace-nowrap overflow-x-auto scroll-smooth"
+				<nav class="flex items-center gap-2 text-sm text-black whitespace-nowrap overflow-x-auto scroll-smooth"
 					data-aos="fade-in"
 					data-aos-duration="800"
 					data-aos-delay="100">
@@ -65,7 +69,7 @@ get_header();
 				<div class="max-w-4xl mx-auto">
 
 					<!-- Title -->
-					<h1 class="text-2xl md:text-4xl lg:text-5xl font-semibold text-primary mb-6 leading-tight text-center"
+					<h1 class="text-2xl md:text-3xl lg:text-4xl font-semibold text-primary mb-6 leading-tight text-center"
 						data-aos="fade-up"
 						data-aos-duration="1000"
 						data-aos-easing="ease-out-cubic"
@@ -74,7 +78,7 @@ get_header();
 					</h1>
 
 					<!-- Meta Information -->
-					<div class="flex flex-wrap items-center gap-4 md:gap-6 mb-12 md:text-sm text-xs text-gray-600 justify-center"
+					<div class="flex flex-wrap items-center gap-4 md:gap-6 mb-12 md:text-sm text-xs text-black justify-center"
 						data-aos="fade-up"
 						data-aos-duration="800"
 						data-aos-delay="400">
@@ -105,7 +109,7 @@ get_header();
 
 					<!-- Featured Image -->
 					<?php if (has_post_thumbnail()) : ?>
-						<div class="mb-8 md:mb-12 rounded-xl overflow-hidden"
+						<div class="mb-8 md:mb-12 rounded-md overflow-hidden"
 							data-aos="zoom-in"
 							data-aos-duration="1000"
 							data-aos-delay="600">

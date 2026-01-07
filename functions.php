@@ -262,7 +262,7 @@ function comsatel_nav_menu_link_attributes($atts, $item, $args, $depth)
 
 	// Add classes to footer menu links
 	if (in_array($args->theme_location, array('footer-empresa', 'footer-legal', 'footer-contacto'))) {
-		$atts['class'] = 'block text-gray-600 hover:text-primary transition-colors';
+		$atts['class'] = 'block text-black hover:text-primary transition-colors';
 	}
 
 	return $atts;
