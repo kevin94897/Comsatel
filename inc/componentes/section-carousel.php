@@ -8,7 +8,7 @@ if (empty($banner) || empty($cards))
     return;
 ?>
 
-<section class="py-4 bg-gray-50">
+<section class="py-4 bg-gray-50" id="slider-solutions">
     <!-- Carousel Section -->
     <div class="scroll-view carousel-view" data-view="carousel">
         <div class="container mx-auto px-4 lg:!px-0 py-16 lg:py-24 h-full flex items-center relative">
@@ -67,7 +67,7 @@ if (empty($banner) || empty($cards))
 </style>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
         const swiper = new Swiper('.scrollCarouselSwiper', {
             loop: true,
             speed: 600,

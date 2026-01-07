@@ -60,7 +60,7 @@
 							$footer_logo_id = get_theme_mod('footer_logo');
 							if ($footer_logo_id):
 								$footer_logo_url = wp_get_attachment_image_url($footer_logo_id, 'full');
-								?>
+							?>
 								<a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
 									<img src="<?php echo esc_url($footer_logo_url); ?>" class="w-auto"
 										alt="<?php bloginfo('name'); ?>">
@@ -170,7 +170,7 @@
 
 										// Determinar la clase del grid según la cantidad
 										$grid_class = 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-2'; // Default para 4 o menos
-									
+
 										if ($total_sections > 6) {
 											$grid_class = 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4';
 										} elseif ($total_sections > 4) {
@@ -183,7 +183,7 @@
 											the_row();
 											$titulo = get_sub_field('titulo_seccion');
 											$icono = get_sub_field('icono_svg');
-											?>
+									?>
 											<div class="mega-menu-section">
 												<h4 class="flex items-center gap-2 font-semibold text-gray-800 mb-4 text-xs">
 													<?php if ($icono): ?>
@@ -207,7 +207,7 @@
 																$link_url = $enlace['url'];
 																$link_title = $enlace['title'];
 																$link_target = $enlace['target'] ? $enlace['target'] : '_self';
-																?>
+														?>
 																<li>
 																	<a href="<?php echo esc_url($link_url); ?>"
 																		target="<?php echo esc_attr($link_target); ?>"
@@ -220,7 +220,7 @@
 													</ul>
 												<?php endif; ?>
 											</div>
-											<?php
+										<?php
 										endwhile;
 										echo '</div>';
 									else:
@@ -249,7 +249,7 @@
 											the_row();
 											$titulo = get_sub_field('titulo_seccion');
 											$icono = get_sub_field('icono_svg');
-											?>
+									?>
 											<div class="mega-menu-section">
 												<h4 class="flex items-center gap-2 font-semibold text-gray-800 mb-4 text-xs">
 													<?php if ($icono): ?>
@@ -267,7 +267,7 @@
 																$link_url = $enlace['url'];
 																$link_title = $enlace['title'];
 																$link_target = $enlace['target'] ? $enlace['target'] : '_self';
-																?>
+														?>
 																<li>
 																	<a href="<?php echo esc_url($link_url); ?>"
 																		target="<?php echo esc_attr($link_target); ?>"
@@ -307,7 +307,7 @@
 											the_row();
 											$titulo = get_sub_field('titulo_seccion');
 											$icono = get_sub_field('icono_svg');
-											?>
+									?>
 											<div class="mega-menu-section">
 												<h4 class="flex items-center gap-2 font-semibold text-gray-800 mb-4 text-xs">
 													<?php if ($icono): ?>
@@ -325,7 +325,7 @@
 																$link_url = $enlace['url'];
 																$link_title = $enlace['title'];
 																$link_target = $enlace['target'] ? $enlace['target'] : '_self';
-																?>
+														?>
 																<li>
 																	<a href="<?php echo esc_url($link_url); ?>"
 																		target="<?php echo esc_attr($link_target); ?>"
@@ -455,6 +455,62 @@
 							class="btn-primary !rounded-md !bg-primary-600 !border-primary-600 border !px-4 transform shadow-lg hover:scale-105 hover:shadow-xl transition-all duration-300 ease-out text-[14px]">
 							Cotiza ahora
 						</a>
+
+						<!-- Country Selector -->
+						<div class="relative inline-block group ml-2" data-aos="zoom-in" data-aos-delay="500">
+							<button class="flex items-center gap-2 transition-all duration-300 focus:outline-none bg-transparent border-none">
+								<!-- Active Flag (Peru) -->
+								<div class="w-7 h-7 rounded-full overflow-hidden relative shadow-sm ring-2 ring-transparent group-hover:ring-white/20 transition-all">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" class="w-full h-full object-cover" preserveAspectRatio="xMidYMid slice">
+										<rect width="900" height="600" fill="#D91023" />
+										<rect width="300" height="600" x="300" fill="#fff" />
+									</svg>
+								</div>
+								<!-- Chevron -->
+								<svg xmlns="http://www.w3.org/2000/svg"
+									class="w-5 h-5 transition-transform duration-300 group-hover:rotate-180 <?php echo $text_color_class; ?>"
+									fill="none" viewBox="0 0 24 24" stroke="currentColor">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+								</svg>
+							</button>
+
+							<!-- Dropdown -->
+							<div
+								class="absolute right-0 mt-4 w-48 bg-white rounded-md shadow-2xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 ease-out z-50 overflow-hidden border border-gray-100 transform origin-top-right scale-95 group-hover:scale-100">
+								<div class="py-2">
+									<!-- Bolivia -->
+									<a href="https://comsatel.com.bo" target="_blank"
+										class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors group/item">
+										<div class="w-6 h-6 rounded-full overflow-hidden relative shadow-sm shrink-0 grayscale group-hover/item:grayscale-0 transition-all">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" class="w-full h-full object-cover scale-150">
+												<rect width="900" height="200" fill="#DA291C" />
+												<rect width="900" height="200" y="200" fill="#F4E400" />
+												<rect width="900" height="200" y="400" fill="#007A33" />
+											</svg>
+										</div>
+										<span class="text-sm font-medium text-gray-600 group-hover/item:text-gray-900">Bolivia</span>
+									</a>
+
+									<!-- Colombia -->
+									<a href="#"
+										class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors group/item">
+										<div class="w-6 h-6 rounded-full overflow-hidden relative shadow-sm shrink-0 grayscale group-hover/item:grayscale-0 transition-all">
+											<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" class="w-full h-full object-cover scale-150">
+												<rect width="900" height="600" fill="#CE1126" />
+												<rect width="900" height="400" fill="#003893" />
+												<rect width="900" height="300" fill="#003893" />
+												<rect width="900" height="200" y="300" fill="#FCD116" />
+												<!-- Simple Colombia flag approximation -->
+												<rect width="900" height="300" y="0" fill="#FCD116" />
+												<rect width="900" height="150" y="300" fill="#003893" />
+												<rect width="900" height="150" y="450" fill="#CE1126" />
+											</svg>
+										</div>
+										<span class="text-sm font-medium text-gray-600 group-hover/item:text-gray-900">Colombia</span>
+									</a>
+								</div>
+							</div>
+						</div>
 					</div>
 
 					<!-- Mobile Menu Toggle -->
@@ -620,7 +676,7 @@
 													<?php echo esc_html($item->title); ?>
 												</a>
 											</li>
-											<?php
+							<?php
 										endif;
 									endif;
 								endforeach;
@@ -684,7 +740,7 @@
 									the_row();
 									$titulo = get_sub_field('titulo_seccion');
 									$icono = get_sub_field('icono_svg');
-									?>
+								?>
 									<div class="flex items-center gap-2 font-semibold text-gray-800 text-md px-5 py-3">
 										<?php if ($icono)
 											echo '<span class="w-4 h-4">' . $icono . '</span>'; ?>
@@ -702,7 +758,7 @@
 															<?php echo esc_html($enlace['title']); ?>
 														</a>
 													</li>
-												<?php endif;
+										<?php endif;
 											endwhile;
 										endif; ?>
 									</ul>
@@ -712,27 +768,116 @@
 					<?php endforeach; ?>
 
 				</div>
+
+				<!-- Mobile Country Selector Footer -->
+				<div class="border-t border-gray-100 p-4 bg-white mt-auto">
+					<div class="relative inline-block w-full">
+						<button id="mobileCountryBtn" class="flex items-center justify-between w-full px-4 py-3 bg-gray-50 rounded-md transition-all focus:outline-none border-none">
+							<div class="flex items-center gap-3">
+								<div class="w-6 h-6 rounded-full overflow-hidden relative shadow-sm ring-2 ring-transparent">
+									<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" class="w-full h-full object-cover" preserveAspectRatio="xMidYMid slice">
+										<rect width="900" height="600" fill="#D91023" />
+										<rect width="300" height="600" x="300" fill="#fff" />
+									</svg>
+								</div>
+								<span class="text-sm font-semibold text-gray-900">Perú</span>
+							</div>
+							<svg xmlns="http://www.w3.org/2000/svg" id="mobileCountryArrow" class="w-5 h-5 transition-transform duration-300 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+							</svg>
+						</button>
+
+						<!-- Mobile Dropup -->
+						<div id="mobileCountryDropdown" class="absolute bottom-full left-0 w-full mb-2 bg-white rounded-md shadow-2xl hidden overflow-hidden border border-gray-100 transition-all duration-300 ease-out transform origin-bottom scale-95 opacity-0">
+							<div class="py-2">
+								<a href="https://comsatel.com.bo" target="_blank" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors">
+									<div class="w-6 h-6 rounded-full overflow-hidden relative shadow-sm shrink-0">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" class="w-full h-full object-cover scale-150">
+											<rect width="900" height="200" fill="#DA291C" />
+											<rect width="900" height="200" y="200" fill="#F4E400" />
+											<rect width="900" height="200" y="400" fill="#007A33" />
+										</svg>
+									</div>
+									<span class="text-sm font-medium text-gray-600">Bolivia</span>
+								</a>
+								<a href="#" class="flex items-center gap-3 px-4 py-3 hover:bg-gray-50 transition-colors">
+									<div class="w-6 h-6 rounded-full overflow-hidden relative shadow-sm shrink-0">
+										<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 600" class="w-full h-full object-cover scale-150">
+											<rect width="900" height="600" fill="#CE1126" />
+											<rect width="900" height="400" fill="#003893" />
+											<rect width="900" height="300" fill="#003893" />
+											<rect width="900" height="200" y="300" fill="#FCD116" />
+											<rect width="900" height="300" y="0" fill="#FCD116" />
+											<rect width="900" height="150" y="300" fill="#003893" />
+											<rect width="900" height="150" y="450" fill="#CE1126" />
+										</svg>
+									</div>
+									<span class="text-sm font-medium text-gray-600">Colombia</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
 			</div>
 		</div>
 
 		<script>
-			document.addEventListener('DOMContentLoaded', function () {
+			document.addEventListener('DOMContentLoaded', function() {
 				const btn = document.getElementById('loginBtn');
 				const dropdown = document.getElementById('loginDropdown');
 				const arrow = document.getElementById('arrowIcon');
 
-				btn.addEventListener('click', function (e) {
+				btn.addEventListener('click', function(e) {
 					e.stopPropagation(); // Evita que el clic se propague al documento
 					dropdown.classList.toggle('hidden');
 					arrow.classList.toggle('rotate-180');
 				});
 
 				// Cerrar el menú si se hace clic fuera de él
-				document.addEventListener('click', function (e) {
+				document.addEventListener('click', function(e) {
 					if (!dropdown.contains(e.target) && !btn.contains(e.target)) {
 						dropdown.classList.add('hidden');
 						arrow.classList.remove('rotate-180');
 					}
 				});
+
+				// Mobile Country Selector
+				const mobileCountryBtn = document.getElementById('mobileCountryBtn');
+				const mobileCountryDropdown = document.getElementById('mobileCountryDropdown');
+				const mobileCountryArrow = document.getElementById('mobileCountryArrow');
+
+				if (mobileCountryBtn && mobileCountryDropdown) {
+					mobileCountryBtn.addEventListener('click', function(e) {
+						e.stopPropagation();
+						const isHidden = mobileCountryDropdown.classList.contains('hidden');
+						
+						if (isHidden) {
+							mobileCountryDropdown.classList.remove('hidden');
+							setTimeout(() => {
+								mobileCountryDropdown.style.opacity = '1';
+								mobileCountryDropdown.style.transform = 'scale(1)';
+							}, 10);
+						} else {
+							mobileCountryDropdown.style.opacity = '0';
+							mobileCountryDropdown.style.transform = 'scale(0.95)';
+							setTimeout(() => {
+								mobileCountryDropdown.classList.add('hidden');
+							}, 300);
+						}
+						
+						mobileCountryArrow.classList.toggle('rotate-180');
+					});
+
+					document.addEventListener('click', function(e) {
+						if (!mobileCountryDropdown.contains(e.target) && !mobileCountryBtn.contains(e.target)) {
+							mobileCountryDropdown.style.opacity = '0';
+							mobileCountryDropdown.style.transform = 'scale(0.95)';
+							setTimeout(() => {
+								mobileCountryDropdown.classList.add('hidden');
+							}, 300);
+							mobileCountryArrow.classList.remove('rotate-180');
+						}
+					});
+				}
 			});
 		</script>

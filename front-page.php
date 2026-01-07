@@ -56,26 +56,26 @@ get_header(); ?>
     <?php
     $nav_buttons = array(
         array(
-            'label' => 'Seguridad y recupero',
-            'url' => '#challenge',
-            'style' => 'btn-primary',
-            'delay' => 100
-        ),
-        array(
             'label' => 'Portafolio de soluciones',
             'url' => '#solutions',
             'style' => 'btn-outline-white',
             'delay' => 200
         ),
         array(
-            'label' => 'Testimonios',
-            'url' => '#testimonials',
+            'label' => 'Soluciones',
+            'url' => '#slider-solutions',
+            'style' => 'btn-outline-white',
+            'delay' => 200
+        ),
+        array(
+            'label' => 'Beneficios',
+            'url' => '#benefits',
             'style' => 'btn-outline-white',
             'delay' => 300
         ),
         array(
-            'label' => 'Preguntas frecuentes',
-            'url' => '#faqs',
+            'label' => 'Clientes',
+            'url' => '#clients',
             'style' => 'btn-outline-white',
             'delay' => 400
         ),
@@ -237,17 +237,17 @@ get_header(); ?>
 
     <!-- Beneficios -->
     <section class="py-16 lg:py-24 bg-gray-50" id="benefits">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="text-2xl md:text-4xl font-semibold text-center text-gray-800 mb-12">
+        <div class="container mx-auto">
+            <h2 class="text-2xl md:text-4xl font-semibold text-center text-gray-800 md:mb-12 mb-6">
                 Líderes en <span class="text-primary">Tecnología GPS</span> para Flotas
             </h2>
 
             <div class="flex flex-col lg:flex-row items-center gap-12">
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 w-full lg:w-2/3">
+                <div class="grid grid-cols-1 md:grid-cols-2 md:gap-6 gap-4 w-full lg:w-2/3">
 
                     <div
-                        class="group bg-white p-8 rounded-3xl shadow-lg transform hover:scale-105 transition duration-300 hover:bg-primary">
-                        <div class="text-primary mb-4 transition-colors duration-300 group-hover:!text-white">
+                        class="group bg-white p-6 md:p-8 md:rounded-2xl rounded-lg shadow-lg transform md:hover:scale-105 transition duration-300 md:hover:bg-primary">
+                        <div class="text-primary mb-4 transition-colors duration-300 md:group-hover:!text-white">
                             <svg xmlns="http://www.w3.org/2000/svg" version="1.0" width="162.000000pt"
                                 height="132.000000pt" viewBox="0 0 162.000000 132.000000"
                                 preserveAspectRatio="xMidYMid meet" style="width: 61.0286px; height: auto;">
@@ -263,19 +263,19 @@ get_header(); ?>
 
                         </div>
                         <h2
-                            class="text-xl font-semibold text-primary mb-2 uppercase tracking-wide transition-colors duration-300 group-hover:!text-white">
+                            class="text-base md:text-xl font-semibold text-primary mb-2 uppercase tracking-wide transition-colors duration-300 md:group-hover:!text-white">
                             29 Años de Experiencia
                         </h2>
-                        <p class="text-sm opacity-90 transition-colors duration-300 group-hover:!text-white mb-0">
+                        <p class="text-sm opacity-90 transition-colors duration-300 md:group-hover:!text-white mb-0">
                             Pioneros en
                             rastreo y seguridad GPS. Presencia en Perú,
                             Bolivia y Colombia.</p>
                     </div>
 
                     <div
-                        class="group bg-white p-8 rounded-3xl shadow-md border border-gray-100 transform transition duration-300 hover:scale-105 hover:bg-primary">
+                        class="group bg-white p-6 md:p-8 md:rounded-2xl rounded-lg shadow-md border border-gray-100 transform transition duration-300 md:hover:scale-105 md:hover:bg-primary">
 
-                        <div class="text-primary mb-4 transition-colors duration-300 group-hover:!text-white">
+                        <div class="text-primary mb-4 transition-colors duration-300 md:group-hover:!text-white">
                             <svg width="42" height="36" viewBox="0 0 42 36" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -285,19 +285,19 @@ get_header(); ?>
                         </div>
 
                         <h2
-                            class="text-xl font-semibold text-primary mb-2 uppercase tracking-wide transition-colors duration-300 group-hover:!text-white">
+                            class="text-base md:text-xl font-semibold text-primary mb-2 uppercase tracking-wide transition-colors duration-300 md:group-hover:!text-white">
                             Soporte y Monitoreo 24/7
                         </h2>
 
-                        <p class="text-sm text-gray-600 transition-colors duration-300 group-hover:!text-white mb-0">
+                        <p class="text-sm text-gray-600 transition-colors duration-300 md:group-hover:!text-white mb-0">
                             Nuestro equipo de seguridad y tráfico cuida tu flota sin descanso.
                         </p>
                     </div>
 
 
                     <div
-                        class="group bg-white p-8 rounded-3xl shadow-md border border-gray-100 transform hover:scale-105 transition duration-300 hover:bg-primary">
-                        <div class="text-primary mb-4 transition-colors duration-300 group-hover:!text-white">
+                        class="group bg-white p-6 md:p-8 md:rounded-2xl rounded-lg shadow-md border border-gray-100 transform md:hover:scale-105 transition duration-300 md:hover:bg-primary">
+                        <div class="text-primary mb-4 transition-colors duration-300 md:group-hover:!text-white">
                             <svg width="43" height="26" viewBox="0 0 43 26" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -307,16 +307,16 @@ get_header(); ?>
 
                         </div>
                         <h2
-                            class="text-xl font-semibold text-primary mb-2 uppercase tracking-wide transition-colors duration-300 group-hover:!text-white">
+                            class="text-base md:text-xl font-semibold text-primary mb-2 uppercase tracking-wide transition-colors duration-300 md:group-hover:!text-white">
                             +50 Mil Vehículos Activos</h2>
-                        <p class="text-sm text-gray-600 transition-colors duration-300 group-hover:!text-white mb-0">
+                        <p class="text-sm text-gray-600 transition-colors duration-300 md:group-hover:!text-white mb-0">
                             Ubica,
                             gestiona y protege tus activos con nuestra tecnología GPS.</p>
                     </div>
 
                     <div
-                        class="group bg-white p-8 rounded-3xl shadow-md border border-gray-100 transform hover:scale-105 transition duration-300 hover:bg-primary">
-                        <div class="text-primary mb-4 transition-colors duration-300 group-hover:!text-white">
+                        class="group bg-white p-6 md:p-8 md:rounded-2xl rounded-lg shadow-md border border-gray-100 transform md:hover:scale-105 transition duration-300 md:hover:bg-primary">
+                        <div class="text-primary mb-4 transition-colors duration-300 md:group-hover:!text-white">
                             <svg width="40" height="39" viewBox="0 0 40 39" fill="none"
                                 xmlns="http://www.w3.org/2000/svg">
                                 <path
@@ -326,15 +326,15 @@ get_header(); ?>
 
                         </div>
                         <h2
-                            class="text-xl font-semibold text-primary mb-2 uppercase tracking-wide transition-colors duration-300 group-hover:!text-white">
+                            class="text-base md:text-xl font-semibold text-primary mb-2 uppercase tracking-wide transition-colors duration-300 md:group-hover:!text-white">
                             +10 Mil Recuperaciones</h2>
-                        <p class="text-sm text-gray-600 transition-colors duration-300 group-hover:!text-white mb-0">
+                        <p class="text-sm text-gray-600 transition-colors duration-300 md:group-hover:!text-white mb-0">
                             Centro
                             de control 24/7 y equipo especializado en acción inmediata.</p>
                     </div>
                 </div>
 
-                <div class="w-full lg:w-1/3 flex justify-center">
+                <div class="w-full lg:w-1/3 md:flex justify-center hidden">
                     <div class="relative max-w-[280px]">
                         <img src="<?php echo get_template_directory_uri() . '/images/comsatel_cards-phone.png'; ?>"
                             alt="App Interface" class="w-full" />
@@ -346,6 +346,9 @@ get_header(); ?>
 
     <!-- SECCIÓN CTA -->
     <?php get_template_part('inc/componentes/section-cta-2'); ?>
+
+    <!-- SECCIÓN BLOG -->
+    <?php get_template_part('inc/componentes/section-blog'); ?>
 
     <!-- SECCIÓN CLIENTES -->
     <?php include get_template_directory() . '/inc/componentes/section-clientes.php'; ?>
