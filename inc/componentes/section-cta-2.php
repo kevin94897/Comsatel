@@ -2,11 +2,9 @@
 <section id="cta-2" class="relative pt-24 lg:pt-36 pb-4 overflow-hidden bg-gray-50">
 
     <!-- Background image -->
-    <div class="absolute inset-0">
-        <img
-            src="<?php echo get_template_directory_uri(); ?>/images/comsatel_home_cta-2.png"
-            alt="Plataforma en múltiples dispositivos"
-            class="w-full h-full object-cover object-bottom" />
+    <div class="absolute inset-0 flex items-end justify-center">
+        <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_home_cta-2.png"
+            alt="Plataforma en múltiples dispositivos" class="max-w-full h-auto">
     </div>
 
     <div class="relative container mx-auto px-4" data-aos="zoom-in" data-aos-delay="200">

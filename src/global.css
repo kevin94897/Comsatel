@@ -474,6 +474,10 @@ a:hover {
   background-color: var(--color-primary-light) !important;
 }
 
+.bg-primary-dark {
+  background-color: var(--color-primary) !important;
+}
+
 .bg-dark {
   background-color: var(--color-dark) !important;
 }

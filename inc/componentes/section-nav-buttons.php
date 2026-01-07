@@ -30,8 +30,19 @@ $component_id = 'scroll-buttons-' . uniqid();
         pointer-events: none;
     }
 
-    .animated-nav-btn.active {
-        text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    /* Active state para desktop (con bubble) */
+    @media (min-width: 768px) {
+        .animated-nav-btn.active {
+            text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+        }
+    }
+
+    /* Active state para mobile (fondo rojo) */
+    @media (max-width: 767px) {
+        .animated-nav-btn.active {
+            background-color: #dc2626 !important;
+            transition: background-color 0.3s ease;
+        }
     }
 
     @keyframes fadeUp {
@@ -62,21 +73,21 @@ $component_id = 'scroll-buttons-' . uniqid();
 </style>
 
 <section class="relative bg-[#1a1a1a]" id="<?php echo esc_attr($component_id); ?>">
-    <div class="container-full mx-auto px-4">
-        <div class="relative flex gap-1 p-2 lg:justify-center lg:overflow-visible overflow-x-auto overflow-y-hidden hide-scrollbar">
-            <!-- Bubble que se mueve -->
-            <span class="animated-bubble absolute inset-0 bg-primary mix-blend-difference rounded-full z-0 my-2 opacity-0 md:block hidden"
+    <div class="container-full mx-auto !px-0 md:!px-4">
+        <div
+            class="relative flex gap-1 p-2 lg:justify-center lg:overflow-visible overflow-x-auto overflow-y-hidden hide-scrollbar">
+            <!-- Bubble que se mueve (solo desktop) -->
+            <span
+                class="animated-bubble absolute inset-0 bg-primary mix-blend-difference rounded-full z-0 my-2 opacity-0 hidden md:block"
                 id="<?php echo esc_attr($component_id); ?>-bubble"></span>
 
             <?php foreach ($buttons as $index => $button):
                 $delay = $button['delay'] ?? ($index + 1) * 100;
                 $btn_id = $component_id . '-btn-' . $index;
-            ?>
-                <a href="<?php echo esc_url($button['url']); ?>"
-                    id="<?php echo esc_attr($btn_id); ?>"
-                    class="animated-nav-btn relative px-4 py-2 text-md font-medium text-white bg-transparent border-0 rounded-full cursor-pointer transition-colors duration-300 whitespace-nowrap no-underline inline-block z-10 outline-none hover:text-white focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 <?php echo $index === 0 ? 'active' : ''; ?>"
-                    data-aos="fade-up"
-                    data-aos-anchor-placement="center-bottom"
+                ?>
+                <a href="<?php echo esc_url($button['url']); ?>" id="<?php echo esc_attr($btn_id); ?>"
+                    class="animated-nav-btn relative px-4 py-2 text-xs md:text-sm font-medium !text-white bg-transparent border-0 rounded-full cursor-pointer transition-colors duration-300 whitespace-nowrap no-underline inline-block z-10 outline-none hover:text-white focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2 <?php echo $index === 0 ? 'active' : ''; ?>"
+                    data-aos="fade-up" data-aos-anchor-placement="center-bottom"
                     data-aos-delay="<?php echo esc_attr($delay); ?>"
                     style="animation-delay: <?php echo esc_attr($delay); ?>ms; -webkit-tap-highlight-color: transparent;">
                     <?php echo esc_html($button['label']); ?>
@@ -87,22 +98,24 @@ $component_id = 'scroll-buttons-' . uniqid();
 </section>
 
 <script>
-    (function() {
+    (function () {
         const componentId = '<?php echo esc_attr($component_id); ?>';
         const container = document.getElementById(componentId);
         if (!container) return;
 
         const bubble = document.getElementById(componentId + '-bubble');
         const buttons = container.querySelectorAll('.animated-nav-btn');
+        const scrollContainer = container.querySelector('div > div');
+        const isMobile = window.innerWidth < 768;
 
         let activeButton = null;
 
-        // Mover el bubble a un botón específico
+        // Mover el bubble a un botón específico (solo desktop)
         function moveBubbleTo(button) {
-            if (!button || !bubble) return;
+            if (!button || !bubble || isMobile) return;
 
             const rect = button.getBoundingClientRect();
-            const containerRect = container.querySelector('div > div').getBoundingClientRect();
+            const containerRect = scrollContainer.getBoundingClientRect();
 
             const left = rect.left - containerRect.left;
             const width = rect.width;
@@ -112,6 +125,25 @@ $component_id = 'scroll-buttons-' . uniqid();
             bubble.style.height = 'auto';
             bubble.style.transform = `translateX(${left}px)`;
             bubble.style.opacity = '1';
+        }
+
+        // Centrar el botón en el contenedor scrollable (mobile)
+        function scrollButtonIntoView(button) {
+            if (!button || !scrollContainer || !isMobile) return;
+
+            const buttonRect = button.getBoundingClientRect();
+            const containerRect = scrollContainer.getBoundingClientRect();
+            const scrollLeft = scrollContainer.scrollLeft;
+
+            // Calcular la posición para centrar el botón
+            const buttonCenter = buttonRect.left - containerRect.left + scrollLeft + (buttonRect.width / 2);
+            const containerCenter = containerRect.width / 2;
+            const scrollTo = buttonCenter - containerCenter;
+
+            scrollContainer.scrollTo({
+                left: scrollTo,
+                behavior: 'smooth'
+            });
         }
 
         // Establecer botón activo
@@ -124,7 +156,14 @@ $component_id = 'scroll-buttons-' . uniqid();
             // Agregar clase active al nuevo
             if (button) {
                 button.classList.add('active');
-                moveBubbleTo(button);
+
+                if (isMobile) {
+                    // En mobile, centrar el botón en la sección
+                    scrollButtonIntoView(button);
+                } else {
+                    // En desktop, mover el bubble
+                    moveBubbleTo(button);
+                }
             }
 
             activeButton = button;
@@ -142,7 +181,7 @@ $component_id = 'scroll-buttons-' . uniqid();
                         // Actualizar inmediatamente el botón activo
                         setActiveButton(button);
 
-                        // Smooth scroll
+                        // Smooth scroll a la sección target
                         target.scrollIntoView({
                             behavior: 'smooth',
                             block: 'start'
@@ -151,24 +190,28 @@ $component_id = 'scroll-buttons-' . uniqid();
                 }
             });
 
-            // Hover effect
-            button.addEventListener('mouseenter', () => {
-                if (button !== activeButton) {
-                    moveBubbleTo(button);
-                }
-            });
-        });
-
-        // Restaurar bubble al botón activo cuando el mouse sale
-        container.querySelector('div > div').addEventListener('mouseleave', () => {
-            if (activeButton) {
-                moveBubbleTo(activeButton);
+            // Hover effect solo en desktop (dispositivos con puntero fino)
+            if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+                button.addEventListener('mouseenter', () => {
+                    if (button !== activeButton) {
+                        moveBubbleTo(button);
+                    }
+                });
             }
         });
 
-        // Ajustar posición del bubble en resize
+        // Restaurar bubble al botón activo cuando el mouse sale (solo desktop)
+        if (window.matchMedia('(hover: hover) and (pointer: fine)').matches) {
+            scrollContainer.addEventListener('mouseleave', () => {
+                if (activeButton) {
+                    moveBubbleTo(activeButton);
+                }
+            });
+        }
+
+        // Ajustar posición del bubble en resize (solo desktop)
         window.addEventListener('resize', () => {
-            if (activeButton) {
+            if (activeButton && !isMobile) {
                 moveBubbleTo(activeButton);
             }
         }, {

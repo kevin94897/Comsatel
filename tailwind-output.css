@@ -1697,6 +1697,11 @@ select {
   inset: 0px;
 }
 
+.inset-y-0 {
+  top: 0px;
+  bottom: 0px;
+}
+
 .-left-2 {
   left: -0.5rem;
 }
@@ -2164,6 +2169,10 @@ select {
   width: max-content;
 }
 
+.w-24 {
+  width: 6rem;
+}
+
 .min-w-\[12px\] {
   min-width: 12px;
 }
@@ -2234,6 +2243,14 @@ select {
 
 .max-w-xl {
   max-width: 36rem;
+}
+
+.max-w-\[280px\] {
+  max-width: 280px;
+}
+
+.max-w-full {
+  max-width: 100%;
 }
 
 .flex-1 {
@@ -2540,6 +2557,14 @@ select {
   border-radius: 0.75rem;
 }
 
+.rounded-3xl {
+  border-radius: 1.5rem;
+}
+
+.rounded-\[3rem\] {
+  border-radius: 3rem;
+}
+
 .rounded-br-none {
   border-bottom-right-radius: 0px;
 }
@@ -2554,6 +2579,10 @@ select {
 
 .border-2 {
   border-width: 2px;
+}
+
+.border-\[8px\] {
+  border-width: 8px;
 }
 
 .border-b {
@@ -2737,6 +2766,25 @@ select {
   --tw-bg-opacity: 0.95;
 }
 
+.bg-gradient-to-l {
+  background-image: linear-gradient(to left, var(--tw-gradient-stops));
+}
+
+.from-gray-50 {
+  --tw-gradient-from: #F9F9F9 var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(249 249 249 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.via-gray-50\/70 {
+  --tw-gradient-to: rgb(249 249 249 / 0)  var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), rgb(249 249 249 / 0.7) var(--tw-gradient-via-position), var(--tw-gradient-to);
+}
+
+.to-transparent {
+  --tw-gradient-to: transparent var(--tw-gradient-to-position);
+}
+
 .bg-auto {
   background-size: auto;
 }
@@ -2832,6 +2880,11 @@ select {
   padding-bottom: 1rem !important;
 }
 
+.px-0 {
+  padding-left: 0px;
+  padding-right: 0px;
+}
+
 .px-2 {
   padding-left: 0.5rem;
   padding-right: 0.5rem;
@@ -2917,6 +2970,11 @@ select {
   padding-bottom: 2rem;
 }
 
+.\!px-0 {
+  padding-left: 0px !important;
+  padding-right: 0px !important;
+}
+
 .\!pl-12 {
   padding-left: 3rem !important;
 }
@@ -2995,6 +3053,14 @@ select {
 
 .text-center {
   text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.font-sans {
+  font-family: Poppins, system-ui, -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Helvetica Neue, Arial, sans-serif;
 }
 
 .\!text-base {
@@ -3111,6 +3177,10 @@ select {
   letter-spacing: 0.05em;
 }
 
+.tracking-wide {
+  letter-spacing: 0.025em;
+}
+
 .text-\[\#47444D\] {
   --tw-text-opacity: 1;
   color: rgb(71 68 77 / var(--tw-text-opacity, 1));
@@ -3200,6 +3270,11 @@ select {
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
+.\!text-white {
+  --tw-text-opacity: 1 !important;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1)) !important;
+}
+
 .underline {
   text-decoration-line: underline;
 }
@@ -3222,6 +3297,10 @@ select {
 
 .opacity-75 {
   opacity: 0.75;
+}
+
+.opacity-90 {
+  opacity: 0.9;
 }
 
 .mix-blend-difference {
@@ -3543,6 +3622,16 @@ select {
   color: rgb(255 77 77 / var(--tw-text-opacity, 1));
 }
 
+.group:hover .group-hover\:text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.group:hover .group-hover\:\!text-white {
+  --tw-text-opacity: 1 !important;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1)) !important;
+}
+
 .group\/item:hover .group-hover\/item\:opacity-100 {
   opacity: 1;
 }
@@ -3662,6 +3751,14 @@ select {
     height: 56px;
   }
 
+  .md\:min-h-\[100px\] {
+    min-height: 100px;
+  }
+
+  .md\:min-h-\[70px\] {
+    min-height: 70px;
+  }
+
   .md\:w-32 {
     width: 8rem;
   }
@@ -3672,6 +3769,14 @@ select {
 
   .md\:w-auto {
     width: auto;
+  }
+
+  .md\:w-64 {
+    width: 16rem;
+  }
+
+  .md\:w-28 {
+    width: 7rem;
   }
 
   .md\:min-w-\[200px\] {
@@ -3708,10 +3813,6 @@ select {
 
   .md\:items-center {
     align-items: center;
-  }
-
-  .md\:justify-start {
-    justify-content: flex-start;
   }
 
   .md\:justify-center {
@@ -3780,6 +3881,11 @@ select {
   .md\:py-6 {
     padding-top: 1.5rem;
     padding-bottom: 1.5rem;
+  }
+
+  .md\:\!px-4 {
+    padding-left: 1rem !important;
+    padding-right: 1rem !important;
   }
 
   .md\:pb-16 {
@@ -3899,6 +4005,14 @@ select {
     max-height: 100%;
   }
 
+  .lg\:w-1\/3 {
+    width: 33.333333%;
+  }
+
+  .lg\:w-2\/3 {
+    width: 66.666667%;
+  }
+
   .lg\:cursor-default {
     cursor: default;
   }
@@ -3974,6 +4088,21 @@ select {
   .lg\:py-8 {
     padding-top: 2rem;
     padding-bottom: 2rem;
+  }
+
+  .lg\:px-0 {
+    padding-left: 0px;
+    padding-right: 0px;
+  }
+
+  .lg\:\!px-0 {
+    padding-left: 0px !important;
+    padding-right: 0px !important;
+  }
+
+  .lg\:\!px-2 {
+    padding-left: 0.5rem !important;
+    padding-right: 0.5rem !important;
   }
 
   .lg\:pb-24 {
