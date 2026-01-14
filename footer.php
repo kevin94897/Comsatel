@@ -12,17 +12,17 @@
 
 ?>
 
-<footer id="colophon" class="site-footer bg-gray-100 pt-16 pb-8">
+<footer id="colophon" class="site-footer bg-gray-100 pt-8 pb-8">
 	<div class="container-full mx-auto px-4 lg:px-8">
 
 		<!-- Top Section: Quality Certifications -->
-		<div class="flex flex-col lg:flex-row justify-between md:items-center mb-12 pb-12 border-b border-gray-300">
-			<h3 class="text-2xl lg:text-3xl font-medium text-dark mb-6 lg:mb-0">
+		<div class="flex flex-col lg:flex-row justify-between md:items-center mb-12 pb-6 border-b border-gray-300">
+			<h3 class="text-lg lg:text-xl font-medium text-dark mb-6 lg:mb-0">
 				Comprometidos con la calidad
 			</h3>
 			<div class="flex gap-6">
 				<img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_footer-certificados.png"
-					alt="ISO 9001 Certificado" class="h-20 lg:h-24 w-auto">
+					alt="ISO 9001 Certificado" class="h-15 lg:h-20 w-auto">
 			</div>
 		</div>
 

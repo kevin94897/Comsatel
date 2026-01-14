@@ -28,7 +28,7 @@
 			|| is_page_template('inc/template-gestion.php') || is_page_template('inc/template-contacto.php')
 			|| is_page_template('inc/template-soluciones.php') || is_page_template('inc/template-cookies.php');
 
-		$header_bg_class = $is_transparent_header ? '' : 'bg-white ';
+		$header_bg_class = $is_transparent_header ? '' : 'bg-transparent ';
 		$text_color_class = $is_transparent_header ? 'text-white' : 'text-gray-900';
 		$text_hover_class = $is_transparent_header ? 'hover:text-gray-200' : 'hover:text-primary';
 		$logo_text_class = $is_transparent_header ? 'text-white' : 'text-gray-900';
@@ -850,7 +850,7 @@
 					mobileCountryBtn.addEventListener('click', function(e) {
 						e.stopPropagation();
 						const isHidden = mobileCountryDropdown.classList.contains('hidden');
-						
+
 						if (isHidden) {
 							mobileCountryDropdown.classList.remove('hidden');
 							setTimeout(() => {
@@ -864,7 +864,7 @@
 								mobileCountryDropdown.classList.add('hidden');
 							}, 300);
 						}
-						
+
 						mobileCountryArrow.classList.toggle('rotate-180');
 					});
 

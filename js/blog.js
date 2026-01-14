@@ -13,6 +13,9 @@
     /**
      * Inicializar funcionalidad del blog
      */
+    /**
+     * Inicializar funcionalidad del blog
+     */
     function initBlog() {
         // Búsqueda
         $('#blog-search').on('input', function () {
@@ -22,8 +25,33 @@
             }, searchDelay);
         });
 
-        // Filtro
+        // Filtro de orden
         $('#blog-filter').on('change', function () {
+            filterPosts();
+        });
+
+        // Toggle dropdown de categorías
+        $('#category-dropdown-toggle').on('click', function (e) {
+            e.stopPropagation();
+            $('#category-dropdown-menu').toggleClass('hidden');
+            $(this).find('svg').toggleClass('rotate-180');
+        });
+
+        // Cerrar dropdown al hacer click fuera
+        $(document).on('click', function (e) {
+            if (!$(e.target).closest('#category-filter-wrapper').length) {
+                $('#category-dropdown-menu').addClass('hidden');
+                $('#category-dropdown-toggle').find('svg').removeClass('rotate-180');
+            }
+        });
+
+        // Prevenir cierre al hacer click dentro del menú
+        $('#category-dropdown-menu').on('click', function (e) {
+            e.stopPropagation();
+        });
+
+        // Cambio en checkboxes de categorías
+        $('.blog-category-checkbox').on('change', function () {
             filterPosts();
         });
 
@@ -34,11 +62,23 @@
     }
 
     /**
-     * Filtrar posts por búsqueda y orden
+     * Obtener categorías seleccionadas
+     */
+    function getSelectedCategories() {
+        const categories = [];
+        $('.blog-category-checkbox:checked').each(function () {
+            categories.push($(this).val());
+        });
+        return categories;
+    }
+
+    /**
+     * Filtrar posts por búsqueda, orden y categorías
      */
     function filterPosts() {
         const searchTerm = $('#blog-search').val();
         const orderBy = $('#blog-filter').val();
+        const categories = getSelectedCategories();
 
         // Mostrar loading
         $('#blog-posts-grid').css('opacity', '0.5');
@@ -51,6 +91,7 @@
                 nonce: comsatel_ajax.nonce,
                 search: searchTerm,
                 orderby: orderBy,
+                categories: categories,
             },
             success: function (response) {
                 if (response.success) {
@@ -91,6 +132,7 @@
 
         const searchTerm = $('#blog-search').val();
         const orderBy = $('#blog-filter').val();
+        const categories = getSelectedCategories();
 
         // Deshabilitar botón y mostrar spinner
         loadMoreBtn.prop('disabled', true);
@@ -105,6 +147,7 @@
                 page: nextPage,
                 search: searchTerm,
                 orderby: orderBy,
+                categories: categories,
             },
             success: function (response) {
                 if (response.success) {

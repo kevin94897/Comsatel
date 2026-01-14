@@ -39,6 +39,7 @@ function filter_blog_posts()
 
     $search = isset($_POST['search']) ? sanitize_text_field($_POST['search']) : '';
     $orderby = isset($_POST['orderby']) ? sanitize_text_field($_POST['orderby']) : 'date';
+    $categories = isset($_POST['categories']) ? array_map('intval', $_POST['categories']) : array();
 
     // Configurar argumentos de la consulta
     $args = array(
@@ -49,6 +50,11 @@ function filter_blog_posts()
         's' => $search,
     );
 
+    // Filtrar por categorías si se proporcionan
+    if (!empty($categories)) {
+        $args['category__in'] = $categories;
+    }
+
     // Configurar orden
     switch ($orderby) {
         case 'title':
@@ -58,6 +64,10 @@ function filter_blog_posts()
         case 'modified':
             $args['orderby'] = 'modified';
             $args['order'] = 'DESC';
+            break;
+        case 'oldest':
+            $args['orderby'] = 'date';
+            $args['order'] = 'ASC';
             break;
         default:
             $args['orderby'] = 'date';
@@ -101,6 +111,7 @@ function load_more_posts()
     $page = isset($_POST['page']) ? intval($_POST['page']) : 1;
     $search = isset($_POST['search']) ? sanitize_text_field($_POST['search']) : '';
     $orderby = isset($_POST['orderby']) ? sanitize_text_field($_POST['orderby']) : 'date';
+    $categories = isset($_POST['categories']) ? array_map('intval', $_POST['categories']) : array();
 
     // Configurar argumentos de la consulta
     $args = array(
@@ -111,6 +122,11 @@ function load_more_posts()
         's' => $search,
     );
 
+    // Filtrar por categorías si se proporcionan
+    if (!empty($categories)) {
+        $args['category__in'] = $categories;
+    }
+
     // Configurar orden
     switch ($orderby) {
         case 'title':
@@ -120,6 +136,10 @@ function load_more_posts()
         case 'modified':
             $args['orderby'] = 'modified';
             $args['order'] = 'DESC';
+            break;
+        case 'oldest':
+            $args['orderby'] = 'date';
+            $args['order'] = 'ASC';
             break;
         default:
             $args['orderby'] = 'date';

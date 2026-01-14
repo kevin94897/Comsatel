@@ -7,16 +7,16 @@
 get_header();
 ?>
 
-<main class="calculator-page">
+<main class="calculator-page bg-gray-50 md:pt-36 pt-24">
 
     <!-- Calculator Section -->
     <section class="">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="max-w-6xl mx-auto">
-                <div class="min-h-screen flex md:items-center items-start md:justify-center justify-start">
-                    <div class="flex items-start md:flex-row flex-col md:gap-24 gap-4 md:mt-0 mt-32">
+                <div class="flex md:items-center items-start md:justify-center justify-start">
+                    <div class="flex items-start md:flex-row flex-col md:gap-24 gap-4">
                         <div class="basis-[30%]">
-                            <h2 class="text-2xl md:text-4xl font-medium text-black mb-2">
+                            <h2 class="text-2xl md:text-4xl font-medium text-black mb-6">
                                 Calcule cuánto podría ahorrar
                             </h2>
                             <p class="text-black text-lg mt-4">
@@ -30,7 +30,7 @@ get_header();
                                     <!-- Question 1 -->
                                     <div class="calculator-question">
                                         <label class="flex items-start gap-3 mb-4">
-                                            <span class="flex-shrink-0 w-10 h-10 bg-gray-200 text-gray-900 rounded-full flex items-center justify-center font-medium md:text-lg text-sm">
+                                            <span class="flex-shrink-0 w-10 h-10 bg-gray-50 text-gray-900 rounded-full flex items-center justify-center font-medium md:text-lg text-sm">
                                                 1
                                             </span>
                                             <span class="md:text-2xl text-lg font-semibold text-gray-900 pt-0.5">
@@ -51,7 +51,7 @@ get_header();
                                     <!-- Question 2 -->
                                     <div class="calculator-question">
                                         <label class="flex items-start gap-3 mb-4">
-                                            <span class="flex-shrink-0 w-10 h-10 bg-gray-200 text-gray-900 rounded-full flex items-center justify-center font-medium md:text-lg text-sm">
+                                            <span class="flex-shrink-0 w-10 h-10 bg-gray-50 text-gray-900 rounded-full flex items-center justify-center font-medium md:text-lg text-sm">
                                                 2
                                             </span>
                                             <span class="md:text-2xl text-lg font-semibold text-gray-900 pt-0.5">
@@ -77,7 +77,7 @@ get_header();
                                     <!-- Question 3 -->
                                     <div class="calculator-question">
                                         <label class="flex items-start gap-3 mb-4">
-                                            <span class="flex-shrink-0 w-10 h-10 bg-gray-200 text-gray-900 rounded-full flex items-center justify-center font-medium md:text-lg text-sm">
+                                            <span class="flex-shrink-0 w-10 h-10 bg-gray-50 text-gray-900 rounded-full flex items-center justify-center font-medium md:text-lg text-sm">
                                                 3
                                             </span>
                                             <span class="md:text-2xl text-lg font-semibold text-gray-900 pt-0.5">
@@ -106,11 +106,11 @@ get_header();
                                     </div>
 
                                     <!-- Calculate Button -->
-                                    <div class="pt-4 text-center">
+                                    <div class="pt-4 text-left">
                                         <button
                                             type="submit"
                                             id="calculate-btn"
-                                            class="btn btn-primary transform hover:scale-105 transition-all duration-300">
+                                            class="btn btn-primary transform hover:scale-105 transition-all duration-300 md:min-w-[180px]">
                                             Calcular
                                         </button>
                                     </div>
@@ -122,7 +122,7 @@ get_header();
                 </div>
 
                 <!-- Right Column - Results -->
-                <div class="lg:sticky lg:top-8 pt-8 min-h-screen" id="results">
+                <div class="lg:sticky lg:top-8 pt-12 md:pt-24 min-h-screen" id="results">
                     <div class="" data-aos="fade-left">
 
                         <!-- Main Result -->
@@ -144,7 +144,7 @@ get_header();
                         <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
 
                             <!-- Combustible -->
-                            <div class="border border-primary rounded-xl p-6 hover:border-primary/50 transition-all duration-300">
+                            <div class="border border-primary rounded-lg bg-white p-6 hover:border-primary/50 transition-all duration-300">
                                 <div class="flex items-center gap-6 mb-3 items-center h-full justify-center flex-col md:flex-row">
                                     <div class="md:w-32 md:h-32 w-20 h-20 flex items-center justify-center flex-shrink-0">
                                         <img src="<?php echo get_template_directory_uri(); ?>/images/icons/comsatel_icon_gasolina.png" alt="Fuel">
@@ -162,7 +162,7 @@ get_header();
                             </div>
 
                             <!-- Mantenimiento -->
-                            <div class="border border-primary rounded-xl p-6 hover:border-primary/50 transition-all duration-300">
+                            <div class="border border-primary rounded-lg bg-white p-6 hover:border-primary/50 transition-all duration-300">
                                 <div class="flex items-center gap-6 mb-3 items-center h-full justify-center flex-col md:flex-row">
                                     <div class="md:w-32 md:h-32 w-20 h-20 flex items-center justify-center flex-shrink-0">
                                         <img src="<?php echo get_template_directory_uri(); ?>/images/icons/comsatel_icon_herramientas.png" alt="Ahorros en mantenimiento">
@@ -179,7 +179,7 @@ get_header();
                             </div>
 
                             <!-- Llantas -->
-                            <div class="border border-primary rounded-xl p-6 hover:border-primary/50 transition-all duration-300">
+                            <div class="border border-primary rounded-lg bg-white p-6 hover:border-primary/50 transition-all duration-300">
                                 <div class="flex items-center gap-6 mb-3 items-center h-full justify-center flex-col md:flex-row">
                                     <div class="md:w-32 md:h-32 w-20 h-20 flex items-center justify-center flex-shrink-0">
                                         <img src="<?php echo get_template_directory_uri(); ?>/images/icons/comsatel_icon_llanta.png" alt="Ahorros en llantas">
@@ -196,7 +196,7 @@ get_header();
                             </div>
 
                             <!-- Productividad -->
-                            <div class="border border-primary rounded-xl p-6 hover:border-primary/50 transition-all duration-300">
+                            <div class="border border-primary rounded-lg bg-white p-6 hover:border-primary/50 transition-all duration-300">
                                 <div class="flex items-center gap-6 mb-3 items-center h-full justify-center flex-col md:flex-row">
                                     <div class="md:w-32 md:h-32 w-20 h-20 flex items-center justify-center flex-shrink-0">
                                         <img src="<?php echo get_template_directory_uri(); ?>/images/icons/comsatel_icon_stonks.png" alt="Ahorros en productividad">
@@ -214,7 +214,7 @@ get_header();
                         </div>
 
                         <!-- Action Buttons -->
-                        <div class="mt-10 flex flex-col sm:flex-row gap-4">
+                        <div class="mt-10 flex flex-col sm:flex-row gap-4 max-w-4xl mx-auto">
                             <button
                                 type="button"
                                 id="email-report-btn"
@@ -224,7 +224,7 @@ get_header();
                             <button
                                 type="button"
                                 id="request-consultation-btn"
-                                class="btn btn-primary flex-1 !py-3">
+                                class="btn btn-secondary flex-1 !py-3">
                                 Solicitar asesoría personalizada
                             </button>
                         </div>

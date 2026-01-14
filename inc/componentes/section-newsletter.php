@@ -1,4 +1,4 @@
-<section class="py-16 bg-white">
+<section class="py-16 bg-gray-50">
     <div class="container mx-auto px-4">
         <div class="grid md:grid-cols-2 gap-12 items-center">
 
@@ -22,13 +22,13 @@
                     <input
                         type="email"
                         placeholder="correo@empresa.com"
-                        class="w-full sm:flex-1 px-4 py-3 border border-gray-300 rounded-lg
+                        class="!bg-transparent w-full sm:flex-1 px-4 py-3 border border-gray-300 rounded-lg
                                focus:outline-none focus:ring-2 focus:ring-primary focus:border-primary
                                text-gray-700">
 
                     <button
                         type="submit"
-                        class="btn btn-primary !rounded-md">
+                        class="btn btn-primary font-normal !rounded-md">
                         Suscribirse
                     </button>
                 </form>
