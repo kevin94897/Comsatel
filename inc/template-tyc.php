@@ -85,7 +85,7 @@ get_header();
                     data-aos="fade-right"
                     data-aos-duration="800"
                     data-aos-delay="200"></span>
-                <h1 class="text-2xl md:text-4xl lg:text-5xl font-semibold text-white mb-10 leading-tight mt-2 uppercase"
+                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-10 leading-tight mt-2 uppercase"
                     data-aos="fade-up"
                     data-aos-duration="1000"
                     data-aos-delay="400"
@@ -105,7 +105,7 @@ get_header();
 
     <section class="py-8 md:py-16 relative">
         <div class="container mx-auto px-4">
-            <h2 class="md:text-4xl text-2xl font-semibold text-primary mb-12 text-center">Política de Protección de Datos Personales</h2>
+            <h2 class="md:text-4xl text-2xl font-medium text-primary mb-12 text-center">Política de Protección de Datos Personales</h2>
             <section class="grid md:grid-cols-3 gap-10">
 
                 <!-- LEFT COLUMN (Sticky) -->
@@ -158,7 +158,7 @@ get_header();
                         data-aos="fade-up"
                         data-aos-duration="1000"
                         data-aos-delay="400">
-                        <h2 class="text-2xl font-semibold text-dark mb-4">Aspectos Generales</h2>
+                        <h2 class="text-2xl font-medium text-dark mb-4">Aspectos Generales</h2>
                         <p class="text-gray-700 leading-relaxed">
                             COMSATEL PERU S.A.C. (en adelante COMSATEL) valora a sus usuarios (entiéndase por usuarios a los clientes y ciudadanos que hacen uso de los diferentes bienes y servicios y acceden a los contenidos de la empresa) y está comprometida con la protección de su privacidad. Como parte de este compromiso, la empresa ha desarrollado la presente política de protección de datos personales (en adelante "Política de protección de datos personales") que describe detalladamente la manera en la que COMSATEL trata los datos personales en el marco de la relación que mantiene el usuario con los productos o servicios de la misma, esto incluye el uso del sitio web https://www.comsatel.com.pe/ (en adelante "Sitio Web") y los aplicativos respectivos (en adelante "aplicativos"). Dentro del contexto de la Ley N° 29733 (en adelante, la Ley) y el Decreto Supremo No. 016-2024-Jus (en adelante, el Reglamento), normas que se refieren a la protección de datos personales, el usuario expresa su consentimiento libre, previo, expreso, inequívoco e informado, por un plazo indefinido, y mientras no solicite su cancelación o revoque la presente autorización, a realizar el tratamiento de los datos que se declaren a través del presente canal (en adelante, los "Datos Personales"), que incluyen la transferencia de datos personales conforme al Capitulo III del Reglamento. De conformidad con el artículo 5 del Reglamento de la Ley dicho Consentimiento expreso e inequívoco de los términos y condiciones, y el tratamiento de los datos personales que le proporcione a COMSATEL se podrá realizar de las siguientes formas: 1. Verbal, cuando el titular del dato personal lo exterioriza oralmente de manera presencial o mediante el uso de cualquier tecnología que permita la interlocución oral. 2. Escrito, cuando se exterioriza mediante un documento o medio electrónico con su firma autógrafa, electrónica o digital, huella dactilar o cualquier otro mecanismo electrónico autorizado por el ordenamiento jurídico que pueda reflejar la manifestación de voluntad expresa. 3. Por canales digitales, cuando se firma un documento a través de medios electrónicos o digitales, o cualquier otro mecanismo electrónico autorizado por el ordenamiento jurídico que pueda reflejar la manifestación expresa, así como la manifestación consistente en "hacer clic", "cliquear" o "pinchar", "dar un toque", "touch" o "pad" u otros similares. 4. Mediante cualquier otro medio conforme a lo establecido en el artículo 141 del Código Civil
                         </p>
@@ -169,7 +169,7 @@ get_header();
                         data-aos="fade-up"
                         data-aos-duration="1000"
                         data-aos-delay="200">
-                        <h2 class="text-2xl font-semibold text-dark mb-4">Tratamiento de los Datos Personales</h2>
+                        <h2 class="text-2xl font-medium text-dark mb-4">Tratamiento de los Datos Personales</h2>
                         <p class="text-gray-700 leading-relaxed">
                             1- COMSATEL, con domicilio en Diego Gavilán N° 165, Magdalena, será responsable del uso, tratamiento y seguridad de los datos personales que yo le proporcione o que éste recopile, los que estarán almacenados en un banco de datos de su titularidad y que serán gestionados y tratados con todas las medidas de seguridad y confidencialidad por cualquiera de sus oficinas, la cual conservará los datos personales mientras sean necesarios para cumplir con las finalidades por las cuales se recopilaron o hasta que sean modificados, dependiendo de la naturaleza de los mismos, con la finalidad de utilizarlos en gestiones comerciales y administrativas. COMSATEL se obliga limitar el acceso a los datos personales a los que tienen acceso en virtud de la suscripción y/o ejecución del presente acuerdo, al personal estrictamente necesario para cumplir con la prestación de servicios a su cargo, comprometiéndose a suscribir con sus empleados y terceros de quienes se valga para el cumplimiento de sus obligaciones derivadas del presente acuerdo, un convenio de confidencialidad que disponga cuando menos, las mismas obligaciones de confidencialidad que las que son de su cargo
                         </p>
@@ -180,7 +180,7 @@ get_header();
                         data-aos="fade-up"
                         data-aos-duration="1000"
                         data-aos-delay="200">
-                        <h2 class="text-2xl font-semibold text-dark mb-4">Transferencia de Datos Personales</h2>
+                        <h2 class="text-2xl font-medium text-dark mb-4">Transferencia de Datos Personales</h2>
                         <p class="text-gray-700 leading-relaxed">
                             1- COMSATEL, con domicilio en Diego Gavilán N° 165, Magdalena, será responsable del uso, tratamiento y seguridad de los datos personales que yo le proporcione o que éste recopile, los que estarán almacenados en un banco de datos de su titularidad y que serán gestionados y tratados con todas las medidas de seguridad y confidencialidad por cualquiera de sus oficinas, la cual conservará los datos personales mientras sean necesarios para cumplir con las finalidades por las cuales se recopilaron o hasta que sean modificados, dependiendo de la naturaleza de los mismos, con la finalidad de utilizarlos en gestiones comerciales y administrativas. COMSATEL se obliga limitar el acceso a los datos personales a los que tienen acceso en virtud de la suscripción y/o ejecución del presente acuerdo, al personal estrictamente necesario para cumplir con la prestación de servicios a su cargo, comprometiéndose a suscribir con sus empleados y terceros de quienes se valga para el cumplimiento de sus obligaciones derivadas del presente acuerdo, un convenio de confidencialidad que disponga cuando menos, las mismas obligaciones de confidencialidad que las que son de su cargo
                         </p>
@@ -191,7 +191,7 @@ get_header();
                         data-aos="fade-up"
                         data-aos-duration="1000"
                         data-aos-delay="200">
-                        <h2 class="text-2xl font-semibold text-dark mb-4">Finalidad del Tratamiento</h2>
+                        <h2 class="text-2xl font-medium text-dark mb-4">Finalidad del Tratamiento</h2>
                         <p class="text-gray-700 leading-relaxed">
                             2- Finalidad del tratamiento de datos personales. Mis datos personales serán utilizados a través de canales presenciales y no presenciales con las siguientes finalidades: i) se me informe a través de cualquier medio de comunicación física o electrónica (teléfono, correo electrónico, medios telemáticos, aplicativos de mensajes instantáneos, SMS, redes sociales, páginas web, WhatsApp o cualquier otra aplicación móvil, o medios similares creados o por crearse) cualquier hecho o evento referido a la relación comercial establecida entre las partes, tales como bienes o servicios vendidos, precio de venta, condiciones de venta, instalaciones, plazos y datos similares; ii) se me envíe, a través de cualquier medio de comunicación física o electrónica (teléfono, correo electrónico, medios telemáticos, aplicativos de mensajes instantáneos, SMS, redes sociales, páginas web, WhatsApp o cualquier otra aplicación móvil, o medios similares creados o por crearse) publicidad, obsequios e información sobre los diferentes productos que provee COMSATEL iii) se realicen actividades de mercadeo (informes comerciales, estadísticas, encuestas y estudios de mercado); iv) se verifique que la información que se proporcione sea correcta, verdadera y se encuentre actualizada. COMSATEL podrá dar tratamiento a mis datos personales de manera directa o a través de proveedores de servicio que serán considerados como encargados de tratamiento de mis datos personales.
                         </p>

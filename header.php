@@ -26,7 +26,9 @@
 		$is_transparent_header = is_front_page() || is_page_template('inc/template-producto-gps.php')
 			|| is_page_template('template-blog.php') || is_single() || is_page_template('inc/template-tyc.php')
 			|| is_page_template('inc/template-gestion.php') || is_page_template('inc/template-contacto.php')
-			|| is_page_template('inc/template-soluciones.php') || is_page_template('inc/template-cookies.php');
+			|| is_page_template('inc/template-soluciones.php') || is_page_template('inc/template-cookies.php')
+			|| is_page_template('inc/template-descargas.php') || is_page_template('inc/template-actualizar-datos.php')
+			|| is_page_template('inc/template-servicio.php') || is_page_template('inc/template-sector.php');
 
 		$header_bg_class = $is_transparent_header ? '' : 'bg-transparent ';
 		$text_color_class = $is_transparent_header ? 'text-white' : 'text-gray-900';
@@ -50,7 +52,7 @@
 								<?php the_custom_logo(); ?>
 							<?php else: ?>
 								<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"
-									class="<?php echo $logo_text_class; ?> text-2xl font-semibold">
+									class="<?php echo $logo_text_class; ?> text-2xl font-medium">
 									<?php bloginfo('name'); ?>
 								</a>
 							<?php endif; ?>
@@ -69,7 +71,7 @@
 								<?php the_custom_logo(); ?>
 							<?php else: ?>
 								<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"
-									class="<?php echo $logo_text_class; ?> text-2xl font-semibold">
+									class="<?php echo $logo_text_class; ?> text-2xl font-medium">
 									<?php bloginfo('name'); ?>
 								</a>
 							<?php endif; ?>
@@ -106,7 +108,7 @@
 
 							<!-- Tabs Sidebar - Left Column -->
 							<div class="w-1/4 pr-6 flex flex-col space-b-2 border-r border-gray-100">
-								<div class="menu-tab-item active group/item flex items-center justify-between cursor-pointer p-3 rounded-md hover:bg-gray-50 transition-all text-red-600 font-semibold"
+								<div class="menu-tab-item active group/item flex items-center justify-between cursor-pointer p-3 rounded-md hover:bg-gray-50 transition-all text-red-600 font-medium"
 									data-target="por-necesidad">
 									<div class="flex items-center gap-3 text-xs">
 										<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -185,7 +187,7 @@
 											$icono = get_sub_field('icono_svg');
 									?>
 											<div class="mega-menu-section">
-												<h4 class="flex items-center gap-2 font-semibold text-gray-800 mb-4 text-xs">
+												<h4 class="flex items-center gap-2 font-medium text-gray-800 mb-4 text-xs">
 													<?php if ($icono): ?>
 														<span class="w-5 h-5 text-gray-500"><?php echo $icono; ?></span>
 													<?php else: ?>
@@ -251,7 +253,7 @@
 											$icono = get_sub_field('icono_svg');
 									?>
 											<div class="mega-menu-section">
-												<h4 class="flex items-center gap-2 font-semibold text-gray-800 mb-4 text-xs">
+												<h4 class="flex items-center gap-2 font-medium text-gray-800 mb-4 text-xs">
 													<?php if ($icono): ?>
 														<span class="w-5 h-5 text-gray-500"><?php echo $icono; ?></span>
 													<?php endif; ?>
@@ -309,7 +311,7 @@
 											$icono = get_sub_field('icono_svg');
 									?>
 											<div class="mega-menu-section">
-												<h4 class="flex items-center gap-2 font-semibold text-gray-800 mb-4 text-xs">
+												<h4 class="flex items-center gap-2 font-medium text-gray-800 mb-4 text-xs">
 													<?php if ($icono): ?>
 														<span class="w-5 h-5 text-gray-500"><?php echo $icono; ?></span>
 													<?php endif; ?>
@@ -362,7 +364,7 @@
 						</button>
 
 						<!-- Iniciar Sesión Button -->
-						<div class="relative inline-block group" data-aos="zoom-in" data-aos-delay="400">
+						<div class="relative inline-block group">
 							<button class="flex items-center !px-3 gap-2 border !rounded-md transition-all duration-300 font-medium
 		<?php echo $is_transparent_header ? 'btn-outline-white' : 'btn-outline'; ?> text-[14px]">
 								<span>Iniciar Sesión</span>
@@ -457,7 +459,7 @@
 						</a>
 
 						<!-- Country Selector -->
-						<div class="relative inline-block group ml-2" data-aos="zoom-in" data-aos-delay="500">
+						<div class="relative inline-block group ml-2">
 							<button class="flex items-center gap-2 transition-all duration-300 focus:outline-none bg-transparent border-none">
 								<!-- Active Flag (Peru) -->
 								<div class="w-7 h-7 rounded-full overflow-hidden relative shadow-sm ring-2 ring-transparent group-hover:ring-white/20 transition-all">
@@ -661,7 +663,7 @@
 												<button
 													class="mobile-nav-trigger w-full px-5 py-6 flex items-center justify-between text-gray-900 bg-white border-none"
 													data-target="soluciones">
-													<span class="font-semibold"><?php echo esc_html($item->title); ?></span>
+													<span class="font-medium"><?php echo esc_html($item->title); ?></span>
 													<svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
 														viewBox="0 0 24 24">
 														<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -692,7 +694,7 @@
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 									d="M15 19l-7-7 7-7" />
 							</svg>
-							<span class="font-semibold text-lg"></span>
+							<span class="font-medium text-lg"></span>
 						</button>
 						<ul class="divide-y divide-gray-50">
 							<?php
@@ -712,7 +714,7 @@
 												<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 													d="<?php echo $data['icon']; ?>" />
 											</svg>
-											<span class="font-semibold"><?php echo $data['label']; ?></span>
+											<span class="font-medium"><?php echo $data['label']; ?></span>
 										</div>
 										<svg class="w-4 h-4 text-gray-400" fill="none" stroke="currentColor"
 											viewBox="0 0 24 24">
@@ -733,7 +735,7 @@
 									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 										d="M15 19l-7-7 7-7" />
 								</svg>
-								<span class="font-semibold text-lg"></span>
+								<span class="font-medium text-lg"></span>
 							</button>
 							<?php if (have_rows('megamenu_' . $field_key, 'option')): ?>
 								<?php while (have_rows('megamenu_' . $field_key, 'option')):
@@ -741,7 +743,7 @@
 									$titulo = get_sub_field('titulo_seccion');
 									$icono = get_sub_field('icono_svg');
 								?>
-									<div class="flex items-center gap-2 font-semibold text-gray-800 text-md px-5 py-3">
+									<div class="flex items-center gap-2 font-medium text-gray-800 text-md px-5 py-3">
 										<?php if ($icono)
 											echo '<span class="w-4 h-4">' . $icono . '</span>'; ?>
 										<?php echo esc_html($titulo); ?>
@@ -780,7 +782,7 @@
 										<rect width="300" height="600" x="300" fill="#fff" />
 									</svg>
 								</div>
-								<span class="text-sm font-semibold text-gray-900">Perú</span>
+								<span class="text-sm font-medium text-gray-900">Perú</span>
 							</div>
 							<svg xmlns="http://www.w3.org/2000/svg" id="mobileCountryArrow" class="w-5 h-5 transition-transform duration-300 text-gray-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
 								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />

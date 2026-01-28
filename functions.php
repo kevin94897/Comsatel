@@ -137,6 +137,15 @@ function comsatel_scripts()
 		filemtime(get_template_directory() . '/js/scripts.js'),
 		true
 	);
+
+	// Ubicaciones Helper
+	wp_enqueue_script(
+		'comsatel-ubicaciones',
+		get_template_directory_uri() . '/js/ubicaciones.js',
+		[],
+		filemtime(get_template_directory() . '/js/ubicaciones.js'),
+		true
+	);
 }
 
 add_action('wp_enqueue_scripts', 'comsatel_scripts', 99);
@@ -450,3 +459,14 @@ require get_template_directory() . '/inc/ajax-libro-reclamaciones.php';
  * Include AJAX handlers for Contacto
  */
 require get_template_directory() . '/inc/ajax-contacto.php';
+
+
+/**
+ * Peru Locations Data
+ */
+require get_template_directory() . '/inc/data-ubicaciones.php';
+
+add_action('wp_enqueue_scripts', function () {
+	$ubicaciones = get_peru_locations_data();
+	wp_localize_script('comsatel-scripts', 'comsatelUbicaciones', $ubicaciones);
+}, 100);

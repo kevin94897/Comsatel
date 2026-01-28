@@ -24,7 +24,7 @@ if (empty($tabs))
                 <?php endif; ?>
 
                 <?php if ($title): ?>
-                    <h2 class="text-2xl lg:text-4xl font-semibold text-primary mb-4" data-aos="fade-in">
+                    <h2 class="text-2xl lg:text-4xl font-medium text-primary mb-4" data-aos="fade-in">
                         <?php echo esc_html($title); ?>
                     </h2>
                 <?php endif; ?>

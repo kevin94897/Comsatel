@@ -24,7 +24,7 @@ if (!$blog_query->have_posts()) {
     <div class="container mx-auto px-4 lg:px-8">
         <!-- Header -->
         <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-12 gap-2 md:gap-6">
-            <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold text-gray-900 max-w-xl">
+            <h2 class="text-2xl md:text-3xl lg:text-4xl font-medium text-gray-900 max-w-xl">
                 Novedades y recursos de Comsatel
             </h2>
             <a href="<?php echo get_permalink(get_option('page_for_posts')); ?>" class="btn-outline transition-colors">
@@ -63,7 +63,7 @@ if (!$blog_query->have_posts()) {
                             <span class="text-xs uppercase tracking-wider text-gray-400 mb-3 block">
                                 <?php echo esc_html($category_name); ?>
                             </span>
-                            <h3 class="text-2xl md:text-3xl font-semibold text-gray-900 mb-4 leading-tight">
+                            <h3 class="text-2xl md:text-3xl font-medium text-gray-900 mb-4 leading-tight">
                                 <a href="<?php the_permalink(); ?>" class="hover:text-primary transition-colors text-dark">
                                     <?php the_title(); ?>
                                 </a>
@@ -104,7 +104,7 @@ if (!$blog_query->have_posts()) {
                                 <span class="text-[10px] md:text-xs uppercase tracking-wider text-gray-400 mb-1 md:mb-2 block">
                                     <?php echo esc_html($category_name); ?>
                                 </span>
-                                <h4 class="text-sm md:text-lg font-semibold text-gray-900 leading-snug mb-0 md:mb-2">
+                                <h4 class="text-sm md:text-lg font-medium text-gray-900 leading-snug mb-0 md:mb-2">
                                     <a href="<?php the_permalink(); ?>" class="hover:text-primary transition-colors text-dark">
                                         <?php the_title(); ?>
                                     </a>

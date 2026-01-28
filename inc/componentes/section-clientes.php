@@ -9,7 +9,7 @@
         <div class="flex items-center h-full">
             <div class="max-w-2xl flex-1">
                 <p class="text-sm text-white uppercase tracking-wider mb-4" data-aos="fade-down">Más de 24,000 clientes</p>
-                <h2 class="text-2xl lg:text-4xl font-semibold text-white mb-4" data-aos="fade-up" data-aos-delay="100">Personas y empresas de múltiples sectores confían en Comsatel.</h2>
+                <h2 class="text-2xl lg:text-4xl font-medium text-white mb-4" data-aos="fade-up" data-aos-delay="100">Personas y empresas de múltiples sectores confían en Comsatel.</h2>
             </div>
         </div>
     </div>

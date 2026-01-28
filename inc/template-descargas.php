@@ -25,7 +25,7 @@ get_header();
                     data-aos="fade-right"
                     data-aos-duration="800"
                     data-aos-delay="200"></span>
-                <h1 class="text-2xl md:text-4xl lg:text-5xl font-semibold text-white mb-10 leading-tight mt-2 uppercase"
+                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-10 leading-tight mt-2 uppercase"
                     data-aos="fade-up"
                     data-aos-duration="1000"
                     data-aos-delay="400"
@@ -38,7 +38,7 @@ get_header();
 
     <section class="py-12 lg:py-16 bg-white overflow-hidden">
         <div class="container mx-auto px-4">
-            <h2 class="text-2xl lg:text-4xl font-semibold text-black mb-16" data-aos="fade-up">Descargas</h2>
+            <h2 class="text-2xl lg:text-4xl font-medium text-black mb-16" data-aos="fade-up">Descargas</h2>
 
             <div class="grid lg:grid-cols-2 gap-x-12 gap-y-16">
                 <?php
@@ -81,7 +81,7 @@ get_header();
                                     </span>
                                 <?php endif; ?>
 
-                                <h3 class="text-lg lg:text-xl font-semibold text-dark leading-tight mb-6">
+                                <h3 class="text-lg lg:text-xl font-medium text-dark leading-tight mb-6">
                                     <?php the_title(); ?>
                                 </h3>
 
@@ -90,7 +90,7 @@ get_header();
                                 ?>
                                     <a href="<?php echo esc_url($file_url); ?>"
                                         target="_blank" download
-                                        class="inline-flex items-center gap-2 text-primary font-semibold uppercase tracking-wider text-sm hover:translate-x-1 transition-transform group/link">
+                                        class="inline-flex items-center gap-2 text-primary font-medium uppercase tracking-wider text-sm hover:translate-x-1 transition-transform group/link">
                                         DESCARGAR
                                         <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 transition-transform group-hover/link:translate-x-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />

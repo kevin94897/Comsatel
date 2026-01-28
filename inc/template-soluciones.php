@@ -18,7 +18,7 @@ get_header(); ?>
         <div class="container-full md:mx-auto md:px-4 lg:px-8 relative z-10">
             <div class="max-w-3xl">
                 <span class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>
-                <h1 class="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-20 leading-tight mt-2" data-aos="fade-up"
+                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-20 leading-tight mt-2" data-aos="fade-up"
                     data-aos-duration="1000">
                     SEGURIDAD EN EL<br>
                     TRANSPORTE EN RUTA
@@ -69,7 +69,7 @@ get_header(); ?>
         <div class="container mx-auto px-4 lg:px-8">
             <div class="max-w-4xl mx-auto text-center">
                 <p class="text-sm text-gray uppercase tracking-wider mb-4" data-aos="fade-down">Desafío</p>
-                <p class="leading-relaxed mb-0 md:text-2xl text-xl font-semibold tracking-[-0.08px]" data-aos="fade-up"
+                <p class="leading-relaxed mb-0 md:text-2xl text-xl font-medium tracking-[-0.08px]" data-aos="fade-up"
                     data-aos-delay="100">
                     Las operaciones de transporte enfrentan riesgos de robos, accidentes y pérdida de control en ruta.
                     El reto es mantener la seguridad del vehículo, la carga y el conductor en todo momento.
@@ -89,7 +89,7 @@ get_header(); ?>
                         PORTAFOLIO DE SOLUCIONES
                     </p>
 
-                    <h2 class="text-2xl lg:text-4xl font-semibold text-primary mb-4" data-aos="fade-in">
+                    <h2 class="text-2xl lg:text-4xl font-medium text-primary mb-4" data-aos="fade-in">
                         Nuestras soluciones de seguridad en el transporte en ruta
                     </h2>
 
@@ -107,7 +107,7 @@ get_header(); ?>
                 </div>
                 <div class="order-1 lg:order-2" data-aos="fade-left" data-aos-delay="200">
                     <p class="text-sm uppercase tracking-tighter mb-3 text-primary font-medium">Beneficios</p>
-                    <h3 class="text-2xl lg:text-4xl font-semibold text-black mb-6">Sistema de video</h3>
+                    <h3 class="text-2xl lg:text-4xl font-medium text-black mb-6">Sistema de video</h3>
                     <p class="leading-relaxed mb-6">
                         Gestión sobre kilómetros a pie de protección que necesitas en seguridad vial contra la
                         integración de tu flota, con video en vivo grabado de nuestros camiones.
@@ -162,7 +162,7 @@ get_header(); ?>
                 </div>
                 <div class="order-1" data-aos="fade-right" data-aos-delay="200">
                     <p class="text-sm uppercase tracking-wider mb-3 text-primary font-medium">Servicio de rastreo</p>
-                    <h3 class="text-2xl lg:text-4xl font-semibold mb-6">Sistema de rastreo satelital</h3>
+                    <h3 class="text-2xl lg:text-4xl font-medium mb-6">Sistema de rastreo satelital</h3>
                     <p class="leading-relaxed mb-6">
                         Controla el tránsito en tu flota con rastreo en tiempo real de los vehículos mediante el sistema
                         de nuestro sistema GPS/Glonass, lo brinda información en tiempo real y acceso a reportes
@@ -186,7 +186,7 @@ get_header(); ?>
                 </div>
                 <div class="order-1 lg:order-2" data-aos="fade-left" data-aos-delay="200">
                     <p class="text-sm uppercase tracking-wider mb-3 text-primary font-medium">Solución</p>
-                    <h3 class="text-2xl lg:text-4xl font-semibold mb-6">Sello electrónico ThunderLock</h3>
+                    <h3 class="text-2xl lg:text-4xl font-medium mb-6">Sello electrónico ThunderLock</h3>
                     <p class="leading-relaxed mb-6">
                         Protege tu mercadería durante todo el trayecto con un sistema de bloqueo electrónico satelital
                         de alta seguridad para garantía que llegue sin incidentes.
@@ -209,7 +209,7 @@ get_header(); ?>
                 </div>
                 <div class="order-1" data-aos="fade-right" data-aos-delay="200">
                     <p class="text-sm uppercase tracking-wider mb-3 text-primary font-medium">Solución</p>
-                    <h3 class="text-2xl lg:text-4xl font-semibold mb-6">Botón de pánico y buzzer</h3>
+                    <h3 class="text-2xl lg:text-4xl font-medium mb-6">Botón de pánico y buzzer</h3>
                     <p class="leading-relaxed mb-6">
                         Herramienta de seguridad básica y esencial que permite enviar una alerta inmediata en casos de
                         emergencia, alertando de manera temprana en casos de robo o violencia que puedan afectar a la
@@ -233,7 +233,7 @@ get_header(); ?>
                 </div>
                 <div class="order-1 lg:order-2" data-aos="fade-left" data-aos-delay="200">
                     <p class="text-sm uppercase tracking-wider mb-3 text-primary font-medium">Controla y mantente</p>
-                    <h3 class="text-2xl lg:text-4xl font-semibold mb-6">Kit Dual</h3>
+                    <h3 class="text-2xl lg:text-4xl font-medium mb-6">Kit Dual</h3>
                     <p class="leading-relaxed mb-6">
                         Nuestro kit combina y sincroniza en punto de contacto ideal porque lo puede adquirir para
                         facilitar asegurados, ayuda como complemento de todas nuestras soluciones tecnológicas.

@@ -77,7 +77,7 @@
 
 			<!-- Empresa Column -->
 			<div class="lg:col-span-1 border-b border-gray-200">
-				<h4 class="text-lg font-semibold text-dark my-4 cursor-pointer accordion-title flex items-center justify-between lg:cursor-default">
+				<h4 class="text-lg font-medium text-dark my-4 cursor-pointer accordion-title flex items-center justify-between lg:cursor-default">
 					Empresa
 					<span class="flex-shrink-0 text-red-500 lg:hidden">
 						<svg class="arrow-up-footer w-4 h-4 transform -rotate-45 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="20" height="24"
@@ -111,7 +111,7 @@
 
 			<!-- Avisos legales Column -->
 			<div class="lg:col-span-1 border-b border-gray-200">
-				<h4 class="text-lg font-semibold text-dark my-4 cursor-pointer accordion-title flex items-center justify-between lg:cursor-default">
+				<h4 class="text-lg font-medium text-dark my-4 cursor-pointer accordion-title flex items-center justify-between lg:cursor-default">
 					Avisos Legales
 					<span class="flex-shrink-0 text-red-500 lg:hidden">
 						<svg class="arrow-up-footer w-4 h-4 transform -rotate-45 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="20" height="24"
@@ -146,7 +146,7 @@
 
 			<!-- Contacto Column -->
 			<div class="lg:col-span-1">
-				<h4 class="text-lg font-semibold text-dark my-4 cursor-pointer accordion-title flex items-center justify-between lg:cursor-default">
+				<h4 class="text-lg font-medium text-dark my-4 cursor-pointer accordion-title flex items-center justify-between lg:cursor-default">
 					Contacto
 					<span class="flex-shrink-0 text-red-500 lg:hidden">
 						<svg class="arrow-up-footer w-4 h-4 transform -rotate-45 transition-transform duration-300" xmlns="http://www.w3.org/2000/svg" width="20" height="24"

@@ -212,7 +212,7 @@ get_header();
 <main id="primary" class="site-main">
 
     <!-- Formulario de Reclamaciones -->
-    <section class="py-12 py-24 md:py-32 min-h-screen flex md:items-center items-start md:justify-center justify-start">
+    <section class="py-12 py-24 md:py-42 min-h-screen flex md:items-center items-start md:justify-center justify-start">
         <div class="container mx-auto px-4">
             <div class="max-w-7xl mx-auto">
 
@@ -239,7 +239,7 @@ get_header();
                                     <div class="flex items-start gap-4">
                                         <div class="step-number flex-shrink-0">1</div>
                                         <div class="flex-1">
-                                            <h3 class="step-label font-semibold text-base mb-1">Datos del Reclamante</h3>
+                                            <h3 class="step-label font-medium text-base mb-1">Datos del Reclamante</h3>
                                             <p class="text-sm text-gray-500">Información personal del reclamante</p>
                                         </div>
                                     </div>
@@ -249,7 +249,7 @@ get_header();
                                     <div class="flex items-start gap-4">
                                         <div class="step-number flex-shrink-0">2</div>
                                         <div class="flex-1">
-                                            <h3 class="step-label font-semibold text-base mb-1">Datos del Usuario Titular</h3>
+                                            <h3 class="step-label font-medium text-base mb-1">Datos del Usuario Titular</h3>
                                             <p class="text-sm text-gray-500">Solo si eres trabajador</p>
                                         </div>
                                     </div>
@@ -259,7 +259,7 @@ get_header();
                                     <div class="flex items-start gap-4">
                                         <div class="step-number flex-shrink-0">3</div>
                                         <div class="flex-1">
-                                            <h3 class="step-label font-semibold text-base mb-1">Detalle del reclamo</h3>
+                                            <h3 class="step-label font-medium text-base mb-1">Detalle del reclamo</h3>
                                             <p class="text-sm text-gray-500">Describe tu situación</p>
                                         </div>
                                     </div>
@@ -356,7 +356,7 @@ get_header();
                                     </div>
 
                                     <div class="flex justify-end mt-8">
-                                        <button type="button" class="btn-next bg-primary text-white px-8 py-3 rounded-md font-semibold flex items-center gap-2 hover:bg-primary-600 transition-all" onclick="nextStep(1)">
+                                        <button type="button" class="btn-next bg-primary text-white px-8 py-3 rounded-md font-medium flex items-center gap-2 hover:bg-primary-600 transition-all" onclick="nextStep(1)">
                                             Siguiente
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -410,13 +410,13 @@ get_header();
                                     </div>
 
                                     <div class="flex justify-between mt-8">
-                                        <button type="button" class="bg-gray-300 text-gray-700 px-8 py-3 rounded-md font-semibold flex items-center gap-2 hover:bg-gray-400 transition-all" onclick="prevStep(2)">
+                                        <button type="button" class="bg-gray-300 text-gray-700 px-8 py-3 rounded-md font-medium flex items-center gap-2 hover:bg-gray-400 transition-all" onclick="prevStep(2)">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
                                             </svg>
                                             Anterior
                                         </button>
-                                        <button type="button" class="btn-next bg-primary text-white px-8 py-3 rounded-md font-semibold flex items-center gap-2 hover:bg-primary-600 transition-all" onclick="nextStep(2)">
+                                        <button type="button" class="btn-next bg-primary text-white px-8 py-3 rounded-md font-medium flex items-center gap-2 hover:bg-primary-600 transition-all" onclick="nextStep(2)">
                                             Siguiente
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
@@ -491,7 +491,7 @@ get_header();
                                                         <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
                                                     </svg>
                                                     <p class="text-sm text-black">
-                                                        <span class="font-semibold text-primary">Cargar un archivo</span> o arrastra y suelta
+                                                        <span class="font-medium text-primary">Cargar un archivo</span> o arrastra y suelta
                                                     </p>
                                                     <p class="text-xs text-gray-500 mt-1">PDF, JPG, PNG hasta 10MB</p>
                                                 </div>
@@ -501,13 +501,13 @@ get_header();
                                     </div>
 
                                     <div class="flex justify-between mt-8">
-                                        <button type="button" class="bg-gray-300 text-gray-700 px-8 py-3 rounded-md font-semibold flex items-center gap-2 hover:bg-gray-400 transition-all" onclick="prevStep(3)">
+                                        <button type="button" class="bg-gray-300 text-gray-700 px-8 py-3 rounded-md font-medium flex items-center gap-2 hover:bg-gray-400 transition-all" onclick="prevStep(3)">
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                                 <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
                                             </svg>
                                             Anterior
                                         </button>
-                                        <button type="submit" class="btn-next bg-primary text-white px-8 py-3 rounded-md font-semibold flex items-center gap-2 hover:bg-primary-600 transition-all">
+                                        <button type="submit" class="btn-next bg-primary text-white px-8 py-3 rounded-md font-medium flex items-center gap-2 hover:bg-primary-600 transition-all">
                                             Enviar
                                             <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
                                                 <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
@@ -526,9 +526,9 @@ get_header();
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                     </svg>
                                 </div>
-                                <h3 class="text-2xl font-semibold text-gray-800 mb-4">¡Reclamo Enviado!</h3>
+                                <h3 class="text-2xl font-medium text-gray-800 mb-4">¡Reclamo Enviado!</h3>
                                 <p class="text-black mb-8">Hemos recibido tu información correctamente. Te hemos enviado un correo de confirmación con los detalles.</p>
-                                <button onclick="location.reload()" class="bg-primary text-white px-8 py-3 rounded-md font-semibold hover:bg-primary-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                <button onclick="location.reload()" class="bg-primary text-white px-8 py-3 rounded-md font-medium hover:bg-primary-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                                     Volver al inicio
                                 </button>
                             </div>

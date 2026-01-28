@@ -21,7 +21,7 @@ get_header();
         <div class="container-full md:mx-auto md:px-4 lg:px-8 relative z-10">
             <div class="">
                 <span class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>
-                <h1 class="text-2xl md:text-4xl lg:text-5xl font-semibold text-white mb-10 leading-tight mt-2 uppercase" data-aos="fade-up"
+                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-10 leading-tight mt-2 uppercase" data-aos="fade-up"
                     data-aos-duration="1000">
                     <?php the_title(); ?>
                 </h1>
@@ -50,7 +50,7 @@ get_header();
                         </svg>
 
                     </div>
-                    <h3 class="text-lg md:text-2xl font-semibold text-dark mb-2 tracking-tight">Renovaciones</h3>
+                    <h3 class="text-lg md:text-2xl font-medium text-dark mb-2 tracking-tight">Renovaciones</h3>
                     <div class="space-y-4">
                         <div class="flex items-center justify-center gap-3">
                             <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -77,7 +77,7 @@ get_header();
                         </svg>
 
                     </div>
-                    <h3 class="text-lg md:text-2xl font-semibold text-dark mb-2 tracking-tight">Robos</h3>
+                    <h3 class="text-lg md:text-2xl font-medium text-dark mb-2 tracking-tight">Robos</h3>
                     <div class="space-y-4">
                         <div class="flex items-center justify-center gap-3">
                             <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -103,7 +103,7 @@ get_header();
                         </svg>
 
                     </div>
-                    <h3 class="text-lg md:text-2xl font-semibold text-dark mb-2 tracking-tight">Ventas</h3>
+                    <h3 class="text-lg md:text-2xl font-medium text-dark mb-2 tracking-tight">Ventas</h3>
                     <div class="space-y-2">
                         <div class="flex items-center justify-center gap-3">
                             <svg class="w-5 h-5 text-black" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -129,7 +129,7 @@ get_header();
             <div class="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
                 <!-- Columna Izquierda: Contenido -->
                 <div class="lg:w-1/2" data-aos="fade-right">
-                    <h2 class="text-2xl lg:text-4xl font-semibold text-black mb-6 leading-tight">
+                    <h2 class="text-2xl lg:text-4xl font-medium text-black mb-6 leading-tight">
                         Deseas comunicar con servicio al cliente
                     </h2>
                     <p class="text-gray text-lg mb-10 leading-relaxed max-w-xl">
@@ -171,7 +171,7 @@ get_header();
     </section>
 
     <!-- Formulario de Contacto -->
-    <section class="py-16 md:py-24 relative">
+    <section class="py-16 md:py-18 relative">
         <div class="absolute inset-0 bg-auto bg-[center_left] bg-no-repeat"
             style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/comsatel_vector.png');">
         </div>
@@ -179,14 +179,14 @@ get_header();
             <div class="">
 
                 <!-- Contenedor del Formulario -->
-                <div class="bg-white rounded-md shadow-lg p-8 md:p-12">
+                <div class="bg-white rounded-xl shadow-lg p-8 md:p-12">
 
                     <!-- Formulario -->
                     <form id="contacto-form" class="space-y-6">
 
                         <!-- Título y Descripción -->
                         <div class="text-center mb-8">
-                            <h2 class="text-2xl md:text-3xl font-normal text-dark mb-4">Enviar una solicitud</h2>
+                            <h2 class="text-2xl md:text-4xl font-normal text-dark mb-4">Enviar una solicitud</h2>
                             <p class="text-black">Ingresa tus datos y describe tu solicitud. Uno de nuestros representantes se pondrá en contacto contigo.</p>
                         </div>
 
@@ -227,7 +227,7 @@ get_header();
 
                             <!-- Nombre y Apellido -->
                             <div>
-                                <label for="nombre" class="block text-sm font-semibold text-dark mb-2">Nombre y Apellido</label>
+                                <label for="nombre" class="block text-sm font-medium text-dark mb-2">Nombre y Apellido</label>
                                 <input
                                     type="text"
                                     id="nombre"
@@ -239,7 +239,7 @@ get_header();
 
                             <!-- Teléfono -->
                             <div>
-                                <label for="telefono" class="block text-sm font-semibold text-dark mb-2">Teléfono</label>
+                                <label for="telefono" class="block text-sm font-medium text-dark mb-2">Teléfono</label>
                                 <input
                                     type="tel"
                                     id="telefono"
@@ -251,7 +251,7 @@ get_header();
 
                             <!-- Correo -->
                             <div>
-                                <label for="email" class="block text-sm font-semibold text-dark mb-2">Correo</label>
+                                <label for="email" class="block text-sm font-medium text-dark mb-2">Correo</label>
                                 <input
                                     type="email"
                                     id="email"
@@ -263,7 +263,7 @@ get_header();
 
                             <!-- Empresa (condicional) -->
                             <div id="empresa_field" class="hidden">
-                                <label for="empresa" class="block text-sm font-semibold text-dark mb-2">Empresa</label>
+                                <label for="empresa" class="block text-sm font-medium text-dark mb-2">Empresa</label>
                                 <input
                                     type="text"
                                     id="empresa"
@@ -294,7 +294,7 @@ get_header();
 
                         <!-- Mensaje -->
                         <div>
-                            <label for="mensaje" class="block text-sm font-semibold text-dark mb-2">Mensaje</label>
+                            <label for="mensaje" class="block text-sm font-medium text-dark mb-2">Mensaje</label>
                             <textarea
                                 id="mensaje"
                                 name="mensaje"
@@ -310,11 +310,11 @@ get_header();
                                 type="checkbox"
                                 id="acepta_politica"
                                 name="acepta_politica"
-                                class="w-4 h-4 mt-1 text-primary border-gray-300 rounded focus:ring-primary"
+                                class="w-4 h-4 mt-1 text-primary border-gray-300 focus:ring-primary"
                                 required>
-                            <label for="acepta_politica" class="text-sm text-black">
+                            <label for="acepta_politica" class="text-sm text-black font-normal">
                                 Al proporcionar esta información usted autoriza a Comsatel Perú el tratamiento de sus datos personales. Para mayor información conoce nuestra
-                                <a href="#" class="text-black underline hover:text-black-600">Política de Privacidad</a>
+                                <a href="#" class="text-black underline hover:text-black-600 font-semibold">Política de Privacidad</a>
                             </label>
                         </div>
 
@@ -336,9 +336,9 @@ get_header();
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                             </svg>
                         </div>
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">¡Solicitud Enviada!</h3>
+                        <h3 class="text-2xl font-medium text-gray-800 mb-4">¡Solicitud Enviada!</h3>
                         <p class="text-black mb-8">Hemos recibido tu información correctamente. Nos pondremos en contacto contigo pronto.</p>
-                        <button onclick="location.reload()" class="bg-primary text-white px-8 py-3 rounded-full font-semibold hover:bg-primary-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                        <button onclick="location.reload()" class="bg-primary text-white px-8 py-3 rounded-full font-medium hover:bg-primary-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                             Enviar otra solicitud
                         </button>
                     </div>
@@ -351,7 +351,7 @@ get_header();
     <section class="pb-8 md:pb-16 relative">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl">
-                <h2 class="md:text-3xl text-2xl font-semibold text-black mb-5 text-left">Centros de atención Comsatel</h2>
+                <h2 class="md:text-3xl text-2xl font-medium text-black mb-5 text-left">Centros de atención Comsatel</h2>
                 <p class="text-left mb-0">Contamos con oficinas y centros de atención en todo el país para brindarte soporte, asesoría y acompañamiento cuando lo necesites.</p>
             </div>
         </div>
@@ -470,7 +470,7 @@ get_header();
                             </span>
 
                             <!-- Título -->
-                            <h5 class="md:text-xl text-sm font-semibold leading-tight text-[#47444D] transition-colors duration-200 group-hover:text-primary m-0">
+                            <h5 class="md:text-lg text-sm font-semibold leading-tight text-[#47444D] transition-colors duration-200 group-hover:text-primary m-0">
                                 Oficina administrativa
                             </h5>
 
@@ -516,7 +516,7 @@ get_header();
                             </span>
 
                             <!-- Título -->
-                            <h5 class="md:text-xl text-sm font-semibold leading-tight text-[#47444D] transition-colors duration-200 group-hover:text-primary m-0">
+                            <h5 class="md:text-lg text-sm font-semibold leading-tight text-[#47444D] transition-colors duration-200 group-hover:text-primary m-0">
                                 Oficina administrativa
                             </h5>
 
@@ -562,7 +562,7 @@ get_header();
                             </span>
 
                             <!-- Título -->
-                            <h5 class="md:text-xl text-sm font-semibold leading-tight text-[#47444D] transition-colors duration-200 group-hover:text-primary m-0">
+                            <h5 class="md:text-lg text-sm font-semibold leading-tight text-[#47444D] transition-colors duration-200 group-hover:text-primary m-0">
                                 Oficina administrativa
                             </h5>
 
@@ -608,7 +608,7 @@ get_header();
                             </span>
 
                             <!-- Título -->
-                            <h5 class="md:text-xl text-sm font-semibold leading-tight text-[#47444D] transition-colors duration-200 group-hover:text-primary m-0">
+                            <h5 class="md:text-lg text-sm font-semibold leading-tight text-[#47444D] transition-colors duration-200 group-hover:text-primary m-0">
                                 Oficina administrativa
                             </h5>
 
@@ -654,7 +654,7 @@ get_header();
                             </span>
 
                             <!-- Título -->
-                            <h5 class="md:text-xl text-sm font-semibold leading-tight text-[#47444D] transition-colors duration-200 group-hover:text-primary m-0">
+                            <h5 class="md:text-lg text-sm font-semibold leading-tight text-[#47444D] transition-colors duration-200 group-hover:text-primary m-0">
                                 Oficina administrativa
                             </h5>
 
@@ -700,7 +700,7 @@ get_header();
                             </span>
 
                             <!-- Título -->
-                            <h5 class="md:text-xl text-sm font-semibold leading-tight text-[#47444D] transition-colors duration-200 group-hover:text-primary m-0">
+                            <h5 class="md:text-lg text-sm font-semibold leading-tight text-[#47444D] transition-colors duration-200 group-hover:text-primary m-0">
                                 Oficina administrativa
                             </h5>
 
@@ -739,7 +739,7 @@ get_header();
         <div class="bg-white rounded-md max-w-5xl w-full relative animate-fadeInUp min-h-[500px]">
             <!-- Header del Modal -->
             <div class="flex items-center justify-between p-6 border-b">
-                <h3 id="modal-title" class="text-2xl font-semibold text-dark mb-0">Lima - Oficina Administrativa</h3>
+                <h3 id="modal-title" class="text-2xl font-medium text-dark mb-0">Lima - Oficina Administrativa</h3>
                 <button onclick="closeMapModal()" class="text-gray-500 hover:text-gray-700 transition-colors bg-transparent border-none">
                     <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
@@ -770,12 +770,12 @@ get_header();
                             </svg>
                         </div>
                         <div class="">
-                            <span class="font-semibold text-dark mb-1">COMSATEL</span>
+                            <span class="font-medium text-dark mb-1">COMSATEL</span>
                         </div>
                     </div>
                     <p id="modal-address" class="text-dark mb-1">Av. Calle 26 No. 69-63 Torre 26 Centro Empresarial Oficina 307 Bogotá</p>
                     <p id="modal-hours" class="text-sm text-black mb-4"><span class="text-green">Abierto</span> Lun a Dom: 24 hrs.</p>
-                    <a id="modal-directions" href="#" target="_blank" class="inline-flex items-center gap-2 text-sm font-semibold tracking-wider text-primary hover:text-primary-600 transition-colors">
+                    <a id="modal-directions" href="#" target="_blank" class="inline-flex items-center gap-2 text-sm font-medium tracking-wider text-primary hover:text-primary-600 transition-colors">
                         <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20" fill="none">
                             <g clip-path="url(#clip0_1194_3723)">
                                 <path d="M10.0018 15L8.3351 11.6667L2.50177 8.75C2.42198 8.71344 2.35437 8.65474 2.30697 8.58088C2.25957 8.50701 2.23438 8.4211 2.23438 8.33333C2.23437 8.24557 2.25957 8.15965 2.30697 8.08579C2.35437 8.01193 2.42198 7.95323 2.50177 7.91667L17.5018 2.5L14.4884 10.8458" stroke="#FF4D4D" stroke-width="1.25" stroke-linecap="round" stroke-linejoin="round" />

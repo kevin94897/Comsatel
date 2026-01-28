@@ -33,7 +33,7 @@ get_header();
                                             <span class="flex-shrink-0 w-10 h-10 bg-gray-50 text-gray-900 rounded-full flex items-center justify-center font-medium md:text-lg text-sm">
                                                 1
                                             </span>
-                                            <span class="md:text-2xl text-lg font-semibold text-gray-900 pt-0.5">
+                                            <span class="md:text-2xl text-lg font-medium text-gray-900 pt-0.5">
                                                 ¿Cuántos vehículos tienes en tu flota?
                                             </span>
                                         </label>
@@ -54,7 +54,7 @@ get_header();
                                             <span class="flex-shrink-0 w-10 h-10 bg-gray-50 text-gray-900 rounded-full flex items-center justify-center font-medium md:text-lg text-sm">
                                                 2
                                             </span>
-                                            <span class="md:text-2xl text-lg font-semibold text-gray-900 pt-0.5">
+                                            <span class="md:text-2xl text-lg font-medium text-gray-900 pt-0.5">
                                                 ¿Cuántos kilómetros recorre cada vehículo al mes?
                                             </span>
                                         </label>
@@ -69,7 +69,7 @@ get_header();
                                                 min="1"
                                                 required>
                                             <div class="flex items-center px-2 py-2">
-                                                <span class="text-black font-semibold">KM</span>
+                                                <span class="text-black font-medium">KM</span>
                                             </div>
                                         </div>
                                     </div>
@@ -80,7 +80,7 @@ get_header();
                                             <span class="flex-shrink-0 w-10 h-10 bg-gray-50 text-gray-900 rounded-full flex items-center justify-center font-medium md:text-lg text-sm">
                                                 3
                                             </span>
-                                            <span class="md:text-2xl text-lg font-semibold text-gray-900 pt-0.5">
+                                            <span class="md:text-2xl text-lg font-medium text-gray-900 pt-0.5">
                                                 ¿Cuántos km rinde un galón en tu flota?
                                             </span>
                                         </label>
@@ -131,12 +131,12 @@ get_header();
                                 Ahorro estimado mensual
                             </h2>
                             <div class="flex items-baseline gap-2 mb-3">
-                                <span class="text-4xl lg:text-6xl font-semibold text-primary" id="total-savings">
+                                <span class="text-4xl lg:text-6xl font-medium text-primary" id="total-savings">
                                     S/ 178.75
                                 </span>
                             </div>
                             <p class="text-black text-lg md:mb-12 mt-6">
-                                Equivalente a un <span class="font-semibold text-black" id="savings-percentage">37%</span> menos en costos operativos
+                                Equivalente a un <span class="font-medium text-black" id="savings-percentage">37%</span> menos en costos operativos
                             </p>
                         </div>
 
@@ -153,7 +153,7 @@ get_header();
                                         <h3 class="font-medium text-black text-xl md:mb-4 mb-2">
                                             Ahorros en<br>Combustible
                                         </h3>
-                                        <p class="md:text-3xl text-2xl font-semibold text-primary mb-0" id="fuel-savings">
+                                        <p class="md:text-3xl text-2xl font-medium text-primary mb-0" id="fuel-savings">
                                             S/ 65.00
                                         </p>
                                     </div>
@@ -171,7 +171,7 @@ get_header();
                                         <h3 class="font-medium text-black text-xl mb-4">
                                             Ahorros en<br>Mantenimiento
                                         </h3>
-                                        <p class="md:text-3xl text-2xl font-semibold text-primary mb-0" id="maintenance-savings">
+                                        <p class="md:text-3xl text-2xl font-medium text-primary mb-0" id="maintenance-savings">
                                             S/ 65.00
                                         </p>
                                     </div>
@@ -188,7 +188,7 @@ get_header();
                                         <h3 class="font-medium text-black text-xl mb-4">
                                             Ahorros en<br>llantas
                                         </h3>
-                                        <p class="md:text-3xl text-2xl font-semibold text-primary mb-0" id="tires-savings">
+                                        <p class="md:text-3xl text-2xl font-medium text-primary mb-0" id="tires-savings">
                                             S/ 65.00
                                         </p>
                                     </div>
@@ -205,7 +205,7 @@ get_header();
                                         <h3 class="font-medium text-black text-xl mb-4">
                                             Ahorros en<br>productividad
                                         </h3>
-                                        <p class="md:text-3xl text-2xl font-semibold text-primary mb-0" id="productivity-savings">
+                                        <p class="md:text-3xl text-2xl font-medium text-primary mb-0" id="productivity-savings">
                                             S/ 65.00
                                         </p>
                                     </div>

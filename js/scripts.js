@@ -161,13 +161,13 @@
 
       // Actualizar estado activo de las tabs
       $('.menu-tab-item').each(function () {
-        $(this).removeClass('active text-red-600 font-semibold')
+        $(this).removeClass('active text-red-600 font-medium')
           .addClass('text-gray-700 font-normal');
         $(this).find('svg:last-child').addClass('opacity-0');
       });
 
       // Activar la tab actual
-      $(this).addClass('active text-red-600 font-semibold')
+      $(this).addClass('active text-red-600 font-medium')
         .removeClass('text-gray-700 font-normal');
       $(this).find('svg:last-child').removeClass('opacity-0');
 

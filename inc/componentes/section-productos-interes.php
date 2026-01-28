@@ -4,7 +4,7 @@
 
         <!-- Section Header -->
         <div class="mb-8 md:mb-12">
-            <h2 class="text-2xl md:text-3xl lg:text-4xl font-semibold text-dark mb-2">
+            <h2 class="text-2xl md:text-3xl lg:text-4xl font-medium text-dark mb-2">
                 También te podría interesar
             </h2>
         </div>
@@ -54,7 +54,7 @@
                                             if (!empty($post_categories)) :
                                                 $category = $post_categories[0];
                                             ?>
-                                                <span class="absolute top-4 left-4 z-10 inline-flex items-center px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-primary text-white rounded-full">
+                                                <span class="absolute top-4 left-4 z-10 inline-flex items-center px-3 py-1 text-xs font-medium uppercase tracking-wider bg-primary text-white rounded-full">
                                                     <?php echo esc_html($category->name); ?>
                                                 </span>
                                             <?php endif; ?>
@@ -65,7 +65,7 @@
                                     <div class="p-6 flex flex-col gap-3 flex-1">
 
                                         <!-- Title -->
-                                        <h3 class="text-lg font-semibold leading-tight text-dark transition-colors duration-200 group-hover:text-primary line-clamp-2">
+                                        <h3 class="text-lg font-medium leading-tight text-dark transition-colors duration-200 group-hover:text-primary line-clamp-2">
                                             <?php the_title(); ?>
                                         </h3>
 
@@ -130,14 +130,14 @@
                                                 if (!empty($post_categories)) :
                                                     $category = $post_categories[0];
                                                 ?>
-                                                    <span class="absolute top-4 left-4 z-10 inline-flex items-center px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-primary text-white rounded-full">
+                                                    <span class="absolute top-4 left-4 z-10 inline-flex items-center px-3 py-1 text-xs font-medium uppercase tracking-wider bg-primary text-white rounded-full">
                                                         <?php echo esc_html($category->name); ?>
                                                     </span>
                                                 <?php endif; ?>
                                             </div>
                                         <?php endif; ?>
                                         <div class="p-6 flex flex-col gap-3 flex-1">
-                                            <h3 class="text-lg font-semibold leading-tight text-dark transition-colors duration-200 group-hover:text-primary line-clamp-2">
+                                            <h3 class="text-lg font-medium leading-tight text-dark transition-colors duration-200 group-hover:text-primary line-clamp-2">
                                                 <?php the_title(); ?>
                                             </h3>
                                             <div class="flex items-center gap-2 text-xs text-gray-500">
@@ -154,7 +154,7 @@
                                             <p class="text-sm text-black line-clamp-3 flex-1">
                                                 <?php echo wp_trim_words(get_the_excerpt(), 15, '...'); ?>
                                             </p>
-                                            <span class="inline-flex items-center justify-end gap-2 text-sm font-semibold text-primary uppercase tracking-wider transition-all duration-200 group-hover:gap-3 mt-auto">
+                                            <span class="inline-flex items-center justify-end gap-2 text-sm font-medium text-primary uppercase tracking-wider transition-all duration-200 group-hover:gap-3 mt-auto">
                                                 LEER MÁS
                                                 <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="transition-transform duration-200 group-hover:translate-x-1">
                                                     <path d="M6 12L10 8L6 4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />

@@ -23,7 +23,7 @@ get_header();
                     data-aos="fade-right"
                     data-aos-duration="800"
                     data-aos-delay="200"></span>
-                <h1 class="text-2xl md:text-4xl lg:text-5xl font-semibold text-white mb-10 leading-tight mt-2 uppercase"
+                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-10 leading-tight mt-2 uppercase"
                     data-aos="fade-up"
                     data-aos-duration="1000"
                     data-aos-delay="400"
@@ -44,7 +44,7 @@ get_header();
     <section class="py-8 md:py-16 relative">
         <div class="container mx-auto px-4">
             <div class="max-w-4xl mx-auto">
-                <h2 class="md:text-4xl text-2xl font-semibold text-primary mb-12 text-center">Sistemas de Gestión</h2>
+                <h2 class="md:text-4xl text-2xl font-medium text-primary mb-12 text-center">Sistemas de Gestión</h2>
                 <p class="text-center mb-0">En COMSATEL se tiene cultura de mejora continua, excelencia operativa y desarrollo sostenible. Manteniendo estándares de los sistemas de gestión enfocados en Calidad (ISO 9001), Seguridad de la información (ISO 27001) además del Control y seguridad de las operaciones comerciales (BASC).</p>
             </div>
         </div>
@@ -53,10 +53,10 @@ get_header();
     <section class="space-y-6 mb-32">
         <div class="container mx-auto px-4">
             <div class="border border-dark rounded-md p-6 shadow-lg hover:border-primary mb-6">
-                <p class="text-sm font-semibold text-red-600 uppercase">BASADO EN</p>
-                <h2 class="text-3xl font-semibold text-red-600 mb-4">ISO 9001</h2>
+                <p class="text-sm font-medium text-red-600 uppercase">BASADO EN</p>
+                <h2 class="text-3xl font-medium text-red-600 mb-4">ISO 9001</h2>
 
-                <h3 class="text-xl font-semibold mb-2">Política del Sistema de Gestión de calidad (SGC)</h3>
+                <h3 class="text-xl font-medium mb-2">Política del Sistema de Gestión de calidad (SGC)</h3>
 
                 <div class="space-y-2 text-gray-700 mb-4">
                     <p class="text-sm">(SGC)</p>
@@ -69,10 +69,10 @@ get_header();
             </div>
 
             <div class="border border-dark rounded-md p-6 shadow-lg hover:border-primary mb-6">
-                <p class="text-sm font-semibold text-primary uppercase">BASADO EN</p>
-                <h2 class="text-3xl font-semibold text-primary mb-4">ISO 9001</h2>
+                <p class="text-sm font-medium text-primary uppercase">BASADO EN</p>
+                <h2 class="text-3xl font-medium text-primary mb-4">ISO 9001</h2>
 
-                <h3 class="text-xl font-semibold mb-2">Política del Sistema de Gestión de calidad (SGC)</h3>
+                <h3 class="text-xl font-medium mb-2">Política del Sistema de Gestión de calidad (SGC)</h3>
 
                 <div class="space-y-2 text-gray-700 mb-4">
                     <p class="text-sm">(SGC)</p>
@@ -88,7 +88,7 @@ get_header();
                 <div class="w-16 h-16 mr-4 flex-shrink-0">
                     <img src="path/to/your/iso_logo.png" alt="Logo Certificado ISO" class="w-full h-full object-contain">
                 </div>
-                <h3 class="text-xl font-semibold pt-4">Política del Sistema de Gestión de Seguridad la Información (SGSI)</h3>
+                <h3 class="text-xl font-medium pt-4">Política del Sistema de Gestión de Seguridad la Información (SGSI)</h3>
 
                 <p class="text-sm md:text-base">Establecemos las directrices y principios para proteger la información contra riesgos, garantizando su confidencialidad, integridad y disponibilidad, cumpliendo con las normativas vigentes, y promoviendo una cultura de seguridad dentro de la organización.</p>
 

@@ -1,13 +1,13 @@
 <!-- FAQ Section -->
-<section class="py-16 lg:py-24 bg-white" id="faqs">
+<section class="py-16 lg:py-24" id="faqs">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <!-- Header -->
         <div class="text-center mb-12 lg:mb-16">
-            <p class="text-gray text-sm font-semibold tracking-wider uppercase mb-3" data-aos="fade-down">
+            <p class="text-gray text-sm font-medium tracking-wider uppercase mb-3" data-aos="fade-down">
                 Preguntas frecuentes
             </p>
-            <h2 class="text-2xl lg:text-4xl font-semibold text-primary mb-4" data-aos="fade-up" data-aos-delay="100">
+            <h2 class="text-2xl lg:text-4xl font-medium text-primary mb-4" data-aos="fade-up" data-aos-delay="100">
                 Tu operación, nuestras respuestas
             </h2>
             <p class="text-dark text-lg max-w-2xl mx-auto mt-8" data-aos="fade-up" data-aos-delay="200">
@@ -19,11 +19,11 @@
         <div class="max-w-4xl mx-auto space-y-4">
 
             <!-- FAQ Item 1 - Open by default -->
-            <div class="bg-white rounded-sm shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="100">
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="100">
                 <button
                     onclick="toggleFAQ(this)"
-                    class="w-full px-6 py-5 lg:px-8 lg:py-6 flex items-center justify-between text-left transition-colors duration-200 bg-gray-50 border-none">
-                    <span class="font-semibold text-black text-sm lg:text-base pr-4">
+                    class="w-full px-6 py-5 lg:px-8 lg:py-6 flex items-center justify-between text-left transition-colors duration-200 bg-gray-100 border-none">
+                    <span class="font-medium text-black text-sm lg:text-base pr-4">
                         ¿CUÁL ES LA DIFERENCIA ENTRE SVR SECURITY Y SVR X?
                     </span>
                     <span class="flex-shrink-0 text-red-500">
@@ -34,7 +34,7 @@
                         </svg>
                     </span>
                 </button>
-                <div class="accordion-content max-h-96 overflow-hidden transition-all duration-300 bg-gray-50">
+                <div class="accordion-content max-h-96 overflow-hidden transition-all duration-300 bg-gray-100">
                     <div class="px-6 pb-6 lg:px-8 lg:pb-8 pt-2">
                         <p class="text-gray-700 leading-relaxed">
                             SVR Security es exclusivo para recupero vehicular en caso de robo, mientras que SVR X combina recupero con monitoreo diario y alertas inteligentes.
@@ -44,11 +44,11 @@
             </div>
 
             <!-- FAQ Item 2 -->
-            <div class="bg-white rounded-sm shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="150">
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="150">
                 <button
                     onclick="toggleFAQ(this)"
-                    class="w-full px-6 py-5 lg:px-8 lg:py-6 flex items-center justify-between text-left transition-colors duration-200 bg-gray-50 border-none">
-                    <span class="font-semibold text-black text-sm lg:text-base pr-4">
+                    class="w-full px-6 py-5 lg:px-8 lg:py-6 flex items-center justify-between text-left transition-colors duration-200 bg-gray-100 border-none">
+                    <span class="font-medium text-black text-sm lg:text-base pr-4">
                         ¿CÓMO SE ACTIVA EL PROTOCOLO DE RECUPERO?
                     </span>
                     <span class="flex-shrink-0 text-red-500">
@@ -59,7 +59,7 @@
                         </svg>
                     </span>
                 </button>
-                <div class="accordion-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 bg-gray-50">
+                <div class="accordion-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 bg-gray-100">
                     <div class="px-6 pb-6 lg:px-8 lg:pb-8 pt-2">
                         <p class="text-gray-700 leading-relaxed">
                             El protocolo se activa mediante una llamada telefónica a nuestra central de monitoreo, donde nuestro equipo verificará la información y activará inmediatamente el sistema de rastreo y recuperación.
@@ -69,11 +69,11 @@
             </div>
 
             <!-- FAQ Item 3 -->
-            <div class="bg-white rounded-sm shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="200">
                 <button
                     onclick="toggleFAQ(this)"
-                    class="w-full px-6 py-5 lg:px-8 lg:py-6 flex items-center justify-between text-left transition-colors duration-200 bg-gray-50 border-none ">
-                    <span class="font-semibold text-black text-sm lg:text-base pr-4">
+                    class="w-full px-6 py-5 lg:px-8 lg:py-6 flex items-center justify-between text-left transition-colors duration-200 bg-gray-100 border-none ">
+                    <span class="font-medium text-black text-sm lg:text-base pr-4">
                         ¿LA SEÑAL PUEDE SER INHIBIDA?
                     </span>
                     <span class="flex-shrink-0 text-red-500">
@@ -84,7 +84,7 @@
                         </svg>
                     </span>
                 </button>
-                <div class="accordion-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 bg-gray-50">
+                <div class="accordion-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 bg-gray-100">
                     <div class="px-6 pb-6 lg:px-8 lg:pb-8 pt-2">
                         <p class="text-gray-700 leading-relaxed">
                             Nuestros dispositivos cuentan con tecnología anti-inhibición que permite detectar intentos de bloqueo de señal y alertar inmediatamente a nuestro centro de monitoreo.
@@ -94,11 +94,11 @@
             </div>
 
             <!-- FAQ Item 4 -->
-            <div class="bg-white rounded-sm shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="250">
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="250">
                 <button
                     onclick="toggleFAQ(this)"
-                    class="w-full px-6 py-5 lg:px-8 lg:py-6 flex items-center justify-between text-left transition-colors duration-200 bg-gray-50 border-none">
-                    <span class="font-semibold text-black text-sm lg:text-base pr-4">
+                    class="w-full px-6 py-5 lg:px-8 lg:py-6 flex items-center justify-between text-left transition-colors duration-200 bg-gray-100 border-none">
+                    <span class="font-medium text-black text-sm lg:text-base pr-4">
                         ¿EL BLOQUEO DE ENCENDIDO ESTÁ INCLUIDO EN TODOS LOS PLANES?
                     </span>
                     <span class="flex-shrink-0 text-red-500">
@@ -109,7 +109,7 @@
                         </svg>
                     </span>
                 </button>
-                <div class="accordion-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 bg-gray-50">
+                <div class="accordion-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 bg-gray-100">
                     <div class="px-6 pb-6 lg:px-8 lg:pb-8 pt-2">
                         <p class="text-gray-700 leading-relaxed">
                             El bloqueo de encendido está incluido en nuestros planes SVR X Premium y SVR X Elite. Para otros planes, está disponible como una característica opcional.
@@ -119,11 +119,11 @@
             </div>
 
             <!-- FAQ Item 5 -->
-            <div class="bg-white rounded-sm shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="300">
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="300">
                 <button
                     onclick="toggleFAQ(this)"
-                    class="w-full px-6 py-5 lg:px-8 lg:py-6 flex items-center justify-between text-left transition-colors duration-200 bg-gray-50 border-none">
-                    <span class="font-semibold text-black text-sm lg:text-base pr-4">
+                    class="w-full px-6 py-5 lg:px-8 lg:py-6 flex items-center justify-between text-left transition-colors duration-200 bg-gray-100 border-none">
+                    <span class="font-medium text-black text-sm lg:text-base pr-4">
                         ¿EN QUÉ ZONAS OPERA EL SERVICIO?
                     </span>
                     <span class="flex-shrink-0 text-red-500">
@@ -134,7 +134,7 @@
                         </svg>
                     </span>
                 </button>
-                <div class="accordion-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 bg-gray-50">
+                <div class="accordion-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 bg-gray-100">
                     <div class="px-6 pb-6 lg:px-8 lg:pb-8 pt-2">
                         <p class="text-gray-700 leading-relaxed">
                             Nuestro servicio opera en todo el territorio peruano, con cobertura especial en Lima Metropolitana y principales ciudades del país.
@@ -144,11 +144,11 @@
             </div>
 
             <!-- FAQ Item 6 -->
-            <div class="bg-white rounded-sm shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="350">
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="350">
                 <button
                     onclick="toggleFAQ(this)"
-                    class="w-full px-6 py-5 lg:px-8 lg:py-6 flex items-center justify-between text-left transition-colors duration-200 bg-gray-50 border-none">
-                    <span class="font-semibold text-black text-sm lg:text-base pr-4">
+                    class="w-full px-6 py-5 lg:px-8 lg:py-6 flex items-center justify-between text-left transition-colors duration-200 bg-gray-100 border-none">
+                    <span class="font-medium text-black text-sm lg:text-base pr-4">
                         ¿QUÉ PASA SI NO HAY SEÑAL?
                     </span>
                     <span class="flex-shrink-0 text-red-500">
@@ -159,7 +159,7 @@
                         </svg>
                     </span>
                 </button>
-                <div class="accordion-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 bg-gray-50">
+                <div class="accordion-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 bg-gray-100">
                     <div class="px-6 pb-6 lg:px-8 lg:pb-8 pt-2">
                         <p class="text-gray-700 leading-relaxed">
                             En caso de ausencia de señal, el sistema almacena la información y la transmite automáticamente cuando recupera la conexión. Además, contamos con sistemas de respaldo satelital.
@@ -169,11 +169,11 @@
             </div>
 
             <!-- FAQ Item 7 -->
-            <div class="bg-white rounded-sm shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="400">
+            <div class="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="400">
                 <button
                     onclick="toggleFAQ(this)"
-                    class="w-full px-6 py-5 lg:px-8 lg:py-6 flex items-center justify-between text-left transition-colors duration-200 bg-gray-50 border-none">
-                    <span class="font-semibold text-black text-sm lg:text-base pr-4">
+                    class="w-full px-6 py-5 lg:px-8 lg:py-6 flex items-center justify-between text-left transition-colors duration-200 bg-gray-100 border-none">
+                    <span class="font-medium text-black text-sm lg:text-base pr-4">
                         ¿CÓMO PROTEGEN MIS DATOS?
                     </span>
                     <span class="flex-shrink-0 text-red-500">
@@ -184,7 +184,7 @@
                         </svg>
                     </span>
                 </button>
-                <div class="accordion-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 bg-gray-50">
+                <div class="accordion-content max-h-0 opacity-0 overflow-hidden transition-all duration-300 bg-gray-100">
                     <div class="px-6 pb-6 lg:px-8 lg:pb-8 pt-2">
                         <p class="text-gray-700 leading-relaxed">
                             Toda la información está protegida mediante encriptación de nivel bancario y cumple con las normativas de protección de datos personales vigentes en Perú.

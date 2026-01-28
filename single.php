@@ -27,7 +27,7 @@ get_header();
 					data-aos="fade-right"
 					data-aos-duration="800"
 					data-aos-delay="200"></span>
-				<h1 class="text-2xl md:text-4xl lg:text-5xl uppercase font-semibold text-white mb-10 leading-tight max-w-2xl mt-2"
+				<h1 class="text-2xl md:text-4xl lg:text-5xl uppercase font-medium text-white mb-10 leading-tight max-w-2xl mt-2"
 					data-aos="fade-in"
 					data-aos-duration="1000"
 					data-aos-easing="ease-out-cubic"
@@ -69,7 +69,7 @@ get_header();
 				<div class="max-w-4xl mx-auto">
 
 					<!-- Title -->
-					<h1 class="text-2xl md:text-3xl lg:text-4xl font-semibold text-primary mb-6 leading-tight text-center"
+					<h1 class="text-2xl md:text-3xl lg:text-4xl font-medium text-primary mb-6 leading-tight text-center"
 						data-aos="fade-up"
 						data-aos-duration="1000"
 						data-aos-easing="ease-out-cubic"

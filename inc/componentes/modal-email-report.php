@@ -64,7 +64,7 @@
             <button
                 type="submit"
                 id="submit-email-report"
-                class="btn btn-primary !py-4 !text-base !font-semibold shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
+                class="btn btn-primary !py-4 !text-base !font-medium shadow-lg hover:shadow-xl transform hover:scale-105 transition-all duration-300">
                 Enviar reporte por correo
             </button>
         </form>

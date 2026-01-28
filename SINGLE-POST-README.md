@@ -96,7 +96,7 @@ Se agregaron estilos para `.blog-content` en `global.css`:
 
 ### Tipografía
 - `text-3xl md:text-4xl lg:text-5xl` - Títulos responsive
-- `font-semibold`, `font-semibold` - Pesos de fuente
+- `font-medium`, `font-medium` - Pesos de fuente
 - `leading-tight`, `leading-relaxed` - Line heights
 
 ### Colores

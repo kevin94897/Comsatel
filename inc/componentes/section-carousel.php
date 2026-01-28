@@ -29,7 +29,7 @@ if (empty($banner) || empty($cards))
 
                                 <!-- Content -->
                                 <div class="flex-1 mt-6">
-                                    <h3 class="md:text-lg text-sm font-semibold mb-4 text-gray-900 md:min-h-[70px]">
+                                    <h3 class="md:text-lg text-sm font-medium mb-4 text-gray-900 md:min-h-[70px]">
                                         <?php echo esc_html($card['title']); ?>
                                     </h3>
                                     <p class="md:text-base text-sm text-gray-900 leading-relaxed md:min-h-[100px]">

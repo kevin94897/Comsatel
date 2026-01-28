@@ -4,7 +4,7 @@
 
             <!-- LEFT CONTENT -->
             <div data-aos="fade-right" data-aos-duration="900" data-aos-delay="100">
-                <h2 class="text-3xl md:text-4xl font-semibold text-gray-900 leading-tight">
+                <h2 class="text-3xl md:text-4xl font-medium text-gray-900 leading-tight">
                     Se parte de la comunidad <br>
                     Comsatel
                 </h2>
@@ -14,7 +14,7 @@
                     la seguridad de tu operación.
                 </p>
 
-                <p class="text-dark text-lg font-semibold mb-2 mt-6">Correo</p>
+                <p class="text-dark text-lg font-medium mb-2 mt-6">Correo</p>
 
                 <form class="flex flex-col sm:flex-row gap-4"
                     data-aos="fade-in" data-aos-duration="900" data-aos-delay="200">

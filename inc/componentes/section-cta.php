@@ -3,7 +3,7 @@
         <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
 
             <div class="w-full lg:w-1/2 text-center md:text-left" data-aos="fade-right">
-                <h2 class="text-2xl lg:text-4xl font-semibold text-black leading-tight mb-6">
+                <h2 class="text-2xl lg:text-4xl font-medium text-black leading-tight mb-6">
                     ¿Necesitas otro producto <br class="hidden lg:block"> para tu cartera?
                 </h2>
                 <p class="text-black mb-10 md:max-w-lg">

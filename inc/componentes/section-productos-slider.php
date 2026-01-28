@@ -5,7 +5,7 @@
         <div class="text-center">
             <div class="max-w-2xl mx-auto">
                 <p class="text-sm text-gray-400 uppercase tracking-wider mb-4">Productos</p>
-                <h2 class="text-2xl lg:text-4xl font-semibold text-primary mb-4">La operación sin seguridad no resiste</h2>
+                <h2 class="text-2xl lg:text-4xl font-medium text-primary mb-4">La operación sin seguridad no resiste</h2>
                 <p class="mb-8">Videotelemática, sensores e IoT garantizan cumplimiento normativo, protección de flotas críticas y control en entornos extremos.</p>
             </div>
 
@@ -19,14 +19,14 @@
                 <div class="swiper-slide">
                     <div class="grid lg:grid-cols-2 gap-8 items-center bg-white rounded-2xl shadow-lg overflow-hidden my-4 p-4" data-aos="fade-in" data-aos-delay="300" data-aos-duration="1000">
                         <div class="p-8 lg:p-12">
-                            <h3 class="text-2xl font-semibold">Video Móvil</h3>
+                            <h3 class="text-2xl font-medium">Video Móvil</h3>
                             <p class="my-6">
                                 Seguimiento en vivo, reglas y videotelemática para cumplir ventanas horarias y resolver reclamos con pruebas reales. </p>
                             <button class="btn btn-primary">Más información</button>
                         </div>
                         <div>
                             <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_soluciones-slider-01.png"
-                                alt="AVIS Testimonial" class="w-full h-full object-cover">
+                                alt="AVIS Testimonial" class="w-full h-full object-cover rounded-md">
                         </div>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                     <div class="grid lg:grid-cols-2 gap-8 items-center bg-white rounded-2xl shadow-lg overflow-hidden my-4 p-4" data-aos="fade-in" data-aos-delay="300" data-aos-duration="1000">
 
                         <div class="p-8 lg:p-12">
-                            <h3 class="text-2xl font-semibold">Monitoreo del vehículo</h3>
+                            <h3 class="text-2xl font-medium">Monitoreo del vehículo</h3>
                             <p class="my-6">
                                 Supervisión de velocidad, paradas y aperturas vinculadas al recorrido.
                             </p>
@@ -44,7 +44,7 @@
                         </div>
                         <div>
                             <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_soluciones-slider-01.png"
-                                alt="AVIS Testimonial" class="w-full h-full object-cover">
+                                alt="AVIS Testimonial" class="w-full h-full object-cover rounded-md">
                         </div>
                     </div>
 

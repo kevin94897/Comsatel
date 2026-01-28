@@ -17,7 +17,7 @@
                         if (!empty($categories)) :
                             $category = $categories[0];
                         ?>
-                    <span class="absolute top-4 left-4 z-10 inline-flex items-center px-3 py-1 text-xs font-semibold uppercase tracking-wider bg-primary text-white rounded-full">
+                    <span class="absolute top-4 left-4 z-10 inline-flex items-center px-3 py-1 text-xs font-medium uppercase tracking-wider bg-primary text-white rounded-full">
                         <?php echo esc_html($category->name); ?>
                     </span>
                 <?php endif; ?> -->
@@ -26,7 +26,7 @@
 
         <div class="md:px-6 px-4 flex flex-col flex-1">
             <!-- Título -->
-            <h3 class="mb-3 md:text-lg text-sm font-semibold leading-tight text-dark transition-colors duration-200 group-hover:text-primary m-0">
+            <h3 class="mb-3 md:text-lg text-sm font-medium leading-tight text-dark transition-colors duration-200 group-hover:text-primary m-0">
                 <?php the_title(); ?>
             </h3>
 

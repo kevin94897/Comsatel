@@ -19,7 +19,7 @@
 
             <!-- CTA Card -->
             <div class="p-2 lg:p-10">
-                <h3 class="text-sm md:text-2xl lg:text-4xl font-semibold text-white mb-4">
+                <h3 class="text-sm md:text-2xl lg:text-4xl font-medium text-white mb-4">
                     ¿Listo para optimizar la seguridad de tu flota?
                 </h3>
 

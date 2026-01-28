@@ -70,7 +70,7 @@ if (empty($banner) || empty($cards))
                                     </p>
                                 <?php endif; ?>
 
-                                <h2 class="text-3xl lg:text-5xl font-semibold text-gray-900 mb-6">
+                                <h2 class="text-3xl lg:text-5xl font-medium text-gray-900 mb-6">
                                     <?php echo esc_html($banner['title']); ?>
                                 </h2>
 
@@ -97,7 +97,7 @@ if (empty($banner) || empty($cards))
 
                                             <!-- Icon Badge -->
                                             <div class="flex items-start justify-between mb-6">
-                                                <div class="w-12 h-12 bg-white text-dark rounded-full flex items-center justify-center font-semibold text-xl">
+                                                <div class="w-12 h-12 bg-white text-dark rounded-full flex items-center justify-center font-medium text-xl">
                                                     <?php echo esc_html($card['icon'] ?? ($index + 1)); ?>
                                                 </div>
                                             </div>
@@ -113,7 +113,7 @@ if (empty($banner) || empty($cards))
 
                                             <!-- Content -->
                                             <div class="flex-1 mt-6">
-                                                <h3 class="text-xl font-semibold mb-4 text-gray-200 min-h-[70px]">
+                                                <h3 class="text-xl font-medium mb-4 text-gray-200 min-h-[70px]">
                                                     <?php echo esc_html($card['title']); ?>
                                                 </h3>
                                                 <p class="text-gray-200 leading-relaxed min-h-[100px]">

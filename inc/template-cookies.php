@@ -85,7 +85,7 @@ get_header();
                     data-aos="fade-right"
                     data-aos-duration="800"
                     data-aos-delay="200"></span>
-                <h1 class="text-2xl md:text-4xl lg:text-5xl font-semibold text-white mb-10 leading-tight mt-2 uppercase"
+                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-10 leading-tight mt-2 uppercase"
                     data-aos="fade-up"
                     data-aos-duration="1000"
                     data-aos-delay="400"
@@ -105,7 +105,7 @@ get_header();
 
     <section class="py-8 md:py-16 relative">
         <div class="container mx-auto px-4">
-            <h2 class="md:text-4xl text-2xl font-semibold text-primary mb-12 text-center">Política de Cookies</h2>
+            <h2 class="md:text-4xl text-2xl font-medium text-primary mb-12 text-center">Política de Cookies</h2>
             <p class="mb-12 text-center text-sm">
                 En COMSATEL respetamos tu privacidad. Por ello, te informamos, de manera clara y detallada, sobre las cookies que utilizamos y la forma segura en la que tratamos cualquier información derivada de tu navegación, dentro de nuestra página web. Ten en cuenta que las cookies que utilizamos, esenciales y no esenciales, tanto propias como de terceros, nos ayudan a mejorar el servicio que te ofrecemos y nos permiten darte una mejor experiencia de navegación en nuestra página web. Es importante que sepas que el uso de las cookies esenciales es indispensable para una navegación óptima en nuestra página web.
             </p>
@@ -152,7 +152,7 @@ get_header();
                         data-aos="fade-up"
                         data-aos-duration="1000"
                         data-aos-delay="400">
-                        <h2 class="text-2xl font-semibold text-black mb-4">Uso De Cookies</h2>
+                        <h2 class="text-2xl font-medium text-black mb-4">Uso De Cookies</h2>
                         <p class="text-black leading-relaxed">
                             Una cookie es un fichero que se descarga en el dispositivo del Usuario al acceder a determinadas páginas web y/o aplicaciones. Las cookies permiten, entre otras cosas, almacenar y recuperar información sobre el número de visitas, hábitos de navegación o del dispositivo del cual se navegue. Este sitio web utiliza cookies, que son pequeños archivos que se almacenan en las computadoras y que nos permiten recordar características o preferencias de la navegación que tienes en nuestra web. Gracias a esto podemos personalizar los ingresos a la web en futuras visitas, hacer más segura la navegación y conocer tus preferencias para ofrecerte información de tu interés. En el Sitio Web se utilizan los siguientes tipos de cookies: - Cookies necesarias: Son archivos de datos almacenados en el navegador del usuario que garantizan que la página web funcione correctamente, permitiendo el acceso a funciones básicas y de seguridad, protegiendo la integridad de la navegación. No pueden desactivarse en los sistemas del sitio. - Cookies no necesarias: Estas cookies no son esenciales para el funcionamiento básico del sitio web, pero que mejoran la experiencia del usuario, recopilan datos analíticos o sirven para personalizar el contenido y la publicidad. </p>
                     </section>
@@ -162,7 +162,7 @@ get_header();
                         data-aos="fade-up"
                         data-aos-duration="1000"
                         data-aos-delay="200">
-                        <h2 class="text-2xl font-semibold text-black mb-4">Listado De Cookies</h2>
+                        <h2 class="text-2xl font-medium text-black mb-4">Listado De Cookies</h2>
                         <ul class="text-black leading-relaxed ml-8">
                             <li>
                                 Te mostramos los tipos de cookies y sus funciones. • Cookies esenciales: Son necesarias para permitir la navegación en la web y recordar las preferencias del usuario, así como para su funcionamiento del sitio (inicio de sesión y seguridad). Recuerda que, seguir navegando en nuestra web, significa tu aceptación a estas cookies.
@@ -178,7 +178,7 @@ get_header();
                         data-aos="fade-up"
                         data-aos-duration="1000"
                         data-aos-delay="200">
-                        <h2 class="text-2xl font-semibold text-black mb-4">Consentimiento de Uso</h2>
+                        <h2 class="text-2xl font-medium text-black mb-4">Consentimiento de Uso</h2>
                         <p class="text-black leading-relaxed">
                             Al ingresar a nuestra página web, nos autorizas a utilizar las cookies que libremente has aceptado en el mensaje emergente del Sitio Web (pop-up), de acuerdo con tus preferencias. El detalle de las funcionalidades de las cookies que has aceptado fue puesto a tu disposición en el momento de tu autorización. Ten en cuenta que, si no autorizas el uso de cookies esenciales, algunas funcionalidades de nuestra web se bloquearán o se limitará tu acceso a ciertos contenidos. Por ello, si no deseas autorizarlas, deberás dejar de navegar en nuestra web. Puedes administrar el uso de cookies en cualquier momento desde la configuración de tu navegador o accediendo a nuestro panel de preferencias de cookies. </p>
                         <p class="text-black leading-relaxed">

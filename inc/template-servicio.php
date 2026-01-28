@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Producto GPS
+ * Template Name: Servicio
  */
 
 get_header();
@@ -22,7 +22,7 @@ get_header();
                 <span class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>
                 <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-20 leading-tight mt-2" data-aos="fade-up"
                     data-aos-duration="1000">
-                    CANDADO GPS
+                    SERVICIO DE RASTREO Y GESTION DE FLOTAS
                 </h1>
             </div>
         </div>
@@ -68,10 +68,16 @@ get_header();
             'delay' => 500
         ),
         array(
+            'label' => 'Resultados medibles',
+            'url' => '#stats-cards',
+            'style' => 'btn-outline-white',
+            'delay' => 600
+        ),
+        array(
             'label' => 'Preguntas frecuentes',
             'url' => '#faqs',
             'style' => 'btn-outline-white',
-            'delay' => 600
+            'delay' => 700
         ),
     );
     get_template_part('inc/componentes/section-nav-buttons', null, array('buttons' => $nav_buttons));
@@ -84,14 +90,11 @@ get_header();
                 <p class="text-sm text-gray uppercase tracking-wider mb-4" data-aos="fade-down">Desafío</p>
                 <p class="leading-relaxed mb-0 md:text-2xl text-xl font-medium tracking-[-0.08px]" data-aos="fade-up"
                     data-aos-delay="100">
-                    Las operaciones de transporte enfrentan riesgos de robos, accidentes y pérdida de control en ruta.
-                    El reto es mantener la seguridad del vehículo, la carga y el conductor en todo momento.
+                    Monitorea cada vehículo y controla cada movimiento en línea con nuestros sistemas de localización GPS: Equipos robustos con localización de alta precisión para vehículos y activos con alertas inteligentes (salidas de ruta, detenciones prolongadas, excesos de velocidad).
                 </p>
             </div>
         </div>
     </section>
-
-
 
     <?php
 
@@ -100,12 +103,12 @@ get_header();
 
         // Banner configuration
         'banner' => array(
-            'title' => 'CANDADO GPS',
-            'subtitle' => 'SOLUCIÓN INTELIGENTE',
-            'description' => 'El dispositivo de seguridad más avanzado para el transporte de carga. Monitoreo en tiempo real y control total de tus activos.',
+            'title' => 'Cómo funciona Gestión de Flotas',
+            'subtitle' => 'Gestión de Flotas',
+            'description' => 'Desde la instalación hasta la recuperación, cada paso está diseñado para proteger tu vehículo y actuar de forma inmediata ante cualquier incidente.',
             'images' => array(
                 array(
-                    'url' => get_template_directory_uri() . '/images/comsatel_gps-img.png',
+                    'url' => get_template_directory_uri() . '/images/comsatel_servicio-flotas.png',
                     'alt' => 'Candado GPS vista frontal'
                 ),
             )
@@ -115,32 +118,32 @@ get_header();
         'cards' => array(
             array(
                 'icon' => '1',
-                'title' => 'Ubicación remota al instante',
-                'description' => 'Obtén la ubicación exacta de tu carga en tiempo real desde cualquier dispositivo. Monitoreo GPS preciso las 24 horas.',
+                'title' => 'Incrementa la seguridad de tus vehículos y conductores',
+                'description' => 'Equipos GPS, sensores e identificadores listos para integrarse a tu flota.',
                 'image' => get_template_directory_uri() . '/images/comsatel_gps_card-img.png'
             ),
             array(
                 'icon' => '2',
-                'title' => 'Historial de recorridos',
-                'description' => 'Accede al historial completo de rutas y movimientos. Analiza patrones y optimiza tus operaciones logísticas.',
+                'title' => 'Monitorea la ubicación de tu flota y activos en tiempo real',
+                'description' => 'Ubica cada vehículo minuto a minuto y visualiza recorridos activos.',
                 'image' => get_template_directory_uri() . '/images/comsatel_gps_card-img.png'
             ),
             array(
                 'icon' => '3',
-                'title' => 'Geocercas y alertas inteligentes',
-                'description' => 'Configura zonas seguras y recibe alertas automáticas cuando tu carga entre o salga de áreas específicas.',
+                'title' => 'Reduce costos operativos',
+                'description' => 'Configura geocercas, rutas críticas y recibe alertas de desvíos.',
                 'image' => get_template_directory_uri() . '/images/comsatel_gps_card-img.png'
             ),
             array(
                 'icon' => '4',
-                'title' => 'Autonomía inteligente',
-                'description' => 'Batería de larga duración con gestión inteligente de energía. Hasta 6 meses de autonomía en modo standby.',
+                'title' => 'Mejorar la eficiencia y productividad de la flota',
+                'description' => 'Asigna responsables, controla documentos y previene el uso no autorizado.',
                 'image' => get_template_directory_uri() . '/images/comsatel_gps_card-img.png'
             ),
             array(
                 'icon' => '5',
-                'title' => 'Resguarda tus activos en casos de emergencia',
-                'description' => 'Sistema de alertas inmediatas ante intentos de manipulación o apertura no autorizada. Protección 24/7.',
+                'title' => 'Recuperación de activos en caso de robo',
+                'description' => 'Genera reportes de desempeño, consumo y seguridad para tomar decisiones rápidas.',
                 'image' => get_template_directory_uri() . '/images/comsatel_gps_card-img.png'
             ),
         )
@@ -264,6 +267,32 @@ get_header();
 
     <!-- SECCIÓN PRODUCTOS -->
     <?php get_template_part('inc/componentes/section-productos-slider'); ?>
+
+    <!-- Stats Cards Section -->
+    <?php
+    $stats_cards = array(
+        'section_id' => 'stats-cards',
+        'title' => 'Resultados medibles, Confianza comprobada',
+        'cards' => array(
+            array(
+                'stat' => '96%',
+                'description' => 'Tasa de efectividad en recupero de vehículos robados.',
+                'image' => get_template_directory_uri() . '/images/comsatel_soluciones-img-01.png'
+            ),
+            array(
+                'stat' => '13,000',
+                'description' => 'Vehículos recuperados con nuestras soluciones.',
+                'image' => get_template_directory_uri() . '/images/comsatel_soluciones-img-02.png'
+            ),
+            array(
+                'stat' => '150M',
+                'description' => 'En bienes asegurados devueltos a sus dueños.',
+                'image' => get_template_directory_uri() . '/images/comsatel_home_cta-2.png'
+            ),
+        )
+    );
+    get_template_part('inc/componentes/section-stats-cards', null, $stats_cards);
+    ?>
 
     <!-- SECCIÓN FAQS -->
     <?php get_template_part('inc/componentes/section-faqs'); ?>

@@ -17,7 +17,7 @@ get_header(); ?>
         <!-- Content -->
         <div class="container-full md:mx-auto md:px-4 lg:px-8 relative z-10">
             <div class="max-w-2xl mt-[15rem] text-center md:text-left">
-                <h1 class="text-3xl md:text-4xl lg:text-6xl font-semibold text-white mb-8 leading-tight"
+                <h1 class="text-3xl md:text-4xl lg:text-6xl font-medium text-white mb-8 leading-tight"
                     data-aos="fade-up" data-aos-duration="1000">
                     Tecnología de Vanguardia, Máxima Protección
                 </h1>
@@ -89,7 +89,7 @@ get_header(); ?>
             <div class="max-w-4xl mx-auto text-center mb-16">
                 <p class="text-sm text-gray uppercase tracking-wider mb-4" data-aos="fade-down" data-aos-delay="200">
                     Soluciones</p>
-                <h2 class="text-2xl lg:text-4xl font-semibold mb-4" data-aos="fade-up" data-aos-delay="300">
+                <h2 class="text-2xl lg:text-4xl font-medium mb-4" data-aos="fade-up" data-aos-delay="300">
                     <span>Una <span class="text-primary">solución</span> a la medida de cada operación</span>
                 </h2>
             </div>
@@ -112,7 +112,7 @@ get_header(); ?>
                         </svg>
                         Localización y rastreo vehicular
                     </div>
-                    <h3 class="text-2xl lg:text-4xl font-semibold text-black mb-6">Rastrea y recupera tu vehículo en
+                    <h3 class="text-2xl lg:text-4xl font-medium text-black mb-6">Rastrea y recupera tu vehículo en
                         caso de robo</h3>
                     <p class="leading-relaxed mb-6 text-gray">
                         Recupera tu vehículo con un 96% de efectividad gracias a nuestro sistema SVR y monitoreo en
@@ -141,7 +141,7 @@ get_header(); ?>
                         </svg>
                         gestión de flotas Y TELEMETRÍA
                     </div>
-                    <h3 class="text-2xl lg:text-4xl font-semibold text-black mb-6">Monitorea tu flota de unidades y
+                    <h3 class="text-2xl lg:text-4xl font-medium text-black mb-6">Monitorea tu flota de unidades y
                         conductores</h3>
                     <p class="leading-relaxed mb-6 text-gray">
                         Recupera tu vehículo con un 96% de efectividad gracias a nuestro sistema SVR y monitoreo en
@@ -170,7 +170,7 @@ get_header(); ?>
                         </svg>
                         VIDEO TELEMATICA
                     </div>
-                    <h3 class="text-2xl lg:text-4xl font-semibold text-black mb-6">Realiza seguimiento vivo de tus
+                    <h3 class="text-2xl lg:text-4xl font-medium text-black mb-6">Realiza seguimiento vivo de tus
                         unidades en rutas</h3>
                     <p class="leading-relaxed mb-6 text-gray">
                         Recupera tu vehículo con un 96% de efectividad gracias a nuestro sistema SVR y monitoreo en
@@ -238,7 +238,7 @@ get_header(); ?>
     <!-- Beneficios -->
     <section class="py-16 lg:py-24 bg-gray-50" id="benefits">
         <div class="container mx-auto">
-            <h2 class="text-2xl md:text-4xl font-semibold text-center text-gray-800 md:mb-12 mb-6">
+            <h2 class="text-2xl md:text-4xl font-medium text-center text-gray-800 md:mb-12 mb-6">
                 Líderes en <span class="text-primary">Tecnología GPS</span> para Flotas
             </h2>
 
@@ -263,7 +263,7 @@ get_header(); ?>
 
                         </div>
                         <h2
-                            class="text-base md:text-xl font-semibold text-primary mb-2 uppercase tracking-wide transition-colors duration-300 md:group-hover:!text-white">
+                            class="text-base md:text-xl font-medium text-primary mb-2 uppercase tracking-wide transition-colors duration-300 md:group-hover:!text-white">
                             29 Años de Experiencia
                         </h2>
                         <p class="text-sm opacity-90 transition-colors duration-300 md:group-hover:!text-white mb-0">
@@ -285,7 +285,7 @@ get_header(); ?>
                         </div>
 
                         <h2
-                            class="text-base md:text-xl font-semibold text-primary mb-2 uppercase tracking-wide transition-colors duration-300 md:group-hover:!text-white">
+                            class="text-base md:text-xl font-medium text-primary mb-2 uppercase tracking-wide transition-colors duration-300 md:group-hover:!text-white">
                             Soporte y Monitoreo 24/7
                         </h2>
 
@@ -307,7 +307,7 @@ get_header(); ?>
 
                         </div>
                         <h2
-                            class="text-base md:text-xl font-semibold text-primary mb-2 uppercase tracking-wide transition-colors duration-300 md:group-hover:!text-white">
+                            class="text-base md:text-xl font-medium text-primary mb-2 uppercase tracking-wide transition-colors duration-300 md:group-hover:!text-white">
                             +50 Mil Vehículos Activos</h2>
                         <p class="text-sm text-black transition-colors duration-300 md:group-hover:!text-white mb-0">
                             Ubica,
@@ -326,7 +326,7 @@ get_header(); ?>
 
                         </div>
                         <h2
-                            class="text-base md:text-xl font-semibold text-primary mb-2 uppercase tracking-wide transition-colors duration-300 md:group-hover:!text-white">
+                            class="text-base md:text-xl font-medium text-primary mb-2 uppercase tracking-wide transition-colors duration-300 md:group-hover:!text-white">
                             +10 Mil Recuperaciones</h2>
                         <p class="text-sm text-black transition-colors duration-300 md:group-hover:!text-white mb-0">
                             Centro
