@@ -182,7 +182,7 @@ get_header();
         transform: translate(-50%, -50%) scale(1);
     }
 
-    /* File upload personalizado */
+    * File upload personalizado */
     .file-upload-wrapper {
         position: relative;
         border: 2px dashed #D1D5DB;
@@ -211,8 +211,8 @@ get_header();
 
 <main id="primary" class="site-main">
 
-    <!-- Formulario de Reclamaciones -->
-    <section class="py-12 py-24 md:py-42 min-h-screen flex md:items-center items-start md:justify-center justify-start">
+    <!-- Formulario de Reclamaciones -->   <section class="py-12 py-24 md:py-42|+
+     min-h-screen flex md:items-center items-start md:justify-center justify-start">
         <div class="container mx-auto px-4">
             <div class="max-w-7xl mx-auto">
 

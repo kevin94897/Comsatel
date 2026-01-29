@@ -96,12 +96,12 @@
 				?>
 					<nav class="accordion-content space-y-3 max-h-0 opacity-0 lg:max-h-full lg:opacity-100 overflow-hidden transition-all duration-300">
 						<a href="#" class="block text-black hover:text-primary transition-colors">Club Xperience</a>
-						<a href="#" class="block text-black hover:text-primary transition-colors">Acerca de Comsatel</a>
-						<a href="#" class="block text-black hover:text-primary transition-colors">Blog</a>
-						<a href="#" class="block text-black hover:text-primary transition-colors">Preguntas frecuentes</a>
-						<a href="#" class="block text-black hover:text-primary transition-colors">Trabaja con nosotros</a>
-						<a href="#" class="block text-black hover:text-primary transition-colors">Números de cuenta</a>
-						<a href="#" class="block text-black hover:text-primary transition-colors">Calculador de ahorro</a>
+						<a href="http://comsatel.local/nosotros/" class="block text-black hover:text-primary transition-colors">Acerca de Comsatel</a>
+						<a href="http://comsatel.local/blog/" class="block text-black hover:text-primary transition-colors">Blog</a>
+						<a href="http://comsatel.local/preguntas-frecuentes/" class="block text-black hover:text-primary transition-colors">Preguntas frecuentes</a>
+						<a href="http://comsatel.local/trabaja-con-nosotros/" class="block text-black hover:text-primary transition-colors">Trabaja con nosotros</a>
+						<a href="http://comsatel.local/descargables/" class="block text-black hover:text-primary transition-colors">Descargables</a>
+						<a href="http://comsatel.local/calculadora/" class="block text-black hover:text-primary transition-colors">Calculador de ahorro</a>
 					</nav>
 				<?php
 					},
@@ -133,10 +133,10 @@
 							condiciones</a>
 						<a href="#" class="block text-black hover:text-primary transition-colors">Política de Protección
 							de datos</a>
-						<a href="#" class="block text-black hover:text-primary transition-colors">Sistemas de gestión</a>
-						<a href="#" class="block text-black hover:text-primary transition-colors">Política de cookies</a>
+						<a href="http://comsatel.local/sistema-de-gestion/" class="block text-black hover:text-primary transition-colors">Sistemas de gestión</a>
+						<a href="http://comsatel.local/politicas-de-cookies/" class="block text-black hover:text-primary transition-colors">Política de cookies</a>
 						<a href="#" class="block text-black hover:text-primary transition-colors">Promociones</a>
-						<a href="#" class="block text-black hover:text-primary transition-colors">Actualiza tus datos</a>
+						<a href="http://comsatel.local/actualiza-tus-datos/" class="block text-black hover:text-primary transition-colors">Actualiza tus datos</a>
 					</nav>
 				<?php
 					},

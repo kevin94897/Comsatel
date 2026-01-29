@@ -286,6 +286,89 @@
       }
     });
 
+    /**
+     * Search Overlay Logic
+     */
+    const $searchOverlay = $('#search-overlay');
+    const $searchInput = $('#global-search-input');
+    const $resultsContainer = $('#search-results-container');
+    const $resultsList = $('#search-results-list');
+    const $initialContent = $('#search-initial-content');
+    const $searchClose = $('#search-close');
+    const $searchTrigger = $('#search-desktop-trigger');
+    const $searchBlur = $('#search-overlay-blur');
+    const $clearSearch = $('#clear-search');
+    let searchTimer;
+
+    function openSearch() {
+      $searchOverlay.addClass('active');
+      $('body').css('overflow', 'hidden');
+      setTimeout(() => $searchInput.focus(), 500);
+    }
+
+    function closeSearch() {
+      $searchOverlay.removeClass('active');
+      $('body').css('overflow', '');
+    }
+
+    $searchTrigger.on('click', function (e) {
+      e.preventDefault();
+      openSearch();
+    });
+
+    $searchClose.on('click', closeSearch);
+    $searchBlur.on('click', closeSearch);
+
+    // Close on Esc key
+    $(document).on('keydown', function (e) {
+      if (e.key === 'Escape' && $searchOverlay.hasClass('active')) {
+        closeSearch();
+      }
+    });
+
+    // AJAX Search
+    $searchInput.on('input', function () {
+      const query = $(this).val().trim();
+
+      clearTimeout(searchTimer);
+
+      if (query.length < 3) {
+        $resultsContainer.addClass('hidden');
+        $initialContent.removeClass('hidden');
+        return;
+      }
+
+      searchTimer = setTimeout(() => {
+        $initialContent.addClass('hidden');
+        $resultsContainer.removeClass('hidden');
+        $resultsList.html('<div class="col-span-full py-12 flex justify-center"><div class="animate-spin rounded-full h-8 w-8 border-b-2 border-primary"></div></div>');
+
+        $.ajax({
+          url: comsatel_ajax.ajax_url,
+          type: 'POST',
+          data: {
+            action: 'comsatel_global_search',
+            query: query,
+            nonce: comsatel_ajax.nonce
+          },
+          success: function (response) {
+            if (response.success) {
+              $resultsList.html(response.data.html);
+            } else {
+              $resultsList.html('<p class="col-span-full text-gray-400 text-center py-12">No se encontraron resultados.</p>');
+            }
+          },
+          error: function () {
+            $resultsList.html('<p class="col-span-full text-red-500 text-center py-12">Error al realizar la búsqueda.</p>');
+          }
+        });
+      }, 500);
+    });
+
+    $clearSearch.on('click', function () {
+      $searchInput.val('').trigger('input').focus();
+    });
+
   }); // End document ready
 
 })(jQuery);

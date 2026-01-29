@@ -19,7 +19,7 @@
         <div class="max-w-4xl mx-auto space-y-4">
 
             <!-- FAQ Item 1 - Open by default -->
-            <div class="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="100">
+            <div class="bg-white rounded-md shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="100">
                 <button
                     onclick="toggleFAQ(this)"
                     class="w-full px-6 py-5 lg:px-8 lg:py-6 flex items-center justify-between text-left transition-colors duration-200 bg-gray-100 border-none">
@@ -44,7 +44,7 @@
             </div>
 
             <!-- FAQ Item 2 -->
-            <div class="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="150">
+            <div class="bg-white rounded-md shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="150">
                 <button
                     onclick="toggleFAQ(this)"
                     class="w-full px-6 py-5 lg:px-8 lg:py-6 flex items-center justify-between text-left transition-colors duration-200 bg-gray-100 border-none">
@@ -69,7 +69,7 @@
             </div>
 
             <!-- FAQ Item 3 -->
-            <div class="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-white rounded-md shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="200">
                 <button
                     onclick="toggleFAQ(this)"
                     class="w-full px-6 py-5 lg:px-8 lg:py-6 flex items-center justify-between text-left transition-colors duration-200 bg-gray-100 border-none ">
@@ -94,7 +94,7 @@
             </div>
 
             <!-- FAQ Item 4 -->
-            <div class="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="250">
+            <div class="bg-white rounded-md shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="250">
                 <button
                     onclick="toggleFAQ(this)"
                     class="w-full px-6 py-5 lg:px-8 lg:py-6 flex items-center justify-between text-left transition-colors duration-200 bg-gray-100 border-none">
@@ -119,7 +119,7 @@
             </div>
 
             <!-- FAQ Item 5 -->
-            <div class="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="300">
+            <div class="bg-white rounded-md shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="300">
                 <button
                     onclick="toggleFAQ(this)"
                     class="w-full px-6 py-5 lg:px-8 lg:py-6 flex items-center justify-between text-left transition-colors duration-200 bg-gray-100 border-none">
@@ -144,7 +144,7 @@
             </div>
 
             <!-- FAQ Item 6 -->
-            <div class="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="350">
+            <div class="bg-white rounded-md shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="350">
                 <button
                     onclick="toggleFAQ(this)"
                     class="w-full px-6 py-5 lg:px-8 lg:py-6 flex items-center justify-between text-left transition-colors duration-200 bg-gray-100 border-none">
@@ -169,7 +169,7 @@
             </div>
 
             <!-- FAQ Item 7 -->
-            <div class="bg-white rounded-lg shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="400">
+            <div class="bg-white rounded-md shadow-sm overflow-hidden transition-all duration-300 hover:shadow-md" data-aos="fade-up" data-aos-delay="400">
                 <button
                     onclick="toggleFAQ(this)"
                     class="w-full px-6 py-5 lg:px-8 lg:py-6 flex items-center justify-between text-left transition-colors duration-200 bg-gray-100 border-none">

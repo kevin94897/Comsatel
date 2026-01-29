@@ -6,9 +6,9 @@
 
 get_header(); ?>
 
-<main id="home">
+<main id="home" class="bg-dark-50">
     <!-- Hero Banner -->
-    <section class="relative h-screen min-h-[600px] flex items-start">
+    <section class="relative h-screen max-h-[500px] flex items-end">
         <!-- Background Image -->
         <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
             style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/comsatel_nosotros_banner.png');">
@@ -26,12 +26,6 @@ get_header(); ?>
             </div>
         </div>
 
-        <!-- Tracking Pin Graphic (Optional) -->
-        <div class="absolute top-1/3 left-1/2 transform -translate-x-1/2 -translate-y-1/2 pointer-events-none">
-            <div class="relative">
-                <!-- You can add your custom tracking pin SVG or icon here -->
-            </div>
-        </div>
     </section>
 
     <!-- Intro Section -->
@@ -217,13 +211,12 @@ get_header(); ?>
     </section>
 
     <!-- Map Section -->
-
-    <section class="bg-dark-50 py-16 px-6 md:px-24 overflow-hidden">
+    <section class="bg-dark-50 px-6 md:px-24 overflow-hidden">
         <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
             <div class="space-y-8">
                 <header class="space-y-4">
-                    <h2 class="text-4xl md:text-5xl font-bold text-gray-900 leading-tight">
+                    <h2 class="text-4xl md:text-5xl font-medium text-gray-900 leading-tight">
                         Presencia en <br> <span class="text-gray-800">Latinoamerica</span>
                     </h2>
                     <p class="text-gray-600 text-lg leading-relaxed max-w-lg">
@@ -234,7 +227,7 @@ get_header(); ?>
 
                 <div class="grid grid-cols-2 gap-8">
                     <div>
-                        <h3 class="font-bold text-xl mb-4 text-gray-900">Operamos en</h3>
+                        <h3 class="font-medium text-xl mb-4 text-gray-900">Operamos en</h3>
                         <ul class="space-y-2 text-gray-600 pl-4">
                             <li>Colombia</li>
                             <li>Perú</li>
@@ -243,7 +236,7 @@ get_header(); ?>
                         </ul>
                     </div>
                     <div>
-                        <h3 class="font-bold text-xl mb-4 text-gray-900">Clientes</h3>
+                        <h3 class="font-medium text-xl mb-4 text-gray-900">Clientes</h3>
                         <ul class="space-y-2 text-gray-600 pl-4">
                             <li>Ecuador</li>
                             <li>EEUU</li>
@@ -252,93 +245,91 @@ get_header(); ?>
                 </div>
             </div>
 
-            <div class="relative flex justify-center items-center">
-                <div class="relative w-full max-w-2xl mx-auto overflow-hidden bg-gray-100 rounded-xl p-8">
-                    <img src="<?php echo get_template_directory_uri(); ?>/assets/images/comsatel_mapa-peru.png"
-                        alt="Mapa Comsatel" class="w-full h-auto opacity-50" />
+            
+            <div class="relative w-full max-w-2xl mx-auto overflow-hidden">
+                <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_mapa-peru.png" 
+                    alt="Mapa" class="w-full h-auto block">
 
-                    <svg class="absolute top-0 left-0 w-full h-full" viewBox="0 0 500 700" fill="none"
-                        xmlns="http://www.w3.org/2000/svg">
+                <svg class="absolute top-0 left-0 w-full h-full" viewBox="0 0 500 700" preserveAspectRatio="xMidYMid meet" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <filter id="glow-line" x="-20%" y="-20%" width="140%" height="140%">
+                            <feGaussianBlur stdDeviation="3" result="blur" />
+                            <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                        </filter>
+                        
+                        <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" stop-color="#FF0000" stop-opacity="0.2" />
+                            <stop offset="100%" stop-color="#FF0000" stop-opacity="1" />
+                        </linearGradient>
+                    </defs>
 
-                        <defs>
-                            <filter id="glow">
-                                <feGaussianBlur stdDeviation="2.5" result="coloredBlur" />
-                                <feMerge>
-                                    <feMergeNode in="coloredBlur" />
-                                    <feMergeNode in="SourceGraphic" />
-                                </feMerge>
-                            </filter>
-                        </defs>
+                    <path id="route" d="M220,180 Q250,250 210,320 T230,450 T320,580" 
+                        stroke="url(#lineGradient)" stroke-width="3" fill="none"
+                        stroke-linecap="round" stroke-dasharray="1000" stroke-dashoffset="1000"
+                        filter="url(#glow-line)"
+                        class="animate-draw-path" />
 
-                        <path id="route" d="M250,150 L270,250 L220,350 L260,450 L320,550 L350,600" stroke="#FF0000"
-                            stroke-width="2" stroke-dasharray="1000" stroke-dashoffset="1000"
-                            class="animate-draw-path" />
+                    <g class="node animate-pop-in" style="animation-delay: 0.2s;">
+                        <circle cx="220" cy="180" r="5" fill="#FF0000" />
+                        <circle cx="220" cy="180" r="12" stroke="#FF0000" stroke-width="2" fill="none" class="animate-ping-slow" />
+                    </g>
 
-                        <g class="animate-fade-in" style="animation-delay: 0.5s">
-                            <circle cx="250" cy="150" r="8" fill="white" stroke="#FF0000" stroke-width="2" />
-                            <circle cx="250" cy="150" r="12" stroke="#FF0000" stroke-width="1"
-                                class="animate-ping opacity-75" />
-                        </g>
+                    <g class="node animate-pop-in" style="animation-delay: 1.5s;">
+                        <circle cx="210" cy="320" r="5" fill="#FF0000" />
+                        <circle cx="210" cy="320" r="10" stroke="#FF0000" stroke-width="1.5" fill="none" class="animate-ping-slow" />
+                    </g>
 
-                        <g class="animate-fade-in" style="animation-delay: 1.5s">
-                            <circle cx="270" cy="250" r="8" fill="white" stroke="#FF0000" stroke-width="2" />
-                            <circle cx="270" cy="250" r="12" stroke="#FF0000" stroke-width="1"
-                                class="animate-ping opacity-75" />
-                        </g>
-
-                    </svg>
-                </div>
-
-                <style>
-                    /* Animación para "dibujar" el camino */
-                    @keyframes drawPath {
-                        to {
-                            stroke-dashoffset: 0;
-                        }
-                    }
-
-                    .animate-draw-path {
-                        animation: drawPath 4s ease-in-out forwards;
-                    }
-
-                    /* Animación para que los puntos aparezcan suavemente */
-                    @keyframes fadeIn {
-                        from {
-                            opacity: 0;
-                            transform: scale(0.5);
-                        }
-
-                        to {
-                            opacity: 1;
-                            transform: scale(1);
-                        }
-                    }
-
-                    .animate-fade-in {
-                        opacity: 0;
-                        animation: fadeIn 0.5s ease-out forwards;
-                        transform-origin: center;
-                    }
-
-                    /* Ocultar scrollbar si es necesario */
-                    .no-scrollbar::-webkit-scrollbar {
-                        display: none;
-                    }
-                </style>
+                    <g class="node animate-pop-in" style="animation-delay: 3s;">
+                        <circle cx="320" cy="580" r="6" fill="#FF0000" />
+                        <circle cx="320" cy="580" r="15" stroke="#FF0000" stroke-width="2" fill="none" class="animate-ping-slow" />
+                    </g>
+                </svg>
             </div>
+
+
+
         </div>
     </section>
 
+    <!-- Counters Section -->
+    <?php
+    $counters_args = array(
+        'counters' => array(
+            array(
+                'number' => '50000',
+                'prefix' => '+',
+                'label' => 'Vehículos monitoreados'
+            ),
+            array(
+                'number' => '2600',
+                'prefix' => '+',
+                'label' => 'Empresas confían en nosotros'
+            ),
+            array(
+                'number' => '96',
+                'suffix' => '%',
+                'label' => 'Tasa de efectividad en el recupero'
+            ),
+            array(
+                'number' => '20',
+                'prefix' => '+',
+                'label' => 'Años de experiencia en el mercado'
+            ),
+        )
+    );
+    get_template_part('inc/componentes/section-counters', null, $counters_args);
+    ?>
 
 
-    <!-- SECCIÓN CTA -->
-    <?php get_template_part('inc/componentes/section-cta'); ?>
 
-    <!-- SECCIÓN TESTIMONIOS -->
-    <?php include get_template_directory() . '/inc/componentes/section-testimonios.php'; ?>
+    <!-- SECCIÓN TRABAJA CON NOSOTROS -->
+    <?php get_template_part('inc/componentes/section-trabaja-con-nosotros'); ?>
 
-    <!-- SECCIÓN FAQ -->
-    <?php include get_template_directory() . '/inc/componentes/section-faqs.php'; ?>
+    <!-- SECCION CLIENTES -->
+    <?php get_template_part('inc/componentes/section-clientes'); ?>
+
+    <!-- SECCIÓN FAQS -->
+    <?php get_template_part('inc/componentes/section-faqs'); ?>
 
 </main>
 

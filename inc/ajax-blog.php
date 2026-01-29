@@ -169,3 +169,57 @@ function load_more_posts()
 }
 add_action('wp_ajax_load_more_posts', 'load_more_posts');
 add_action('wp_ajax_nopriv_load_more_posts', 'load_more_posts');
+/**
+ * Global Search AJAX Handler (Initial version: Blog Posts)
+ */
+function comsatel_global_search()
+{
+    // Verificar nonce (opcional en búsqueda pública pero recomendado)
+    // check_ajax_referer('comsatel_blog_nonce', 'nonce');
+
+    $query = isset($_POST['query']) ? sanitize_text_field($_POST['query']) : '';
+
+    if (empty($query)) {
+        wp_send_json_error('Consulta vacía');
+    }
+
+    $args = array(
+        'post_type' => 'post',
+        'posts_per_page' => 10,
+        'post_status' => 'publish',
+        's' => $query,
+    );
+
+    $search_query = new WP_Query($args);
+
+    ob_start();
+
+    if ($search_query->have_posts()) {
+        while ($search_query->have_posts()) {
+            $search_query->the_post();
+?>
+            <a href="<?php the_permalink(); ?>" class="flex flex-col p-4 bg-gray-50 hover:bg-white border border-transparent hover:border-gray-100 rounded-xl transition-all group">
+                <span class="text-xs text-primary font-bold uppercase mb-1">Blog</span>
+                <h4 class="text-lg font-bold text-gray-900 group-hover:text-primary transition-colors mb-2">
+                    <?php the_title(); ?>
+                </h4>
+                <p class="text-sm text-gray-500 line-clamp-2">
+                    <?php echo wp_trim_words(get_the_excerpt(), 20); ?>
+                </p>
+            </a>
+<?php
+        }
+    } else {
+        echo '<p class="text-gray-500 text-center py-8">No se encontraron resultados para "' . esc_html($query) . '".</p>';
+    }
+
+    $html = ob_get_clean();
+
+    wp_send_json_success(array(
+        'html' => $html
+    ));
+
+    wp_reset_postdata();
+}
+add_action('wp_ajax_comsatel_global_search', 'comsatel_global_search');
+add_action('wp_ajax_nopriv_comsatel_global_search', 'comsatel_global_search');

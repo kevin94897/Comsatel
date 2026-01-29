@@ -63,7 +63,7 @@
 							$footer_logo_id = get_theme_mod('footer_logo');
 							if ($footer_logo_id):
 								$footer_logo_url = wp_get_attachment_image_url($footer_logo_id, 'full');
-								?>
+							?>
 								<a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
 									<img src="<?php echo esc_url($footer_logo_url); ?>" class="w-auto"
 										alt="<?php bloginfo('name'); ?>">
@@ -173,7 +173,7 @@
 
 										// Determinar la clase del grid según la cantidad
 										$grid_class = 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-2'; // Default para 4 o menos
-									
+
 										if ($total_sections > 6) {
 											$grid_class = 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-4';
 										} elseif ($total_sections > 4) {
@@ -186,7 +186,7 @@
 											the_row();
 											$titulo = get_sub_field('titulo_seccion');
 											$icono = get_sub_field('icono_svg');
-											?>
+									?>
 											<div class="mega-menu-section">
 												<h4 class="flex items-center gap-2 font-medium text-gray-800 mb-4 text-xs">
 													<?php if ($icono): ?>
@@ -210,7 +210,7 @@
 																$link_url = $enlace['url'];
 																$link_title = $enlace['title'];
 																$link_target = $enlace['target'] ? $enlace['target'] : '_self';
-																?>
+														?>
 																<li>
 																	<a href="<?php echo esc_url($link_url); ?>"
 																		target="<?php echo esc_attr($link_target); ?>"
@@ -223,7 +223,7 @@
 													</ul>
 												<?php endif; ?>
 											</div>
-											<?php
+										<?php
 										endwhile;
 										echo '</div>';
 									else:
@@ -252,7 +252,7 @@
 											the_row();
 											$titulo = get_sub_field('titulo_seccion');
 											$icono = get_sub_field('icono_svg');
-											?>
+									?>
 											<div class="mega-menu-section">
 												<h4 class="flex items-center gap-2 font-medium text-gray-800 mb-4 text-xs">
 													<?php if ($icono): ?>
@@ -270,7 +270,7 @@
 																$link_url = $enlace['url'];
 																$link_title = $enlace['title'];
 																$link_target = $enlace['target'] ? $enlace['target'] : '_self';
-																?>
+														?>
 																<li>
 																	<a href="<?php echo esc_url($link_url); ?>"
 																		target="<?php echo esc_attr($link_target); ?>"
@@ -310,7 +310,7 @@
 											the_row();
 											$titulo = get_sub_field('titulo_seccion');
 											$icono = get_sub_field('icono_svg');
-											?>
+									?>
 											<div class="mega-menu-section">
 												<h4 class="flex items-center gap-2 font-medium text-gray-800 mb-4 text-xs">
 													<?php if ($icono): ?>
@@ -328,7 +328,7 @@
 																$link_url = $enlace['url'];
 																$link_title = $enlace['title'];
 																$link_target = $enlace['target'] ? $enlace['target'] : '_self';
-																?>
+														?>
 																<li>
 																	<a href="<?php echo esc_url($link_url); ?>"
 																		target="<?php echo esc_attr($link_target); ?>"
@@ -355,7 +355,7 @@
 					<!-- Desktop Actions -->
 					<div class="hidden lg:flex items-center space-x-4">
 						<!-- Search Icon -->
-						<button
+						<button id="search-desktop-trigger"
 							class="<?php echo $text_color_class . ' ' . $text_hover_class; ?> transition-colors duration-200 border-none bg-transparent"
 							aria-label="Buscar" data-aos="zoom-in" data-aos-delay="300">
 							<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -689,7 +689,7 @@
 													<?php echo esc_html($item->title); ?>
 												</a>
 											</li>
-											<?php
+							<?php
 										endif;
 									endif;
 								endforeach;
@@ -753,7 +753,7 @@
 									the_row();
 									$titulo = get_sub_field('titulo_seccion');
 									$icono = get_sub_field('icono_svg');
-									?>
+								?>
 									<div class="flex items-center gap-2 font-medium text-gray-800 text-md px-5 py-3">
 										<?php if ($icono)
 											echo '<span class="w-4 h-4">' . $icono . '</span>'; ?>
@@ -771,7 +771,7 @@
 															<?php echo esc_html($enlace['title']); ?>
 														</a>
 													</li>
-												<?php endif;
+										<?php endif;
 											endwhile;
 										endif; ?>
 									</ul>
@@ -845,20 +845,22 @@
 			</div>
 		</div>
 
+		<?php get_template_part('inc/componentes/search-overlay'); ?>
+
 		<script>
-			document.addEventListener('DOMContentLoaded', function () {
+			document.addEventListener('DOMContentLoaded', function() {
 				const btn = document.getElementById('loginBtn');
 				const dropdown = document.getElementById('loginDropdown');
 				const arrow = document.getElementById('arrowIcon');
 
-				btn.addEventListener('click', function (e) {
+				btn.addEventListener('click', function(e) {
 					e.stopPropagation(); // Evita que el clic se propague al documento
 					dropdown.classList.toggle('hidden');
 					arrow.classList.toggle('rotate-180');
 				});
 
 				// Cerrar el menú si se hace clic fuera de él
-				document.addEventListener('click', function (e) {
+				document.addEventListener('click', function(e) {
 					if (!dropdown.contains(e.target) && !btn.contains(e.target)) {
 						dropdown.classList.add('hidden');
 						arrow.classList.remove('rotate-180');
@@ -871,7 +873,7 @@
 				const mobileCountryArrow = document.getElementById('mobileCountryArrow');
 
 				if (mobileCountryBtn && mobileCountryDropdown) {
-					mobileCountryBtn.addEventListener('click', function (e) {
+					mobileCountryBtn.addEventListener('click', function(e) {
 						e.stopPropagation();
 						const isHidden = mobileCountryDropdown.classList.contains('hidden');
 
@@ -892,7 +894,7 @@
 						mobileCountryArrow.classList.toggle('rotate-180');
 					});
 
-					document.addEventListener('click', function (e) {
+					document.addEventListener('click', function(e) {
 						if (!mobileCountryDropdown.contains(e.target) && !mobileCountryBtn.contains(e.target)) {
 							mobileCountryDropdown.style.opacity = '0';
 							mobileCountryDropdown.style.transform = 'scale(0.95)';

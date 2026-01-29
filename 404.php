@@ -1,8 +1,7 @@
 <?php
+
 /**
  * The template for displaying 404 pages (not found)
- *
- * @link https://codex.wordpress.org/Creating_an_Error_404_Page
  *
  * @package comsatel
  */
@@ -10,51 +9,40 @@
 get_header();
 ?>
 
-	<main id="primary" class="site-main">
+<main id="primary" class="site-main bg-white">
+	<section class="min-h-[70vh] flex items-center justify-center px-4 py-20 lg:py-32">
+		<div class="max-w-2xl w-full text-center">
 
-		<section class="error-404 not-found">
-			<header class="page-header">
-				<h1 class="page-title"><?php esc_html_e( 'Oops! That page can&rsquo;t be found.', 'comsatel' ); ?></h1>
-			</header><!-- .page-header -->
+			<!-- Graphic Element -->
+			<div class="relative mb-12">
+				<div class="text-[120px] md:text-[200px] font-bold text-gray-100 select-none motion-preset-fade motion-duration-2000">
+					404
+				</div>
+				<div class="absolute inset-0 flex flex-col items-center justify-center mt-8">
+					<h1 class="text-3xl md:text-5xl font-bold text-gray-900 mb-2 motion-preset-slide-down motion-duration-1000">
+						¡Vaya! Página no encontrada
+					</h1>
+					<div class="w-20 h-1 bg-primary motion-preset-expand motion-delay-500"></div>
+				</div>
+			</div>
 
-			<div class="page-content">
-				<p><?php esc_html_e( 'It looks like nothing was found at this location. Maybe try one of the links below or a search?', 'comsatel' ); ?></p>
+			<p class="text-gray-600 text-lg md:text-xl mb-12 max-w-lg mx-auto motion-preset-fade motion-delay-700">
+				Parece que has llegado a una ruta que no existe. No te preocupes, puedes volver al camino principal.
+			</p>
 
-					<?php
-					get_search_form();
-
-					the_widget( 'WP_Widget_Recent_Posts' );
-					?>
-
-					<div class="widget widget_categories">
-						<h2 class="widget-title"><?php esc_html_e( 'Most Used Categories', 'comsatel' ); ?></h2>
-						<ul>
-							<?php
-							wp_list_categories(
-								array(
-									'orderby'    => 'count',
-									'order'      => 'DESC',
-									'show_count' => 1,
-									'title_li'   => '',
-									'number'     => 10,
-								)
-							);
-							?>
-						</ul>
-					</div><!-- .widget -->
-
-					<?php
-					/* translators: %1$s: smiley */
-					$comsatel_archive_content = '<p>' . sprintf( esc_html__( 'Try looking in the monthly archives. %1$s', 'comsatel' ), convert_smilies( ':)' ) ) . '</p>';
-					the_widget( 'WP_Widget_Archives', 'dropdown=1', "after_title=</h2>$comsatel_archive_content" );
-
-					the_widget( 'WP_Widget_Tag_Cloud' );
-					?>
-
-			</div><!-- .page-content -->
-		</section><!-- .error-404 -->
-
-	</main><!-- #main -->
+			<div class="flex flex-col sm:flex-row items-center justify-center gap-4 motion-preset-slide-up motion-delay-1000">
+				<a href="<?php echo esc_url(home_url('/')); ?>"
+					class="btn btn-primary">
+					Ir al inicio
+				</a>
+				<a href="<?php echo esc_url(home_url('/servicios/')); ?>"
+					class="btn btn-secondary">
+					Ver soluciones
+				</a>
+			</div>
+		</div>
+	</section>
+</main>
 
 <?php
 get_footer();
