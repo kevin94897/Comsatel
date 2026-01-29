@@ -958,3 +958,20 @@ textarea {
 	margin-right: auto;
 	margin-bottom: 1.5em;
 }
+
+/*--------------------------------------------------------------
+# Custom Animations (AOS)
+--------------------------------------------------------------*/
+[data-aos="width-expand"] {
+    width: 0 !important;
+    transition-property: width;
+}
+
+[data-aos="width-expand"].aos-animate {
+    width: 15% !important; /* Coincide con el valor original en template-nosotros.php */
+}
+
+/* Para asegurar que la línea se anime con un timing suave */
+.aos-animate[data-aos="width-expand"] {
+    transition-timing-function: ease-in-out;
+}

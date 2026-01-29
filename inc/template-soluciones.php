@@ -17,9 +17,10 @@ get_header(); ?>
         <!-- Content -->
         <div class="container-full md:mx-auto md:px-4 lg:px-8 relative z-10">
             <div class="max-w-3xl">
-                <span class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>
-                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-20 leading-tight mt-2" data-aos="fade-up"
-                    data-aos-duration="1000">
+                <span
+                    class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>
+                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-20 leading-tight mt-2"
+                    data-aos="fade-up" data-aos-duration="1000">
                     SEGURIDAD EN EL<br>
                     TRANSPORTE EN RUTA
                 </h1>
@@ -69,7 +70,7 @@ get_header(); ?>
         <div class="container mx-auto px-4 lg:px-8">
             <div class="max-w-4xl mx-auto text-center">
                 <p class="text-sm text-gray uppercase tracking-wider mb-4" data-aos="fade-down">Desafío</p>
-                <p class="leading-relaxed mb-0 md:text-2xl text-xl font-medium tracking-[-0.08px]" data-aos="fade-up"
+                <p class="leading-relaxed mb-0 md:text-xl text-lg font-medium tracking-[-0.08px]" data-aos="fade-up"
                     data-aos-delay="100">
                     Las operaciones de transporte enfrentan riesgos de robos, accidentes y pérdida de control en ruta.
                     El reto es mantener la seguridad del vehículo, la carga y el conductor en todo momento.

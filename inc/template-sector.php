@@ -19,9 +19,10 @@ get_header();
         <!-- Content -->
         <div class="container-full md:mx-auto md:px-4 lg:px-8 relative z-10">
             <div class="max-w-3xl">
-                <span class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>
-                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-20 leading-tight mt-2" data-aos="fade-up"
-                    data-aos-duration="1000">
+                <span
+                    class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>
+                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-20 leading-tight mt-2"
+                    data-aos="fade-up" data-aos-duration="1000">
                     SECTOR MINERIA
                 </h1>
             </div>
@@ -76,9 +77,11 @@ get_header();
         <div class="container mx-auto px-4 lg:px-8">
             <div class="max-w-4xl mx-auto text-center">
                 <p class="text-sm text-gray uppercase tracking-wider mb-4" data-aos="fade-down">Desafío</p>
-                <p class="leading-relaxed mb-0 md:text-2xl text-xl font-medium tracking-[-0.08px]" data-aos="fade-up"
+                <p class="leading-relaxed mb-0 md:text-xl text-lg font-medium tracking-[-0.08px]" data-aos="fade-up"
                     data-aos-delay="100">
-                    Monitorea cada vehículo y controla cada movimiento en línea con nuestros sistemas de localización GPS: Equipos robustos con localización de alta precisión para vehículos y activos con alertas inteligentes (salidas de ruta, detenciones prolongadas, excesos de velocidad).
+                    Monitorea cada vehículo y controla cada movimiento en línea con nuestros sistemas de localización
+                    GPS: Equipos robustos con localización de alta precisión para vehículos y activos con alertas
+                    inteligentes (salidas de ruta, detenciones prolongadas, excesos de velocidad).
                 </p>
             </div>
         </div>
@@ -155,8 +158,11 @@ get_header();
                     <h2 class="text-2xl lg:text-4xl font-medium text-primary mb-4" data-aos="fade-in">
                         Tenemos las mejores soluciones para tu flota logística
                     </h2>
-                    <p class="text-gray-600 leading-relaxed mb-8 max-w-2xl mx-auto" data-aos="fade-in" data-aos-delay="100">
-                        Incrementa la eficiencia y seguridad de tu operación logística con tecnología de rastreo vehicular, gestión de flotas, videotelemática, sensores de monitoreo y protocolos de recupero especializados.
+                    <p class="text-gray-600 leading-relaxed mb-8 max-w-2xl mx-auto" data-aos="fade-in"
+                        data-aos-delay="100">
+                        Incrementa la eficiencia y seguridad de tu operación logística con tecnología de rastreo
+                        vehicular, gestión de flotas, videotelemática, sensores de monitoreo y protocolos de recupero
+                        especializados.
                     </p>
                 </div>
             </div>
@@ -174,8 +180,7 @@ get_header();
                 <div class="order-1" data-aos="fade-right" data-aos-delay="200">
                     <div class="flex items-center gap-2 mb-2">
                         <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_sector-icon-video.png"
-                            alt="Sistema de rastreo satelital"
-                            class="w-10">
+                            alt="Sistema de rastreo satelital" class="w-10">
                         <p class="text-sm uppercase tracking-wider mb-0 text-gray-600 font-medium">COMSATEL VIDEO</p>
                     </div>
                     <h3 class="text-2xl lg:text-4xl font-medium mb-6">Video telemática</h3>
@@ -245,13 +250,14 @@ get_header();
                 <div class="order-1 lg:order-2" data-aos="fade-left" data-aos-delay="200">
                     <div class="flex items-center gap-2 mb-2">
                         <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_sector-icon-video.png"
-                            alt="Sistema de rastreo satelital"
-                            class="w-10">
+                            alt="Sistema de rastreo satelital" class="w-10">
                         <p class="text-sm uppercase tracking-wider mb-0 text-gray-600 font-medium">SVR X</p>
                     </div>
-                    <h3 class="text-2xl lg:text-4xl font-medium mb-6">Asistencia al conductor y prevención de accidentes</h3>
+                    <h3 class="text-2xl lg:text-4xl font-medium mb-6">Asistencia al conductor y prevención de accidentes
+                    </h3>
                     <p class="leading-relaxed mb-6">
-                        Integra el monitoreo 24/7 con un protocolo de recuperación inmediato, optimizando la seguridad de tu flota y asegurando el cumplimiento de tiempos y rutas.
+                        Integra el monitoreo 24/7 con un protocolo de recuperación inmediato, optimizando la seguridad
+                        de tu flota y asegurando el cumplimiento de tiempos y rutas.
                     </p>
                     <?php
                     get_template_part('inc/componentes/button-arrow', null, array(
@@ -272,13 +278,13 @@ get_header();
                 <div class="order-1" data-aos="fade-right" data-aos-delay="200">
                     <div class="flex items-center gap-2 mb-2">
                         <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_sector-icon-video.png"
-                            alt="Sistema de rastreo satelital"
-                            class="w-10">
+                            alt="Sistema de rastreo satelital" class="w-10">
                         <p class="text-sm uppercase tracking-wider mb-0 text-gray-600 font-medium">METEOR</p>
                     </div>
                     <h3 class="text-2xl lg:text-4xl font-medium mb-6">Videotelemática móvil</h3>
                     <p class="leading-relaxed mb-6">
-                        Optimiza la eficiencia operativa mediante reportes detallados que identifican áreas de mejora, reducen el desgaste de la flota y elevan la seguridad del conductor.
+                        Optimiza la eficiencia operativa mediante reportes detallados que identifican áreas de mejora,
+                        reducen el desgaste de la flota y elevan la seguridad del conductor.
                     </p>
                     <?php
                     get_template_part('inc/componentes/button-arrow', null, array(
@@ -299,13 +305,13 @@ get_header();
                 <div class="order-1 lg:order-2" data-aos="fade-left" data-aos-delay="200">
                     <div class="flex items-center gap-2 mb-2">
                         <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_sector-icon-video.png"
-                            alt="Sistema de rastreo satelital"
-                            class="w-10">
+                            alt="Sistema de rastreo satelital" class="w-10">
                         <p class="text-sm uppercase tracking-wider mb-0 text-gray-600 font-medium">SECURITY CARGO</p>
                     </div>
                     <h3 class="text-2xl lg:text-4xl font-medium mb-6">Sensores de control y monitoreo del vehículo</h3>
                     <p class="leading-relaxed mb-6">
-                        Aporta visibilidad y respaldo en tiempo real para conductores, custodios y personal operativo, mejorando la seguridad y la gestión de incidentes en ruta. </p>
+                        Aporta visibilidad y respaldo en tiempo real para conductores, custodios y personal operativo,
+                        mejorando la seguridad y la gestión de incidentes en ruta. </p>
                     <?php
                     get_template_part('inc/componentes/button-arrow', null, array(
                         'text' => 'VER MÁS: SENSORES DE CONTROL Y MONITOREO DEL VEHÍCULO',
