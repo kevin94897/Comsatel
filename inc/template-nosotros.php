@@ -328,6 +328,9 @@ get_header(); ?>
     <!-- SECCION CLIENTES -->
     <?php get_template_part('inc/componentes/section-clientes'); ?>
 
+    <!-- SECCION CERTIFICADOS -->
+    <?php get_template_part('inc/componentes/section-certificados'); ?>
+
     <!-- SECCIÓN FAQS -->
     <?php get_template_part('inc/componentes/section-faqs'); ?>
 

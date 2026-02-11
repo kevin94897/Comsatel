@@ -13,6 +13,7 @@ module.exports = {
         // COMSATEL Brand Colors
         primary: {
           DEFAULT: '#FF4D4D', // Rojo principal - R:225 G:0 B:0
+          dark: '#B91C1C',    // Rojo oscuro para hover/active
           50: '#FEF2F2',
           100: '#FEE2E2',
           200: '#FECACA',

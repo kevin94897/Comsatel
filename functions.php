@@ -146,6 +146,15 @@ function comsatel_scripts()
 		filemtime(get_template_directory() . '/js/ubicaciones.js'),
 		true
 	);
+
+	// Cotizador Script
+	wp_enqueue_script(
+		'comsatel-cotizador',
+		get_template_directory_uri() . '/js/cotizador.js',
+		['jquery'],
+		filemtime(get_template_directory() . '/js/cotizador.js'),
+		true
+	);
 }
 
 add_action('wp_enqueue_scripts', 'comsatel_scripts', 99);
@@ -459,6 +468,11 @@ require get_template_directory() . '/inc/ajax-libro-reclamaciones.php';
  * Include AJAX handlers for Contacto
  */
 require get_template_directory() . '/inc/ajax-contacto.php';
+
+/**
+ * Include AJAX handlers for Cotizador
+ */
+require get_template_directory() . '/inc/ajax-cotizador.php';
 
 
 /**
