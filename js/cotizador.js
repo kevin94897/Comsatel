@@ -62,15 +62,9 @@
         });
 
         // Expand/Collapse Product Categories
-        $('.product-category').on('click', function (e) {
-            // Check if the click originated from within the expandable content
-            // If so, we do NOT want to toggle (so users can check boxes freely)
-            if ($(e.target).closest('.category-content').length > 0) {
-                return;
-            }
-
+        $(document).on('click', '.product-category', function (e) {
             const $category = $(this);
-            const $content = $category.find('.category-content');
+            const $content = $category.next('.category-content');
             const isExpanded = $category.attr('data-expanded') === 'true';
 
             if (isExpanded) {
@@ -220,6 +214,7 @@
             let isValid = true;
             $step1.find('.error-msg').remove();
             $step1.find('.border-red-500').removeClass('border-red-500');
+            $step1.find('.document-input-group').removeClass('border-red-500');
 
             // Name
             const $name = $('input[name="nombre_completo"]');
@@ -246,7 +241,8 @@
             // Document
             const $doc = $('input[name="nro_documento"]');
             if ($doc.val().trim() === '') {
-                showError($doc, 'El documento es obligatorio');
+                const $group = $doc.closest('.document-input-group');
+                showError($group.length ? $group : $doc, 'El documento es obligatorio');
                 isValid = false;
             }
 
