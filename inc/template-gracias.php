@@ -17,7 +17,7 @@ get_header();
                     Gracias por tu solicitud de cotización
                 </h2>
                 <p>Hemos registrado tu solicitud y en breve nos comunicaremos contigo para brindarte tu cotización.</p>
-                <button class="btn btn-primary mt-4">Ir al Inicio</button>
+                <a href="<?php echo home_url(); ?>" class="btn btn-primary mt-4">Ir al Inicio</a>
             </div>
             <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_gracias.png" alt="Gracias por tu mensaje">
         </div>

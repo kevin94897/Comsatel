@@ -29,7 +29,8 @@
 			|| is_page_template('inc/template-soluciones.php') || is_page_template('inc/template-cookies.php')
 			|| is_page_template('inc/template-descargas.php') || is_page_template('inc/template-actualizar-datos.php')
 			|| is_page_template('inc/template-servicio.php') || is_page_template('inc/template-sector.php')
-			|| is_page_template('inc/template-nosotros.php') || is_page_template('inc/template-xperience.php');
+			|| is_page_template('inc/template-nosotros.php') || is_page_template('inc/template-xperience.php')
+			|| is_page_template('inc/template-promocion.php') || is_page_template('inc/template-promociones.php');
 
 		$header_bg_class = $is_transparent_header ? '' : 'bg-transparent ';
 		$text_color_class = $is_transparent_header ? 'text-white' : 'text-gray-900';

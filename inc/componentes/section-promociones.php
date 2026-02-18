@@ -48,7 +48,14 @@ if ($query->have_posts()) :
                     <div class="col-span-1 <?php echo $lg_col_span; ?> bg-white rounded-lg shadow-lg overflow-hidden flex flex-col h-full hover:shadow-xl transition-shadow duration-300" data-aos="fade-up">
                         <!-- Image -->
                         <div class="relative h-48 lg:h-[280px] overflow-hidden p-4">
-                            <?php if (has_post_thumbnail($post)) : ?>
+                            <?php
+                            $acf_image = get_field('imagen', $post->ID);
+                            if ($acf_image) :
+                                $img_url = is_array($acf_image) ? $acf_image['url'] : $acf_image;
+                                $img_alt = is_array($acf_image) ? $acf_image['alt'] : get_the_title($post);
+                            ?>
+                                <img src="<?php echo esc_url($img_url); ?>" alt="<?php echo esc_attr($img_alt); ?>" class="w-full h-full object-cover transition-transform duration-500 rounded-md">
+                            <?php elseif (has_post_thumbnail($post)) : ?>
                                 <?php echo get_the_post_thumbnail($post, 'large', ['class' => 'w-full h-full object-cover transition-transform duration-500 rounded-md']); ?>
                             <?php else : ?>
                                 <img src="<?php echo get_template_directory_uri(); ?>/images/placeholder.jpg" alt="<?php echo esc_attr($post->post_title); ?>" class="w-full h-full object-cover rounded-md">
@@ -62,7 +69,14 @@ if ($query->have_posts()) :
                             </h3>
 
                             <div class="text-gray-600 text-sm mb-6 flex-grow line-clamp-3">
-                                <?php echo get_the_excerpt($post); ?>
+                                <?php
+                                $acf_desc = get_field('descripcion', $post->ID);
+                                if ($acf_desc) {
+                                    echo wp_trim_words(strip_tags($acf_desc), 20);
+                                } else {
+                                    echo get_the_excerpt($post);
+                                }
+                                ?>
                             </div>
 
                             <div class="mt-auto">

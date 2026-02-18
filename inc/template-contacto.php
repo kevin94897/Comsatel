@@ -396,25 +396,35 @@ get_header();
             form.addEventListener('submit', function(e) {
                 e.preventDefault();
 
+                // Verificar si el validador existe y es válido
+                if (window.contactoValidator && !window.contactoValidator.isFormValid()) return;
+
                 // Botón de envío - Estado Cargando
                 const submitBtn = form.querySelector('button[type="submit"]');
                 const originalBtnText = submitBtn.innerHTML;
                 submitBtn.disabled = true;
+
+                // El validador ya maneja el estado del botón, pero aquí podemos añadir el spinner
                 submitBtn.innerHTML = `
-                    <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                        <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                    </svg>
-                    Enviando...
-                `;
+            <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white inline-block" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            Enviando...
+        `;
 
                 // Preparar FormData
                 const formData = new FormData(form);
                 formData.append('action', 'enviar_contacto');
-                formData.append('security', security_nonce_contacto);
+
+                // Usar variables globales estandarizadas
+                const ajaxUrl = (typeof comsatel_vars !== 'undefined') ? comsatel_vars.ajax_url : '/wp-admin/admin-ajax.php';
+                const securityNonce = (typeof comsatel_vars !== 'undefined') ? comsatel_vars.nonce_contacto : '';
+
+                formData.append('security', securityNonce);
 
                 // Enviar via Fetch
-                fetch(ajax_url_contacto, {
+                fetch(ajaxUrl, {
                         method: 'POST',
                         body: formData
                     })
@@ -432,19 +442,16 @@ get_header();
                             });
 
                         } else {
-                            alert('Error: ' + (data.data.message || 'Ocurrió un error inesperado.'));
+                            window.contactoValidator.showNotification(data.data.message || 'Ocurrió un error inesperado.', 'error');
+                            submitBtn.disabled = false;
+                            submitBtn.innerHTML = originalBtnText;
                         }
                     })
                     .catch(error => {
                         console.error('Error:', error);
-                        alert('Ocurrió un error al procesar tu solicitud. Por favor intenta nuevamente.');
-                    })
-                    .finally(() => {
-                        // Restaurar botón (solo si hubo error)
-                        if (!form.classList.contains('hidden')) {
-                            submitBtn.disabled = false;
-                            submitBtn.innerHTML = originalBtnText;
-                        }
+                        window.contactoValidator.showNotification('Ocurrió un error al procesar tu solicitud. Por favor intenta nuevamente.', 'error');
+                        submitBtn.disabled = false;
+                        submitBtn.innerHTML = originalBtnText;
                     });
             });
         });

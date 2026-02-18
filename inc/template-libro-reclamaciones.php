@@ -182,8 +182,7 @@ get_header();
         transform: translate(-50%, -50%) scale(1);
     }
 
-    * File upload personalizado */
-    .file-upload-wrapper {
+    * File upload personalizado */ .file-upload-wrapper {
         position: relative;
         border: 2px dashed #D1D5DB;
         border-radius: 0.5rem;
@@ -211,7 +210,8 @@ get_header();
 
 <main id="primary" class="site-main">
 
-    <!-- Formulario de Reclamaciones -->   <section class="py-12 py-24 md:py-42|+
+    <!-- Formulario de Reclamaciones -->
+    <section class="py-12 py-24 md:py-42|+
      min-h-screen flex md:items-center items-start md:justify-center justify-start">
         <div class="container mx-auto px-4">
             <div class="max-w-7xl mx-auto">
@@ -626,12 +626,20 @@ get_header();
                         });
 
                     } else {
-                        alert('Error: ' + (data.data.message || 'Ocurrió un error inesperado.'));
+                        if (window.reclamosValidator) {
+                            window.reclamosValidator.showNotification('Error: ' + (data.data.message || 'Ocurrió un error inesperado.'));
+                        } else {
+                            alert('Error: ' + (data.data.message || 'Ocurrió un error inesperado.'));
+                        }
                     }
                 })
                 .catch(error => {
                     console.error('Error:', error);
-                    alert('Ocurrió un error al procesar tu solicitud. Por favor intenta nuevamente.');
+                    if (window.reclamosValidator) {
+                        window.reclamosValidator.showNotification('Ocurrió un error al procesar tu solicitud. Por favor intenta nuevamente.');
+                    } else {
+                        alert('Ocurrió un error al procesar tu solicitud. Por favor intenta nuevamente.');
+                    }
                 })
                 .finally(() => {
                     // Restaurar botón (solo si hubo error, si hubo éxito el form se oculta)
@@ -668,7 +676,11 @@ get_header();
         });
 
         if (!valid) {
-            alert('Por favor, completa todos los campos requeridos.');
+            if (window.reclamosValidator) {
+                window.reclamosValidator.showNotification('Por favor, completa todos los campos requeridos.');
+            } else {
+                alert('Por favor, completa todos los campos requeridos.');
+            }
             return;
         }
 

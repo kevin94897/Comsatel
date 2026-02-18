@@ -263,7 +263,7 @@
      */
     function handleEmailReport() {
         if (!calculatorState.results) {
-            alert('Por favor, calcula los ahorros primero');
+            // Results section will show appropriate message
             return;
         }
 
@@ -313,12 +313,12 @@
         const consent = form.querySelector('#consent-checkbox').checked;
 
         if (!validateEmail(email)) {
-            alert('Por favor, ingresa un correo válido');
+            // Form validator handles email validation inline
             return;
         }
 
         if (!consent) {
-            alert('Debes aceptar ser contactado para continuar');
+            // Checkbox validation handled by form validator
             return;
         }
 
@@ -378,14 +378,22 @@
                         closeEmailModal();
                     }, 3000);
                 } else {
-                    alert('Error al enviar el reporte: ' + (data.data || 'Inténtalo de nuevo'));
+                    if (window.calculatorValidator) {
+                        window.calculatorValidator.showNotification('Error al enviar el reporte: ' + (data.data || 'Inténtalo de nuevo'));
+                    } else {
+                        alert('Error al enviar el reporte: ' + (data.data || 'Inténtalo de nuevo'));
+                    }
                 }
             })
             .catch(error => {
                 console.error('Error:', error);
                 submitBtn.innerHTML = originalText;
                 submitBtn.disabled = false;
-                alert('Error al enviar el reporte. Por favor, inténtalo de nuevo.');
+                if (window.calculatorValidator) {
+                    window.calculatorValidator.showNotification('Error al enviar el reporte. Por favor, inténtalo de nuevo.');
+                } else {
+                    alert('Error al enviar el reporte. Por favor, inténtalo de nuevo.');
+                }
             });
     }
 
@@ -445,7 +453,11 @@
 
         // Opción 2: Abrir modal de contacto
         console.log('Solicitar asesoría con datos:', calculatorState);
-        alert('Redirigiendo a formulario de contacto...');
+        if (window.calculatorValidator) {
+            window.calculatorValidator.showNotification('Redirigiendo a formulario de contacto...', 'info');
+        } else {
+            alert('Redirigiendo a formulario de contacto...');
+        }
 
         // Implementar según tus necesidades
     }

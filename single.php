@@ -117,6 +117,95 @@ get_header();
 						</div>
 					<?php endif; ?>
 
+					<div class="swiper myHotspotSlider">
+						<div class="swiper-wrapper">
+							<div class="swiper-slide">
+								<?php echo do_shortcode('[testing-markers]'); ?>
+							</div>
+							<div class="swiper-slide">
+								<?php echo do_shortcode('[testing-markers2]'); ?>
+							</div>
+						</div>
+					</div>
+					<!-- SLIDER MINIATURAS -->
+					<div class="swiper myHotspotThumbs">
+
+						<div class="swiper-wrapper">
+
+							<div class="swiper-slide">
+								<img src="http://comsatel.local/wp-content/uploads/2026/02/generic_truck_00-1-9.png" />
+							</div>
+
+							<div class="swiper-slide">
+								<img src="http://comsatel.local/wp-content/uploads/2026/02/eventos_category_chofer_reemplazo.png" />
+							</div>
+
+						</div>
+
+					</div>
+					<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+					<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+					<script>
+						document.addEventListener('DOMContentLoaded', function() {
+
+							// Miniaturas
+							const thumbs = new Swiper('.myHotspotThumbs', {
+								slidesPerView: 3,
+								spaceBetween: 10,
+								watchSlidesProgress: true,
+							});
+
+							// Slider principal
+							const mainSlider = new Swiper('.myHotspotSlider', {
+								slidesPerView: 1,
+								spaceBetween: 30,
+								autoHeight: true,
+								navigation: {
+									nextEl: '.swiper-button-next',
+									prevEl: '.swiper-button-prev',
+								},
+								thumbs: {
+									swiper: thumbs,
+								},
+								on: {
+									init: function() {
+										window.dispatchEvent(new Event('resize'));
+									},
+									slideChangeTransitionEnd: function() {
+										// 🔥 Recalcular hotspots
+										window.dispatchEvent(new Event('resize'));
+									}
+								}
+							});
+
+						});
+					</script>
+
+
+					<style>
+						.myHotspotSlider {
+							margin-bottom: 20px;
+							overflow: visible;
+						}
+
+						.myHotspotThumbs .swiper-slide {
+							opacity: 0.5;
+							cursor: pointer;
+						}
+
+						.myHotspotThumbs .swiper-slide-thumb-active {
+							opacity: 1;
+						}
+
+						.myHotspotThumbs img {
+							width: 100%;
+							height: auto;
+							display: block;
+						}
+					</style>
+
+
 					<!-- Content -->
 					<div class="prose prose-lg max-w-none blog-content"
 						data-aos="fade-up"
