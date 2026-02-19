@@ -6,7 +6,7 @@
 ?>
 
 <!-- Floating Button (Bottom Left) -->
-<div id="cotizador-widget" class="fixed bottom-8 left-8 z-50 flex flex-col items-start gap-4">
+<!-- <div id="cotizador-widget" class="fixed bottom-8 left-8 z-50 flex flex-col items-start gap-4">
     <button id="open-cotizador"
         class="flex items-center justify-center w-16 h-16 p-4 bg-primary text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 relative group overflow-hidden">
         <span
@@ -20,7 +20,7 @@
             <polyline points="10 9 9 9 8 9"></polyline>
         </svg>
     </button>
-</div>
+</div> -->
 
 <!-- Modal Container -->
 <div id="cotizador-modal"

@@ -209,6 +209,7 @@
 
 <?php get_template_part('inc/componentes/whatsapp-button'); ?>
 <?php get_template_part('inc/componentes/modal-cotizador'); ?>
+<?php get_template_part('inc/componentes/floating-buttons'); ?>
 
 <?php wp_footer(); ?>
 

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * The template for displaying single Promocion posts
+ * The template for displaying single Evento posts
  *
  * @package comsatel
  */

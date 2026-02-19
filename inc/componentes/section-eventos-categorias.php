@@ -40,11 +40,10 @@ if (!empty($terms) && !is_wp_error($terms)) :
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[300px]">
                 <?php foreach ($terms as $term) :
 
-                    // Contador real de eventos
+                    // Obtener posts de esta categoría
                     $events_query = new WP_Query([
                         'post_type'      => $post_type,
                         'posts_per_page' => -1,
-                        'fields'         => 'ids',
                         'tax_query'      => [
                             [
                                 'taxonomy' => $taxonomy,
@@ -56,6 +55,12 @@ if (!empty($terms) && !is_wp_error($terms)) :
 
                     $event_count = $events_query->found_posts;
                     if ($event_count === 0) continue;
+
+                    // Enlace: si hay un solo post, ir directo; si hay varios, ir al primero
+                    $first_post = $events_query->posts[0];
+                    $card_link  = get_permalink($first_post->ID);
+
+                    wp_reset_postdata();
 
                     // Imagen ACF
                     $image = get_field('imagen_de_categoria', $taxonomy . '_' . $term->term_id);
@@ -158,7 +163,7 @@ if (!empty($terms) && !is_wp_error($terms)) :
 
                                 <!-- Botón -->
                                 <a
-                                    href="<?php echo esc_url(get_term_link($term)); ?>"
+                                    href="<?php echo esc_url($card_link); ?>"
                                     class="btn btn-primary font-normal !text-sm inline-block
                             transition-[transform,box-shadow] duration-500 ease-out delay-150
                             group-hover:-translate-y-4 group-hover:scale-105 group-hover:shadow-xl">
@@ -169,8 +174,7 @@ if (!empty($terms) && !is_wp_error($terms)) :
                         </div>
                     </div>
 
-                <?php endforeach;
-                wp_reset_postdata(); ?>
+                <?php endforeach; ?>
             </div>
         </div>
     </section>

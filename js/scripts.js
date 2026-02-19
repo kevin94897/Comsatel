@@ -369,6 +369,74 @@
       $searchInput.val('').trigger('input').focus();
     });
 
+    /**
+     * Benefit Modal Logic
+     */
+    const $benefitModal = $('#modal-beneficio');
+    const $benefitPartnerName = $('#benefit-partner-name');
+    const $closeBenefitModal = $('#close-modal-beneficio');
+
+    function openBenefitModal(partnerName) {
+      if (!$benefitModal.length) return;
+      if (partnerName) {
+        $benefitPartnerName.text(partnerName);
+      }
+      $benefitModal.removeClass('hidden').addClass('flex');
+      $('body').css('overflow', 'hidden');
+    }
+
+    function closeBenefitModal() {
+      $benefitModal.addClass('hidden').removeClass('flex');
+      $('body').css('overflow', '');
+    }
+
+    // Event delegation for opening buttons
+    $(document).on('click', '.open-benefit-modal', function (e) {
+      e.preventDefault();
+      const partnerName = $(this).data('partner');
+      openBenefitModal(partnerName);
+    });
+
+    if ($closeBenefitModal.length) {
+      $closeBenefitModal.on('click', closeBenefitModal);
+    }
+
+    $benefitModal.on('click', function (e) {
+      if (e.target === this) {
+        closeBenefitModal();
+      }
+    });
+
+    /**
+     * Floating Buttons Logic
+     */
+    const $scrollToTopBtn = $('#scroll-to-top');
+    const $floatingCotizadorBtn = $('#floating-open-cotizador');
+    const $cotizadorModal = $('#cotizador-modal');
+
+    $(window).on('scroll', function () {
+      if ($(this).scrollTop() > 300) {
+        $scrollToTopBtn.removeClass('opacity-0 invisible translate-y-10')
+          .addClass('opacity-100 visible translate-y-0');
+      } else {
+        $scrollToTopBtn.addClass('opacity-0 invisible translate-y-10')
+          .removeClass('opacity-100 visible translate-y-0');
+      }
+    });
+
+    $scrollToTopBtn.on('click', function (e) {
+      e.preventDefault();
+      $('html, body').animate({ scrollTop: 0 }, 600, 'swing');
+    });
+
+    $floatingCotizadorBtn.on('click', function (e) {
+      e.preventDefault();
+      if ($cotizadorModal.length) {
+        $cotizadorModal.removeClass('hidden').addClass('flex');
+        $('body').css('overflow', 'hidden');
+      }
+    });
+
   }); // End document ready
 
 })(jQuery);
