@@ -1,0 +1,1226 @@
+/**
+ * COMSATEL Global Styles
+ * Colores, Tipografía y Componentes Globales
+ */
+
+/* ==========================================================================
+   1. Import Poppins Font
+   ========================================================================== */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap');
+
+/* ==========================================================================
+   2. Root Variables - Colores COMSATEL
+   ========================================================================== */
+:root {
+  /* Primary Colors */
+  --color-primary: #E31E25;
+  /* Rojo principal - R: 225 G:0 B:0 */
+  --color-primary-dark: #CC0000;
+  /* Rojo oscuro - R: 212 G:17 B:22 */
+  --color-primary-light: #FF4D4D;
+  /* Rojo claro */
+
+  /* Grays */
+  --color-dark: #151515;
+  /* R: 71 G:68 B:77 */
+  --color-gray: #7A7A7A;
+  /* R: 113 G:111 B:118 */
+  --color-light-gray: #F0F0F0;
+  /* R: 240 G:240 B:240 */
+  --color-white: #FFFFFF;
+  /* R: 255 G:255 B:255 */
+  --color-black: #1E1E1E;
+  /* R: 0 G:0 B:0 */
+
+  /* Semantic Colors */
+  --color-success: #10B981;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-info: #3B82F6;
+
+  /* Typography */
+  --font-primary: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+
+  /* Border Radius */
+  --radius-sm: 0.375rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 1rem;
+  --radius-xl: 1.5rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+  --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+
+  /* Transitions */
+  --transition-fast: 150ms ease-in-out;
+  --transition-base: 200ms ease-in-out;
+  --transition-slow: 300ms ease-in-out;
+}
+
+/* ==========================================================================
+   3. Base Styles
+   ========================================================================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+@layer base {
+
+  body,
+  button,
+  select,
+  a {
+    font-family: 'Poppins', sans-serif !important;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--color-dark) !important;
+  background-color: var(--color-white);
+  overflow-x: clip;
+}
+
+/* ==========================================================================
+   4. Typography
+   ========================================================================== */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--color-dark);
+  margin-bottom: 1rem;
+  letter-spacing: -0.08px;
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: 800;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+h4 {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+h6 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+@media (min-width: 1024px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    font-size: 2.5rem;
+  }
+
+  h3 {
+    font-size: 2rem;
+  }
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+a {
+  color: var(--color-primary);
+  text-decoration: none;
+  transition: color var(--transition-base);
+}
+
+a:hover {
+  color: var(--color-primary-dark);
+}
+
+/* ==========================================================================
+   5. Buttons
+   ========================================================================== */
+/* ============================================
+   BASE BUTTON
+   ============================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.5rem 2rem;
+  font-family: var(--font-primary);
+  font-size: 0.95rem;
+  line-height: 1;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid transparent;
+  border-radius: var(--radius-full);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  white-space: nowrap;
+  min-height: 44px;
+}
+
+/* ============================================
+   VARIANTS
+   ============================================ */
+.btn-primary {
+  background-color: var(--color-primary-light);
+  color: var(--color-white);
+  border-color: var(--color-primary-light);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-primary-dark);
+  border-color: var(--color-primary-dark);
+  color: var(--color-white);
+}
+
+.btn-secondary {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border-color: var(--color-black);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-primary-light);
+  border-color: var(--color-primary-light);
+  color: var(--color-white);
+}
+
+.btn-outline {
+  background-color: transparent;
+  color: var(--color-black);
+  border-color: var(--color-black);
+}
+
+.btn-outline:hover {
+  background-color: var(--color-black);
+  border-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.btn-outline-white {
+  background-color: transparent;
+  color: var(--color-white);
+  border-color: var(--color-white);
+}
+
+.btn-outline-white:hover {
+  background-color: var(--color-white);
+  border-color: var(--color-white);
+  color: var(--color-black);
+}
+
+.btn-dark {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  border-color: var(--color-dark);
+}
+
+.btn-dark:hover {
+  background-color: transparent;
+  border-color: var(--color-dark);
+  color: var(--color-dark);
+}
+
+.btn-white {
+  background-color: var(--color-white);
+  color: var(--color-dark);
+  border-color: var(--color-white);
+}
+
+.btn-white:hover {
+  background-color: transparent;
+  border-color: var(--color-white);
+  color: var(--color-white);
+}
+
+/* ============================================
+   SIZES
+   ============================================ */
+.btn-sm {
+  padding: 0.375rem 1.5rem;
+  font-size: 0.875rem;
+}
+
+.btn-lg {
+  padding: 0.75rem 2.5rem;
+  font-size: 1.125rem;
+}
+
+.btn-xl {
+  padding: 1rem 3rem;
+  font-size: 1.25rem;
+}
+
+/* ============================================
+   SPECIAL TYPES
+   ============================================ */
+.btn-icon {
+  padding: 0;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: var(--radius-full);
+}
+
+/* ============================================
+   STATES
+   ============================================ */
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:disabled,
+.btn.disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+/* ============================================
+   MOBILE
+   ============================================ */
+@media (max-width: 768px) {
+  .btn {
+    font-size: 0.875rem;
+    padding: 0.5rem 2.25rem;
+    white-space: normal;
+    min-height: 35px;
+    line-height: 20px;
+  }
+}
+
+/* ==========================================================================
+   6. Cards
+   ========================================================================== */
+.card {
+  background-color: var(--color-white);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
+  overflow: hidden;
+  transition: all var(--transition-base);
+}
+
+.card:hover {
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
+}
+
+.card-body {
+  padding: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+  .card-body {
+    padding: 2rem;
+  }
+}
+
+/* ==========================================================================
+   7. Badges
+   ========================================================================== */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.75rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: var(--radius-full);
+}
+
+.badge-primary {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.badge-gray {
+  background-color: var(--color-light-gray);
+  color: var(--color-gray);
+}
+
+/* ==========================================================================
+   8. Sections
+   ========================================================================== */
+.section {
+  padding: 4rem 0;
+}
+
+@media (min-width: 1024px) {
+  .section {
+    padding: 6rem 0;
+  }
+}
+
+.section-dark {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+}
+
+.section-gray {
+  background-color: var(--color-light-gray);
+}
+
+/* ==========================================================================
+   9. Container
+   ========================================================================== */
+.container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.container-full {
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+@media (min-width: 640px) {
+  .container {
+    padding: 0 2rem;
+  }
+
+  .container-full {
+    padding: 0;
+    width: 90%;
+  }
+}
+
+/* ==========================================================================
+   10. Utility Classes
+   ========================================================================== */
+.text-primary {
+  color: var(--color-primary-light) !important;
+}
+
+.text-dark {
+  color: var(--color-dark) !important;
+}
+
+.text-black {
+  color: var(--color-black) !important;
+}
+
+.text-gray {
+  color: var(--color-gray) !important;
+}
+
+.bg-primary {
+  background-color: var(--color-primary-light) !important;
+}
+
+.bg-primary-dark {
+  background-color: var(--color-primary) !important;
+}
+
+.bg-dark {
+  background-color: var(--color-dark) !important;
+}
+
+.bg-gray {
+  background-color: var(--color-light-gray) !important;
+}
+
+/* Text Alignment */
+/* .text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+} */
+
+/* Font Weights */
+.font-light {
+  font-weight: 300;
+}
+
+.font-normal {
+  font-weight: 400;
+}
+
+.font-medium {
+  font-weight: 500;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.font-bold {
+  font-weight: 700;
+}
+
+.font-extrabold {
+  font-weight: 800;
+}
+
+/* Shadows */
+.shadow-sm {
+  box-shadow: var(--shadow-sm);
+}
+
+.shadow-md {
+  box-shadow: var(--shadow-md);
+}
+
+.shadow-lg {
+  box-shadow: var(--shadow-lg);
+}
+
+.shadow-xl {
+  box-shadow: var(--shadow-xl);
+}
+
+/* Rounded Corners */
+.rounded {
+  border-radius: var(--radius-md);
+}
+
+.rounded-lg {
+  border-radius: var(--radius-lg);
+}
+
+.rounded-xl {
+  border-radius: var(--radius-xl);
+}
+
+.rounded-full {
+  border-radius: var(--radius-full);
+}
+
+/* ==========================================================================
+   11. Animations
+   ========================================================================== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-left {
+  animation: slideInLeft 0.6s ease-out;
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.slide-in-right {
+  animation: slideInRight 0.6s ease-out;
+}
+
+/* ==========================================================================
+   12. Forms
+   ========================================================================== */
+
+/* Inputs de texto, email, number, etc. */
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+input[type="url"],
+input[type="search"],
+input[type="password"],
+select,
+.form-input {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-primary);
+  /* font-size: 1rem; */
+  font-weight: 500;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  border: 1px solid #C9C9C9;
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-base);
+  outline: none;
+}
+
+/* Responsive: tamaños en móvil y desktop */
+@media (max-width: 768px) {
+
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="search"],
+  input[type="password"],
+  .form-input {
+    /* height: 40px; */
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 769px) {
+
+  input[type="text"],
+  input[type="email"],
+  input[type="number"],
+  input[type="tel"],
+  input[type="url"],
+  input[type="search"],
+  input[type="password"],
+  .form-input {
+    /* height: 56px; */
+    /* font-size: 1.25rem; */
+  }
+}
+
+/* Focus state */
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="password"]:focus,
+.form-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(227, 30, 37, 0.2);
+}
+
+/* Textarea */
+textarea,
+.form-textarea {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  border-radius: var(--radius-md);
+  transition: all var(--transition-base);
+  outline: none;
+  min-height: 120px;
+  resize: vertical;
+}
+
+textarea:focus,
+.form-textarea:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(227, 30, 37, 0.2);
+}
+
+/* Select */
+select,
+.form-select {
+  width: 100%;
+  padding: 0.75rem 1.5rem;
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--color-black);
+  background-color: var(--color-white);
+  border: 1px solid var(--color-black);
+  border-radius: var(--radius-sm);
+  transition: all var(--transition-base);
+  outline: none;
+  cursor: pointer;
+  appearance: none;
+  /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%231E1E1E' d='M6 9L1 4h10z'/%3E%3C/svg%3E"); */
+  /* background-repeat: no-repeat;
+  background-position: right 1rem center; */
+  padding-right: 3rem;
+  line-height: 100%;
+}
+
+@media (max-width: 768px) {
+
+  select,
+  .form-select,
+  input {
+    height: 40px;
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+  }
+}
+
+@media (min-width: 769px) {
+
+  select,
+  .form-select,
+  input {
+    height: 56px;
+    /* font-size: 1.25rem; */
+  }
+}
+
+select:focus,
+.form-select:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 2px rgba(227, 30, 37, 0.2);
+}
+
+/* Label */
+.form-label,
+label {
+  display: block;
+  margin-bottom: 0.75rem;
+  font-weight: 600;
+  font-size: 1rem;
+  color: var(--color-black);
+}
+
+/* Placeholder */
+input::placeholder,
+textarea::placeholder {
+  color: var(--color-gray);
+  opacity: 0.6;
+}
+
+
+/* ==========================================================================
+   13. Responsive Visibility
+   ========================================================================== */
+@media (max-width: 1023px) {
+  .hidden-mobile {
+    display: none !important;
+  }
+}
+
+@media (min-width: 1024px) {
+  .hidden-desktop {
+    display: none !important;
+  }
+}
+
+/* ==========================================================================
+   14. AOS Animation Fixes
+   ========================================================================== */
+/* Prevent AOS animations from causing horizontal scroll */
+[data-aos] {
+  pointer-events: auto;
+}
+
+body,
+#page {
+  overflow-x: hidden !important;
+}
+
+/* Ensure AOS animations stay within viewport */
+[data-aos="fade-left"],
+[data-aos="fade-right"],
+[data-aos="slide-left"],
+[data-aos="slide-right"] {
+  will-change: transform, opacity;
+}
+
+/*ESTILOS CUSTOMS*/
+
+footer nav a {
+  color: var(--color-black) !important;
+}
+
+footer nav a:hover {
+  color: var(--color-primary-light) !important;
+}
+
+footer nav a:last-child {
+  margin-bottom: 20px !important;
+}
+
+/* a.text-white {
+  color: white !important;
+} */
+
+/* ==========================================================================
+   15. Header Styles - Dark & Light Versions
+   ========================================================================== */
+
+/* Header Navigation - Dark Version (for front-page with dark background) */
+.header-nav-dark a {
+  color: var(--color-white);
+  position: relative;
+  padding-bottom: 0.25rem;
+  transition: color var(--transition-base);
+}
+
+.header-nav-dark a:hover {
+  color: var(--color-white);
+}
+
+/* Header Navigation - Light Version (for internal pages with white background) */
+.header-nav-light a {
+  color: var(--color-black);
+  position: relative;
+  padding-bottom: 0.25rem;
+  transition: color var(--transition-base);
+}
+
+.header-nav-light a:hover {
+  color: var(--color-primary-light);
+}
+
+/* Active menu item */
+.header-nav-dark .current-menu-item a,
+.header-nav-dark .current_page_item a {
+  color: var(--color-white);
+}
+
+.header-nav-light .current-menu-item a,
+.header-nav-light .current_page_item a {
+  color: var(--color-primary-light);
+}
+
+/* Ensure the animated underline works for both versions */
+.header-nav-dark a .absolute,
+.header-nav-light a .absolute {
+  background-color: var(--color-primary-light);
+}
+
+/* Mega menú flotante y centrado */
+/* ============================================
+   MEGA MENU STYLES
+   ============================================ */
+
+/* Posicionamiento del megamenú */
+#mega-menu {
+  top: 80px;
+  /* Ajustado para quedar debajo del header */
+  transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
+  transform: translateX(-50%) translateY(10px);
+}
+
+#mega-menu.visible {
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* Estados del megamenú */
+#mega-menu.opacity-0 {
+  opacity: 0;
+}
+
+#mega-menu.opacity-100 {
+  opacity: 1;
+}
+
+#mega-menu.invisible {
+  visibility: hidden;
+}
+
+#mega-menu.visible {
+  visibility: visible;
+}
+
+#mega-menu.pointer-events-none {
+  pointer-events: none;
+}
+
+#mega-menu.pointer-events-auto {
+  pointer-events: auto;
+}
+
+/* Tabs laterales */
+.menu-tab-item {
+  position: relative;
+  transition: all 0.2s ease;
+}
+
+.menu-tab-item.active {
+  background-color: rgba(239, 68, 68, 0.05);
+}
+
+.menu-tab-item svg {
+  transition: opacity 0.2s ease;
+}
+
+/* Contenido de las tabs */
+.tab-content {
+  animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Secciones del megamenú */
+
+.mega-menu-section ul li {
+  list-style: none;
+}
+
+.mega-menu-section ul li a {
+  position: relative;
+  display: inline-block;
+}
+
+.mega-menu-section ul li a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: #dc2626;
+  transition: width 0.3s ease;
+}
+
+.mega-menu-section ul li a:hover::after {
+  width: 100%;
+}
+
+/* Iconos de las secciones */
+.mega-menu-section h4 svg,
+.mega-menu-section h4 span {
+  flex-shrink: 0;
+}
+
+/* Ajustes para el header cuando el megamenú está activo */
+#masthead.bg-dark {
+  background-color: rgba(17, 24, 39, 0.95);
+}
+
+/* Responsive adjustments */
+@media (max-width: 1023px) {
+  #mega-menu {
+    display: none !important;
+  }
+}
+
+/* Smooth scroll behavior para el cierre del menú */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Mejoras de accesibilidad */
+.menu-tab-item:focus,
+.mega-menu-section ul li a:focus {
+  outline: none;
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Animación de entrada para items del menú */
+.mega-menu-section ul li {
+  animation: slideInLeft 0.3s ease forwards;
+  animation-delay: calc(var(--item-index) * 0.05s);
+  opacity: 0;
+}
+
+.mega-menu-section ul li:nth-child(1) {
+  --item-index: 1;
+  animation-delay: 0.05s;
+}
+
+.mega-menu-section ul li:nth-child(2) {
+  --item-index: 2;
+  animation-delay: 0.1s;
+}
+
+.mega-menu-section ul li:nth-child(3) {
+  --item-index: 3;
+  animation-delay: 0.15s;
+}
+
+.mega-menu-section ul li:nth-child(4) {
+  --item-index: 4;
+  animation-delay: 0.2s;
+}
+
+.mega-menu-section ul li:nth-child(5) {
+  --item-index: 5;
+  animation-delay: 0.25s;
+}
+
+@keyframes slideInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Hover effect para las tabs */
+.menu-tab-item:hover {
+  background-color: rgba(243, 244, 246, 0.8);
+}
+
+.menu-tab-item.active:hover {
+  background-color: rgba(239, 68, 68, 0.08);
+}
+
+/* Separador vertical entre tabs y contenido */
+.menu-tab-item+.menu-tab-item {
+  margin-top: 0;
+}
+
+/* Tab contents visibility */
+.tab-content {
+  display: none;
+}
+
+.tab-content.active,
+.tab-content:not(.hidden) {
+  display: grid;
+}
+
+.tab-content.hidden {
+  display: none !important;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ==========================================================================
+   16. Blog Animations
+   ========================================================================== */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.5s ease-out;
+}
+
+/* ==========================================================================
+   17. Blog Single Post Content Styles
+   ========================================================================== */
+.blog-content {
+  color: var(--color-dark);
+  line-height: 1.8;
+}
+
+.blog-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  color: var(--color-dark);
+}
+
+.blog-content h3 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: var(--color-dark);
+}
+
+.blog-content p {
+  margin-bottom: 1.5rem;
+  font-size: 1.0625rem;
+  line-height: 1.8;
+}
+
+.blog-content ul,
+.blog-content ol {
+  margin-bottom: 1.5rem;
+  padding-left: 2rem;
+}
+
+.blog-content li {
+  margin-bottom: 0.75rem;
+  line-height: 1.8;
+}
+
+.blog-content ul li {
+  list-style-type: disc;
+}
+
+.blog-content ol li {
+  list-style-type: decimal;
+}
+
+.blog-content a {
+  color: var(--color-primary);
+  text-decoration: underline;
+  transition: color var(--transition-base);
+}
+
+.blog-content a:hover {
+  color: var(--color-primary-dark);
+}
+
+.blog-content strong {
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.blog-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-lg);
+  margin: 2rem 0;
+}
+
+.blog-content blockquote {
+  border-left: 4px solid var(--color-primary);
+  padding-left: 1.5rem;
+  margin: 2rem 0;
+  font-style: italic;
+  color: var(--color-gray);
+}
+
+/* Line clamp utilities */
+.line-clamp-2 {
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-clamp: 2;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  line-clamp: 3;
+}
+
+/* ==========================================================================
+   15. Mobile Menu Navigation (Hierarchical)
+   ========================================================================== */
+#mobile-menu {
+  transition: all 0.3s ease-in-out;
+}
+
+#mobile-menu.active {
+  display: block !important;
+  animation: fadeIn 0.3s ease-out;
+}
+
+.mobile-menu-level {
+  display: none;
+  height: 100%;
+  overflow-y: auto;
+}
+
+.mobile-menu-level.active {
+  display: block;
+  animation: slideInLevel 0.3s ease-out;
+}
+
+@keyframes slideInLevel {
+  from {
+    opacity: 0;
+    transform: translateX(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
