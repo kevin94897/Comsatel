@@ -304,6 +304,34 @@ function comsatel_customize_register($wp_customize)
 		'section' => 'title_tagline',
 		'mime_type' => 'image',
 	)));
+
+	// --- Seccción Redes Sociales ---
+	$wp_customize->add_section('comsatel_social_section', array(
+		'title' => __('Redes Sociales', 'comsatel'),
+		'priority' => 30,
+	));
+
+	$socials = array(
+		'instagram' => array('label' => 'Instagram URL', 'default' => 'https://instagram.com/comsatel'),
+		'twitter' => array('label' => 'Twitter URL', 'default' => 'https://twitter.com/comsatel'),
+		'linkedin' => array('label' => 'LinkedIn URL', 'default' => 'https://linkedin.com/company/comsatel'),
+		'facebook' => array('label' => 'Facebook URL', 'default' => 'https://facebook.com/comsatel'),
+		'youtube' => array('label' => 'YouTube URL', 'default' => 'https://youtube.com/comsatel'),
+	);
+
+	foreach ($socials as $key => $data) {
+		$wp_customize->add_setting('comsatel_social_' . $key, array(
+			'default' => $data['default'],
+			'sanitize_callback' => 'esc_url_raw',
+			'transport' => 'refresh',
+		));
+
+		$wp_customize->add_control('comsatel_social_' . $key, array(
+			'label' => __($data['label'], 'comsatel'),
+			'section' => 'comsatel_social_section',
+			'type' => 'url',
+		));
+	}
 }
 add_action('customize_register', 'comsatel_customize_register');
 
@@ -614,3 +642,16 @@ function comsatel_maps_to_embed_url($url)
 	// Fallback: intentar construir embed con la URL tal cual
 	return $url;
 }
+
+/**
+ * Register ACF Options Page for Anchor Buttons
+ */
+// if (function_exists('acf_add_options_page')) {
+// 	acf_add_options_page(array(
+// 		'page_title' => 'Botones Anclaje',
+// 		'menu_title' => 'Botones Anclaje',
+// 		'menu_slug' => 'botones-anclaje',
+// 		'capability' => 'edit_posts',
+// 		'redirect' => false
+// 	));
+// }

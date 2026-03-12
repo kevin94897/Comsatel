@@ -32,18 +32,12 @@ get_header();
     </section>
 
     <?php
-    $nav_buttons = array(
-        array('label' => 'Desafío', 'url' => '#challenge', 'style' => 'btn btn-primary', 'delay' => 100),
-        array('label' => 'Como funciona', 'url' => '#how-it-works', 'style' => 'btn btn-outline-white', 'delay' => 200),
-        array('label' => 'Soluciones', 'url' => '#solutions', 'style' => 'btn btn-outline-white', 'delay' => 300),
-        array('label' => 'Testimonios', 'url' => '#testimonials', 'style' => 'btn btn-outline-white', 'delay' => 400),
-        array('label' => 'Preguntas frecuentes', 'url' => '#faqs', 'style' => 'btn btn-outline-white', 'delay' => 500),
-    );
+    $nav_buttons = array();
+    $acf_group = get_field('sectores', 'options');
+    $acf_nav_buttons = $acf_group['botones'] ?? null;
 
-    $acf_buttons = get_field('botones');
-    if (!empty($acf_buttons)) {
-        $nav_buttons = array();
-        foreach ($acf_buttons as $index => $btn) {
+    if (!empty($acf_nav_buttons)) {
+        foreach ($acf_nav_buttons as $index => $btn) {
             $link = $btn['texto_del_boton'];
             if ($link) {
                 $nav_buttons[] = array(
@@ -56,6 +50,16 @@ get_header();
         }
     }
 
+    if (empty($nav_buttons)) {
+        $nav_buttons = array(
+            array('label' => 'Desafío', 'url' => '#desafio', 'style' => 'btn btn-primary', 'delay' => 100),
+            array('label' => 'Cómo funciona', 'url' => '#como-funciona', 'style' => 'btn btn-outline-white', 'delay' => 200),
+            array('label' => 'Soluciones', 'url' => '#soluciones', 'style' => 'btn btn-outline-white', 'delay' => 300),
+            array('label' => 'Testimonios', 'url' => '#testimonios', 'style' => 'btn btn-outline-white', 'delay' => 400),
+            array('label' => 'Preguntas frecuentes', 'url' => '#preguntas-frecuentes', 'style' => 'btn btn-outline-white', 'delay' => 500),
+        );
+    }
+
     get_template_part('inc/componentes/section-nav-buttons', null, array('buttons' => $nav_buttons));
     ?>
 
@@ -66,7 +70,7 @@ get_header();
     $descripcion = $encabezado['descripcion'] ?? null;
     ?>
     <?php if ($subtitulo || $descripcion): ?>
-        <section class="py-12 lg:py-16 bg-gray-50 motion-safe:animate-fade-in" id="challenge">
+        <section class="py-12 lg:py-16 bg-gray-50 motion-safe:animate-fade-in" id="desafio">
             <div class="container mx-auto px-4 lg:px-8">
                 <div class="max-w-4xl mx-auto text-center">
                     <?php if (!empty($subtitulo)): ?>
@@ -116,7 +120,7 @@ get_header();
     $has_carousel = !empty($bs_banner) || !empty($carousel_cards);
     if ($has_carousel):
         $scroll_carousel_args = array(
-            'section_id' => 'how-it-works',
+            'section_id' => 'como-funciona',
             'banner' => array(
                 'title' => $bs_banner['titulo'] ?? null,
                 'subtitle' => $bs_banner['subtitulo'] ?? null,
@@ -148,7 +152,7 @@ get_header();
     $has_solutions_section = $bt_subtitulo || $bt_titulo || $bt_descripcion || $bt_bg_url || !empty($lista_soluciones);
     ?>
     <?php if ($has_solutions_section): ?>
-        <section class="pb-16 lg:pb-24 pt-8 bg-gray-50" id="solutions">
+        <section class="pb-16 lg:pb-24 pt-8 bg-gray-50" id="soluciones">
 
             <?php if ($bt_subtitulo || $bt_titulo || $bt_descripcion || $bt_bg_url): ?>
                 <div class="container-fluid py-6 lg:py-16 md:mb-20 mb-16 bg-cover bg-center bg-no-repeat" <?php if ($bt_bg_url): ?>style="background-image: url('<?php echo esc_url($bt_bg_url); ?>');" <?php endif; ?>>

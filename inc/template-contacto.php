@@ -69,11 +69,11 @@ $centros = $centros_group['centro'] ?? [];
                         // Si la card no tiene título ni teléfono ni correo, omitirla
                         if (empty($card_titulo) && empty($card_telefono) && empty($card_correo))
                             continue;
-                    ?>
+                        ?>
                         <div
                             class="<?php echo $is_featured
-                                        ? 'transition md:scale-105 md:z-10 bg-white p-6 md:p-8 rounded-lg shadow-sm border-2 border-primary hover:shadow-md transition-all text-center group scale-105'
-                                        : 'bg-white m-5 mb-0 p-8 rounded-lg shadow-sm border border-transparent hover:shadow-md transition-all text-center group'; ?>">
+                                ? 'transition md:scale-105 md:z-10 bg-white p-6 md:p-8 rounded-lg shadow-sm border-2 border-primary hover:shadow-md transition-all text-center group scale-105'
+                                : 'bg-white m-5 mb-0 p-8 rounded-lg shadow-sm border border-transparent hover:shadow-md transition-all text-center group'; ?>">
 
                             <?php if (!empty($card_img['url'])): ?>
                                 <div
@@ -416,9 +416,9 @@ $centros = $centros_group['centro'] ?? [];
 
                         $modal_title = $m_nombre ?: trim(($c_provincia ? $c_provincia . ' - ' : '') . $c_nombre);
                         $directions_url = $m_boton['url'] ?? '';
-                    ?>
+                        ?>
                         <div
-                            class="bg-white rounded-md overflow-hidden transition-all duration-200 shadow-md hover:shadow-xl hover:-translate-y-2 flex flex-col h-full animate-fadeInUp">
+                            class="bg-white rounded-lg overflow-hidden transition-all duration-200 shadow-md hover:shadow-xl hover:-translate-y-2 flex flex-col h-full animate-fadeInUp">
                             <div class="flex flex-col h-full group">
 
                                 <!-- Imagen -->
@@ -479,6 +479,7 @@ $centros = $centros_group['centro'] ?? [];
                                         <?php
                                         get_template_part('inc/componentes/button-arrow', null, array(
                                             'text' => 'VER UBICACIÓN',
+                                            'url' => '#',
                                             'class' => 'mt-4 js-open-map-modal',
                                             'extras' => array(
                                                 'data-title' => $modal_title ?: 'Centro de atención',
@@ -581,7 +582,7 @@ $centros = $centros_group['centro'] ?? [];
         const ajax_url_contacto = '<?php echo admin_url('admin-ajax.php'); ?>';
         const security_nonce_contacto = '<?php echo wp_create_nonce('comsatel_contacto_nonce'); ?>';
 
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
 
             // ── Formulario: mostrar/ocultar campo Empresa ──
             const form = document.getElementById('contacto-form');
@@ -610,8 +611,8 @@ $centros = $centros_group['centro'] ?? [];
             }
 
             // ── Modal de mapa ──
-            document.querySelectorAll('.js-open-map-modal').forEach(function(btn) {
-                btn.addEventListener('click', function(e) {
+            document.querySelectorAll('.js-open-map-modal').forEach(function (btn) {
+                btn.addEventListener('click', function (e) {
                     e.preventDefault();
 
                     const title = this.dataset.title || '';
@@ -666,7 +667,7 @@ $centros = $centros_group['centro'] ?? [];
 
             // ── Formulario submit ──
             if (form) {
-                form.addEventListener('submit', function(e) {
+                form.addEventListener('submit', function (e) {
                     e.preventDefault();
                     if (window.contactoValidator && !window.contactoValidator.isFormValid()) return;
 
@@ -681,9 +682,9 @@ $centros = $centros_group['centro'] ?? [];
                     formData.append('security', (typeof comsatel_vars !== 'undefined') ? comsatel_vars.nonce_contacto : '');
 
                     fetch(ajaxUrl, {
-                            method: 'POST',
-                            body: formData
-                        })
+                        method: 'POST',
+                        body: formData
+                    })
                         .then(r => r.json())
                         .then(data => {
                             if (data.success) {
@@ -714,11 +715,11 @@ $centros = $centros_group['centro'] ?? [];
             document.getElementById('map-container').innerHTML = '';
         }
 
-        document.getElementById('map-modal').addEventListener('click', function(e) {
+        document.getElementById('map-modal').addEventListener('click', function (e) {
             if (e.target === this) closeMapModal();
         });
 
-        document.addEventListener('keydown', function(e) {
+        document.addEventListener('keydown', function (e) {
             if (e.key === 'Escape') closeMapModal();
         });
     </script>

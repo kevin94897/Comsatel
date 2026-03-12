@@ -11,7 +11,7 @@ if (empty($acf_lista)) {
 ?>
 
 <!-- Trust Section -->
-<section class="py-16 lg:py-24 relative" id="testimonials">
+<section class="py-16 lg:py-24 relative" id="testimonios">
     <div class="container mx-auto px-4 lg:px-8">
 
         <div class="flex items-end">

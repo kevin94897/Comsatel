@@ -1,5 +1,5 @@
 <!-- FAQ Section -->
-<section class="py-16 lg:py-24" id="faqs">
+<section class="py-16 lg:py-24" id="preguntas-frecuentes">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <?php
@@ -16,11 +16,9 @@
                 <h2 class="text-2xl lg:text-4xl font-medium mb-4" data-aos="fade-up" data-aos-delay="100">
                     Tu operación, nuestras respuestas
                 </h2>
-                <?php if (!empty($faqs_group['descripcion'])): ?>
-                    <p class="text-dark text-lg max-w-2xl mx-auto mt-8" data-aos="fade-up" data-aos-delay="200">
-                        <?php echo wp_kses_post($faqs_group['descripcion']); ?>
-                    </p>
-                <?php endif; ?>
+                <p class="text-dark text-lg max-w-2xl mx-auto mt-8" data-aos="fade-up" data-aos-delay="200">
+                    Aquí resolvemos lo esencial para empezar sin fricción.
+                </p>
             </div>
 
             <!-- FAQ List (Dynamic) -->

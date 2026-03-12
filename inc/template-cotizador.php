@@ -249,7 +249,7 @@ $acf_tabs        = get_field('tabs');
                                     <div>
                                         <label class="flex items-center gap-3 mb-2">
                                             <span
-                                                class="flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-md bg-gray-100 text-dark font-medium text-sm">2</span>
+                                                class="flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-full bg-gray-100 text-dark font-medium text-sm">2</span>
                                             <span class="text-base md:text-lg font-medium text-dark">Nro de documento</span>
                                         </label>
 

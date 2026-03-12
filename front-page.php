@@ -75,37 +75,12 @@ get_header(); ?>
     </section>
 
     <?php
-    $nav_buttons = array(
-        array(
-            'label' => 'Seguridad y recupero',
-            'url' => '#solutions',
-            'style' => 'btn btn-outline-white',
-            'delay' => 200
-        ),
-        array(
-            'label' => 'Gestión de flotas',
-            'url' => '#slider-solutions',
-            'style' => 'btn btn-outline-white',
-            'delay' => 200
-        ),
-        array(
-            'label' => 'Conduccion',
-            'url' => '#benefits',
-            'style' => 'btn btn-outline-white',
-            'delay' => 300
-        ),
-        array(
-            'label' => 'Clientes',
-            'url' => '#clients',
-            'style' => 'btn btn-outline-white',
-            'delay' => 400
-        ),
-    );
+    $nav_buttons = array();
+    $acf_group = get_field('home', 'options');
+    $acf_nav_buttons = $acf_group['botones'] ?? null;
 
-    $acf_buttons = get_field('botones');
-    if (!empty($acf_buttons)) {
-        $nav_buttons = array();
-        foreach ($acf_buttons as $index => $btn) {
+    if (!empty($acf_nav_buttons)) {
+        foreach ($acf_nav_buttons as $index => $btn) {
             $link = $btn['texto_del_boton'];
             if ($link) {
                 $nav_buttons[] = array(
@@ -118,12 +93,42 @@ get_header(); ?>
         }
     }
 
+    // Fallback to defaults if empty
+    if (empty($nav_buttons)) {
+        $nav_buttons = array(
+            array(
+                'label' => 'Seguridad y recupero',
+                'url' => '#soluciones',
+                'style' => 'btn btn-outline-white',
+                'delay' => 200
+            ),
+            array(
+                'label' => 'Gestión de flotas',
+                'url' => '#soluciones-slider',
+                'style' => 'btn btn-outline-white',
+                'delay' => 200
+            ),
+            array(
+                'label' => 'Conducción',
+                'url' => '#beneficios',
+                'style' => 'btn btn-outline-white',
+                'delay' => 300
+            ),
+            array(
+                'label' => 'Clientes',
+                'url' => '#clientes',
+                'style' => 'btn btn-outline-white',
+                'delay' => 400
+            ),
+        );
+    }
+
     get_template_part('inc/componentes/section-nav-buttons', null, array('buttons' => $nav_buttons));
     ?>
 
     <!-- Solutions Grid -->
     <?php $soluciones = get_field('soluciones'); ?>
-    <section class="py-16 lg:py-24 bg-gray-50" id="soluciones-lista">
+    <section class="py-16 lg:py-24 bg-gray-50" id="soluciones">
         <div class="container mx-auto px-4 lg:px-8">
             <div class="max-w-4xl mx-auto text-center mb-16">
                 <!-- <p class="text-sm text-gray uppercase tracking-wider mb-4" data-aos="fade-down" data-aos-delay="200">
@@ -199,7 +204,7 @@ get_header(); ?>
     $soluciones_slider = get_field('soluciones_slider');
 
     $scroll_carousel_args = array(
-        'section_id' => 'how-it-works',
+        'section_id' => 'soluciones-slider',
         'banner' => array(
             'title' => $soluciones_slider['titulo'] ?? null,
             'subtitle' => $soluciones_slider['subtitulo'] ?? null,
@@ -246,7 +251,7 @@ get_header(); ?>
     <?php
     $aptitudes = get_field('aptitudes');
     if (!empty($aptitudes['lista_de_aptitudes'])): ?>
-        <section class="py-16 lg:py-24 bg-gray-50" id="benefits">
+        <section class="py-16 lg:py-24 bg-gray-50" id="beneficios">
             <div class="container mx-auto">
                 <?php if (!empty($aptitudes['titulo'])): ?>
                     <h2 class="text-2xl md:text-4xl font-medium text-center text-gray-800 md:mb-12 mb-6">

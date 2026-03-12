@@ -6,7 +6,7 @@ $acf_desc = $acf_group['descripcion'] ?? null;
 $acf_slides = $acf_group['slider'] ?? null;
 ?>
 
-<section class="py-16 lg:py-24 relative" id="other-solutions">
+<section class="py-16 lg:py-24 relative" id="otras-soluciones">
     <div class="container mx-auto px-4 lg:px-8">
 
         <!-- Header -->

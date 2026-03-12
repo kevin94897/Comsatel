@@ -467,7 +467,7 @@ function render_megamenu_icon($icono): void
 												<?php endif; ?>
 
 												<span class="text-black font-medium group-hover/item:text-gray-900 text-xs">
-													<?php echo esc_html($boton['title'] ?? ''); ?>
+													<?php echo wp_kses_post($boton['title'] ?? ''); ?>
 												</span>
 											</a>
 										<?php endforeach; ?>

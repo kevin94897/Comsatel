@@ -1,5 +1,8 @@
 <!-- También te podría interesar Section -->
-<section class="py-12 md:py-16">
+<?php
+$section_id = $args['section_id'] ?? null;
+?>
+<section class="py-12 md:py-16" <?php echo !empty($section_id) ? 'id="' . esc_attr($section_id) . '"' : ''; ?>>
     <div class="container mx-auto px-4">
 
         <!-- Section Header -->
@@ -39,7 +42,7 @@
                         $related_posts->the_post();
                         ?>
 
-                                <!-- Slide Card -->
+                        <!-- Slide Card -->
                         <div class="swiper-slide">
                             <article
                                 class="bg-white rounded-md overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 h-full flex flex-col group mb-10">
@@ -51,11 +54,11 @@
                                             <?php the_post_thumbnail('medium', array('class' => 'w-full h-full object-cover transition-transform duration-300 group-hover:scale-110')); ?>
 
                                             <!-- Category Badge -->
-                                                        <?php
-                                                        $post_categories = get_the_category();
-                                                        if (!empty($post_categories)):
-                                                            $category = $post_categories[0];
-                                                            ?>
+                                            <?php
+                                            $post_categories = get_the_category();
+                                            if (!empty($post_categories)):
+                                                $category = $post_categories[0];
+                                                ?>
                                                 <span
                                                     class="absolute top-4 left-4 z-10 inline-flex items-center px-3 py-1 text-xs font-medium uppercase tracking-wider bg-primary text-white rounded-full">
                                                     <?php echo esc_html($category->name); ?>

@@ -20,7 +20,8 @@ get_header(); ?>
 
         <div class="container-full md:mx-auto md:px-4 lg:px-8 relative z-10">
             <div class="max-w-xl">
-                <span class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>
+                <span
+                    class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>
                 <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-20 leading-tight mt-2 uppercase"
                     data-aos="fade-up" data-aos-duration="1000">
                     <?php the_title(); ?>
@@ -30,22 +31,17 @@ get_header(); ?>
     </section>
 
     <?php
-    $nav_buttons = array(
-        array('label' => 'Desafío',                 'url' => '#challenge',   'style' => 'btn btn-primary',       'delay' => 100),
-        array('label' => 'Portafolio de soluciones', 'url' => '#solutions',   'style' => 'btn btn-outline-white', 'delay' => 200),
-        array('label' => 'Testimonios',             'url' => '#testimonials', 'style' => 'btn btn-outline-white', 'delay' => 300),
-        array('label' => 'Preguntas frecuentes',    'url' => '#faqs',        'style' => 'btn btn-outline-white', 'delay' => 400),
-    );
+    $nav_buttons = array();
+    $acf_group = get_field('soluciones', 'options');
+    $acf_nav_buttons = $acf_group['botones'] ?? null;
 
-    $acf_buttons = get_field('botones');
-    if (!empty($acf_buttons)) {
-        $nav_buttons = array();
-        foreach ($acf_buttons as $index => $btn) {
+    if (!empty($acf_nav_buttons)) {
+        foreach ($acf_nav_buttons as $index => $btn) {
             $link = $btn['texto_del_boton'];
             if ($link) {
                 $nav_buttons[] = array(
                     'label' => $link['title'],
-                    'url'   => $link['url'],
+                    'url' => $link['url'],
                     'style' => $index === 0 ? 'btn btn-primary' : 'btn btn-outline-white',
                     'delay' => ($index + 1) * 100
                 );
@@ -53,17 +49,26 @@ get_header(); ?>
         }
     }
 
+    if (empty($nav_buttons)) {
+        $nav_buttons = array(
+            array('label' => 'Desafío', 'url' => '#desafio', 'style' => 'btn btn-primary', 'delay' => 100),
+            array('label' => 'Portafolio de soluciones', 'url' => '#soluciones', 'style' => 'btn btn-outline-white', 'delay' => 200),
+            array('label' => 'Testimonios', 'url' => '#testimonios', 'style' => 'btn btn-outline-white', 'delay' => 300),
+            array('label' => 'Preguntas frecuentes', 'url' => '#preguntas-frecuentes', 'style' => 'btn btn-outline-white', 'delay' => 400),
+        );
+    }
+
     get_template_part('inc/componentes/section-nav-buttons', null, array('buttons' => $nav_buttons));
     ?>
 
     <!-- Intro Section -->
     <?php
-    $encabezado        = get_field('encabezado');
-    $intro_subtitulo   = $encabezado['subtitulo'] ?? null;
+    $encabezado = get_field('encabezado');
+    $intro_subtitulo = $encabezado['subtitulo'] ?? null;
     $intro_descripcion = $encabezado['descripcion'] ?? null;
     ?>
     <?php if ($intro_subtitulo || $intro_descripcion): ?>
-        <section class="py-12 lg:py-16 bg-gray-50 motion-safe:animate-fade-in" id="challenge">
+        <section class="py-12 lg:py-16 bg-gray-50 motion-safe:animate-fade-in" id="desafio">
             <div class="container mx-auto px-4 lg:px-8">
                 <div class="max-w-4xl mx-auto text-center">
                     <?php if (!empty($intro_subtitulo)): ?>
@@ -72,8 +77,8 @@ get_header(); ?>
                         </p>
                     <?php endif; ?>
                     <?php if (!empty($intro_descripcion)): ?>
-                        <p class="leading-relaxed mb-0 md:text-xl text-md font-medium tracking-[-0.08px]"
-                            data-aos="fade-up" data-aos-delay="100">
+                        <p class="leading-relaxed mb-0 md:text-xl text-md font-medium tracking-[-0.08px]" data-aos="fade-up"
+                            data-aos-delay="100">
                             <?php echo wp_kses_post($intro_descripcion); ?>
                         </p>
                     <?php endif; ?>
@@ -84,22 +89,21 @@ get_header(); ?>
 
     <!-- Solutions Grid -->
     <?php
-    $soluciones_group  = get_field('soluciones');
-    $lista_soluciones  = $soluciones_group['lista_de_soluciones'] ?? null;
+    $soluciones_group = get_field('soluciones');
+    $lista_soluciones = $soluciones_group['lista_de_soluciones'] ?? null;
     $banner_soluciones = get_field('banner_titulo');
     $s_header_subtitulo = $banner_soluciones['subtitulo'] ?? null;
-    $s_header_titulo    = $banner_soluciones['titulo'] ?? null;
-    $s_header_bg_url    = $banner_soluciones['imagen_de_fondo']['url'] ?? null;
-    $s_header_desc      = $banner_soluciones['descripcion'] ?? null;
+    $s_header_titulo = $banner_soluciones['titulo'] ?? null;
+    $s_header_bg_url = $banner_soluciones['imagen_de_fondo']['url'] ?? null;
+    $s_header_desc = $banner_soluciones['descripcion'] ?? null;
 
     $has_solutions_section = $s_header_subtitulo || $s_header_titulo || $s_header_bg_url || !empty($lista_soluciones);
     ?>
     <?php if ($has_solutions_section): ?>
-        <section class="pb-16 lg:pb-24 pt-8 bg-gray-50" id="solutions">
+        <section class="pb-16 lg:pb-24 pt-8 bg-gray-50" id="soluciones">
 
             <?php if ($s_header_subtitulo || $s_header_titulo || $s_header_desc || $s_header_bg_url): ?>
-                <div class="container-fluid py-6 lg:py-16 md:mb-20 mb-16 bg-cover bg-center bg-no-repeat"
-                    <?php if ($s_header_bg_url): ?>style="background-image: url('<?php echo esc_url($s_header_bg_url); ?>');" <?php endif; ?>>
+                <div class="container-fluid py-6 lg:py-16 md:mb-20 mb-16 bg-cover bg-center bg-no-repeat" <?php if ($s_header_bg_url): ?>style="background-image: url('<?php echo esc_url($s_header_bg_url); ?>');" <?php endif; ?>>
                     <div class="mx-auto px-4 lg:px-8 max-w-3xl">
                         <div class="text-center">
                             <?php if (!empty($s_header_subtitulo)): ?>
@@ -126,18 +130,19 @@ get_header(); ?>
             <?php if (!empty($lista_soluciones)): ?>
                 <div class="container mx-auto px-4 lg:px-8">
                     <?php foreach ($lista_soluciones as $index => $solucion):
-                        $s_imagen    = $solucion['imagen'] ?? null;
+                        $s_imagen = $solucion['imagen'] ?? null;
                         $s_subtitulo = $solucion['subtitulo'] ?? null;
-                        $s_titulo    = $solucion['titulo'] ?? null;
-                        $s_desc      = $solucion['descripcion'] ?? null;
-                        $s_bullets   = $solucion['bullets'] ?? null;
-                        $s_boton     = $solucion['boton'] ?? null;
+                        $s_titulo = $solucion['titulo'] ?? null;
+                        $s_desc = $solucion['descripcion'] ?? null;
+                        $s_bullets = $solucion['bullets'] ?? null;
+                        $s_boton = $solucion['boton'] ?? null;
 
                         // Omitir si no hay título
-                        if (!$s_titulo) continue;
+                        if (!$s_titulo)
+                            continue;
 
                         $is_even = ($index % 2 !== 0);
-                    ?>
+                        ?>
                         <div class="grid lg:grid-cols-2 gap-8 lg:gap-24 items-center mb-12 lg:mb-20">
 
                             <!-- Imagen -->
@@ -174,8 +179,9 @@ get_header(); ?>
                                     <ul class="space-y-3 mb-8">
                                         <?php foreach ($s_bullets as $b_index => $bullet):
                                             $bullet_item = $bullet['item'] ?? '';
-                                            if (!$bullet_item) continue;
-                                        ?>
+                                            if (!$bullet_item)
+                                                continue;
+                                            ?>
                                             <li class="flex items-center text-gray-700" data-aos="fade-right"
                                                 data-aos-delay="<?php echo 300 + ($b_index * 100); ?>">
                                                 <svg class="w-5 h-5 text-primary mr-3 flex-shrink-0" fill="currentColor"
@@ -193,8 +199,8 @@ get_header(); ?>
                                 <?php if (!empty($s_boton['url'])): ?>
                                     <?php
                                     get_template_part('inc/componentes/button-arrow', null, array(
-                                        'text'   => $s_boton['title'] ?? null,
-                                        'url'    => $s_boton['url'],
+                                        'text' => $s_boton['title'] ?? null,
+                                        'url' => $s_boton['url'],
                                         'target' => $s_boton['target'] ?? '_self',
                                     ));
                                     ?>

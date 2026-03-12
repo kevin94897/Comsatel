@@ -31,7 +31,7 @@ get_header();
                                     <div class="calculator-question">
                                         <label class="flex items-start gap-3 mb-4">
                                             <span
-                                                class="flex-shrink-0 w-10 h-10 bg-gray-50 text-gray-900 rounded-full flex items-center justify-center font-medium md:text-lg text-sm">
+                                                class="flex-shrink-0 w-10 h-10 bg-gray-100 text-gray-900 rounded-full flex items-center justify-center font-medium md:text-lg text-sm">
                                                 1
                                             </span>
                                             <span class="md:text-2xl text-lg font-medium text-gray-900 pt-0.5">
@@ -47,7 +47,7 @@ get_header();
                                     <div class="calculator-question">
                                         <label class="flex items-start gap-3 mb-4">
                                             <span
-                                                class="flex-shrink-0 w-10 h-10 bg-gray-50 text-gray-900 rounded-full flex items-center justify-center font-medium md:text-lg text-sm">
+                                                class="flex-shrink-0 w-10 h-10 bg-gray-100 text-gray-900 rounded-full flex items-center justify-center font-medium md:text-lg text-sm">
                                                 2
                                             </span>
                                             <span class="md:text-2xl text-lg font-medium text-gray-900 pt-0.5">
@@ -68,7 +68,7 @@ get_header();
                                     <div class="calculator-question">
                                         <label class="flex items-start gap-3 mb-4">
                                             <span
-                                                class="flex-shrink-0 w-10 h-10 bg-gray-50 text-gray-900 rounded-full flex items-center justify-center font-medium md:text-lg text-sm">
+                                                class="flex-shrink-0 w-10 h-10 bg-gray-100 text-gray-900 rounded-full flex items-center justify-center font-medium md:text-lg text-sm">
                                                 3
                                             </span>
                                             <span class="md:text-2xl text-lg font-medium text-gray-900 pt-0.5">
@@ -91,7 +91,7 @@ get_header();
                                     <div class="calculator-question">
                                         <label class="flex items-start gap-3 mb-4">
                                             <span
-                                                class="flex-shrink-0 w-10 h-10 bg-gray-50 text-gray-900 rounded-full flex items-center justify-center font-medium md:text-lg text-sm">
+                                                class="flex-shrink-0 w-10 h-10 bg-gray-100 text-gray-900 rounded-full flex items-center justify-center font-medium md:text-lg text-sm">
                                                 4
                                             </span>
                                             <span class="md:text-2xl text-lg font-medium text-gray-900 pt-0.5">
@@ -123,7 +123,7 @@ get_header();
                 </div>
 
                 <!-- Right Column - Results -->
-                <div class="lg:sticky lg:top-8 pt-12 md:pt-24 min-h-screen" id="results">
+                <div class="lg:sticky lg:top-8 py-12 md:py-24" id="results">
                     <div class="" data-aos="fade-left">
 
                         <!-- Main Result -->
