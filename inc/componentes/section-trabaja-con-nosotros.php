@@ -6,12 +6,14 @@ $trabajos = $args['trabajos'] ?? null;
 $sn_titulo = $sobre_nosotros['titulo'] ?? null;
 $sn_vision = $sobre_nosotros['vision'] ?? null;
 $sn_mision = $sobre_nosotros['mision'] ?? null;
+$sn_fondo_vision = $sobre_nosotros['fondo_vision']['url'] ?? null;
+$sn_fondo_mision = $sobre_nosotros['fondo_mision']['url'] ?? null;
 
 $trab_titulo = $trabajos['titulo'] ?? null;
 $trab_desc = $trabajos['descripcion'] ?? null;
-$habilidades = $trabajos['habilidades'] ?? null;
+$habilidades = $trabajos['habilidades'] ?? [];
 
-$hab_top = array_slice($habilidades, 0, 6);
+$hab_top = !empty($habilidades) ? array_slice($habilidades, 0, 6) : [];
 // $hab_bottom = array_slice($habilidades, 3, 3);
 ?>
 
@@ -31,8 +33,7 @@ $hab_top = array_slice($habilidades, 0, 6);
         <?php if (!empty($sn_vision)): ?>
             <div
                 class="relative overflow-hidden rounded-2xl aspect-[16/10] group cursor-pointer motion-preset-slide-right motion-delay-200">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_trabaja_con_nosotros-bg-valores.png"
-                    alt="Visión"
+                <img src="<?php echo esc_url($sn_fondo_vision); ?>" alt="Visión"
                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110">
                 <div
                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20 p-4 md:p-8 flex flex-col justify-end transition-all duration-500 group-hover:from-black/90">
@@ -42,7 +43,7 @@ $hab_top = array_slice($habilidades, 0, 6);
                     </h3>
                     <p
                         class="text-white/95 text-sm leading-tight transform transition-all duration-500 opacity-90 group-hover:opacity-100">
-                        <?php echo esc_html($sn_vision); ?>
+                        <?php echo nl2br(wp_kses_post($sn_vision)); ?>
                     </p>
                 </div>
             </div>
@@ -52,8 +53,7 @@ $hab_top = array_slice($habilidades, 0, 6);
         <?php if (!empty($sn_mision)): ?>
             <div
                 class="relative overflow-hidden rounded-2xl aspect-[16/10] group cursor-pointer motion-preset-slide-left motion-delay-300">
-                <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_trabaja_con_nosotros-bg-valores.png"
-                    alt="Misión"
+                <img src="<?php echo esc_url($sn_fondo_mision); ?>" alt="Misión"
                     class="absolute inset-0 w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110">
                 <div
                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20 p-4 md:p-8 flex flex-col justify-end transition-all duration-500 group-hover:from-black/90">
@@ -63,7 +63,7 @@ $hab_top = array_slice($habilidades, 0, 6);
                     </h3>
                     <p
                         class="text-white/95 text-sm leading-tight transform transition-all duration-500 opacity-90 group-hover:opacity-100">
-                        <?php echo esc_html($sn_mision); ?>
+                        <?php echo nl2br(wp_kses_post($sn_mision)); ?>
                     </p>
                 </div>
             </div>
@@ -85,7 +85,7 @@ $hab_top = array_slice($habilidades, 0, 6);
                         $hab_imagen = $hab['imagen'] ?? [];
                         $hab_titulo = $hab['titulo'] ?? '';
                         $hab_fondo = $hab['imagen_de_fondo'] ?? [];
-                        $fondo_url = $hab_fondo['url'] ?? (get_template_directory_uri() . '/images/comsatel_trabaja_con_nosotros-bg-valor-0' . ($i + 1) . '.png');
+                        $fondo_url = $hab_fondo['url'] ?? null;
                         ?>
                         <div
                             class="aspect-square rounded-md overflow-hidden relative group cursor-pointer motion-preset-fade motion-delay-400">
@@ -118,7 +118,7 @@ $hab_top = array_slice($habilidades, 0, 6);
             <?php if (!empty($trab_desc)): ?>
                 <div class="space-y-4">
                     <p class="text-gray-600 text-md md:text-lg">
-                        <?php echo esc_html($trab_desc); ?>
+                        <?php echo nl2br(wp_kses_post($trab_desc)); ?>
                     </p>
                 </div>
             <?php endif; ?>

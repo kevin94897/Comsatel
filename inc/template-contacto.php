@@ -425,7 +425,8 @@ $centros = $centros_group['centro'] ?? [];
                                 <?php if (!empty($c_imagen['url'])): ?>
                                     <div class="p-6">
                                         <img src="<?php echo esc_url($c_imagen['url']); ?>"
-                                            alt="<?php echo esc_attr($c_imagen['alt'] ?? $c_nombre); ?>" class="w-full h-auto">
+                                            alt="<?php echo esc_attr($c_imagen['alt'] ?? $c_nombre); ?>"
+                                            class="w-full h-auto rounded-lg">
                                     </div>
                                 <?php endif; ?>
 
