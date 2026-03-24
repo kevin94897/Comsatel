@@ -1213,6 +1213,69 @@ html {
   animation: slideInLevel 0.3s ease-out;
 }
 
+/* ==========================================================================
+   Sticky Header
+   ========================================================================== */
+
+#masthead {
+  transition: background-color 0.35s ease, box-shadow 0.35s ease, padding 0.35s ease;
+}
+
+/* Estado sticky: fondo blanco + sombra */
+#masthead.is-sticky {
+  position: fixed !important;
+  background-color: #ffffff !important;
+  box-shadow: 0 2px 24px rgba(0, 0, 0, 0.10);
+}
+
+/* Reducir altura del header al hacer sticky */
+#masthead.is-sticky .flex.items-center.justify-between {
+  padding-top: 0.75rem !important;
+  padding-bottom: 0.75rem !important;
+}
+
+/* Logo: swap claro ↔ oscuro */
+#masthead.is-sticky #header-logo-clear {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#masthead.is-sticky #header-logo-dark {
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+/* Nav links: blanco → gris oscuro */
+#masthead.is-sticky .header-nav-dark a {
+  color: var(--color-dark) !important;
+}
+
+#masthead.is-sticky .header-nav-dark a:hover {
+  color: var(--color-primary) !important;
+}
+
+/* Iconos SVG (búsqueda, hamburguesa, chevrons) */
+#masthead.is-sticky button svg,
+#masthead.is-sticky button svg path {
+  stroke: var(--color-dark);
+}
+
+/* Botón Iniciar Sesión: outline blanco → outline oscuro */
+#masthead.is-sticky .btn-outline-white {
+  color: var(--color-dark) !important;
+  border-color: var(--color-dark) !important;
+}
+
+#masthead.is-sticky .btn-outline-white:hover {
+  background-color: var(--color-dark) !important;
+  color: #ffffff !important;
+}
+
+/* Selector de país: chevron y borde */
+#masthead.is-sticky .group>button svg {
+  color: var(--color-dark) !important;
+}
+
 @keyframes slideInLevel {
   from {
     opacity: 0;

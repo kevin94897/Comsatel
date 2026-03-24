@@ -249,7 +249,8 @@ get_header();
                                     <div class="flex items-start gap-4">
                                         <div class="step-number flex-shrink-0">2</div>
                                         <div class="flex-1">
-                                            <h3 class="step-label font-medium text-base mb-1">Datos del Usuario Titular</h3>
+                                            <h3 class="step-label font-medium text-base mb-1">Datos del Usuario Titular
+                                            </h3>
                                             <p class="text-sm text-gray-500">Solo si eres trabajador</p>
                                         </div>
                                     </div>
@@ -287,7 +288,8 @@ get_header();
                                         <!-- Tipo de Documento -->
                                         <div>
                                             <label class="form-label" for="tipo_documento">Tipo de Documento</label>
-                                            <select id="tipo_documento" name="tipo_documento" class="form-select" required>
+                                            <select id="tipo_documento" name="tipo_documento" class="form-select"
+                                                required>
                                                 <option value="">Selecciona</option>
                                                 <option value="DNI">DNI</option>
                                                 <option value="CE">Carnet de Extranjería</option>
@@ -306,28 +308,31 @@ get_header();
                                         <!-- Teléfono -->
                                         <div>
                                             <label class="form-label" for="telefono">Teléfono</label>
-                                            <input type="tel" id="telefono" name="telefono"
-                                                class="form-input" placeholder="Ej. 987654321" required>
+                                            <input type="tel" id="telefono" name="telefono" class="form-input"
+                                                placeholder="Ej. 987654321" required>
                                         </div>
 
                                         <!-- Email -->
                                         <div class="md:col-span-2">
                                             <label class="form-label" for="email">Email</label>
-                                            <input type="email" id="email" name="email"
-                                                class="form-input" placeholder="ejemplo@correo.com" required>
+                                            <input type="email" id="email" name="email" class="form-input"
+                                                placeholder="ejemplo@correo.com" required>
                                         </div>
 
                                         <!-- Tipo de Reclamante -->
                                         <div class="md:col-span-2">
                                             <label class="form-label">Tipo de Reclamante</label>
                                             <div class="grid md:grid-cols-2 gap-4">
-                                                <label class="custom-radio flex items-center p-4 border border-gray-300 rounded-md hover:border-primary transition-colors">
+                                                <label
+                                                    class="custom-radio flex items-center p-4 border border-gray-300 rounded-md hover:border-primary transition-colors">
                                                     <input type="radio" name="tipo_reclamante" value="Titular" required>
                                                     <span class="radio-mark"></span>
                                                     <span class="ml-3 font-medium">Titular</span>
                                                 </label>
-                                                <label class="custom-radio flex items-center p-4 border border-gray-300 rounded-md hover:border-primary transition-colors">
-                                                    <input type="radio" name="tipo_reclamante" value="Trabajador" required>
+                                                <label
+                                                    class="custom-radio flex items-center p-4 border border-gray-300 rounded-md hover:border-primary transition-colors">
+                                                    <input type="radio" name="tipo_reclamante" value="Trabajador"
+                                                        required>
                                                     <span class="radio-mark"></span>
                                                     <span class="ml-3 font-medium">Trabajador</span>
                                                 </label>
@@ -350,16 +355,21 @@ get_header();
                                         <!-- Empresa (solo visible si es Trabajador) -->
                                         <div id="empresa_field" class="md:col-span-2 hidden">
                                             <label class="form-label" for="empresa">Empresa</label>
-                                            <input type="text" id="empresa" name="empresa"
-                                                class="form-input" placeholder="Nombre de la empresa">
+                                            <input type="text" id="empresa" name="empresa" class="form-input"
+                                                placeholder="Nombre de la empresa">
                                         </div>
                                     </div>
 
                                     <div class="flex justify-end mt-8">
-                                        <button type="button" class="btn-next bg-primary text-white px-8 py-3 rounded-md font-medium flex items-center gap-2 hover:bg-primary-600 transition-all" onclick="nextStep(1)">
+                                        <button type="button"
+                                            class="btn-next bg-primary text-white px-8 py-3 rounded-md font-medium flex items-center gap-2 hover:bg-primary-600 transition-all"
+                                            onclick="nextStep(1)">
                                             Siguiente
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                                fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                                    clip-rule="evenodd" />
                                             </svg>
                                         </button>
                                     </div>
@@ -377,8 +387,10 @@ get_header();
 
                                         <!-- Tipo de Documento Titular -->
                                         <div>
-                                            <label class="form-label" for="tipo_documento_titular">Tipo de Documento</label>
-                                            <select id="tipo_documento_titular" name="tipo_documento_titular" class="form-select">
+                                            <label class="form-label" for="tipo_documento_titular">Tipo de
+                                                Documento</label>
+                                            <select id="tipo_documento_titular" name="tipo_documento_titular"
+                                                class="form-select">
                                                 <option value="">Seleccione</option>
                                                 <option value="DNI">DNI</option>
                                                 <option value="CE">Carnet de Extranjería</option>
@@ -389,9 +401,11 @@ get_header();
 
                                         <!-- N° Documento Titular -->
                                         <div>
-                                            <label class="form-label" for="numero_documento_titular">N° Documento</label>
-                                            <input type="text" id="numero_documento_titular" name="numero_documento_titular"
-                                                class="form-input" placeholder="Ej. 74218605">
+                                            <label class="form-label" for="numero_documento_titular">N°
+                                                Documento</label>
+                                            <input type="text" id="numero_documento_titular"
+                                                name="numero_documento_titular" class="form-input"
+                                                placeholder="Ej. 74218605">
                                         </div>
 
                                         <!-- Teléfono Titular -->
@@ -410,16 +424,26 @@ get_header();
                                     </div>
 
                                     <div class="flex justify-between mt-8">
-                                        <button type="button" class="bg-transparent text-gray-700 px-8 py-3 rounded-md font-medium flex items-center gap-2 hover:bg-gray-400 transition-all" onclick="prevStep(2)">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                                        <button type="button"
+                                            class="bg-transparent text-gray-700 px-8 py-3 rounded-md font-medium flex items-center gap-2 hover:bg-gray-400 transition-all"
+                                            onclick="prevStep(2)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                                fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                                                    clip-rule="evenodd" />
                                             </svg>
                                             Anterior
                                         </button>
-                                        <button type="button" class="btn-next bg-primary text-white px-8 py-3 rounded-md font-medium flex items-center gap-2 hover:bg-primary-600 transition-all" onclick="nextStep(2)">
+                                        <button type="button"
+                                            class="btn-next bg-primary text-white px-8 py-3 rounded-md font-medium flex items-center gap-2 hover:bg-primary-600 transition-all"
+                                            onclick="nextStep(2)">
                                             Siguiente
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clip-rule="evenodd" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                                fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
+                                                    clip-rule="evenodd" />
                                             </svg>
                                         </button>
                                     </div>
@@ -432,12 +456,15 @@ get_header();
                                         <div>
                                             <label class="form-label">Reclamo o Queja</label>
                                             <div class="grid md:grid-cols-2 gap-4">
-                                                <label class="custom-radio flex items-center p-4 border border-gray-300 rounded-md hover:border-primary transition-colors">
-                                                    <input type="radio" name="tipo_solicitud" value="Reclamo" required checked>
+                                                <label
+                                                    class="custom-radio flex items-center p-4 border border-gray-300 rounded-md hover:border-primary transition-colors">
+                                                    <input type="radio" name="tipo_solicitud" value="Reclamo" required
+                                                        checked>
                                                     <span class="radio-mark"></span>
                                                     <span class="ml-3 font-medium">Reclamo</span>
                                                 </label>
-                                                <label class="custom-radio flex items-center p-4 border border-gray-300 rounded-md hover:border-primary transition-colors">
+                                                <label
+                                                    class="custom-radio flex items-center p-4 border border-gray-300 rounded-md hover:border-primary transition-colors">
                                                     <input type="radio" name="tipo_solicitud" value="Queja" required>
                                                     <span class="radio-mark"></span>
                                                     <span class="ml-3 font-medium">Queja</span>
@@ -460,21 +487,25 @@ get_header();
                                         <!-- Tu Comentario -->
                                         <div>
                                             <label class="form-label" for="comentario">Tu Comentario</label>
-                                            <textarea id="comentario" name="comentario" rows="5"
-                                                class="form-textarea" placeholder="Describe tu reclamo o queja..." required></textarea>
+                                            <textarea id="comentario" name="comentario" rows="5" class="form-textarea"
+                                                placeholder="Describe tu reclamo o queja..." required></textarea>
                                         </div>
 
                                         <!-- Tipo del reclamo -->
                                         <div>
                                             <label class="form-label">Tipo del reclamo</label>
                                             <div class="grid md:grid-cols-2 gap-4">
-                                                <label class="custom-radio flex items-center p-4 border border-gray-300 rounded-md hover:border-primary transition-colors">
-                                                    <input type="radio" name="tipo_reclamo" value="Correo electrónico" required>
+                                                <label
+                                                    class="custom-radio flex items-center p-4 border border-gray-300 rounded-md hover:border-primary transition-colors">
+                                                    <input type="radio" name="tipo_reclamo" value="Correo electrónico"
+                                                        required>
                                                     <span class="radio-mark"></span>
                                                     <span class="ml-3 font-medium">Correo electrónico</span>
                                                 </label>
-                                                <label class="custom-radio flex items-center p-4 border border-gray-300 rounded-md hover:border-primary transition-colors">
-                                                    <input type="radio" name="tipo_reclamo" value="Vía telefónica" required>
+                                                <label
+                                                    class="custom-radio flex items-center p-4 border border-gray-300 rounded-md hover:border-primary transition-colors">
+                                                    <input type="radio" name="tipo_reclamo" value="Vía telefónica"
+                                                        required>
                                                     <span class="radio-mark"></span>
                                                     <span class="ml-3 font-medium">Vía telefónica</span>
                                                 </label>
@@ -484,14 +515,20 @@ get_header();
                                         <!-- Archivo adjunto -->
                                         <div>
                                             <label class="form-label">Archivo adjunto en relación al Reclamo</label>
-                                            <div class="file-upload-wrapper">
-                                                <input type="file" id="archivo" name="archivo" accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
+                                            <div class="file-upload-wrapper relative">
+                                                <input type="file" id="archivo" name="archivo"
+                                                    accept=".pdf,.jpg,.jpeg,.png,.doc,.docx">
                                                 <div class="pointer-events-none">
-                                                    <svg class="mx-auto h-12 w-12 text-gray-400 mb-3" stroke="currentColor" fill="none" viewBox="0 0 48 48">
-                                                        <path d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                                                    <svg class="mx-auto h-12 w-12 text-gray-400 mb-3"
+                                                        stroke="currentColor" fill="none" viewBox="0 0 48 48">
+                                                        <path
+                                                            d="M28 8H12a4 4 0 00-4 4v20m32-12v8m0 0v8a4 4 0 01-4 4H12a4 4 0 01-4-4v-4m32-4l-3.172-3.172a4 4 0 00-5.656 0L28 28M8 32l9.172-9.172a4 4 0 015.656 0L28 28m0 0l4 4m4-24h8m-4-4v8m-12 4h.02"
+                                                            stroke-width="2" stroke-linecap="round"
+                                                            stroke-linejoin="round" />
                                                     </svg>
                                                     <p class="text-sm text-black">
-                                                        <span class="font-medium text-primary">Cargar un archivo</span> o arrastra y suelta
+                                                        <span class="font-medium text-primary">Cargar un archivo</span>
+                                                        o arrastra y suelta
                                                     </p>
                                                     <p class="text-xs text-gray-500 mt-1">PDF, JPG, PNG hasta 10MB</p>
                                                 </div>
@@ -501,16 +538,24 @@ get_header();
                                     </div>
 
                                     <div class="flex justify-between mt-8">
-                                        <button type="button" class="bg-gray-300 text-gray-700 px-8 py-3 rounded-md font-medium flex items-center gap-2 hover:bg-gray-400 transition-all" onclick="prevStep(3)">
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                                <path fill-rule="evenodd" d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z" clip-rule="evenodd" />
+                                        <button type="button"
+                                            class="bg-gray-300 text-gray-700 px-8 py-3 rounded-md font-medium flex items-center gap-2 hover:bg-gray-400 transition-all"
+                                            onclick="prevStep(3)">
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                                fill="currentColor">
+                                                <path fill-rule="evenodd"
+                                                    d="M9.707 16.707a1 1 0 01-1.414 0l-6-6a1 1 0 010-1.414l6-6a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l4.293 4.293a1 1 0 010 1.414z"
+                                                    clip-rule="evenodd" />
                                             </svg>
                                             Anterior
                                         </button>
-                                        <button type="submit" class="btn-next bg-primary text-white px-8 py-3 rounded-md font-medium flex items-center gap-2 hover:bg-primary-600 transition-all">
+                                        <button type="submit"
+                                            class="btn-next bg-primary text-white px-8 py-3 rounded-md font-medium flex items-center gap-2 hover:bg-primary-600 transition-all">
                                             Enviar
-                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20" fill="currentColor">
-                                                <path d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" viewBox="0 0 20 20"
+                                                fill="currentColor">
+                                                <path
+                                                    d="M10.894 2.553a1 1 0 00-1.788 0l-7 14a1 1 0 001.169 1.409l5-1.429A1 1 0 009 15.571V11a1 1 0 112 0v4.571a1 1 0 00.725.962l5 1.428a1 1 0 001.17-1.408l-7-14z" />
                                             </svg>
                                         </button>
                                     </div>
@@ -521,14 +566,19 @@ get_header();
 
                             <!-- Mensaje de Éxito (Oculto inicialmente) -->
                             <div id="success-message" class="hidden text-center py-12">
-                                <div class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
-                                    <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
+                                <div
+                                    class="w-20 h-20 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                                    <svg class="w-10 h-10 text-primary" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M5 13l4 4L19 7"></path>
                                     </svg>
                                 </div>
                                 <h3 class="text-2xl font-medium text-gray-800 mb-4">¡Reclamo Enviado!</h3>
-                                <p class="text-black mb-8">Hemos recibido tu información correctamente. Te hemos enviado un correo de confirmación con los detalles.</p>
-                                <button onclick="location.reload()" class="bg-primary text-white px-8 py-3 rounded-md font-medium hover:bg-primary-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
+                                <p class="text-black mb-8">Hemos recibido tu información correctamente. Te hemos enviado
+                                    un correo de confirmación con los detalles.</p>
+                                <button onclick="location.reload()"
+                                    class="bg-primary text-white px-8 py-3 rounded-md font-medium hover:bg-primary-600 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1">
                                     Volver al inicio
                                 </button>
                             </div>
@@ -550,7 +600,7 @@ get_header();
     const ajax_url = '<?php echo admin_url('admin-ajax.php'); ?>';
     const security_nonce = '<?php echo wp_create_nonce('comsatel_reclamo_nonce'); ?>';
 
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         const form = document.getElementById('reclamaciones-form');
         const tipoReclamanteInputs = document.querySelectorAll('input[name="tipo_reclamante"]');
         const departamentoField = document.getElementById('departamento_field');
@@ -561,7 +611,7 @@ get_header();
 
         // Manejar cambio de tipo de reclamante
         tipoReclamanteInputs.forEach(input => {
-            input.addEventListener('change', function() {
+            input.addEventListener('change', function () {
                 if (this.value === 'Trabajador') {
                     departamentoField.classList.remove('hidden');
                     empresaField.classList.remove('hidden');
@@ -577,7 +627,7 @@ get_header();
         });
 
         // Mostrar nombre del archivo seleccionado
-        fileInput.addEventListener('change', function() {
+        fileInput.addEventListener('change', function () {
             if (this.files && this.files[0]) {
                 fileName.textContent = 'Archivo seleccionado: ' + this.files[0].name;
             } else {
@@ -586,7 +636,7 @@ get_header();
         });
 
         // Manejar envío del formulario
-        form.addEventListener('submit', function(e) {
+        form.addEventListener('submit', function (e) {
             e.preventDefault();
 
             // Botón de envío - Estado Cargando
@@ -608,9 +658,9 @@ get_header();
 
             // Enviar via Fetch
             fetch(ajax_url, {
-                    method: 'POST',
-                    body: formData
-                })
+                method: 'POST',
+                body: formData
+            })
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {

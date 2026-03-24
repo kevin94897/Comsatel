@@ -93,22 +93,45 @@ function render_megamenu_icon($icono): void
 
 		<!-- Header -->
 		<header id="masthead"
+			data-transparent="<?php echo $is_transparent_header ? '1' : '0'; ?>"
 			class="absolute top-0 left-0 right-0 z-50 transition-all duration-300 <?php echo $header_bg_class; ?>">
 			<div class="container-full mx-auto px-4 lg:px-8">
 				<div class="flex items-center justify-between py-4 lg:py-6">
 
 					<!-- Logo -->
-					<div class="site-branding" data-aos="fade-right" data-aos-duration="800">
+					<div class="site-branding relative" data-aos="fade-right" data-aos-duration="800">
 						<?php if ($is_transparent_header): ?>
-							<!-- Logo claro para fondo oscuro -->
-							<?php if (has_custom_logo()): ?>
-								<?php the_custom_logo(); ?>
-							<?php else: ?>
-								<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"
-									class="<?php echo $logo_text_class; ?> text-2xl font-medium">
-									<?php bloginfo('name'); ?>
-								</a>
-							<?php endif; ?>
+							<?php
+							$dark_logo_id  = get_theme_mod('footer_logo');
+							$dark_logo_url = $dark_logo_id ? wp_get_attachment_image_url($dark_logo_id, 'full') : null;
+							?>
+							<!-- Logo claro (visible por defecto, se oculta en sticky) -->
+							<div id="header-logo-clear" class="transition-opacity duration-300">
+								<?php if (has_custom_logo()): ?>
+									<?php the_custom_logo(); ?>
+								<?php else: ?>
+									<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"
+										class="text-white text-2xl font-medium">
+										<?php bloginfo('name'); ?>
+									</a>
+								<?php endif; ?>
+							</div>
+							<!-- Logo oscuro (oculto por defecto, visible en sticky) -->
+							<div id="header-logo-dark" class="absolute inset-0 opacity-0 pointer-events-none transition-opacity duration-300">
+								<?php if ($dark_logo_url): ?>
+									<a href="<?php echo esc_url(home_url('/')); ?>" rel="home">
+										<img src="<?php echo esc_url($dark_logo_url); ?>" class="w-auto h-full object-contain"
+											alt="<?php bloginfo('name'); ?>">
+									</a>
+								<?php elseif (has_custom_logo()): ?>
+									<?php the_custom_logo(); ?>
+								<?php else: ?>
+									<a href="<?php echo esc_url(home_url('/')); ?>" rel="home"
+										class="text-gray-900 text-2xl font-medium">
+										<?php bloginfo('name'); ?>
+									</a>
+								<?php endif; ?>
+							</div>
 						<?php else: ?>
 							<!-- Logo oscuro para páginas internas (fondo blanco) -->
 							<?php
@@ -431,7 +454,7 @@ function render_megamenu_icon($icono): void
 
 						<!-- Iniciar Sesión Button -->
 						<?php if (!empty($acf_lista_de_enlaces)): ?>
-							<div class="relative inline-block group">
+							<div class="relative inline-block group hidden xl:block">
 								<button class="btn flex items-center !px-3 gap-2 border !rounded-md transition-all duration-300 font-medium
 			<?php echo $is_transparent_header ? 'btn-outline-white' : 'btn-outline'; ?> text-[14px]">
 									<?php if (!empty($label_sesion)): ?>

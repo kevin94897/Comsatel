@@ -53,28 +53,203 @@ function comsatel_widgets_init()
 add_action('widgets_init', 'comsatel_widgets_init');
 
 /**
+ * Detecta si el servidor de desarrollo Vite está corriendo en el puerto 5173.
+ */
+function comsatel_is_vite_dev(): bool
+{
+	static $is_dev = null;
+	if ($is_dev === null) {
+		$handle = @fsockopen('localhost', 5173, $errno, $errstr, 1);
+		if ($handle) {
+			fclose($handle);
+			$is_dev = true;
+		} else {
+			$is_dev = false;
+		}
+	}
+	return $is_dev;
+}
+
+/**
+ * Marca los scripts de Vite como type="module" en modo desarrollo.
+ * Debe estar al nivel global (no dentro de comsatel_scripts) para que
+ * WordPress lo registre antes de procesar los script tags.
+ */
+add_filter('script_loader_tag', function (string $tag, string $handle): string {
+	if (!comsatel_is_vite_dev())
+		return $tag;
+
+	$module_handles = [
+		'vite-client',
+		'comsatel-scripts',
+		'comsatel-blog-js',
+		'comsatel-calculator',
+		'comsatel-ubicaciones',
+		'comsatel-cotizador',
+		'comsatel-validator',
+		'comsatel-validator-init',
+	];
+	if (in_array($handle, $module_handles, true)) {
+		// Quitar ?ver=xxxx que WordPress agrega y rompe el dev server de Vite
+		$tag = preg_replace('/\?ver=[^\'"\s]+/', '', $tag);
+		$tag = str_replace(' defer', '', $tag);
+		$tag = str_replace('<script ', '<script type="module" ', $tag);
+	}
+	return $tag;
+}, 20, 2);
+
+/**
+ * Quitar ?ver de los estilos que apuntan al dev server de Vite.
+ */
+add_filter('style_loader_tag', function (string $tag, string $handle): string {
+	if (!comsatel_is_vite_dev())
+		return $tag;
+
+	$vite_styles = ['comsatel-tailwind'];
+	if (in_array($handle, $vite_styles, true)) {
+		$tag = preg_replace('/\?ver=[^\'"\s]+/', '', $tag);
+	}
+	return $tag;
+}, 20, 2);
+
+/**
  * Enqueue scripts and styles.
  */
 function comsatel_scripts()
 {
-	// Tailwind + global (compilado por Vite)
-	wp_enqueue_style(
-		'comsatel-tailwind',
-		get_template_directory_uri() . '/dist/css/tailwind.css',
-		[],
-		filemtime(get_template_directory() . '/dist/css/tailwind.css')
-	);
+	$is_dev = comsatel_is_vite_dev();
+	$vite_base = 'http://localhost:5173';
 
-	// Style.css WP
-	wp_enqueue_style(
-		'comsatel-style',
-		get_stylesheet_uri(),
-		['comsatel-tailwind'],
-		wp_get_theme()->get('Version')
-	);
+	if ($is_dev) {
+		// --- Modo desarrollo: Vite dev server con HMR ---
 
+		// CSS de Tailwind (Vite lo inyecta vía HMR)
+		wp_enqueue_style('comsatel-tailwind', $vite_base . '/src/tailwind.css', [], false);
 
-	// ⬇⬇⬇ SWIPER CSS + JS (AGREGAR AQUÍ)
+		// Style.css WP
+		wp_enqueue_style(
+			'comsatel-style',
+			get_stylesheet_uri(),
+			['comsatel-tailwind'],
+			wp_get_theme()->get('Version')
+		);
+
+		// Cliente HMR de Vite (se carga en el <head>)
+		wp_enqueue_script('vite-client', $vite_base . '/@vite/client', [], false, false);
+
+		// Main theme scripts
+		wp_enqueue_script('comsatel-scripts', $vite_base . '/js/scripts.js', ['jquery'], false, true);
+
+		// Ubicaciones Helper
+		wp_enqueue_script('comsatel-ubicaciones', $vite_base . '/js/ubicaciones.js', [], false, true);
+
+		// Cotizador Script
+		wp_enqueue_script('comsatel-cotizador', $vite_base . '/js/cotizador.js', ['jquery'], false, true);
+
+		// Centralized Validation Engine
+		wp_enqueue_script('comsatel-validator', $vite_base . '/js/form-validator.js', [], false, true);
+
+		// Validation Initialization
+		wp_enqueue_script('comsatel-validator-init', $vite_base . '/js/validator-init.js', ['comsatel-validator'], false, true);
+
+		// Blog Scripts (solo en la plantilla de blog)
+		if (is_page_template('template-blog.php')) {
+			wp_enqueue_script('comsatel-blog-js', $vite_base . '/js/blog.js', [], false, true);
+		}
+
+		// Calculator Script (solo en la página de calculadora)
+		if (is_page_template('inc/template-calculator.php')) {
+			wp_enqueue_script('comsatel-calculator', $vite_base . '/js/calculator.js', ['comsatel-validator-init'], false, true);
+		}
+
+	} else {
+		// --- Modo producción: assets compilados desde /dist/ ---
+
+		// Tailwind + global (compilado por Vite)
+		wp_enqueue_style(
+			'comsatel-tailwind',
+			get_template_directory_uri() . '/dist/css/tailwind.css',
+			[],
+			filemtime(get_template_directory() . '/dist/css/tailwind.css')
+		);
+
+		// Style.css WP
+		wp_enqueue_style(
+			'comsatel-style',
+			get_stylesheet_uri(),
+			['comsatel-tailwind'],
+			wp_get_theme()->get('Version')
+		);
+
+		// Blog Scripts (solo en la plantilla de blog)
+		if (is_page_template('template-blog.php')) {
+			wp_enqueue_script(
+				'comsatel-blog-js',
+				get_template_directory_uri() . '/dist/js/blog.js',
+				['jquery'],
+				filemtime(get_template_directory() . '/dist/js/blog.js'),
+				true
+			);
+		}
+
+		// Calculator Script (solo en la página de calculadora)
+		if (is_page_template('inc/template-calculator.php')) {
+			wp_enqueue_script(
+				'comsatel-calculator',
+				get_template_directory_uri() . '/dist/js/calculator.js',
+				['comsatel-validator-init'],
+				filemtime(get_template_directory() . '/dist/js/calculator.js'),
+				true
+			);
+		}
+
+		// Main theme scripts
+		wp_enqueue_script(
+			'comsatel-scripts',
+			get_template_directory_uri() . '/dist/js/scripts.js',
+			['jquery'],
+			filemtime(get_template_directory() . '/dist/js/scripts.js'),
+			true
+		);
+
+		// Ubicaciones Helper
+		wp_enqueue_script(
+			'comsatel-ubicaciones',
+			get_template_directory_uri() . '/dist/js/ubicaciones.js',
+			[],
+			filemtime(get_template_directory() . '/dist/js/ubicaciones.js'),
+			true
+		);
+
+		// Cotizador Script
+		wp_enqueue_script(
+			'comsatel-cotizador',
+			get_template_directory_uri() . '/dist/js/cotizador.js',
+			['jquery'],
+			filemtime(get_template_directory() . '/dist/js/cotizador.js'),
+			true
+		);
+
+		// Centralized Validation Engine
+		wp_enqueue_script(
+			'comsatel-validator',
+			get_template_directory_uri() . '/dist/js/form-validator.js',
+			[],
+			filemtime(get_template_directory() . '/dist/js/form-validator.js'),
+			true
+		);
+
+		// Validation Initialization
+		wp_enqueue_script(
+			'comsatel-validator-init',
+			get_template_directory_uri() . '/dist/js/validator-init.js',
+			['comsatel-validator'],
+			filemtime(get_template_directory() . '/dist/js/validator-init.js'),
+			true
+		);
+	}
+
+	// ⬇⬇⬇ SWIPER CSS + JS (CDN – siempre)
 	wp_enqueue_style('swiper-css', 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css', [], '11.0.0');
 
 	wp_enqueue_script(
@@ -115,76 +290,9 @@ function comsatel_scripts()
 	wp_enqueue_script('aos-js', 'https://unpkg.com/aos@2.3.1/dist/aos.js', [], '2.3.1', true);
 	wp_add_inline_script('aos-js', 'AOS.init({ duration: 800, easing: "ease-in-out", once: true, offset: 100 });');
 
-	// Blog Scripts (solo en la plantilla de blog)
-	if (is_page_template('template-blog.php')) {
-		wp_enqueue_script(
-			'comsatel-blog-js',
-			get_template_directory_uri() . '/dist/js/blog.js',
-			['jquery'],
-			filemtime(get_template_directory() . '/dist/js/blog.js'),
-			true
-		);
-	}
-
-	// Calculator Script (solo en la página de calculadora)
-	if (is_page_template('inc/template-calculator.php')) {
-		wp_enqueue_script(
-			'comsatel-calculator',
-			get_template_directory_uri() . '/dist/js/calculator.js',
-			['comsatel-validator-init'],
-			filemtime(get_template_directory() . '/dist/js/calculator.js'),
-			true
-		);
-	}
-
 	if (is_singular() && comments_open() && get_option('thread_comments')) {
 		wp_enqueue_script('comment-reply');
 	}
-
-	// Main theme scripts
-	wp_enqueue_script(
-		'comsatel-scripts',
-		get_template_directory_uri() . '/dist/js/scripts.js',
-		['jquery'],
-		filemtime(get_template_directory() . '/dist/js/scripts.js'),
-		true
-	);
-
-	// Ubicaciones Helper
-	wp_enqueue_script(
-		'comsatel-ubicaciones',
-		get_template_directory_uri() . '/dist/js/ubicaciones.js',
-		[],
-		filemtime(get_template_directory() . '/dist/js/ubicaciones.js'),
-		true
-	);
-
-	// Cotizador Script
-	wp_enqueue_script(
-		'comsatel-cotizador',
-		get_template_directory_uri() . '/dist/js/cotizador.js',
-		['jquery'],
-		filemtime(get_template_directory() . '/dist/js/cotizador.js'),
-		true
-	);
-
-	// Centralized Validation Engine
-	wp_enqueue_script(
-		'comsatel-validator',
-		get_template_directory_uri() . '/dist/js/form-validator.js',
-		[],
-		filemtime(get_template_directory() . '/dist/js/form-validator.js'),
-		true
-	);
-
-	// Validation Initialization
-	wp_enqueue_script(
-		'comsatel-validator-init',
-		get_template_directory_uri() . '/dist/js/validator-init.js',
-		['comsatel-validator'],
-		filemtime(get_template_directory() . '/dist/js/validator-init.js'),
-		true
-	);
 
 	// Export global variables for all scripts
 	wp_localize_script('comsatel-validator-init', 'comsatel_vars', array(
@@ -358,7 +466,7 @@ add_filter('nav_menu_link_attributes', 'comsatel_nav_menu_link_attributes', 10, 
 function comsatel_custom_logo_class($html)
 {
 	$html = str_replace('custom-logo-link', 'custom-logo-link inline-block', $html);
-	$html = str_replace('custom-logo', 'custom-logo w-auto inline-flex', $html);
+	$html = str_replace('custom-logo', 'custom-logo w-auto min-w-[120px] inline-flex', $html);
 	return $html;
 }
 add_filter('get_custom_logo', 'comsatel_custom_logo_class');
@@ -403,19 +511,12 @@ add_filter('excerpt_more', 'comsatel_excerpt_more');
 
 /**
  * Add async/defer to scripts
+ * Nota: en modo dev Vite usa type="module" que ya es diferido por el navegador.
+ * En producción, el defer lo maneja el quinto argumento de wp_enqueue_script (in_footer=true).
+ * Este filtro se mantiene deshabilitado para no conflictuar con el filtro de HMR.
  */
-function comsatel_async_scripts($tag, $handle, $src)
-{
-	// Add handles of scripts you want to defer
-	$defer_scripts = array('comsatel-scripts');
-
-	if (in_array($handle, $defer_scripts)) {
-		return '<script src="' . $src . '" defer></script>' . "\n";
-	}
-
-	return $tag;
-}
-add_filter('script_loader_tag', 'comsatel_async_scripts', 10, 3);
+// function comsatel_async_scripts($tag, $handle, $src) { ... }
+// add_filter('script_loader_tag', 'comsatel_async_scripts', 10, 3);
 
 /**
  * Remove jQuery Migrate

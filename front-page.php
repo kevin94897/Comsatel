@@ -23,7 +23,7 @@ get_header(); ?>
             <div class=" flex items-center h-full">
                 <div class="max-w-2xl text-center md:text-left">
                     <?php if (!empty($hero['titulo'])): ?>
-                        <h1 class="text-3xl md:text-4xl lg:text-6xl font-medium text-white mb-6 leading-tight"
+                        <h1 class="text-3xl md:text-4xl lg:text-5xl font-medium text-white mb-6 leading-tight"
                             data-aos="fade-up" data-aos-duration="1000">
                             <?php echo wp_kses_post($hero['titulo']); ?>
                         </h1>

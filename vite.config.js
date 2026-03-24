@@ -5,6 +5,15 @@ import { fileURLToPath } from 'url';
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineConfig({
+  server: {
+    host: 'localhost',
+    port: 5173,
+    cors: true,           // necesario porque WP es un origen distinto
+    hmr: {
+      host: 'localhost',
+      port: 5173,
+    },
+  },
   build: {
     outDir: 'dist',
     emptyOutDir: true,

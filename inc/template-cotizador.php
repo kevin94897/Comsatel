@@ -124,7 +124,7 @@ $acf_tabs        = get_field('tabs');
 </style>
 
 <main id="primary" class="site-main">
-    <section class="py-20md:py-24 min-h-screen flex md:items-center items-start md:justify-center justify-start">
+    <section class="py-24 md:py-32 min-h-screen flex md:items-center items-start md:justify-center justify-start">
         <div class="container mx-auto px-4">
             <div class="max-w-7xl mx-auto">
                 <!-- Grid Layout: Sidebar + Formulario -->
@@ -139,7 +139,7 @@ $acf_tabs        = get_field('tabs');
                                 <div class="mb-8">
                                     <?php if ($acf_titulo) : ?>
                     <h2 class="text-2xl md:text-4xl font-normal text-dark mb-4">
-                        <?php echo esc_html($acf_titulo); ?>ss
+                        <?php echo esc_html($acf_titulo); ?>
                     </h2>
                 <?php endif; ?>
 

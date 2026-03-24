@@ -449,3 +449,30 @@
   }); // End document ready
 
 })(jQuery);
+
+// ── Sticky Header ────────────────────────────────────────────────────────────
+(function () {
+  const header = document.getElementById('masthead');
+  if (!header || header.dataset.transparent !== '1') return;
+
+  const THRESHOLD = 80;
+  let ticking = false;
+
+  function update() {
+    if (window.scrollY > THRESHOLD) {
+      header.classList.add('is-sticky');
+    } else {
+      header.classList.remove('is-sticky');
+    }
+    ticking = false;
+  }
+
+  window.addEventListener('scroll', function () {
+    if (!ticking) {
+      window.requestAnimationFrame(update);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  update(); // Check on load (e.g. page refreshed mid-scroll)
+}());

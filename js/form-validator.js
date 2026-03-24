@@ -304,3 +304,6 @@ class ComsatelValidator {
 window.initComsatelValidator = function (formId, options) {
     return new ComsatelValidator(formId, options);
 };
+
+// Exponer clase globalmente para compatibilidad con ES modules (Vite HMR)
+window.ComsatelValidator = ComsatelValidator;
