@@ -57,22 +57,19 @@ add_action('widgets_init', 'comsatel_widgets_init');
  */
 function comsatel_scripts()
 {
-	// Tailwind compilado
-	wp_enqueue_style('comsatel-tailwind', get_template_directory_uri() . '/tailwind-output.css', [], _S_VERSION);
-
-	// Tus estilos globales
+	// Tailwind + global (compilado por Vite)
 	wp_enqueue_style(
-		'comsatel-global',
-		get_template_directory_uri() . '/src/global.css',
-		['comsatel-tailwind'],
-		filemtime(get_template_directory() . '/src/global.css')
+		'comsatel-tailwind',
+		get_template_directory_uri() . '/dist/css/tailwind.css',
+		[],
+		filemtime(get_template_directory() . '/dist/css/tailwind.css')
 	);
 
 	// Style.css WP
 	wp_enqueue_style(
 		'comsatel-style',
 		get_stylesheet_uri(),
-		['comsatel-global'],    // ← Depende de global → GLOBAL GANA
+		['comsatel-tailwind'],
 		wp_get_theme()->get('Version')
 	);
 
@@ -122,9 +119,9 @@ function comsatel_scripts()
 	if (is_page_template('template-blog.php')) {
 		wp_enqueue_script(
 			'comsatel-blog-js',
-			get_template_directory_uri() . '/js/blog.js',
+			get_template_directory_uri() . '/dist/js/blog.js',
 			['jquery'],
-			filemtime(get_template_directory() . '/js/blog.js'),
+			filemtime(get_template_directory() . '/dist/js/blog.js'),
 			true
 		);
 	}
@@ -133,9 +130,9 @@ function comsatel_scripts()
 	if (is_page_template('inc/template-calculator.php')) {
 		wp_enqueue_script(
 			'comsatel-calculator',
-			get_template_directory_uri() . '/js/calculator.js',
+			get_template_directory_uri() . '/dist/js/calculator.js',
 			['comsatel-validator-init'],
-			filemtime(get_template_directory() . '/js/calculator.js'),
+			filemtime(get_template_directory() . '/dist/js/calculator.js'),
 			true
 		);
 	}
@@ -147,45 +144,45 @@ function comsatel_scripts()
 	// Main theme scripts
 	wp_enqueue_script(
 		'comsatel-scripts',
-		get_template_directory_uri() . '/js/scripts.js',
+		get_template_directory_uri() . '/dist/js/scripts.js',
 		['jquery'],
-		filemtime(get_template_directory() . '/js/scripts.js'),
+		filemtime(get_template_directory() . '/dist/js/scripts.js'),
 		true
 	);
 
 	// Ubicaciones Helper
 	wp_enqueue_script(
 		'comsatel-ubicaciones',
-		get_template_directory_uri() . '/js/ubicaciones.js',
+		get_template_directory_uri() . '/dist/js/ubicaciones.js',
 		[],
-		filemtime(get_template_directory() . '/js/ubicaciones.js'),
+		filemtime(get_template_directory() . '/dist/js/ubicaciones.js'),
 		true
 	);
 
 	// Cotizador Script
 	wp_enqueue_script(
 		'comsatel-cotizador',
-		get_template_directory_uri() . '/js/cotizador.js',
+		get_template_directory_uri() . '/dist/js/cotizador.js',
 		['jquery'],
-		filemtime(get_template_directory() . '/js/cotizador.js'),
+		filemtime(get_template_directory() . '/dist/js/cotizador.js'),
 		true
 	);
 
 	// Centralized Validation Engine
 	wp_enqueue_script(
 		'comsatel-validator',
-		get_template_directory_uri() . '/js/form-validator.js',
+		get_template_directory_uri() . '/dist/js/form-validator.js',
 		[],
-		filemtime(get_template_directory() . '/js/form-validator.js'),
+		filemtime(get_template_directory() . '/dist/js/form-validator.js'),
 		true
 	);
 
 	// Validation Initialization
 	wp_enqueue_script(
 		'comsatel-validator-init',
-		get_template_directory_uri() . '/js/validator-init.js',
+		get_template_directory_uri() . '/dist/js/validator-init.js',
 		['comsatel-validator'],
-		filemtime(get_template_directory() . '/js/validator-init.js'),
+		filemtime(get_template_directory() . '/dist/js/validator-init.js'),
 		true
 	);
 

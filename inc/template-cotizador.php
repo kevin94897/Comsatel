@@ -139,7 +139,7 @@ $acf_tabs        = get_field('tabs');
                                 <div class="mb-8">
                                     <?php if ($acf_titulo) : ?>
                     <h2 class="text-2xl md:text-4xl font-normal text-dark mb-4">
-                        <?php echo esc_html($acf_titulo); ?>
+                        <?php echo esc_html($acf_titulo); ?>ss
                     </h2>
                 <?php endif; ?>
 
