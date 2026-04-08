@@ -18,7 +18,7 @@ if (empty($acf_lista)) {
             <div class="max-w-2xl flex-1">
                 <?php if (!empty($acf_titulo)): ?>
                     <p class="text-sm text-gray-400 uppercase tracking-wider mb-4">Testimonios</p>
-                    <h2 class="text-2xl lg:text-4xl font-medium text-black mb-4">
+                    <h2 class="heading-h2 font-medium text-black mb-4">
                         <?php echo wp_kses_post($acf_titulo); ?>
                     </h2>
                 <?php endif; ?>
@@ -71,7 +71,7 @@ if (empty($acf_lista)) {
                             <?php if (!empty($imagen['url'])): ?>
                                 <div>
                                     <img src="<?php echo esc_url($imagen['url']); ?>"
-                                        alt="<?php echo esc_attr($imagen['alt'] ?? $nombre); ?>"
+                                        alt="<?php echo esc_attr(!empty($imagen['alt']) ? $imagen['alt'] : ($nombre ?: 'Testimonio')); ?>"
                                         class="w-full h-full object-cover">
                                 </div>
                             <?php endif; ?>
@@ -80,7 +80,7 @@ if (empty($acf_lista)) {
                             <div class="p-8 lg:p-12">
                                 <?php if (!empty($logo['url'])): ?>
                                     <img src="<?php echo esc_url($logo['url']); ?>"
-                                        alt="<?php echo esc_attr($logo['alt'] ?? ''); ?>" class="">
+                                        alt="<?php echo esc_attr(!empty($logo['alt']) ? $logo['alt'] : ('Logo ' . ($nombre ?: 'Testimonio'))); ?>" class="">
                                 <?php endif; ?>
 
                                 <?php if (!empty($descripcion)): ?>

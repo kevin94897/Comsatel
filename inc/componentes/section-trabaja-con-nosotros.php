@@ -21,7 +21,7 @@ $hab_top = !empty($habilidades) ? array_slice($habilidades, 0, 6) : [];
 
     <!-- Título principal -->
     <?php if (!empty($sn_titulo)): ?>
-        <h2 class="text-2xl md:text-4xl font-medium text-center mb-16 text-gray-900 motion-preset-fade motion-delay-100">
+        <h2 class="heading-h2 font-medium text-center mb-16 text-gray-900 motion-preset-fade motion-delay-100">
             <?php echo esc_html($sn_titulo); ?>
         </h2>
     <?php endif; ?>
@@ -38,7 +38,7 @@ $hab_top = !empty($habilidades) ? array_slice($habilidades, 0, 6) : [];
                 <div
                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20 p-4 md:p-8 flex flex-col justify-end transition-all duration-500 group-hover:from-black/90">
                     <h3
-                        class="text-white text-2xl md:text-4xl font-semibold mb-4 transform transition-transform duration-500 group-hover:translate-y-[-4px]">
+                        class="heading-h3 text-white font-semibold mb-4 transform transition-transform duration-500 group-hover:translate-y-[-4px]">
                         Visión
                     </h3>
                     <p
@@ -58,7 +58,7 @@ $hab_top = !empty($habilidades) ? array_slice($habilidades, 0, 6) : [];
                 <div
                     class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-black/20 p-4 md:p-8 flex flex-col justify-end transition-all duration-500 group-hover:from-black/90">
                     <h3
-                        class="text-white text-2xl md:text-4xl font-semibold mb-4 transform transition-transform duration-500 group-hover:translate-y-[-4px]">
+                        class="heading-h3 text-white font-semibold mb-4 transform transition-transform duration-500 group-hover:translate-y-[-4px]">
                         Misión
                     </h3>
                     <p
@@ -111,7 +111,7 @@ $hab_top = !empty($habilidades) ? array_slice($habilidades, 0, 6) : [];
         <!-- Texto Descriptivo -->
         <div class="order-1 lg:order-2 space-y-6 motion-preset-slide-left motion-delay-400">
             <?php if (!empty($trab_titulo)): ?>
-                <h3 class="text-3xl md:text-5xl font-medium text-gray-900 leading-tight">
+                <h3 class="heading-h3 font-medium text-gray-900">
                     <?php echo esc_html($trab_titulo); ?>
                 </h3>
             <?php endif; ?>

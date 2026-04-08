@@ -67,7 +67,7 @@ $acf_slides = $acf_group['slider'] ?? null;
                                 <?php if (!empty($s_imagen['url'])): ?>
                                     <div>
                                         <img src="<?php echo esc_url($s_imagen['url']); ?>"
-                                            alt="<?php echo esc_attr($s_imagen['alt'] ?? $s_titulo); ?>"
+                                            alt="<?php echo esc_attr(!empty($s_imagen['alt']) ? $s_imagen['alt'] : ($s_titulo ?: 'Producto')); ?>"
                                             class="w-full h-full object-cover rounded-md">
                                     </div>
                                 <?php endif; ?>

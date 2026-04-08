@@ -9,7 +9,7 @@ get_header(); ?>
 <main id="home">
 
     <!-- Hero Banner -->
-    <section class="relative min-h-[500px] h-screen flex items-end bg-dark-900 <?php echo wp_title(); ?>">
+    <section class="relative min-h-[500px] h-screen flex items-end bg-dark-900">
         <?php $hero_img = get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>
         <?php if ($hero_img): ?>
             <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -22,7 +22,7 @@ get_header(); ?>
             <div class="max-w-xl">
                 <span
                     class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>
-                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-20 leading-tight mt-2 uppercase"
+                <h1 class="heading-h1 font-bold text-white mb-20 leading-tight mt-2 uppercase"
                     data-aos="fade-up" data-aos-duration="1000">
                     <?php the_title(); ?>
                 </h1>

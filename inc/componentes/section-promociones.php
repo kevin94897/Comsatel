@@ -50,7 +50,7 @@ if ($query->have_posts()):
             <?php if (!empty($titulo_acf) || !empty($descripcion_acf)): ?>
                 <div class="text-center mb-12">
                     <?php if (!empty($titulo_acf)): ?>
-                        <h2 class="text-xl md:text-2xl lg:text-3xl font-semibold text-dark mb-4" data-aos="fade-up">
+                        <h2 class="heading-h2 font-semibold text-dark mb-4" data-aos="fade-up">
                             <?php echo wp_kses_post($titulo_acf); ?>
                         </h2>
                     <?php endif; ?>

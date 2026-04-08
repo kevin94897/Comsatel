@@ -13,7 +13,7 @@ function comsatel_handle_submit_contacto()
     check_ajax_referer('comsatel_contacto_nonce', 'security');
 
     // Validar campos requeridos
-    $required_fields = ['nombre', 'telefono', 'email', 'asunto', 'mensaje'];
+    $required_fields = ['nombre', 'telefono', 'email', 'numero_documento', 'asunto', 'mensaje'];
     foreach ($required_fields as $field) {
         if (empty($_POST[$field])) {
             wp_send_json_error(['message' => 'Por favor completa todos los campos obligatorios.']);
@@ -25,17 +25,19 @@ function comsatel_handle_submit_contacto()
     $nombre = sanitize_text_field($_POST['nombre']);
     $telefono = sanitize_text_field($_POST['telefono']);
     $email = sanitize_email($_POST['email']);
+    $tipo_documento = isset($_POST['tipo_documento']) ? sanitize_text_field($_POST['tipo_documento']) : 'DNI';
+    $numero_documento = sanitize_text_field($_POST['numero_documento']);
     $empresa = isset($_POST['empresa']) ? sanitize_text_field($_POST['empresa']) : '-';
     $asunto = sanitize_text_field($_POST['asunto']);
     $mensaje = sanitize_textarea_field($_POST['mensaje']);
     $acepta_politica = isset($_POST['acepta_politica']) ? 'Sí' : 'No';
 
     // Configurar correo
-    $to = 'atencionalcliente@comsatel.com.pe'; // Cambiar por el correo real
+    $to = comsatel_get_recipient_email('contacto');
     $subject = "Nueva Solicitud de Contacto: $asunto";
 
     // Logo URL
-    $logo_url = get_template_directory_uri() . '/images/logo.png';
+    $logo_url = get_template_directory_uri() . '/images/comsatel_logo.png';
     if (has_custom_logo()) {
         $custom_logo_id = get_theme_mod('custom_logo');
         $logo_url = wp_get_attachment_image_url($custom_logo_id, 'full');
@@ -71,6 +73,7 @@ function comsatel_handle_submit_contacto()
                 <h3>Información del Cliente</h3>
                 <div class='row'><span class='label'>Tipo de Cliente:</span> <span class='value'><span class='badge'>$tipo_cliente</span></span></div>
                 <div class='row'><span class='label'>Nombre:</span> <span class='value'>$nombre</span></div>
+                <div class='row'><span class='label'>Documento ($tipo_documento):</span> <span class='value'>$numero_documento</span></div>
                 <div class='row'><span class='label'>Teléfono:</span> <span class='value'>$telefono</span></div>
                 <div class='row'><span class='label'>Email:</span> <span class='value'>$email</span></div>
                 " . ($tipo_cliente === 'Empresa' ? "<div class='row'><span class='label'>Empresa:</span> <span class='value'>$empresa</span></div>" : "") . "

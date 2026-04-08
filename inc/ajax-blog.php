@@ -200,9 +200,9 @@ function comsatel_global_search()
 ?>
             <a href="<?php the_permalink(); ?>" class="flex flex-col p-4 bg-gray-50 hover:bg-white border border-transparent hover:border-gray-100 rounded-xl transition-all group">
                 <span class="text-xs text-primary font-bold uppercase mb-1">Blog</span>
-                <h4 class="text-lg font-medium text-gray-900 group-hover:text-primary transition-colors mb-2">
+                <h3 class="text-lg font-medium text-gray-900 group-hover:text-primary transition-colors mb-2">
                     <?php the_title(); ?>
-                </h4>
+                </h3>
                 <p class="text-sm text-gray-500 line-clamp-2">
                     <?php echo wp_trim_words(get_the_excerpt(), 20); ?>
                 </p>

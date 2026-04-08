@@ -366,6 +366,12 @@ $acf_tabs        = get_field('tabs');
                                                         <span>GPS Portátil</span>
                                                     </label>
                                                     <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
+                                                        <input type="checkbox" name="productos[]" value="GPS Empresa/Corporativo"
+                                                            class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+                                                            data-required-group="productos">
+                                                        <span>GPS Empresa/Corporativo</span>
+                                                    </label>
+                                                    <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
                                                         <input type="checkbox" name="productos[]" value="GPS Satelital"
                                                             class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
                                                             data-required-group="productos">

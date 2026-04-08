@@ -57,7 +57,7 @@
                 <div id="search-initial-content">
                     <!-- Accesorios Rápidos -->
                     <div class="mb-10">
-                        <h3 class="text-sm font-semibold text-gray-900 mb-4">Accesorios Rápidos</h3>
+                        <p class="text-sm font-semibold text-gray-900 mb-4">Accesorios Rápidos</p>
                         <div class="grid grid-cols-2 lg:grid-cols-4 gap-4">
                             <?php for ($i = 0; $i < 4; $i++): ?>
                                 <a href="#"
@@ -76,7 +76,7 @@
 
                     <!-- Lo más buscado -->
                     <div>
-                        <h3 class="text-sm font-semibold text-gray-900 mb-4">Lo más buscado</h3>
+                        <p class="text-sm font-semibold text-gray-900 mb-4">Lo más buscado</p>
                         <div class="flex flex-col gap-2">
                             <?php
                             $trending = ['Control de combustible', 'Monitoreo de presión', 'Sistema de refrigeración', 'Control de temperatura'];
@@ -101,7 +101,7 @@
                 <!-- AJAX Results Container -->
                 <div id="search-results-container" class="hidden">
                     <div class="flex items-center justify-between mb-8 border-b border-gray-50 pb-4">
-                        <h3 class="text-xs font-semibold text-gray-400 uppercase mb-0">Resultados de búsqueda</h3>
+                        <p class="text-xs font-semibold text-gray-400 uppercase mb-0">Resultados de búsqueda</p>
                         <button id="clear-search"
                             class="text-xs text-primary font-semibold hover:underline border-none bg-transparent cursor-pointer">LIMPIAR</button>
                     </div>

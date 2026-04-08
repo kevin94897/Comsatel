@@ -56,7 +56,7 @@ if (empty($banner) || empty($cards))
                                         <div
                                             class="aspect-square overflow-hidden hover:scale-105 transition-transform duration-300 rounded-lg">
                                             <img src="<?php echo esc_url($image['url']); ?>"
-                                                alt="<?php echo esc_attr($image['alt'] ?? ''); ?>"
+                                                alt="<?php echo esc_attr(!empty($image['alt']) ? $image['alt'] : 'Banner Image'); ?>"
                                                 class="w-full h-full object-cover">
                                         </div>
                                     <?php endforeach; ?>
@@ -72,7 +72,7 @@ if (empty($banner) || empty($cards))
                                 <?php endif; ?>
 
                                 <?php if (!empty($banner['title'])): ?>
-                                    <h2 class="text-3xl lg:text-5xl font-medium text-gray-900 mb-6">
+                                    <h2 class="heading-h2 font-medium text-gray-900 mb-6">
                                         <?php echo wp_kses_post($banner['title']); ?>
                                     </h2>
                                 <?php endif; ?>
@@ -112,7 +112,7 @@ if (empty($banner) || empty($cards))
                                             <?php if (!empty($card['image'])): ?>
                                                 <div class="rounded-lg overflow-hidden">
                                                     <img src="<?php echo esc_url($card['image']); ?>"
-                                                        alt="<?php echo esc_attr($card['title']); ?>"
+                                                        alt="<?php echo esc_attr(!empty($card['title']) ? $card['title'] : 'Card Image'); ?>"
                                                         class="w-full h-48 object-cover">
                                                 </div>
                                             <?php endif; ?>

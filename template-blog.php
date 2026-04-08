@@ -26,7 +26,7 @@ get_header();
             <div class="">
                 <span
                     class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>
-                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-10 leading-tight mt-2 uppercase"
+                <h1 class="heading-h1 font-bold text-white mb-10 mt-2 uppercase"
                     data-aos="fade-up" data-aos-duration="1000">
                     <?php the_title(); ?>
                 </h1>
@@ -48,7 +48,7 @@ get_header();
                 <!-- Search Wrapper -->
                 <div class="relative w-full md:max-w-[600px] w-full md:min-w-[200px]">
                     <input type="search" id="blog-search"
-                        class="text-xs md:text-sm w-full pl-12 pr-6 py-3 text-black placeholder-black !bg-gray-50 border !border-gray-400 rounded-md transition-all duration-200 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 md:!pl-12 !pl-10"
+                        class="text-xs md:text-sm w-full pl-12 pr-6 py-3 text-black !bg-gray-50 border !border-gray-400 rounded-md transition-all duration-200 outline-none focus:border-primary focus:ring-2 focus:ring-primary/20 md:!pl-12 !pl-10"
                         placeholder="Buscar" aria-label="Buscar posts">
                     <svg class="absolute left-4 top-1/2 -translate-y-1/2 text-gray-500 pointer-events-none md:w-5 md:h-5 w-4 h-4 bg-white"
                         width="18" height="18" viewBox="0 0 18 18" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -117,12 +117,20 @@ get_header();
                             <option value="oldest">Más antiguos</option>
                         </select>
                     </div>
+
+                    <!-- Botón Restablecer -->
+                    <button id="reset-blog-filters" 
+                            class="text-xs md:text-sm text-primary font-semibold hover:text-black transition-colors border-none bg-transparent cursor-pointer ml-2 md:ml-0 shrink-0 hidden" 
+                            type="button" 
+                            title="Restablecer Filtros">
+                        LIMPIAR
+                    </button>
                 </div>
             </div>
 
             <!-- Grid de posts -->
             <div id="blog-posts-grid"
-                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 md:gap-10 lg:gap-12 mb-12">
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-2 md:gap-4 lg:gap-8 mb-12">
                 <?php
                 $paged = 1;
                 $posts_per_page = 9;

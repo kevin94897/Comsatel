@@ -271,9 +271,9 @@ function render_megamenu_icon($icono): void
 													<?php endif; ?>
 
 													<?php if (!empty($titulo)): ?>
-														<h4 class="font-bold text-gray-800 mb-0 text-xs">
+														<p class="font-bold text-gray-800 mb-0 text-xs">
 															<?php echo esc_html($titulo); ?>
-														</h4>
+														</p>
 													<?php endif; ?>
 												</div>
 
@@ -331,7 +331,7 @@ function render_megamenu_icon($icono): void
 											?>
 											<div class="mega-menu-section">
 												<?php if (!empty($titulo) || !empty($icono)): ?>
-													<h4 class="flex items-center gap-2 font-bold text-gray-800 mb-2 text-xs">
+													<p class="flex items-center gap-2 font-bold text-gray-800 mb-2 text-xs">
 														<?php if (!empty($icono)): ?>
 															<span class="w-5 h-5 text-gray-500">
 																<?php render_megamenu_icon($icono); ?>
@@ -340,7 +340,7 @@ function render_megamenu_icon($icono): void
 														<?php if (!empty($titulo)): ?>
 															<?php echo esc_html($titulo); ?>
 														<?php endif; ?>
-													</h4>
+													</p>
 												<?php endif; ?>
 
 												<?php if (have_rows('items_menu')): ?>
@@ -395,7 +395,7 @@ function render_megamenu_icon($icono): void
 											?>
 											<div class="mega-menu-section">
 												<?php if (!empty($titulo) || !empty($icono)): ?>
-													<h4 class="flex items-center gap-2 font-bold text-gray-800 mb-2 text-xs">
+													<p class="flex items-center gap-2 font-bold text-gray-800 mb-2 text-xs">
 														<?php if (!empty($icono)): ?>
 															<span class="w-5 h-5 text-gray-500">
 																<?php render_megamenu_icon($icono); ?>
@@ -404,7 +404,7 @@ function render_megamenu_icon($icono): void
 														<?php if (!empty($titulo)): ?>
 															<?php echo esc_html($titulo); ?>
 														<?php endif; ?>
-													</h4>
+													</p>
 												<?php endif; ?>
 
 												<?php if (have_rows('items_menu')): ?>

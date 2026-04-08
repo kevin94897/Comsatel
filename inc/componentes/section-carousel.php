@@ -11,7 +11,7 @@ if (empty($banner) || empty($cards))
 <section class="py-4 bg-gray-50" id="slider-soluciones">
     <!-- Carousel Section -->
     <div class="scroll-view carousel-view" data-view="carousel">
-        <div class="container mx-auto px-4 lg:!px-0 py-16 lg:py-24 h-full flex items-center relative">
+        <div class="container mx-auto px-4 lg:!px-0 h-full flex items-center relative">
             <!-- Swiper Container -->
             <div class="swiper scrollCarouselSwiper w-full px-4">
                 <div class="swiper-wrapper">
@@ -23,7 +23,7 @@ if (empty($banner) || empty($cards))
                                 <?php if (!empty($card['image'])): ?>
                                     <div class="rounded-lg overflow-hidden md:h-56 h-48">
                                         <img src="<?php echo esc_url($card['image']); ?>"
-                                            alt="<?php echo esc_attr($card['title']); ?>" class="w-full h-full object-cover">
+                                            alt="<?php echo esc_attr(!empty($card['title']) ? $card['title'] : 'Carrousel Image'); ?>" class="w-full h-full object-cover">
                                     </div>
                                 <?php endif; ?>
 

@@ -51,7 +51,7 @@ $imagen_alt = $imagen['alt'] ?? null;
                 <?php if (!empty($imagen_url)): ?>
                     <div class="relative flex justify-center" data-aos="fade-left" data-aos-duration="900" data-aos-delay="150">
                         <img src="<?php echo esc_url($imagen_url); ?>"
-                            alt="<?php echo esc_attr($imagen_alt ?? 'App Screenshot'); ?>" class="w-full">
+                            alt="<?php echo esc_attr(!empty($imagen_alt) ? $imagen_alt : 'App Screenshot'); ?>" class="w-full">
                     </div>
                 <?php endif; ?>
 

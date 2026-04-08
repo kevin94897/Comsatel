@@ -24,7 +24,7 @@ if (empty($tabs))
                 <?php endif; ?>
 
                 <?php if (!empty($title)): ?>
-                    <h2 class="text-2xl lg:text-4xl font-medium text-primary mb-4" data-aos="fade-in">
+                    <h2 class="heading-h2 font-medium text-primary mb-4" data-aos="fade-in">
                         <?php echo wp_kses_post($title); ?>
                     </h2>
                 <?php endif; ?>
@@ -85,7 +85,7 @@ if (empty($tabs))
                                         <?php if (!empty($content_tab['image'])): ?>
                                             <div class="relative aspect-square md:aspect-video">
                                                 <img src="<?php echo esc_url($content_tab['image']); ?>"
-                                                    alt="<?php echo esc_attr($content_tab['label'] ?? ''); ?>"
+                                                    alt="<?php echo esc_attr(!empty($content_tab['label']) ? $content_tab['label'] : 'Imagen tab'); ?>"
                                                     class="w-full h-full object-cover">
                                             </div>
                                         <?php endif; ?>

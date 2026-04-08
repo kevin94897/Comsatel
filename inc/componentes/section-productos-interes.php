@@ -77,7 +77,7 @@ $section_id = $args['section_id'] ?? null;
                                         </h3>
 
                                         <!-- Meta -->
-                                        <div class="flex items-center gap-2 text-xs text-gray-500">
+                                        <div class="flex items-center gap-2 text-xs text-gray-500 mt-2">
                                             <span class="flex items-center gap-1">
                                                 <svg width="14" height="14" viewBox="0 0 16 16" fill="none"
                                                     xmlns="http://www.w3.org/2000/svg">
@@ -93,7 +93,7 @@ $section_id = $args['section_id'] ?? null;
                                         </div>
 
                                         <!-- Excerpt -->
-                                        <p class="text-sm text-black line-clamp-3 flex-1">
+                                        <p class="text-sm text-black line-clamp-3 flex-1 mt-4">
                                             <?php echo wp_trim_words(get_the_excerpt(), 15, '...'); ?>
                                         </p>
 

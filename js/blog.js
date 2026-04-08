@@ -59,6 +59,23 @@
         $('#load-more-posts').on('click', function () {
             loadMorePosts();
         });
+
+        // Restablecer filtros
+        $('#reset-blog-filters').on('click', function(e) {
+            e.preventDefault();
+            $('#blog-search').val('');
+            $('#blog-filter').val('date');
+            $('.blog-category-checkbox').prop('checked', false);
+            
+            // Cerrar menú de categorías si está abierto
+            $('#category-dropdown-menu').addClass('hidden');
+            $('#category-dropdown-toggle').find('svg').removeClass('rotate-180');
+            
+            filterPosts();
+        });
+
+        // Verificar estado inicial del botón
+        toggleResetButton();
     }
 
     /**
@@ -73,9 +90,25 @@
     }
 
     /**
+     * Mostrar/Ocultar botón de restablecer
+     */
+    function toggleResetButton() {
+        const searchTerm = $('#blog-search').val() || '';
+        const orderBy = $('#blog-filter').val() || 'date';
+        const categories = getSelectedCategories();
+
+        if (searchTerm.trim() !== '' || orderBy !== 'date' || categories.length > 0) {
+            $('#reset-blog-filters').removeClass('hidden');
+        } else {
+            $('#reset-blog-filters').addClass('hidden');
+        }
+    }
+
+    /**
      * Filtrar posts por búsqueda, orden y categorías
      */
     function filterPosts() {
+        toggleResetButton();
         const searchTerm = $('#blog-search').val();
         const orderBy = $('#blog-filter').val();
         const categories = getSelectedCategories();

@@ -59,7 +59,7 @@
             </div>
 
             <!-- Extracto -->
-            <div class="md:text-[15px] text-[12px] leading-relaxed text-gray-400 flex-1">
+            <div class="md:text-[14px] text-[12px] leading-relaxed text-gray-400 flex-1">
                 <?php echo wp_trim_words(get_the_excerpt(), 20, '...'); ?>
             </div>
 

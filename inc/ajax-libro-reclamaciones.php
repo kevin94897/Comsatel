@@ -53,11 +53,11 @@ function comsatel_handle_submit_reclamo()
     }
 
     // Configurar correo
-    $to = 'atencionalcliente@comsatel.com.pe'; // Cambiar por el correo real de recepción
+    $to = comsatel_get_recipient_email('reclamo');
     $subject = "Nuevo Registro en Libro de Reclamaciones: $tipo_solicitud - $nombre";
 
     // Logo URL
-    $logo_url = get_template_directory_uri() . '/images/logo.png'; // Asegúrate de tener un logo aquí o usa uno público
+    $logo_url = get_template_directory_uri() . '/images/comsatel_logo.png'; // Asegúrate de tener un logo aquí o usa uno público
     if (has_custom_logo()) {
         $custom_logo_id = get_theme_mod('custom_logo');
         $logo_url = wp_get_attachment_image_url($custom_logo_id, 'full');

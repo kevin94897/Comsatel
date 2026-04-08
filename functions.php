@@ -32,6 +32,36 @@ function comsatel_content_width()
 add_action('after_setup_theme', 'comsatel_content_width', 0);
 
 /**
+ * Configuración centralizada de correos electrónicos
+ * Administra el envío a pruebas ('kevin.gomez@nerd.pe') vs producción
+ */
+function comsatel_get_recipient_email($type = 'general')
+{
+    // [MODO DE PRUEБАS] Cambia esto a "false" cuando el sitio esté en Producción (en vivo)
+    $is_test_mode = true; 
+    
+    // Correo o correos que recibirán los formularios mientras $is_test_mode sea true
+    $test_emails = ['kevin.gomez@nerd.pe'];
+
+    if ($is_test_mode) {
+        return $test_emails;
+    }
+
+    // Correos oficiales de producción (pueden ser uno o más añadiéndolos al array)
+    switch ($type) {
+        case 'contacto':
+            return ['atencionalcliente@comsatel.com.pe'];
+        case 'reclamo':
+            return ['atencionalcliente@comsatel.com.pe']; // Ejemplo
+        case 'cotizador':
+            return ['atencionalcliente@comsatel.com.pe']; // Cambiar/agregar el de ventas
+        case 'general':
+        default:
+            return ['atencionalcliente@comsatel.com.pe'];
+    }
+}
+
+/**
  * Register widget area.
  *
  * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
@@ -437,6 +467,35 @@ function comsatel_customize_register($wp_customize)
 			'type' => 'url',
 		));
 	}
+
+	// --- Sección WhatsApp ---
+	$wp_customize->add_section('comsatel_whatsapp_section', array(
+		'title'    => __('WhatsApp', 'comsatel'),
+		'priority' => 35,
+	));
+
+	$wp_customize->add_setting('comsatel_whatsapp_number', array(
+		'default'           => '',
+		'sanitize_callback' => 'sanitize_text_field',
+		'transport'         => 'refresh',
+	));
+	$wp_customize->add_control('comsatel_whatsapp_number', array(
+		'label'       => __('Número de WhatsApp', 'comsatel'),
+		'description' => __('Incluye el código de país, ej: 51987654321', 'comsatel'),
+		'section'     => 'comsatel_whatsapp_section',
+		'type'        => 'text',
+	));
+
+	$wp_customize->add_setting('comsatel_whatsapp_message', array(
+		'default'           => '¡Hola! ¿En qué podemos ayudarte?',
+		'sanitize_callback' => 'sanitize_text_field',
+		'transport'         => 'refresh',
+	));
+	$wp_customize->add_control('comsatel_whatsapp_message', array(
+		'label'   => __('Mensaje del globo', 'comsatel'),
+		'section' => 'comsatel_whatsapp_section',
+		'type'    => 'text',
+	));
 }
 add_action('customize_register', 'comsatel_customize_register');
 
@@ -742,14 +801,14 @@ function comsatel_maps_to_embed_url($url)
 }
 
 /**
- * Register ACF Options Page for Anchor Buttons
+ * Register ACF Options Pages
  */
-// if (function_exists('acf_add_options_page')) {
-// 	acf_add_options_page(array(
-// 		'page_title' => 'Botones Anclaje',
-// 		'menu_title' => 'Botones Anclaje',
-// 		'menu_slug' => 'botones-anclaje',
-// 		'capability' => 'edit_posts',
-// 		'redirect' => false
-// 	));
-// }
+if (function_exists('acf_add_options_page')) {
+	acf_add_options_page(array(
+		'page_title' => 'Opciones del Tema',
+		'menu_title' => 'Opciones del Tema',
+		'menu_slug' => 'theme-options',
+		'capability' => 'edit_posts',
+		'redirect' => false
+	));
+}

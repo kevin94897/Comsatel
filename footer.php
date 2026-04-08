@@ -80,7 +80,7 @@
 
 			<!-- Empresa Column -->
 			<div class="lg:col-span-1 border-b border-gray-200">
-				<h4
+				<p
 					class="text-lg font-semibold text-dark my-4 cursor-pointer accordion-title flex items-center justify-between lg:cursor-default">
 					Empresa
 					<span class="flex-shrink-0 text-red-500 lg:hidden">
@@ -91,7 +91,7 @@
 								fill="#1E1E1E" />
 						</svg>
 					</span>
-				</h4>
+				</p>
 				<?php
 				wp_nav_menu(array(
 					'theme_location' => 'footer-empresa',
@@ -104,7 +104,7 @@
 
 			<!-- Avisos legales Column -->
 			<div class="lg:col-span-1 border-b border-gray-200">
-				<h4
+				<p
 					class="text-lg font-semibold text-dark my-4 cursor-pointer accordion-title flex items-center justify-between lg:cursor-default">
 					Avisos Legales
 					<span class="flex-shrink-0 text-red-500 lg:hidden">
@@ -115,7 +115,7 @@
 								fill="#1E1E1E" />
 						</svg>
 					</span>
-				</h4>
+				</p>
 				<?php
 				wp_nav_menu(array(
 					'theme_location' => 'footer-legal',
@@ -128,7 +128,7 @@
 
 			<!-- Contacto Column -->
 			<div class="lg:col-span-1">
-				<h4
+				<p
 					class="text-lg font-semibold text-dark my-4 cursor-pointer accordion-title flex items-center justify-between lg:cursor-default">
 					Contacto
 					<span class="flex-shrink-0 text-red-500 lg:hidden">
@@ -139,7 +139,7 @@
 								fill="#1E1E1E" />
 						</svg>
 					</span>
-				</h4>
+				</p>
 				<?php
 				wp_nav_menu(array(
 					'theme_location' => 'footer-contacto',

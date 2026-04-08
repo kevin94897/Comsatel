@@ -10,7 +10,7 @@ get_header();
 <main id="primary" class="site-main bg-gray-50">
 
     <!-- Hero Banner -->
-    <section class="relative min-h-[500px] flex items-end bg-dark-900 <?php echo wp_title(); ?>">
+    <section class="relative min-h-[500px] flex items-end bg-dark-900">
         <?php $hero_img = get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>
         <?php if ($hero_img): ?>
             <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -24,7 +24,7 @@ get_header();
             <div class="">
                 <span class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"
                     data-aos="fade-right" data-aos-duration="800" data-aos-delay="200"></span>
-                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-10 leading-tight mt-2 uppercase"
+                <h1 class="heading-h1 font-bold text-white mb-10 leading-tight mt-2 uppercase"
                     data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" data-aos-easing="ease-out-cubic">
                     Actualiza tus datos
                 </h1>

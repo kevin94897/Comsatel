@@ -32,7 +32,7 @@ $centros = $centros_group['centro'] ?? [];
 <main id="primary" class="site-main bg-gray-50">
 
     <!-- Hero Banner -->
-    <section class="relative min-h-[500px] flex items-end bg-dark-900 <?php echo wp_title(); ?>">
+    <section class="relative min-h-[500px] flex items-end bg-dark-900">
         <?php $hero_img = get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>
         <?php if ($hero_img): ?>
             <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -44,7 +44,7 @@ $centros = $centros_group['centro'] ?? [];
             <div class="">
                 <span
                     class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>
-                <h1 class="text-2xl md:text-3xl lg:text-4xl font-bold text-white mb-10 leading-tight mt-2 uppercase"
+                <h1 class="heading-h1 font-bold text-white mb-10 leading-tight mt-2 uppercase"
                     data-aos="fade-up" data-aos-duration="1000">
                     <?php the_title(); ?>
                 </h1>
@@ -293,6 +293,15 @@ $centros = $centros_group['centro'] ?? [];
                                     required>
                             </div>
 
+                            <!-- Documento de Identidad -->
+                            <div class="input-group">
+                                <label id="doc_label" for="numero_documento" class="block text-sm font-medium text-dark mb-2">RUC</label>
+                                <input type="hidden" id="tipo_documento" name="tipo_documento" value="RUC">
+                                <input type="text" id="numero_documento" name="numero_documento" placeholder="Ingresa los 11 dígitos" maxLength="11"
+                                    class="w-full px-4 py-3 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary transition-all document-input"
+                                    required>
+                            </div>
+
                             <!-- Empresa (condicional) -->
                             <div id="empresa_field" class="hidden">
                                 <label for="empresa" class="block text-sm font-medium text-dark mb-2">Empresa</label>
@@ -387,7 +396,7 @@ $centros = $centros_group['centro'] ?? [];
 
         <!-- ── Grid de Centros de Atención ── -->
         <section class="pb-16 md:pb-32 relative">
-            <div class="container">
+            <div class="container mx-auto px-4">
                 <div class="cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
                     <?php foreach ($centros as $i => $centro):
@@ -447,10 +456,9 @@ $centros = $centros_group['centro'] ?? [];
 
                                     <!-- Nombre del centro -->
                                     <?php if ($c_nombre): ?>
-                                        <h5
-                                            class="md:text-lg text-sm font-semibold leading-tight text-[#47444D] transition-colors duration-200 group-hover:text-primary m-0">
+                                        <p class="md:text-lg text-sm font-semibold leading-tight text-[#47444D] transition-colors duration-200 group-hover:text-primary m-0">
                                             <?php echo esc_html($c_nombre); ?>
-                                        </h5>
+                                        </p>
                                     <?php endif; ?>
 
                                     <!-- Dirección -->
@@ -591,16 +599,34 @@ $centros = $centros_group['centro'] ?? [];
             const empresaField = document.getElementById('empresa_field');
             const empresaInput = document.getElementById('empresa');
             const successMessage = document.getElementById('success-message-contacto');
+            
+            const docLabel = document.getElementById('doc_label');
+            const tipoDocInput = document.getElementById('tipo_documento');
+            const numeroDocInput = document.getElementById('numero_documento');
 
             radioTipoCliente.forEach(radio => {
                 radio.addEventListener('change', (e) => {
                     if (e.target.value === 'Empresa') {
                         empresaField.classList.remove('hidden');
                         empresaInput.required = true;
+                        if(docLabel && tipoDocInput && numeroDocInput) {
+                            docLabel.textContent = 'RUC';
+                            tipoDocInput.value = 'RUC';
+                            numeroDocInput.placeholder = 'Ingresa los 11 dígitos';
+                            numeroDocInput.maxLength = 11;
+                            if (window.contactoValidator) window.contactoValidator.handleInput(numeroDocInput);
+                        }
                     } else {
                         empresaField.classList.add('hidden');
                         empresaInput.required = false;
                         empresaInput.value = '';
+                        if(docLabel && tipoDocInput && numeroDocInput) {
+                            docLabel.textContent = 'DNI';
+                            tipoDocInput.value = 'DNI';
+                            numeroDocInput.placeholder = 'Ingresa los 8 dígitos';
+                            numeroDocInput.maxLength = 8;
+                            if (window.contactoValidator) window.contactoValidator.handleInput(numeroDocInput);
+                        }
                     }
                 });
             });
@@ -609,6 +635,19 @@ $centros = $centros_group['centro'] ?? [];
             if (tipoClienteChecked && tipoClienteChecked.value === 'Empresa') {
                 empresaField.classList.remove('hidden');
                 empresaInput.required = true;
+                if(docLabel) docLabel.textContent = 'RUC';
+                if(tipoDocInput) tipoDocInput.value = 'RUC';
+                if(numeroDocInput) {
+                    numeroDocInput.placeholder = 'Ingresa los 11 dígitos';
+                    numeroDocInput.maxLength = 11;
+                }
+            } else {
+                if(docLabel) docLabel.textContent = 'DNI';
+                if(tipoDocInput) tipoDocInput.value = 'DNI';
+                if(numeroDocInput) {
+                    numeroDocInput.placeholder = 'Ingresa los 8 dígitos';
+                    numeroDocInput.maxLength = 8;
+                }
             }
 
             // ── Modal de mapa ──

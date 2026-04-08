@@ -104,7 +104,7 @@ function comsatel_get_email_template($name, $data)
             }
 
             .header {
-                background: linear-gradient(135deg, #E31E25 0%, #CC0000 100%);
+                background: #FF4D4D;
                 padding: 40px 30px;
                 text-align: center;
             }
@@ -139,17 +139,17 @@ function comsatel_get_email_template($name, $data)
                 margin-bottom: 30px;
             }
 
-            .results-box {
-                background: linear-gradient(135deg, #FF4D4D 0%, #E31E25 100%);
+            .main-result {
+                background: #FF4D4D;
                 border-radius: 12px;
                 padding: 30px;
                 text-align: center;
-                margin-bottom: 30px;
+                margin-bottom: 40px;
             }
 
             .results-box h2 {
                 margin: 0 0 10px 0;
-                color: #FFFFFF;
+                color: #1e1e1e;
                 font-size: 16px;
                 font-weight: 500;
                 text-transform: uppercase;
@@ -159,13 +159,13 @@ function comsatel_get_email_template($name, $data)
             .total-savings {
                 font-size: 48px;
                 font-weight: 700;
-                color: #FFFFFF;
+                color: #1e1e1e;
                 margin: 10px 0;
             }
 
             .percentage {
                 font-size: 18px;
-                color: #FFFFFF;
+                color: #1e1e1e;
                 opacity: 0.95;
             }
 
@@ -199,6 +199,7 @@ function comsatel_get_email_template($name, $data)
             .data-label {
                 color: #7A7A7A;
                 font-size: 14px;
+                margin-right: 5px;
             }
 
             .data-value {
@@ -209,17 +210,20 @@ function comsatel_get_email_template($name, $data)
 
             .savings-grid {
                 display: grid;
-                grid-template-columns: 1fr 1fr;
-                gap: 15px;
-                margin-bottom: 30px;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                margin-bottom: 40px;
+                border-bottom: 2px solid #FF4D4D;
+                padding-bottom: 40px;
             }
 
             .savings-card {
-                background-color: #FFFFFF;
+                background-color: #1e1e1e;
                 border: 2px solid #E31E25;
                 border-radius: 12px;
                 padding: 20px;
                 text-align: center;
+                margin-bottom: 10px;
             }
 
             .savings-card h4 {
@@ -242,14 +246,14 @@ function comsatel_get_email_template($name, $data)
 
             .cta-button {
                 display: inline-block;
-                background: linear-gradient(135deg, #FF4D4D 0%, #E31E25 100%);
-                color: #FFFFFF;
-                text-decoration: none;
                 padding: 16px 40px;
-                border-radius: 50px;
+                background-color: #FFFFFF;
+                color: #FF4D4D;
+                text-decoration: none;
+                border-radius: 30px;
                 font-weight: 600;
                 font-size: 16px;
-                box-shadow: 0 4px 15px rgba(227, 30, 37, 0.3);
+                border: 2px solid #FF4D4D;
                 transition: all 0.3s ease;
             }
 

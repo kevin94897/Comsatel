@@ -23,7 +23,7 @@ $section_id = $args['section_id'] ?? null;
         <div class="container mx-auto px-4">
             <?php if (!empty($title)): ?>
                 <div class="text-center mb-8 md:mb-16" data-aos="fade-up">
-                    <h2 class="text-2xl md:text-4xl font-medium text-black max-w-2xl mx-auto leading-tight">
+                    <h2 class="heading-h2 font-medium text-black max-w-2xl mx-auto">
                         <?php echo wp_kses_post($title); ?>
                     </h2>
                 </div>

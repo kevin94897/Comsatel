@@ -3,8 +3,8 @@
  * Component: Floating WhatsApp Button
  */
 
-$whatsapp_number = get_field('whatsapp_number', 'option');
-$whatsapp_balloons = get_field('whatsapp_balloons', 'option');
+$whatsapp_number = get_theme_mod('comsatel_whatsapp_number', '');
+$whatsapp_message = get_theme_mod('comsatel_whatsapp_message', '¡Hola! ¿En qué podemos ayudarte?');
 
 if (empty($whatsapp_number)) {
     return;
@@ -25,7 +25,7 @@ if (strlen($clean_number) === 9) {
         <!-- Message Balloon -->
         <div
             class="bg-white text-gray-800 shadow-xl p-4 rounded-2xl rounded-br-none text-sm font-medium relative max-w-[250px] border border-gray-100">
-            <p class="m-0 leading-snug" id="whatsapp-message-text">¡Hola! ¿En qué podemos ayudarte?</p>
+            <p class="m-0 leading-snug" id="whatsapp-message-text"><?php echo esc_html($whatsapp_message); ?></p>
             <!-- Close button for balloon -->
             <button onclick="closeBalloon(event)"
                 class="absolute -top-2 -left-2 bg-gray-200 hover:bg-gray-300 rounded-full p-1 transition-colors">
@@ -61,14 +61,7 @@ if (strlen($clean_number) === 9) {
         const balloonContainer = document.getElementById('whatsapp-balloons');
         const messageText = document.getElementById('whatsapp-message-text');
 
-        // Mensajes rotativos
-        <?php
-        $messages = ['¡Hola! ¿En qué podemos ayudarte?'];
-        if (!empty($whatsapp_balloons)) {
-            $messages = array_column($whatsapp_balloons, 'mensaje');
-        }
-        ?>
-        const messages = <?php echo json_encode($messages); ?>;
+        const messages = <?php echo json_encode([$whatsapp_message]); ?>;
 
         let currentMessageIndex = 0;
         let balloonInterval;

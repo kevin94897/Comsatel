@@ -16,7 +16,7 @@ if (empty($titulo) && empty($descripcion) && empty($btn_primario) && empty($btn_
 
             <div class="w-full lg:w-1/2 text-center md:text-left" data-aos="fade-right">
                 <?php if (!empty($titulo)): ?>
-                    <h2 class="text-2xl lg:text-4xl font-medium text-black leading-tight mb-6">
+                    <h2 class="heading-h2 font-medium text-black mb-6">
                         <?php echo wp_kses_post($titulo); ?>
                     </h2>
                 <?php endif; ?>

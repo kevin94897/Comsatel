@@ -12,7 +12,7 @@ get_header();
 <main id="primary" class="site-main bg-gray-50">
 
 	<!-- Hero Banner -->
-	<section class="relative min-h-[500px] flex items-end bg-dark-900 <?php echo wp_title(); ?>">
+	<section class="relative min-h-[500px] flex items-end bg-dark-900">
 		<?php $hero_img = get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>
 		<?php if ($hero_img): ?>
 			<div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -26,7 +26,7 @@ get_header();
 			<div class="">
 				<span class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"
 					data-aos="fade-right" data-aos-duration="800" data-aos-delay="200"></span>
-				<h1 class="text-2xl md:text-4xl lg:text-5xl uppercase font-medium text-white mb-10 leading-tight max-w-2xl mt-2"
+				<h1 class="heading-h1 font-medium text-white mb-10 mt-2 uppercase"
 					data-aos="fade-in" data-aos-duration="1000" data-aos-easing="ease-out-cubic" data-aos-delay="300">
 					¡Prepara tu Ruta del feriado largo!
 				</h1>
@@ -65,10 +65,10 @@ get_header();
 				<div class="max-w-4xl mx-auto">
 
 					<!-- Title -->
-					<h1 class="text-2xl md:text-3xl lg:text-4xl font-medium text-primary mb-6 leading-tight text-center"
+					<h2 class="heading-h2 font-medium text-primary mb-6 text-center"
 						data-aos="fade-up" data-aos-duration="1000" data-aos-easing="ease-out-cubic" data-aos-delay="200">
 						<?php the_title(); ?>
-					</h1>
+					</h2>
 
 					<!-- Meta Information -->
 					<div class="flex flex-wrap items-center gap-4 md:gap-6 mb-12 md:text-sm text-xs text-black justify-center"

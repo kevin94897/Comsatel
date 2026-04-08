@@ -34,7 +34,7 @@ $boton_modal = get_field('boton_modal') ?: 'Acceder al beneficio';
             <div class="max-w-xl mb-10">
                 <span
                     class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>
-                <h1 class="text-2xl md:text-3xl lg:text-4xl font-semibold text-white leading-tight my-2 uppercase"
+                <h1 class="heading-h1 font-semibold text-white my-2 uppercase"
                     data-aos="fade-up" data-aos-duration="1000">
                     <?php echo get_the_title(); ?>
                 </h1>
@@ -65,9 +65,9 @@ $boton_modal = get_field('boton_modal') ?: 'Acceder al beneficio';
             <?php if ($titulo || $descripcion): ?>
                 <?php if ($titulo): ?>
                     <div class="text-center mb-8 max-w-3xl mx-auto" data-aos="fade-up">
-                        <h1 class="text-2xl md:text-3xl lg:text-4xl font-semibold text-[#FF4D4D] mb-6 leading-tight">
+                        <h2 class="heading-h2 font-semibold text-[#FF4D4D] mb-6">
                             <?php echo esc_html($titulo); ?>
-                        </h1>
+                        </h2>
                     </div>
                 <?php endif; ?>
 
@@ -81,7 +81,7 @@ $boton_modal = get_field('boton_modal') ?: 'Acceder al beneficio';
 
                 <?php if ($beneficios): ?>
                     <div class="text-center mb-10" data-aos="fade-up" data-aos-delay="100">
-                        <h2 class="text-xl md:text-3xl font-medium text-gray-800">
+                        <h2 class="heading-h2 font-medium text-gray-800">
                             ¿Cómo acceder a este beneficio?
                         </h2>
                     </div>
@@ -132,7 +132,7 @@ $boton_modal = get_field('boton_modal') ?: 'Acceder al beneficio';
                                         <div
                                             class="flex-grow bg-white p-6 rounded-md shadow-sm border border-transparent group-hover:border-gray-100 group-hover:shadow-md transition-all duration-300">
                                             <?php if ($b_titulo): ?>
-                                                <h3 class="text-gray-900 font-semibold text-sm md:text-lg mb-2">
+                                                <h3 class="heading-h3 text-gray-900 font-semibold mb-2">
                                                     <?php echo esc_html($b_titulo); ?>
                                                 </h3>
                                             <?php endif; ?>

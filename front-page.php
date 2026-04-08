@@ -9,7 +9,7 @@ get_header(); ?>
 
 <main id="home">
     <!-- Hero Banner -->
-    <section class="relative h-screen min-h-[600px] flex items-center bg-dark-900 <?php echo wp_title(); ?>">
+    <section class="relative h-screen min-h-[600px] flex items-center bg-dark-900">
         <?php $hero_img = get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>
         <?php if ($hero_img): ?>
             <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"
@@ -21,9 +21,9 @@ get_header(); ?>
         <!-- Content -->
         <div class="container-full md:mx-auto md:px-4 lg:px-8 relative z-10 h-full">
             <div class=" flex items-center h-full">
-                <div class="max-w-2xl text-center md:text-left">
+                <div class="max-w-xl text-center md:text-left">
                     <?php if (!empty($hero['titulo'])): ?>
-                        <h1 class="text-3xl md:text-4xl lg:text-5xl font-medium text-white mb-6 leading-tight"
+                        <h1 class="heading-h1 font-medium text-white mb-6"
                             data-aos="fade-up" data-aos-duration="1000">
                             <?php echo wp_kses_post($hero['titulo']); ?>
                         </h1>
@@ -134,17 +134,21 @@ get_header(); ?>
                 <!-- <p class="text-sm text-gray uppercase tracking-wider mb-4" data-aos="fade-down" data-aos-delay="200">
                     Soluciones</p> -->
                 <?php if (!empty($soluciones['titulo'])): ?>
-                    <h2 class="text-2xl lg:text-4xl font-medium mb-4" data-aos="fade-up" data-aos-delay="300">
+                    <h2 class="heading-h2 font-medium mb-4" data-aos="fade-up" data-aos-delay="300">
                         <?php echo wp_kses_post($soluciones['titulo']); ?>
                     </h2>
                 <?php endif; ?>
             </div>
 
             <?php if (!empty($soluciones['lista_de_soluciones'])): ?>
-                <?php foreach ($soluciones['lista_de_soluciones'] as $index => $item):
+                <?php 
+                $total_soluciones = count($soluciones['lista_de_soluciones']);
+                foreach ($soluciones['lista_de_soluciones'] as $index => $item):
                     $is_even = ($index % 2 === 0);
+                    $is_last = ($index === $total_soluciones - 1);
+                    $margin_class = $is_last ? '' : 'mb-12 lg:mb-20';
                     ?>
-                    <div class="grid lg:grid-cols-2 gap-8 lg:gap-24 items-center mb-12 lg:mb-20">
+                    <div class="grid lg:grid-cols-2 gap-8 lg:gap-24 items-center <?php echo $margin_class; ?>">
                         <div class="<?php echo $is_even ? 'order-2 lg:order-1' : 'order-2'; ?>" data-aos="zoom-in"
                             data-aos-duration="1000">
                             <?php if (!empty($item['imagen'])): ?>
@@ -166,7 +170,7 @@ get_header(); ?>
                                 </svg>
                                 <?php echo wp_kses_post($item['subtitulo']); ?>
                             </div>
-                            <h3 class="text-xl lg:text-3xl font-medium text-black mb-6">
+                            <h3 class="heading-h3 font-medium text-black mb-6">
                                 <?php echo wp_kses_post($item['titulo']); ?>
                             </h3>
                             <p class="leading-relaxed mb-10 text-gray">
@@ -254,7 +258,7 @@ get_header(); ?>
         <section class="py-16 lg:py-24 bg-gray-50" id="beneficios">
             <div class="container mx-auto">
                 <?php if (!empty($aptitudes['titulo'])): ?>
-                    <h2 class="text-2xl md:text-4xl font-medium text-center text-gray-800 md:mb-12 mb-6">
+                    <h2 class="heading-h2 font-medium text-center text-gray-800 md:mb-12 mb-6">
                         <?php echo wp_kses_post($aptitudes['titulo']); ?>
                     </h2>
                 <?php endif; ?>
@@ -272,7 +276,7 @@ get_header(); ?>
                                     <?php endif; ?>
                                 </div>
                                 <h2
-                                    class="text-base md:text-xl font-medium text-primary mb-2 uppercase tracking-wide transition-colors duration-300 md:group-hover:!text-white">
+                                    class="heading-h3 font-semibold text-primary mb-2 uppercase transition-colors duration-300 md:group-hover:!text-white">
                                     <?php echo esc_html($apt['titulo']); ?>
                                 </h2>
                                 <p class="text-sm opacity-90 transition-colors duration-300 md:group-hover:!text-white mb-0">

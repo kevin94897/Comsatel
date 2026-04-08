@@ -74,7 +74,7 @@ if (empty($banner_con_logos) && empty($logos_de_clientes)) {
                         data-aos-delay="<?php echo ($index + 1) * 100; ?>">
                         <?php if (!empty($item['logo']['url'])): ?>
                             <img src="<?php echo esc_url($item['logo']['url']); ?>"
-                                alt="<?php echo esc_attr($item['logo']['alt'] ?? 'Cliente Comsatel'); ?>">
+                                alt="<?php echo esc_attr(!empty($item['logo']['alt']) ? $item['logo']['alt'] : 'Cliente Comsatel'); ?>">
                         <?php endif; ?>
                     </div>
                 <?php endforeach; ?>

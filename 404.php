@@ -21,7 +21,7 @@ get_header();
 				</div>
 				<div class="absolute inset-0 flex flex-col items-center justify-center mt-8">
 					<h1
-						class="text-3xl md:text-5xl font-bold text-gray-900 mb-2 motion-preset-slide-down motion-duration-1000">
+						class="heading-h1 font-bold text-gray-900 mb-2 motion-preset-slide-down motion-duration-1000">
 						¡Vaya! Página no encontrada
 					</h1>
 					<div class="w-20 h-1 bg-primary motion-preset-expand motion-delay-500"></div>

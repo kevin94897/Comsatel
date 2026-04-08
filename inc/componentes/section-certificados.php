@@ -30,7 +30,7 @@ $certificados = $args['certificados'] ?? null;
                         <?php if (!empty($logo['url'])): ?>
                             <div class="w-20 h-20 lg:w-24 lg:h-24 flex items-center justify-center">
                                 <img src="<?php echo esc_url($logo['url']); ?>"
-                                    alt="<?php echo esc_attr($logo['alt'] ?? 'Certificado'); ?>"
+                                    alt="<?php echo esc_attr(!empty($logo['alt']) ? $logo['alt'] : 'Certificado'); ?>"
                                     class="w-full h-auto object-contain grayscale hover:grayscale-0 transition-all duration-300">
                             </div>
                         <?php endif; ?>
