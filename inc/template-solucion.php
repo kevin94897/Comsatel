@@ -18,12 +18,12 @@ get_header(); ?>
             </div>
         <?php endif; ?>
 
-        <div class="container-full md:mx-auto md:px-4 lg:px-8 relative z-10">
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
             <div class="max-w-xl">
                 <span
                     class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>
-                <h1 class="heading-h1 font-bold text-white mb-20 leading-tight mt-2 uppercase"
-                    data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="heading-h1 font-bold text-white mb-20 leading-tight mt-2 uppercase" data-aos="fade-up"
+                    data-aos-duration="1000">
                     <?php the_title(); ?>
                 </h1>
             </div>
@@ -68,7 +68,7 @@ get_header(); ?>
     $intro_descripcion = $encabezado['descripcion'] ?? null;
     ?>
     <?php if ($intro_subtitulo || $intro_descripcion): ?>
-        <section class="py-12 lg:py-16 bg-gray-50 motion-safe:animate-fade-in" id="desafio">
+        <section class="py-12 lg:py-16 bg-white motion-safe:animate-fade-in" id="desafio">
             <div class="container mx-auto px-4 lg:px-8">
                 <div class="max-w-4xl mx-auto text-center">
                     <?php if (!empty($intro_subtitulo)): ?>
@@ -100,7 +100,7 @@ get_header(); ?>
     $has_solutions_section = $s_header_subtitulo || $s_header_titulo || $s_header_bg_url || !empty($lista_soluciones);
     ?>
     <?php if ($has_solutions_section): ?>
-        <section class="pb-16 lg:pb-24 pt-8 bg-gray-50" id="soluciones">
+        <section class="pb-16 lg:pb-24 pt-8 bg-white" id="soluciones">
 
             <?php if ($s_header_subtitulo || $s_header_titulo || $s_header_desc || $s_header_bg_url): ?>
                 <div class="container-fluid py-6 lg:py-16 md:mb-20 mb-16 bg-cover bg-center bg-no-repeat" <?php if ($s_header_bg_url): ?>style="background-image: url('<?php echo esc_url($s_header_bg_url); ?>');" <?php endif; ?>>

@@ -38,6 +38,23 @@ $boton_rojo_url = $acf_boton_rojo['url'] ?? null;
 $boton_rojo_titulo = $acf_boton_rojo['title'] ?? null;
 $boton_rojo_target = $acf_boton_rojo['target'] ?? '_self';
 
+// ── Resolver options page del megamenu según Polylang ────────────────────────
+function comsatel_get_megamenu_option_key(): string {
+    // Mapa: slug de Polylang → slug de options page de ACF
+    $map = [
+        'pe' => 'megamenu-header',     // Perú (default)
+        'co' => 'megamenu-header-co',  // Colombia
+        'bo' => 'megamenu-header-bo',  // Bolivia
+    ];
+
+    $lang = function_exists('pll_current_language') 
+        ? pll_current_language('slug') 
+        : 'pe';
+
+    return $map[$lang] ?? 'megamenu-header';
+}
+$megamenu_option_key = comsatel_get_megamenu_option_key();
+
 // SVG fallbacks por posición (mismo orden que el template original)
 $fallback_svgs = [
 	// CLocator
@@ -95,7 +112,7 @@ function render_megamenu_icon($icono): void
 		<header id="masthead"
 			data-transparent="<?php echo $is_transparent_header ? '1' : '0'; ?>"
 			class="absolute top-0 left-0 right-0 z-50 transition-all duration-300 <?php echo $header_bg_class; ?>">
-			<div class="container-full mx-auto px-4 lg:px-8">
+			<div class="container mx-auto px-4 lg:px-8">
 				<div class="flex items-center justify-between py-4 lg:py-6">
 
 					<!-- Logo -->
@@ -242,9 +259,9 @@ function render_megamenu_icon($icono): void
 								<div id="por-necesidad" class="tab-content">
 									<?php
 									// Obtener las secciones de menú desde ACF (repetidor)
-									if (have_rows('megamenu_por_necesidad', 'option')):
+									if (have_rows('megamenu_por_necesidad', $megamenu_option_key)):
 										// Contar el total de secciones
-										$total_sections = count(get_field('megamenu_por_necesidad', 'option'));
+										$total_sections = count(get_field('megamenu_por_necesidad', $megamenu_option_key));
 
 										// Determinar la clase del grid según la cantidad
 										$grid_class = 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-2'; // Default para 4 o menos
@@ -257,7 +274,7 @@ function render_megamenu_icon($icono): void
 
 										echo '<div class="grid ' . $grid_class . ' gap-x-16 gap-y-8">';
 
-										while (have_rows('megamenu_por_necesidad', 'option')):
+										while (have_rows('megamenu_por_necesidad', $megamenu_option_key)):
 											the_row();
 											$titulo = get_sub_field('titulo_seccion');
 											$icono = get_sub_field('icono_svg');
@@ -311,8 +328,8 @@ function render_megamenu_icon($icono): void
 								<!-- Tab 2: Por Productos -->
 								<div id="por-productos" class="tab-content hidden">
 									<?php
-									if (have_rows('megamenu_por_productos', 'option')):
-										$total_sections = count(get_field('megamenu_por_productos', 'option'));
+									if (have_rows('megamenu_por_productos', $megamenu_option_key)):
+										$total_sections = count(get_field('megamenu_por_productos', $megamenu_option_key));
 
 										$grid_class = 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-2';
 
@@ -324,7 +341,7 @@ function render_megamenu_icon($icono): void
 
 										echo '<div class="grid ' . $grid_class . ' gap-x-16 gap-y-8">';
 
-										while (have_rows('megamenu_por_productos', 'option')):
+										while (have_rows('megamenu_por_productos', $megamenu_option_key)):
 											the_row();
 											$titulo = get_sub_field('titulo_seccion');
 											$icono = get_sub_field('icono_svg');
@@ -375,8 +392,8 @@ function render_megamenu_icon($icono): void
 								<!-- Tab 3: Por Sector -->
 								<div id="por-sector" class="tab-content hidden">
 									<?php
-									if (have_rows('megamenu_por_sector', 'option')):
-										$total_sections = count(get_field('megamenu_por_sector', 'option'));
+									if (have_rows('megamenu_por_sector', $megamenu_option_key)):
+										$total_sections = count(get_field('megamenu_por_sector', $megamenu_option_key));
 
 										$grid_class = 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-2';
 
@@ -388,7 +405,7 @@ function render_megamenu_icon($icono): void
 
 										echo '<div class="grid ' . $grid_class . ' gap-x-16 gap-y-8">';
 
-										while (have_rows('megamenu_por_sector', 'option')):
+										while (have_rows('megamenu_por_sector', $megamenu_option_key)):
 											the_row();
 											$titulo = get_sub_field('titulo_seccion');
 											$icono = get_sub_field('icono_svg');
@@ -542,7 +559,7 @@ function render_megamenu_icon($icono): void
 						$inactive_langs = [];
 
 						foreach ($languages as $lang) {
-							$slug = $lang['slug']; // ej: "es-pe", "es-bo"
+							$slug = $lang['slug']; // ej: "pe", "co", "bo" — debe coincidir con el slug configurado en Polylang
 							$data = $country_flags[$slug] ?? null;
 
 							if (!$data)
@@ -559,7 +576,7 @@ function render_megamenu_icon($icono): void
 
 						// Fallback si no hay activo mapeado
 						if (!$active_lang) {
-							$active_lang = ['flag_data' => $country_flags['es-pe'], 'slug' => 'es-pe'];
+							$active_lang = ['flag_data' => $country_flags['pe'], 'slug' => 'pe'];
 						}
 						?>
 
@@ -805,8 +822,8 @@ function render_megamenu_icon($icono): void
 								</svg>
 								<span class="font-medium text-lg"></span>
 							</button>
-							<?php if (have_rows('megamenu_' . $field_key, 'option')): ?>
-								<?php while (have_rows('megamenu_' . $field_key, 'option')):
+							<?php if (have_rows('megamenu_' . $field_key, $megamenu_option_key)): ?>
+								<?php while (have_rows('megamenu_' . $field_key, $megamenu_option_key)):
 									the_row();
 									$titulo = get_sub_field('titulo_seccion');
 									$icono = get_sub_field('icono_svg');

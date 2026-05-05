@@ -303,6 +303,7 @@ function comsatel_scripts()
 		true
 	);
 
+
 	// Inicializar Swiper al cargar
 	wp_add_inline_script('swiper-js', "
 		document.addEventListener('DOMContentLoaded', function(){
@@ -816,6 +817,7 @@ function comsatel_maps_to_embed_url($url)
  * Register ACF Options Pages
  */
 if (function_exists('acf_add_options_page')) {
+	// Página principal de opciones del tema
 	acf_add_options_page(array(
 		'page_title' => 'Opciones del Tema',
 		'menu_title' => 'Opciones del Tema',
@@ -823,4 +825,33 @@ if (function_exists('acf_add_options_page')) {
 		'capability' => 'edit_posts',
 		'redirect' => false
 	));
-}
+
+	// Megamenu - Perú
+	acf_add_options_sub_page(array(
+		'page_title'  => 'Megamenu - Perú',
+		'menu_title'  => 'Megamenu PE',
+		'menu_slug'   => 'megamenu-header',
+		'post_id'     => 'megamenu-header',
+		'parent_slug' => 'theme-options',
+		'capability'  => 'edit_posts',
+	));
+
+	// Megamenu - Bolivia
+	acf_add_options_sub_page(array(
+		'page_title'  => 'Megamenu - Bolivia',
+		'menu_title'  => 'Megamenu BO',
+		'menu_slug'   => 'megamenu-header-bo',
+		'post_id'     => 'megamenu-header-bo',
+		'parent_slug' => 'theme-options',
+		'capability'  => 'edit_posts',
+	));
+
+	// Megamenu - Colombia
+	acf_add_options_sub_page(array(
+		'page_title'  => 'Megamenu - Colombia',
+		'menu_title'  => 'Megamenu CO',
+		'menu_slug'   => 'megamenu-header-co',
+		'post_id'     => 'megamenu-header-co',
+		'parent_slug' => 'theme-options',
+		'capability'  => 'edit_posts',
+	));

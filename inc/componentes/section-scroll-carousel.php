@@ -36,10 +36,13 @@ $cards = $args['cards'] ?? null;
 
 if (empty($banner) || empty($cards))
     return;
+
+$card_count = count($cards);
+$no_slider = $card_count <= 3;
 ?>
 
 <!-- Wrapper externo para el scroll -->
-<div class="scroll-carousel-outer-wrapper">
+<div class="scroll-carousel-outer-wrapper bg-white">
     <section class="scroll-carousel-wrapper" id="<?php echo esc_attr($section_id); ?>" data-scroll-section>
         <!-- Contenedor sticky que se queda fijo -->
         <div class="scroll-sticky-container" data-sticky-container>
@@ -49,17 +52,29 @@ if (empty($banner) || empty($cards))
                 <div class="scroll-view banner-view active" data-view="banner">
                     <div class="container mx-auto px-4 lg:px-8 py-16 lg:py-24">
                         <div class="grid lg:grid-cols-2 gap-12 items-center">
-                            <!-- Images Grid -->
+                            <!-- Images Slider (Embla) -->
                             <?php if (!empty($banner['images'])): ?>
-                                <div class="order-1 lg:order-1" data-aos="fade-left">
-                                    <?php foreach ($banner['images'] as $image): ?>
-                                        <div
-                                            class="aspect-square overflow-hidden hover:scale-105 transition-transform duration-300 rounded-lg">
-                                            <img src="<?php echo esc_url($image['url']); ?>"
-                                                alt="<?php echo esc_attr(!empty($image['alt']) ? $image['alt'] : 'Banner Image'); ?>"
-                                                class="w-full h-full object-cover">
+                                <div class="order-1 lg:order-1 relative group/embla" data-aos="fade-left">
+                                    <div class="embla-banner overflow-hidden rounded-lg">
+                                        <div class="embla__container flex">
+                                            <?php foreach ($banner['images'] as $image): ?>
+                                                <div class="embla__slide flex-[0_0_100%] min-w-0">
+                                                    <div class="overflow-hidden transition-transform duration-300">
+                                                        <img src="<?php echo esc_url($image['url']); ?>"
+                                                            alt="<?php echo esc_attr(!empty($image['alt']) ? $image['alt'] : 'Banner Image'); ?>"
+                                                            class="w-full h-full object-cover">
+                                                    </div>
+                                                </div>
+                                            <?php endforeach; ?>
                                         </div>
-                                    <?php endforeach; ?>
+                                    </div>
+
+                                    <!-- Dots Navigation -->
+                                    <?php if (count($banner['images']) > 1): ?>
+                                        <div class="embla__dots flex flex-wrap justify-center items-center gap-2 mt-4">
+                                            <!-- Dots will be generated via JS -->
+                                        </div>
+                                    <?php endif; ?>
                                 </div>
                             <?php endif; ?>
 
@@ -92,10 +107,11 @@ if (empty($banner) || empty($cards))
                 <div class="scroll-view carousel-view" data-view="carousel">
                     <div class="container mx-auto px-4 lg:px-8 py-16 lg:py-24 h-full flex items-center">
                         <!-- Swiper Container -->
-                        <div class="swiper scrollCarouselSwiper w-full">
-                            <div class="swiper-wrapper">
+                        <div class="<?php echo $no_slider ? 'scrollCarouselStatic w-full' : 'swiper scrollCarouselSwiper w-full'; ?>"
+                            <?php echo $no_slider ? 'data-no-slider="1"' : ''; ?>>
+                            <div class="<?php echo $no_slider ? 'static-cards-wrapper' : 'swiper-wrapper'; ?>">
                                 <?php foreach ($cards as $index => $card): ?>
-                                    <div class="swiper-slide">
+                                    <div class="<?php echo $no_slider ? 'static-card' : 'swiper-slide'; ?>">
                                         <div class="bg-[#2B2A2A] text-white rounded-2xl p-8 flex flex-col shadow-xl mb-10">
 
                                             <!-- Icon Badge -->
@@ -136,7 +152,9 @@ if (empty($banner) || empty($cards))
                             </div>
 
                             <!-- Navigation -->
-                            <div class="swiper-pagination mt-8"></div>
+                            <?php if (!$no_slider): ?>
+                                <div class="swiper-pagination mt-8"></div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -218,6 +236,30 @@ if (empty($banner) || empty($cards))
         height: auto;
     }
 
+    /* Static layout (≤3 cards, no slider) */
+    .static-cards-wrapper {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        width: 100%;
+    }
+
+    @media (min-width: 768px) {
+        .static-cards-wrapper {
+            grid-template-columns: repeat(<?php echo min($card_count, 2); ?>, 1fr);
+        }
+    }
+
+    @media (min-width: 1024px) {
+        .static-cards-wrapper {
+            grid-template-columns: repeat(<?php echo $card_count; ?>, 1fr);
+        }
+    }
+
+    .static-card {
+        height: auto;
+    }
+
     .scrollCarouselSwiper .swiper-pagination-bullet {
         background: #1f2937;
         opacity: 0.5;
@@ -226,6 +268,33 @@ if (empty($banner) || empty($cards))
     .scrollCarouselSwiper .swiper-pagination-bullet-active {
         opacity: 1;
         background: #dc2626;
+    }
+
+    /* Embla Banner Slider */
+    .embla__dot {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background-color: #d1d5db;
+        border: 0;
+        padding: 0;
+        margin: 0;
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+
+    .embla__dot.is-selected {
+        background-color: #dc2626;
+        width: 24px;
+        border-radius: 5px;
+    }
+
+    .embla-banner {
+        cursor: grab;
+    }
+
+    .embla-banner:active {
+        cursor: grabbing;
     }
 
     /* Indicador de scroll */
@@ -281,10 +350,18 @@ if (empty($banner) || empty($cards))
         let scrollCarouselSwiper = null;
         let currentView = 'banner';
 
-        console.log('Scroll carousel inicializado para:', sectionId);
+
+        const noSlider = <?php echo $no_slider ? 'true' : 'false'; ?>;
+        const cardCount = <?php echo $card_count; ?>;
+
+        // Loop only when there are enough cards to avoid clone-order glitches.
+        // Desktop shows 3 slides; Swiper needs > 2×slidesPerView unique slides for clean looping.
+        const enableLoop = cardCount > 6;
 
         // Initialize Swiper
         function initSwiper() {
+            if (noSlider) return;
+
             if (typeof Swiper === 'undefined') {
                 console.error('Swiper library is not loaded');
                 return;
@@ -292,18 +369,15 @@ if (empty($banner) || empty($cards))
 
             if (scrollCarouselSwiper) return;
 
-            console.log('Inicializando Swiper...');
-
             scrollCarouselSwiper = new Swiper('.scrollCarouselSwiper', {
-                loop: true,
+                loop: enableLoop,
                 speed: 600,
                 slidesPerView: 1,
                 spaceBetween: 30,
-                centeredSlides: true,
-                autoplay: {
+                autoplay: enableLoop ? {
                     delay: 5000,
                     disableOnInteraction: false,
-                },
+                } : false,
                 pagination: {
                     el: '.swiper-pagination',
                     clickable: true,
@@ -311,11 +385,11 @@ if (empty($banner) || empty($cards))
                 navigation: false,
                 breakpoints: {
                     768: {
-                        slidesPerView: 2,
+                        slidesPerView: Math.min(2, cardCount),
                         spaceBetween: 20,
                     },
                     1024: {
-                        slidesPerView: 3,
+                        slidesPerView: Math.min(3, cardCount),
                         spaceBetween: 30,
                     },
                 },
@@ -326,7 +400,6 @@ if (empty($banner) || empty($cards))
         function switchView(newView) {
             if (currentView === newView) return;
 
-            console.log('Cambiando vista a:', newView);
             currentView = newView;
 
             if (newView === 'banner') {
@@ -340,6 +413,40 @@ if (empty($banner) || empty($cards))
                 if (!scrollCarouselSwiper) {
                     setTimeout(initSwiper, 100);
                 }
+            }
+        }
+
+        // Initialize Embla Banner Slider
+        const emblaNode = wrapper.querySelector('.embla-banner');
+        if (emblaNode && typeof EmblaCarousel !== 'undefined') {
+            const dotsNode = wrapper.querySelector('.embla__dots');
+            const emblaApi = EmblaCarousel(emblaNode, {
+                loop: true,
+                duration: 30
+            });
+
+            if (dotsNode) {
+                const scrollSnaps = emblaApi.scrollSnapList();
+                const dotNodes = scrollSnaps.map((_, index) => {
+                    const button = document.createElement('button');
+                    button.classList.add('embla__dot');
+                    button.type = 'button';
+                    button.addEventListener('click', () => emblaApi.scrollTo(index));
+                    dotsNode.appendChild(button);
+                    return button;
+                });
+
+                const toggleDotBtnActiveState = () => {
+                    const selected = emblaApi.selectedScrollSnap();
+                    dotNodes.forEach((dot, index) => {
+                        if (index === selected) dot.classList.add('is-selected');
+                        else dot.classList.remove('is-selected');
+                    });
+                };
+
+                emblaApi.on('select', toggleDotBtnActiveState);
+                emblaApi.on('init', toggleDotBtnActiveState);
+                emblaApi.on('reInit', toggleDotBtnActiveState);
             }
         }
 
@@ -367,8 +474,6 @@ if (empty($banner) || empty($cards))
                 progress = Math.max(0, Math.min(1, progress));
             }
 
-            // Debug
-            console.log('Progress:', progress.toFixed(2));
 
             // Cambiar vista en el 40% del progreso (ajustable)
             const threshold = 0.1;
@@ -401,16 +506,5 @@ if (empty($banner) || empty($cards))
         // Initial check
         handleScroll();
 
-        // Debug: log scroll events
-        let debugCount = 0;
-        window.addEventListener('scroll', function () {
-            if (debugCount < 5) {
-                console.log('Scroll event detectado');
-                debugCount++;
-            }
-        }, {
-            once: false,
-            passive: true
-        });
     });
 </script>

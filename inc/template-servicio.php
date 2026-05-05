@@ -19,12 +19,12 @@ get_header();
             </div>
         <?php endif; ?>
 
-        <div class="container-full md:mx-auto md:px-4 lg:px-8 relative z-10">
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
             <div class="max-w-xl">
                 <span
                     class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>
-                <h1 class="heading-h1 font-bold text-white mb-20 leading-tight mt-2 uppercase"
-                    data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="heading-h1 font-bold text-white mb-20 leading-tight mt-2 uppercase" data-aos="fade-up"
+                    data-aos-duration="1000">
                     <?php echo get_the_title(); ?>
                 </h1>
             </div>
@@ -72,7 +72,7 @@ get_header();
     $descripcion = $encabezado['descripcion'] ?? null;
     ?>
     <?php if ($subtitulo || $descripcion): ?>
-        <section class="py-12 lg:py-16 bg-gray-50 motion-safe:animate-fade-in" id="desafio">
+        <section class="py-12 lg:py-16 bg-white motion-safe:animate-fade-in" id="desafio">
             <div class="container mx-auto px-4 lg:px-8">
                 <div class="max-w-4xl mx-auto text-center">
                     <?php if (!empty($subtitulo)): ?>
@@ -128,12 +128,24 @@ get_header();
                 'title' => $bs_banner['titulo'] ?? null,
                 'subtitle' => $bs_banner['subtitulo'] ?? null,
                 'description' => $bs_banner['descripcion'] ?? null,
-                'images' => !empty($bs_banner['imagen']['url']) ? array(
-                    array(
-                        'url' => $bs_banner['imagen']['url'],
-                        'alt' => $bs_banner['imagen']['alt'] ?? null,
-                    )
-                ) : [],
+                'images' => (function () use ($bs_banner) {
+                    $imgs = [];
+                    if (!empty($bs_banner['imagen']['url'])) {
+                        $imgs[] = [
+                            'url' => $bs_banner['imagen']['url'],
+                            'alt' => $bs_banner['imagen']['alt'] ?? null,
+                        ];
+                    }
+                    if (!empty($bs_banner['mas_imagenes'])) {
+                        foreach ($bs_banner['mas_imagenes'] as $mi) {
+                            $imgs[] = [
+                                'url' => $mi['url'],
+                                'alt' => $mi['alt'] ?? null,
+                            ];
+                        }
+                    }
+                    return $imgs;
+                })(),
             ),
             'cards' => $carousel_cards,
         );

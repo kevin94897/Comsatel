@@ -40,7 +40,7 @@ $GLOBALS['xp_seccion_promos'] = $seccion_promos;
         <?php endif; ?>
 
         <!-- Content -->
-        <div class="container-full md:mx-auto md:px-4 lg:px-8 relative z-10">
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
             <div class="">
                 <span
                     class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>

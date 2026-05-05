@@ -93,7 +93,7 @@ $component_id = 'scroll-buttons-' . uniqid();
 </style>
 
 <section class="relative bg-[#1a1a1a]" id="<?php echo esc_attr($component_id); ?>">
-    <div class="container-full mx-auto !px-0 md:!px-4">
+    <div class="container mx-auto !px-0 md:!px-4">
         <div
             class="relative flex flex-nowrap gap-1 p-2 lg:justify-center lg:overflow-visible overflow-x-auto overflow-y-hidden hide-scrollbar">
 
@@ -113,7 +113,7 @@ $component_id = 'scroll-buttons-' . uniqid();
            whitespace-nowrap no-underline inline-flex items-center shrink-0 z-10
            outline-none focus-visible:outline-2 focus-visible:outline-primary focus-visible:outline-offset-2
            <?php echo esc_attr($button['style'] ?? ''); ?>
-           <?php echo $index === 0 ? 'active' : ''; ?>" data-aos="fade-up" data-aos-anchor-placement="center-bottom"
+           <?php echo $index === 0 ? 'active' : ''; ?>" data-aos="fade-in" data-aos-anchor-placement="center-bottom"
                     data-aos-delay="<?php echo esc_attr($delay); ?>" style="-webkit-tap-highlight-color: transparent;">
                     <?php if (!empty($button['label'])): ?>
                         <?php echo esc_html($button['label']); ?>

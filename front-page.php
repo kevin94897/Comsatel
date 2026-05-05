@@ -19,7 +19,7 @@ get_header(); ?>
         <?php endif; ?>
 
         <!-- Content -->
-        <div class="container-full md:mx-auto md:px-4 lg:px-8 relative z-10 h-full">
+        <div class="container mx-auto px-4 lg:px-8 relative z-10 h-full">
             <div class=" flex items-center h-full">
                 <div class="max-w-xl text-center md:text-left">
                     <?php if (!empty($hero['titulo'])): ?>

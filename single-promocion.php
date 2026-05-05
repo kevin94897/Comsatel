@@ -30,7 +30,7 @@ $boton_modal = get_field('boton_modal') ?: 'Acceder al beneficio';
         <?php endif; ?>
 
         <!-- Content -->
-        <div class="container-full md:mx-auto md:px-4 lg:px-8 relative z-10">
+        <div class="container mx-auto px-4 lg:px-8 relative z-10">
             <div class="max-w-xl mb-10">
                 <span
                     class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>

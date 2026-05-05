@@ -13,7 +13,7 @@
 ?>
 
 <footer id="colophon" class="site-footer bg-gray-100 pt-8 pb-8">
-	<div class="container-full mx-auto px-4 lg:px-8">
+	<div class="container mx-auto px-4 lg:px-8">
 
 		<!-- Top Section: Quality Certifications -->
 		<div class="flex flex-col lg:flex-row justify-between md:items-center mb-12 pb-6 border-b border-gray-300">
@@ -172,7 +172,7 @@
 					© <?php echo date('Y'); ?> <?php bloginfo('name'); ?>. Todos los derechos reservados.
 				</p>
 				<div class="md:flex-row flex-col gap-4 text-sm">
-					<p>Made with <span class="text-black">❤</span> by NERD®</p>
+					<p class="text-center mb-0">Made with <span class="text-black">❤</span> by NERD®</p>
 				</div>
 			</div>
 		</div>
