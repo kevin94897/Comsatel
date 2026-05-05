@@ -23,7 +23,7 @@ $counters = $args['counters'] ?? null;
                 <?php foreach ($counters as $index => $counter): ?>
                     <div class="text-center" data-aos="fade-up" data-aos-delay="<?php echo $index * 100; ?>">
                         <div class="mb-2">
-                            <span class="text-3xl lg:text-5xl font-medium text-primary flex items-center justify-center gap-1">
+                            <span class="text-3xl md:text-4xl lg:text-4xl font-medium text-primary flex items-center justify-center gap-1">
 
                                 <?php if (!empty($counter['prefix'])): ?>
                                     <span><?php echo esc_html($counter['prefix']); ?></span>

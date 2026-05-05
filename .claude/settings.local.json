@@ -1,0 +1,9 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run *)",
+      "Bash(npm uninstall *)",
+      "Bash(find \"c:\\\\Users\\\\Usuario\\\\Local Sites\\\\comsatel\\\\app\\\\public\\\\wp-content\\\\themes\\\\Comsatel\" -name \"*.php\" -exec grep -l \"wp_mail\" {} \\\\;)"
+    ]
+  }
+}

@@ -19,7 +19,7 @@ $acf_slides = $acf_group['slider'] ?? null;
                         </p>
                     <?php endif; ?>
                     <?php if (!empty($acf_titulo)): ?>
-                        <h2 class="text-2xl lg:text-4xl font-medium text-primary mb-4">
+                        <h2 class="text-2xl md:text-3xl lg:text-3xl font-medium text-primary mb-4">
                             <?php echo esc_html($acf_titulo); ?>
                         </h2>
                     <?php endif; ?>

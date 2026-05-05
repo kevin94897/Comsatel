@@ -132,7 +132,7 @@ get_header();
                                 Ahorro estimado mensual
                             </h2>
                             <div class="flex items-baseline gap-2 mb-3">
-                                <span class="text-4xl lg:text-6xl font-medium text-primary" id="total-savings">
+                                <span class="text-4xl md:text-5xl lg:text-5xl font-medium text-primary" id="total-savings">
                                     S/ 178.75
                                 </span>
                             </div>
@@ -149,7 +149,7 @@ get_header();
                             <div
                                 class="border border-primary rounded-lg bg-white p-6 hover:border-primary/50 transition-all duration-300">
                                 <div
-                                    class="flex items-center gap-6 mb-3 items-center h-full justify-center flex-col md:flex-row">
+                                    class="flex items-center gap-6 mb-3 h-full justify-center flex-col md:flex-row">
                                     <div
                                         class="md:w-32 md:h-32 w-20 h-20 flex items-center justify-center flex-shrink-0">
                                         <img src="<?php echo get_template_directory_uri(); ?>/images/icons/comsatel_icon_gasolina.png"
@@ -171,7 +171,7 @@ get_header();
                             <div
                                 class="border border-primary rounded-lg bg-white p-6 hover:border-primary/50 transition-all duration-300">
                                 <div
-                                    class="flex items-center gap-6 mb-3 items-center h-full justify-center flex-col md:flex-row">
+                                    class="flex items-center gap-6 mb-3 h-full justify-center flex-col md:flex-row">
                                     <div
                                         class="md:w-32 md:h-32 w-20 h-20 flex items-center justify-center flex-shrink-0">
                                         <img src="<?php echo get_template_directory_uri(); ?>/images/icons/comsatel_icon_herramientas.png"
@@ -193,7 +193,7 @@ get_header();
                             <div
                                 class="border border-primary rounded-lg bg-white p-6 hover:border-primary/50 transition-all duration-300">
                                 <div
-                                    class="flex items-center gap-6 mb-3 items-center h-full justify-center flex-col md:flex-row">
+                                    class="flex items-center gap-6 mb-3 h-full justify-center flex-col md:flex-row">
                                     <div
                                         class="md:w-32 md:h-32 w-20 h-20 flex items-center justify-center flex-shrink-0">
                                         <img src="<?php echo get_template_directory_uri(); ?>/images/icons/comsatel_icon_llanta.png"
@@ -215,7 +215,7 @@ get_header();
                             <div
                                 class="border border-primary rounded-lg bg-white p-6 hover:border-primary/50 transition-all duration-300">
                                 <div
-                                    class="flex items-center gap-6 mb-3 items-center h-full justify-center flex-col md:flex-row">
+                                    class="flex items-center gap-6 mb-3 h-full justify-center flex-col md:flex-row">
                                     <div
                                         class="md:w-32 md:h-32 w-20 h-20 flex items-center justify-center flex-shrink-0">
                                         <img src="<?php echo get_template_directory_uri(); ?>/images/icons/comsatel_icon_stonks.png"

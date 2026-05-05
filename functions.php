@@ -14,11 +14,6 @@ if (!defined('_S_VERSION')) {
 }
 
 /**
- * Temp: Ocultar la barra de administración de WordPress
- */
-add_filter('show_admin_bar', '__return_false');
-
-/**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *
  * Priority 0 to make it available to lower priority callbacks.
@@ -38,7 +33,7 @@ add_action('after_setup_theme', 'comsatel_content_width', 0);
 function comsatel_get_recipient_email($type = 'general')
 {
     // [MODO DE PRUEБАS] Cambia esto a "false" cuando el sitio esté en Producción (en vivo)
-    $is_test_mode = true; 
+    $is_test_mode = false; 
     
     // Correo o correos que recibirán los formularios mientras $is_test_mode sea true
     $test_emails = ['kevin.gomez@nerd.pe'];
@@ -83,13 +78,30 @@ function comsatel_widgets_init()
 add_action('widgets_init', 'comsatel_widgets_init');
 
 /**
- * Detecta si el servidor de desarrollo Vite está corriendo en el puerto 5173.
+ * Obtiene el puerto actual de Vite.
+ */
+function comsatel_get_vite_port(): int
+{
+	static $port = null;
+	if ($port === null) {
+		$hot_file = get_template_directory() . '/hot';
+		$port = 5173; // Fallback
+		if (file_exists($hot_file)) {
+			$port = (int) trim(file_get_contents($hot_file));
+		}
+	}
+	return $port;
+}
+
+/**
+ * Detecta si el servidor de desarrollo Vite está corriendo.
  */
 function comsatel_is_vite_dev(): bool
 {
 	static $is_dev = null;
 	if ($is_dev === null) {
-		$handle = @fsockopen('localhost', 5173, $errno, $errstr, 1);
+		$port = comsatel_get_vite_port();
+		$handle = @fsockopen('localhost', $port, $errno, $errstr, 1);
 		if ($handle) {
 			fclose($handle);
 			$is_dev = true;
@@ -148,7 +160,8 @@ add_filter('style_loader_tag', function (string $tag, string $handle): string {
 function comsatel_scripts()
 {
 	$is_dev = comsatel_is_vite_dev();
-	$vite_base = 'http://localhost:5173';
+	$vite_port = comsatel_get_vite_port();
+	$vite_base = "http://localhost:{$vite_port}";
 
 	if ($is_dev) {
 		// --- Modo desarrollo: Vite dev server con HMR ---
@@ -643,7 +656,6 @@ if (defined('JETPACK__VERSION')) {
 	require get_template_directory() . '/inc/jetpack.php';
 }
 
-// add_filter('show_admin_bar', '__return_false');
 
 /**
  * Añade las clases de Tailwind 'group relative' a los elementos <li> del menú principal.

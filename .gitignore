@@ -36,3 +36,6 @@ viteHMR.md
 # Cache
 .cache/
 .parcel-cache/
+
+# Vite Dev
+hot

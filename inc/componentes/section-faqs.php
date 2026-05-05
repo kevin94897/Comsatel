@@ -1,6 +1,6 @@
 <!-- FAQ Section -->
 <section class="py-16 lg:py-24" id="preguntas-frecuentes">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
 
         <?php
         $faqs_group = get_field('faqs');
@@ -13,7 +13,7 @@
                 <p class="text-gray text-sm font-medium tracking-wider uppercase mb-3" data-aos="fade-down">
                     Preguntas frecuentes
                 </p>
-                <h2 class="text-2xl lg:text-4xl font-medium mb-4" data-aos="fade-up" data-aos-delay="100">
+                <h2 class="text-2xl md:text-3xl lg:text-3xl font-medium mb-4" data-aos="fade-up" data-aos-delay="100">
                     Tu operación, nuestras respuestas
                 </h2>
                 <p class="text-dark text-lg max-w-2xl mx-auto mt-8" data-aos="fade-up" data-aos-delay="200">

@@ -14,7 +14,7 @@ $certificados = $args['certificados'] ?? null;
 
             <!-- Title -->
             <div class="flex-shrink-0 flex items-center gap-12">
-                <h2 class="text-2xl lg:text-3xl font-medium text-dark mb-0">
+                <h2 class="text-xl md:text-2xl lg:text-3xl font-medium text-dark mb-0">
                     Certificados
                 </h2>
                 <div class="hidden md:block w-px h-16 bg-gray-400/50"></div>

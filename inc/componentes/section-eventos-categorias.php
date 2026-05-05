@@ -33,7 +33,7 @@ if (empty($beneficios))
                 <?php endif; ?>
 
                 <?php if ($titulo): ?>
-                    <h2 class="text-3xl lg:text-4xl font-semibold text-primary" data-aos="fade-up">
+                    <h2 class="text-2xl md:text-3xl lg:text-3xl font-semibold text-primary" data-aos="fade-up">
                         <?php echo esc_html($titulo); ?>
                     </h2>
                 <?php endif; ?>

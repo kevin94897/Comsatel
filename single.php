@@ -105,12 +105,12 @@ get_header();
 					</div>
 
 					<!-- Featured Image -->
-					<?php if (has_post_thumbnail()): ?>
+					<!-- <?php if (has_post_thumbnail()): ?>
 						<div class="mb-8 md:mb-12 rounded-md overflow-hidden" data-aos="zoom-in" data-aos-duration="1000"
 							data-aos-delay="600">
 							<?php the_post_thumbnail('large', array('class' => 'w-full h-auto')); ?>
 						</div>
-					<?php endif; ?>
+					<?php endif; ?> -->
 
 
 					<!-- Content -->

@@ -23,7 +23,7 @@ if (empty($titulo_acf) && empty($logos_acf))
             <!-- Title -->
             <?php if ($titulo_acf): ?>
                 <div class="flex-shrink-0 flex items-center gap-8 md:gap-12 text-center md:text-left">
-                    <h2 class="text-2xl lg:text-3xl font-medium text-dark mb-0 leading-tight">
+                    <h2 class="text-xl md:text-2xl lg:text-3xl font-medium text-dark mb-0 leading-tight">
                         <?php echo esc_html($titulo_acf); ?>
                     </h2>
                     <!-- Vertical Separator (Hidden on mobile)-->

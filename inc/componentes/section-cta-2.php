@@ -32,8 +32,7 @@ if (empty($titulo) && empty($descripcion) && empty($boton)) {
             <!-- CTA Card -->
             <div class="p-2 lg:p-10 text-right md:text-left">
                 <?php if (!empty($titulo)): ?>
-                    <h3
-                        class="heading-h2 font-semibold text-white mb-4 max-w-[300px] md:max-w-full ml-auto md:ml-0">
+                    <h3 class="heading-h2 font-medium text-white mb-4 max-w-[300px] md:max-w-full ml-auto md:ml-0">
                         <?php echo wp_kses_post($titulo); ?>
                     </h3>
                 <?php endif; ?>
