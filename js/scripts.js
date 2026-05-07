@@ -214,10 +214,10 @@
       const isClosed = $content.hasClass('max-h-0');
 
       if (isClosed) {
-        $content.removeClass('max-h-0 opacity-0').addClass('max-h-96');
+        $content.removeClass('max-h-0 opacity-0').addClass('max-h-96 mb-6');
         $arrow.removeClass('-rotate-45').addClass('rotate-45');
       } else {
-        $content.removeClass('max-h-96').addClass('max-h-0 opacity-0');
+        $content.removeClass('max-h-96 mb-6').addClass('max-h-0 opacity-0');
         $arrow.removeClass('rotate-45').addClass('-rotate-45');
       }
     });

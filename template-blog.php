@@ -26,8 +26,8 @@ get_header();
             <div class="">
                 <span
                     class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>
-                <h1 class="heading-h1 font-bold text-white mb-10 mt-2 uppercase"
-                    data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="heading-h1 font-bold text-white mb-10 mt-2 uppercase" data-aos="fade-up"
+                    data-aos-duration="1000">
                     <?php the_title(); ?>
                 </h1>
             </div>
@@ -119,10 +119,9 @@ get_header();
                     </div>
 
                     <!-- Botón Restablecer -->
-                    <button id="reset-blog-filters" 
-                            class="text-xs md:text-sm text-primary font-semibold hover:text-black transition-colors border-none bg-transparent cursor-pointer ml-2 md:ml-0 shrink-0 hidden" 
-                            type="button" 
-                            title="Restablecer Filtros">
+                    <button id="reset-blog-filters"
+                        class="text-xs md:text-sm text-primary font-semibold hover:text-black transition-colors border-none bg-transparent cursor-pointer ml-2 md:ml-0 shrink-0 hidden"
+                        type="button" title="Restablecer Filtros">
                         LIMPIAR
                     </button>
                 </div>
@@ -179,7 +178,7 @@ get_header();
         </div>
     </section>
 
-    <?php get_template_part('inc/componentes/section-newsletter'); ?>
+
 </main>
 
 <?php

@@ -16,44 +16,46 @@ if (empty($banner) || empty($cards))
             <div class="swiper scrollCarouselSwiper w-full px-4">
                 <div class="swiper-wrapper">
                     <?php foreach ($cards as $index => $card): ?>
-                        <div class="swiper-slide">
-                            <div class="bg-white rounded-2xl p-6 flex flex-col shadow-lg mb-10">
+                        <div class="swiper-slide !h-auto">
+                            <div
+                                class="bg-white rounded-2xl md:p-6 p-4 flex flex-col shadow-lg mb-10 !h-[300px] md:!h-[350px]">
 
                                 <!-- Image -->
                                 <?php if (!empty($card['image'])): ?>
-                                    <div class="rounded-lg overflow-hidden md:h-56 h-48">
+                                    <div class="rounded-lg overflow-hidden shrink-0 md:h-48 h-40">
                                         <img src="<?php echo esc_url($card['image']); ?>"
-                                            alt="<?php echo esc_attr(!empty($card['title']) ? $card['title'] : 'Carrousel Image'); ?>" class="w-full h-full object-cover">
+                                            alt="<?php echo esc_attr(!empty($card['title']) ? $card['title'] : 'Carrousel Image'); ?>"
+                                            class="w-full h-full object-cover">
                                     </div>
                                 <?php endif; ?>
 
                                 <!-- Content -->
-                                <div class="flex-1 mt-6">
-                                    <?php if (!empty($card['title'])): ?>
-                                        <h3 class="md:text-lg text-sm font-medium mb-4 text-gray-900 md:min-h-[70px]">
-                                            <?php echo wp_kses_post($card['title']); ?>
-                                        </h3>
-                                    <?php endif; ?>
+                                <div class="mt-4 overflow-hidden flex flex-col h-full justify-between">
+                                    <div>
+                                        <?php if (!empty($card['title'])): ?>
+                                            <h3 class="md:text-lg text-sm font-medium mb-2 text-gray-900 line-clamp-2">
+                                                <?php echo wp_kses_post($card['title']); ?>
+                                            </h3>
+                                        <?php endif; ?>
 
-                                    <?php if (!empty($card['description'])): ?>
-                                        <p class="md:text-base text-sm text-gray leading-relaxed md:min-h-[100px]">
-                                            <?php echo wp_kses_post($card['description']); ?>
-                                        </p>
-                                    <?php endif; ?>
-                                </div>
+                                        <?php if (!empty($card['description'])): ?>
+                                            <p class="md:text-base text-xs text-gray leading-relaxed line-clamp-3">
+                                                <?php echo wp_kses_post($card['description']); ?>
+                                            </p>
+                                        <?php endif; ?>
+                                    </div>
 
-                                <div class="text-right">
-                                    <?php
-                                    $btn_text = $card['button_text'] ?? 'VER SOLUCIÓN';
-                                    $btn_url = $card['link'] ?? null;
-                                    if (!empty($btn_url)):
+                                    <div class="text-right pr-2 md:pr-4">
+                                        <?php
+                                        $boton = $card['boton'] ?? null;
                                         get_template_part('inc/componentes/button-arrow', null, array(
-                                            'text' => !empty($btn_text) ? $btn_text : 'VER SOLUCIÓN',
+                                            'text' => !empty($boton['title']) ? $boton['title'] : 'Ver solución',
+                                            'url' => !empty($boton['url']) ? $boton['url'] : '#',
+                                            'target' => !empty($boton['target']) ? $boton['target'] : '_self',
                                             'class' => 'text-sm',
-                                            'url' => $btn_url
                                         ));
-                                    endif;
-                                    ?>
+                                        ?>
+                                    </div>
                                 </div>
 
                             </div>

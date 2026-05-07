@@ -461,11 +461,11 @@ function comsatel_customize_register($wp_customize)
 	));
 
 	$socials = array(
-		'instagram' => array('label' => 'Instagram URL', 'default' => 'https://instagram.com/comsatel'),
-		'twitter' => array('label' => 'Twitter URL', 'default' => 'https://twitter.com/comsatel'),
-		'linkedin' => array('label' => 'LinkedIn URL', 'default' => 'https://linkedin.com/company/comsatel'),
-		'facebook' => array('label' => 'Facebook URL', 'default' => 'https://facebook.com/comsatel'),
-		'youtube' => array('label' => 'YouTube URL', 'default' => 'https://youtube.com/comsatel'),
+		'instagram' => array('label' => 'Instagram URL', 'default' => ''),
+		'twitter' => array('label' => 'Twitter URL', 'default' => ''),
+		'linkedin' => array('label' => 'LinkedIn URL', 'default' => ''),
+		'facebook' => array('label' => 'Facebook URL', 'default' => ''),
+		'youtube' => array('label' => 'YouTube URL', 'default' => ''),
 	);
 
 	foreach ($socials as $key => $data) {

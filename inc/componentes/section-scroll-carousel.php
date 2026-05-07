@@ -105,19 +105,19 @@ $no_slider = $card_count <= 3;
 
                 <!-- Carousel Section -->
                 <div class="scroll-view carousel-view" data-view="carousel">
-                    <div class="container mx-auto px-4 lg:px-8 py-16 lg:py-24 h-full flex items-center">
+                    <div class="container mx-auto px-4 lg:px-8 py-8 lg:py-12 flex items-center">
                         <!-- Swiper Container -->
                         <div class="<?php echo $no_slider ? 'scrollCarouselStatic w-full' : 'swiper scrollCarouselSwiper w-full'; ?>"
                             <?php echo $no_slider ? 'data-no-slider="1"' : ''; ?>>
                             <div class="<?php echo $no_slider ? 'static-cards-wrapper' : 'swiper-wrapper'; ?>">
                                 <?php foreach ($cards as $index => $card): ?>
                                     <div class="<?php echo $no_slider ? 'static-card' : 'swiper-slide'; ?>">
-                                        <div class="bg-[#2B2A2A] text-white rounded-2xl p-8 flex flex-col shadow-xl mb-10">
+                                        <div class="carousel-card bg-[#2B2A2A] text-white rounded-2xl p-6 flex flex-col shadow-xl">
 
                                             <!-- Icon Badge -->
-                                            <div class="flex items-start justify-between mb-6">
+                                            <div class="flex items-start justify-between mb-4">
                                                 <div
-                                                    class="w-12 h-12 bg-white text-dark rounded-full flex items-center justify-center font-medium text-xl">
+                                                    class="w-10 h-10 bg-white text-dark rounded-full flex items-center justify-center font-medium text-lg flex-shrink-0">
                                                     <?php if (!empty($card['icon'])): ?>
                                                         <?php echo esc_html($card['icon']); ?>
                                                     <?php endif; ?>
@@ -126,25 +126,38 @@ $no_slider = $card_count <= 3;
 
                                             <!-- Image -->
                                             <?php if (!empty($card['image'])): ?>
-                                                <div class="rounded-lg overflow-hidden">
+                                                <div class="rounded-lg overflow-hidden flex-shrink-0">
                                                     <img src="<?php echo esc_url($card['image']); ?>"
                                                         alt="<?php echo esc_attr(!empty($card['title']) ? $card['title'] : 'Card Image'); ?>"
-                                                        class="w-full h-48 object-cover">
+                                                        class="w-full h-36 object-cover">
                                                 </div>
                                             <?php endif; ?>
 
                                             <!-- Content -->
-                                            <div class="flex-1 mt-6">
+                                            <div class="flex-1 mt-4 flex flex-col">
                                                 <?php if (!empty($card['title'])): ?>
-                                                    <h3 class="text-xl font-medium mb-4 text-gray-200 min-h-[60px]">
+                                                    <h3 class="text-base font-medium mb-2 text-gray-200 line-clamp-2">
                                                         <?php echo wp_kses_post($card['title']); ?>
                                                     </h3>
                                                 <?php endif; ?>
                                                 <?php if (!empty($card['description'])): ?>
-                                                    <p class="text-gray-200 leading-relaxed min-h-[100px] text-sm">
+                                                    <p class="text-gray-300 leading-relaxed text-sm line-clamp-3">
                                                         <?php echo wp_kses_post($card['description']); ?>
                                                     </p>
                                                 <?php endif; ?>
+
+                                                <!-- Button — siempre al pie -->
+                                                <?php
+                                                $boton = $card['boton'] ?? null;
+                                                ?>
+                                                <div class="mt-auto pt-4">
+                                                    <?php get_template_part('inc/componentes/button-arrow', null, array(
+                                                        'text'   => !empty($boton['title'])  ? $boton['title']  : 'Ver solución',
+                                                        'url'    => !empty($boton['url'])    ? $boton['url']    : '#',
+                                                        'target' => !empty($boton['target']) ? $boton['target'] : '_self',
+                                                        'class'  => '!text-white hover:!text-primary',
+                                                    )); ?>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -231,9 +244,36 @@ $no_slider = $card_count <= 3;
         transform: translateY(0);
     }
 
-    /* Swiper custom styles */
+    /* Swiper container: altura total = card + paginación */
+    .scrollCarouselSwiper {
+        width: 100%;
+        height: 440px;
+    }
+
+    /* Slide llena el container */
     .scrollCarouselSwiper .swiper-slide {
-        height: auto;
+        height: 400px;
+        display: flex;
+        align-items: stretch;
+    }
+
+    /* Card llena el slide */
+    .carousel-card {
+        height: 100%;
+        width: 100%;
+        box-sizing: border-box;
+        overflow: hidden;
+    }
+
+    /* Modo estático: card directamente a 400px */
+    .static-card {
+        height: 400px;
+        display: flex;
+        align-items: stretch;
+    }
+
+    .static-card .carousel-card {
+        height: 400px;
     }
 
     /* Static layout (≤3 cards, no slider) */
@@ -256,9 +296,6 @@ $no_slider = $card_count <= 3;
         }
     }
 
-    .static-card {
-        height: auto;
-    }
 
     .scrollCarouselSwiper .swiper-pagination-bullet {
         background: #1f2937;

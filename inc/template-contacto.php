@@ -44,8 +44,8 @@ $centros = $centros_group['centro'] ?? [];
             <div class="">
                 <span
                     class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"></span>
-                <h1 class="heading-h1 font-bold text-white mb-10 leading-tight mt-2 uppercase"
-                    data-aos="fade-up" data-aos-duration="1000">
+                <h1 class="heading-h1 font-bold text-white mb-10 leading-tight mt-2 uppercase" data-aos="fade-up"
+                    data-aos-duration="1000">
                     <?php the_title(); ?>
                 </h1>
             </div>
@@ -295,9 +295,11 @@ $centros = $centros_group['centro'] ?? [];
 
                             <!-- Documento de Identidad -->
                             <div class="input-group">
-                                <label id="doc_label" for="numero_documento" class="block text-sm font-medium text-dark mb-2">RUC</label>
+                                <label id="doc_label" for="numero_documento"
+                                    class="block text-sm font-medium text-dark mb-2">RUC</label>
                                 <input type="hidden" id="tipo_documento" name="tipo_documento" value="RUC">
-                                <input type="text" id="numero_documento" name="numero_documento" placeholder="Ingresa los 11 dígitos" maxLength="11"
+                                <input type="text" id="numero_documento" name="numero_documento"
+                                    placeholder="Ingresa los 11 dígitos" maxLength="11"
                                     class="w-full px-4 py-3 text-sm border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-primary transition-all document-input"
                                     required>
                             </div>
@@ -381,7 +383,7 @@ $centros = $centros_group['centro'] ?? [];
 
     <!-- ── Encabezado Centros de Atención ── -->
     <?php if (!empty($centros)): ?>
-        <section class="pb-8 md:pb-16 relative">
+        <section class="pb-8 md:pb-16 relative" id="centros-atencion">
             <div class="container mx-auto px-4">
                 <div class="max-w-4xl">
                     <h2 class="md:text-3xl text-2xl font-medium text-black mb-5 text-left">
@@ -456,7 +458,8 @@ $centros = $centros_group['centro'] ?? [];
 
                                     <!-- Nombre del centro -->
                                     <?php if ($c_nombre): ?>
-                                        <p class="md:text-lg text-sm font-semibold leading-tight text-[#47444D] transition-colors duration-200 group-hover:text-primary m-0">
+                                        <p
+                                            class="md:text-lg text-sm font-semibold leading-tight text-[#47444D] transition-colors duration-200 group-hover:text-primary m-0">
                                             <?php echo esc_html($c_nombre); ?>
                                         </p>
                                     <?php endif; ?>
@@ -599,7 +602,7 @@ $centros = $centros_group['centro'] ?? [];
             const empresaField = document.getElementById('empresa_field');
             const empresaInput = document.getElementById('empresa');
             const successMessage = document.getElementById('success-message-contacto');
-            
+
             const docLabel = document.getElementById('doc_label');
             const tipoDocInput = document.getElementById('tipo_documento');
             const numeroDocInput = document.getElementById('numero_documento');
@@ -609,7 +612,7 @@ $centros = $centros_group['centro'] ?? [];
                     if (e.target.value === 'Empresa') {
                         empresaField.classList.remove('hidden');
                         empresaInput.required = true;
-                        if(docLabel && tipoDocInput && numeroDocInput) {
+                        if (docLabel && tipoDocInput && numeroDocInput) {
                             docLabel.textContent = 'RUC';
                             tipoDocInput.value = 'RUC';
                             numeroDocInput.placeholder = 'Ingresa los 11 dígitos';
@@ -620,7 +623,7 @@ $centros = $centros_group['centro'] ?? [];
                         empresaField.classList.add('hidden');
                         empresaInput.required = false;
                         empresaInput.value = '';
-                        if(docLabel && tipoDocInput && numeroDocInput) {
+                        if (docLabel && tipoDocInput && numeroDocInput) {
                             docLabel.textContent = 'DNI';
                             tipoDocInput.value = 'DNI';
                             numeroDocInput.placeholder = 'Ingresa los 8 dígitos';
@@ -635,16 +638,16 @@ $centros = $centros_group['centro'] ?? [];
             if (tipoClienteChecked && tipoClienteChecked.value === 'Empresa') {
                 empresaField.classList.remove('hidden');
                 empresaInput.required = true;
-                if(docLabel) docLabel.textContent = 'RUC';
-                if(tipoDocInput) tipoDocInput.value = 'RUC';
-                if(numeroDocInput) {
+                if (docLabel) docLabel.textContent = 'RUC';
+                if (tipoDocInput) tipoDocInput.value = 'RUC';
+                if (numeroDocInput) {
                     numeroDocInput.placeholder = 'Ingresa los 11 dígitos';
                     numeroDocInput.maxLength = 11;
                 }
             } else {
-                if(docLabel) docLabel.textContent = 'DNI';
-                if(tipoDocInput) tipoDocInput.value = 'DNI';
-                if(numeroDocInput) {
+                if (docLabel) docLabel.textContent = 'DNI';
+                if (tipoDocInput) tipoDocInput.value = 'DNI';
+                if (numeroDocInput) {
                     numeroDocInput.placeholder = 'Ingresa los 8 dígitos';
                     numeroDocInput.maxLength = 8;
                 }

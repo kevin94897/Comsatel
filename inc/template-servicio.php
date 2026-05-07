@@ -216,8 +216,8 @@ get_header();
     <!-- SECCIÓN TESTIMONIOS -->
     <?php get_template_part('inc/componentes/section-testimonios'); ?>
 
-    <!-- SECCIÓN PRODUCTOS -->
-    <?php get_template_part('inc/componentes/section-productos-slider'); ?>
+    <!-- SECCIÓN SERVICIOS -->
+    <?php get_template_part('inc/componentes/section-servicios-slider'); ?>
 
     <!-- Stats Cards Section -->
     <?php

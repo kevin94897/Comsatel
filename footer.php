@@ -42,7 +42,7 @@
 		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 md:gap-8 lg:gap-12 mb-12">
 
 			<!-- Logo & Social Media -->
-			<div class="lg:col-span-1 mb-12">
+			<div class="lg:col-span-1 md:mb-12 mb-6">
 				<div class="mb-6">
 					<a href="<?php echo home_url(); ?>">
 						<?php comsatel_footer_logo(); ?>
@@ -95,8 +95,8 @@
 				<?php
 				wp_nav_menu(array(
 					'theme_location' => 'footer-empresa',
-					'menu_class' => 'accordion-content space-y-3 max-h-0 opacity-0 lg:max-h-full lg:opacity-100 overflow-hidden pl-0 transition-all duration-300',
-					'container' => 'nav',
+					'menu_class' => 'accordion-content space-y-3 my-0 max-h-0 opacity-0 lg:max-h-full lg:opacity-100 overflow-hidden pl-0 transition-all duration-300',
+					'container' => false,
 					'fallback_cb' => false,
 				));
 				?>
@@ -119,8 +119,8 @@
 				<?php
 				wp_nav_menu(array(
 					'theme_location' => 'footer-legal',
-					'menu_class' => 'accordion-content space-y-3 max-h-0 opacity-0 lg:max-h-full lg:opacity-100 overflow-hidden pl-0 transition-all duration-300',
-					'container' => 'nav',
+					'menu_class' => 'accordion-content space-y-3 my-0 max-h-0 opacity-0 lg:max-h-full lg:opacity-100 overflow-hidden pl-0 transition-all duration-300',
+					'container' => false,
 					'fallback_cb' => false,
 				));
 				?>
@@ -143,8 +143,8 @@
 				<?php
 				wp_nav_menu(array(
 					'theme_location' => 'footer-contacto',
-					'menu_class' => 'accordion-content space-y-3 max-h-0 opacity-0 lg:max-h-full lg:opacity-100 overflow-hidden pl-0 transition-all duration-300',
-					'container' => 'nav',
+					'menu_class' => 'accordion-content space-y-3 my-0 max-h-0 opacity-0 lg:max-h-full lg:opacity-100 overflow-hidden pl-0 transition-all duration-300',
+					'container' => false,
 					'fallback_cb' => false,
 				));
 				?>

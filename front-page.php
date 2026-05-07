@@ -23,8 +23,7 @@ get_header(); ?>
             <div class=" flex items-center h-full">
                 <div class="max-w-xl text-center md:text-left">
                     <?php if (!empty($hero['titulo'])): ?>
-                        <h1 class="heading-h1 font-medium text-white mb-6"
-                            data-aos="fade-up" data-aos-duration="1000">
+                        <h1 class="heading-h1 font-medium text-white mb-6" data-aos="fade-up" data-aos-duration="1000">
                             <?php echo wp_kses_post($hero['titulo']); ?>
                         </h1>
                     <?php endif; ?>
@@ -141,7 +140,7 @@ get_header(); ?>
             </div>
 
             <?php if (!empty($soluciones['lista_de_soluciones'])): ?>
-                <?php 
+                <?php
                 $total_soluciones = count($soluciones['lista_de_soluciones']);
                 foreach ($soluciones['lista_de_soluciones'] as $index => $item):
                     $is_even = ($index % 2 === 0);
@@ -173,7 +172,7 @@ get_header(); ?>
                             <h3 class="heading-h3 font-medium text-black mb-6">
                                 <?php echo wp_kses_post($item['titulo']); ?>
                             </h3>
-                            <p class="leading-relaxed mb-10 text-gray">
+                            <p class="leading-relaxed mb-10 text-gray text-sm md:text-base">
                                 <?php echo wp_kses_post($item['descripcion']); ?>
                             </p>
                             <?php if (!empty($item['boton'])): ?>
@@ -233,10 +232,8 @@ get_header(); ?>
             $scroll_carousel_args['cards'][] = array(
                 'title' => $item['titulo'] ?? null,
                 'description' => $item['descripcion'] ?? null,
-                'image' => !empty($item['imagen'])
-                    ? $item['imagen']['url']
-                    : '',
-                'button' => $item['boton'] ?? null
+                'image' => !empty($item['imagen']) ? $item['imagen']['url'] : '',
+                'boton' => $item['boton'] ?? null,
             );
         }
     }
@@ -297,9 +294,9 @@ get_header(); ?>
                     </div>
 
                     <div class="hidden lg:block lg:w-1/3">
-                        <div class="relative max-w-[280px] mx-auto">
-                            <img src="<?php echo get_template_directory_uri(); ?>/images/comsatel_cards-phone.png"
-                                alt="Beneficios Comsatel" class="w-full h-auto">
+                        <div class="relative max-w-[300px] mx-auto">
+                            <img src=<?php echo $aptitudes['imagen']['url']; ?> alt="Beneficios Comsatel"
+                                class="w-full h-auto">
                         </div>
                     </div>
                 </div>

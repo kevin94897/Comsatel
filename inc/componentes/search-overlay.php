@@ -79,21 +79,34 @@
                         <p class="text-sm font-semibold text-gray-900 mb-4">Lo más buscado</p>
                         <div class="flex flex-col gap-2">
                             <?php
-                            $trending = ['Control de combustible', 'Monitoreo de presión', 'Sistema de refrigeración', 'Control de temperatura'];
-                            foreach ($trending as $item):
-                                ?>
-                                <a href="#"
-                                    class="flex items-center gap-3 text-gray-600 hover:text-primary transition-colors text-sm group">
-                                    <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
-                                        xmlns="http://www.w3.org/2000/svg">
-                                        <path
-                                            d="M13.6933 3.70516L10.7479 9.21715C9.75585 11.0604 7.33846 8.54319 6.32148 10.522L4.30543 14.2937M13.6933 3.70516L15.1786 8.74068M13.6933 3.70516L8.65783 5.19045"
-                                            stroke="#1E1E1E" stroke-linecap="round" stroke-linejoin="round" />
-                                    </svg>
+                            $trending_args = array(
+                                'post_type' => 'post',
+                                'posts_per_page' => 4,
+                                'post_status' => 'publish',
+                                'orderby' => 'comment_count date',
+                                'order' => 'DESC'
+                            );
+                            $trending_query = new WP_Query($trending_args);
+                            
+                            if ($trending_query->have_posts()):
+                                while ($trending_query->have_posts()): $trending_query->the_post();
+                                    ?>
+                                    <a href="<?php echo esc_url(get_permalink()); ?>"
+                                        class="flex items-center gap-3 text-gray-600 hover:text-primary transition-colors text-sm group">
+                                        <svg width="18" height="18" viewBox="0 0 18 18" fill="none"
+                                            xmlns="http://www.w3.org/2000/svg" class="shrink-0">
+                                            <path
+                                                d="M13.6933 3.70516L10.7479 9.21715C9.75585 11.0604 7.33846 8.54319 6.32148 10.522L4.30543 14.2937M13.6933 3.70516L15.1786 8.74068M13.6933 3.70516L8.65783 5.19045"
+                                                stroke="#1E1E1E" stroke-linecap="round" stroke-linejoin="round" />
+                                        </svg>
 
-                                    <span><?php echo $item; ?></span>
-                                </a>
-                            <?php endforeach; ?>
+                                        <span class="line-clamp-2"><?php echo esc_html(get_the_title()); ?></span>
+                                    </a>
+                                <?php 
+                                endwhile;
+                                wp_reset_postdata();
+                            endif;
+                            ?>
                         </div>
                     </div>
                 </div>

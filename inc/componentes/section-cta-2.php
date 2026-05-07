@@ -16,10 +16,9 @@ if (empty($titulo) && empty($descripcion) && empty($boton)) {
 
     <?php if ($fondo_url): ?>
         <!-- Background image -->
-        <div
-            class="absolute inset-0 flex items-end justify-center overflow-hidden pointer-events-none max-w-screen-2xl m-auto">
+        <div class="absolute inset-0 flex items-center justify-center overflow-hidden pointer-events-none m-auto">
             <img src="<?php echo esc_url($fondo_url); ?>" alt="<?php echo esc_attr($titulo ?? ''); ?>"
-                class="md:w-full h-full object-cover md:max-h-none md:object-cover object-right">
+                class="md:w-full h-full object-cover md:max-h-none md:object-cover object-center">
         </div>
     <?php endif; ?>
 
@@ -32,7 +31,7 @@ if (empty($titulo) && empty($descripcion) && empty($boton)) {
             <!-- CTA Card -->
             <div class="p-2 lg:p-10 text-right md:text-left">
                 <?php if (!empty($titulo)): ?>
-                    <h3 class="heading-h2 font-medium text-white mb-4 max-w-[300px] md:max-w-full ml-auto md:ml-0">
+                    <h3 class="heading-h2 font-medium text-white mb-2 max-w-[300px] md:max-w-full ml-auto md:ml-0">
                         <?php echo wp_kses_post($titulo); ?>
                     </h3>
                 <?php endif; ?>
