@@ -12,7 +12,7 @@
 
 ?>
 
-<footer id="colophon" class="site-footer bg-gray-100 pt-8 pb-8">
+<footer id="colophon" class="site-footer bg-gray-200 pt-8 pb-8">
 	<div class="container mx-auto px-4 lg:px-8">
 
 		<!-- Top Section: Quality Certifications -->
@@ -31,7 +31,7 @@
 							?>
 							<img src="<?php echo esc_url($logo['url']); ?>"
 								alt="<?php echo esc_attr($logo['alt'] ?: 'Certificación'); ?>"
-								class="max-w-[50px] h-15 lg:h-20 w-auto object-contain">
+								class="w-20 h-20 lg:w-24 lg:h-24 object-contain">
 						<?php endif;
 					endwhile; ?>
 				<?php endif; ?>
@@ -39,7 +39,7 @@
 		</div>
 
 		<!-- Main Footer Content -->
-		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 md:gap-8 lg:gap-12 mb-12">
+		<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 md:gap-8 lg:gap-12 mb-5 md:mb-12">
 
 			<!-- Logo & Social Media -->
 			<div class="lg:col-span-1 md:mb-12 mb-6">
@@ -79,7 +79,7 @@
 			</div>
 
 			<!-- Empresa Column -->
-			<div class="lg:col-span-1 border-b border-gray-200">
+			<div class="lg:col-span-1 border-b md:border-b-0 border-gray-200">
 				<p
 					class="text-lg font-semibold text-dark my-4 cursor-pointer accordion-title flex items-center justify-between lg:cursor-default">
 					Empresa
@@ -103,7 +103,7 @@
 			</div>
 
 			<!-- Avisos legales Column -->
-			<div class="lg:col-span-1 border-b border-gray-200">
+			<div class="lg:col-span-1 border-b md:border-b-0 border-gray-200">
 				<p
 					class="text-lg font-semibold text-dark my-4 cursor-pointer accordion-title flex items-center justify-between lg:cursor-default">
 					Avisos Legales
@@ -155,7 +155,7 @@
 
 				<!-- Libro de reclamaciones Button -->
 				<a href="<?php echo esc_url(home_url('/libro-de-reclamaciones/')); ?>"
-					class="btn btn-outline !rounded-md !text-sm !px-4 !py-3 text-left gap-2 text-left">
+					class="btn btn-outline !rounded-md !text-sm !px-4 !py-3 text-left gap-2 text-left my-5 md:my-0">
 					<svg class="w-6 h-6 min-h-6 min-w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
 							d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />

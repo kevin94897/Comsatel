@@ -25,6 +25,7 @@ function comsatel_content_width()
 	$GLOBALS['content_width'] = apply_filters('comsatel_content_width', 640);
 }
 add_action('after_setup_theme', 'comsatel_content_width', 0);
+// add_filter('show_admin_bar', '__return_false');
 
 /**
  * Configuración centralizada de correos electrónicos
@@ -33,7 +34,7 @@ add_action('after_setup_theme', 'comsatel_content_width', 0);
 function comsatel_get_recipient_email($type = 'general')
 {
     // [MODO DE PRUEБАS] Cambia esto a "false" cuando el sitio esté en Producción (en vivo)
-    $is_test_mode = false; 
+    $is_test_mode = true; 
     
     // Correo o correos que recibirán los formularios mientras $is_test_mode sea true
     $test_emails = ['kevin.gomez@nerd.pe'];
@@ -118,9 +119,6 @@ function comsatel_is_vite_dev(): bool
  * WordPress lo registre antes de procesar los script tags.
  */
 add_filter('script_loader_tag', function (string $tag, string $handle): string {
-	if (!comsatel_is_vite_dev())
-		return $tag;
-
 	$module_handles = [
 		'vite-client',
 		'comsatel-scripts',
@@ -131,12 +129,20 @@ add_filter('script_loader_tag', function (string $tag, string $handle): string {
 		'comsatel-validator',
 		'comsatel-validator-init',
 	];
-	if (in_array($handle, $module_handles, true)) {
-		// Quitar ?ver=xxxx que WordPress agrega y rompe el dev server de Vite
-		$tag = preg_replace('/\?ver=[^\'"\s]+/', '', $tag);
-		$tag = str_replace(' defer', '', $tag);
-		$tag = str_replace('<script ', '<script type="module" ', $tag);
+
+	if (!in_array($handle, $module_handles, true)) {
+		return $tag;
 	}
+
+	if (comsatel_is_vite_dev()) {
+		// En dev: quitar ?ver=xxxx que rompe el dev server de Vite
+		$tag = preg_replace('/\?ver=[^\'"\s]+/', '', $tag);
+	}
+
+	// En dev y producción: marcar como módulo ES (evita conflictos de variables minificadas)
+	$tag = str_replace(' defer', '', $tag);
+	$tag = str_replace('<script ', '<script type="module" ', $tag);
+
 	return $tag;
 }, 20, 2);
 
@@ -215,6 +221,17 @@ function comsatel_scripts()
 			[],
 			filemtime(get_template_directory() . '/dist/css/tailwind.css')
 		);
+
+		// Cotizador CSS — intl-tel-input estilos extraídos por Vite desde cotizador.js
+		$cotizador_css = get_template_directory() . '/dist/css/cotizador.css';
+		if (file_exists($cotizador_css)) {
+			wp_enqueue_style(
+				'comsatel-cotizador-css',
+				get_template_directory_uri() . '/dist/css/cotizador.css',
+				[],
+				filemtime($cotizador_css)
+			);
+		}
 
 		// Style.css WP
 		wp_enqueue_style(
@@ -343,7 +360,17 @@ function comsatel_scripts()
 		'ajax_url' => admin_url('admin-ajax.php'),
 		'home_url' => home_url(),
 		'nonce_contacto' => wp_create_nonce('comsatel_contacto_nonce'),
+		'whatsapp_number' => get_theme_mod('comsatel_whatsapp_number', ''),
 	));
+
+	// Fix intl-tel-input flag paths: Vite outputs /assets/flags.webp but WP needs the full theme URI
+	$flags_base = get_template_directory_uri() . '/dist/assets/';
+	wp_add_inline_script(
+		'comsatel-cotizador',
+		'document.documentElement.style.setProperty("--iti-path-flags-1x","url(\"' . esc_js($flags_base . 'flags.webp') . '\")");'
+		. 'document.documentElement.style.setProperty("--iti-path-flags-2x","url(\"' . esc_js($flags_base . 'flags@2x.webp') . '\")");',
+		'after'
+	);
 }
 
 add_action('wp_enqueue_scripts', 'comsatel_scripts', 99);
@@ -521,7 +548,7 @@ function comsatel_nav_menu_link_attributes($atts, $item, $args, $depth)
 {
 	// Add classes to primary menu links
 	if ('menu-1' === $args->theme_location) {
-		$atts['class'] = 'text-white hover:text-gray-200 transition-colors duration-200 font-medium';
+		$atts['class'] = 'text-white hover:text-gray-200 transition-colors duration-200';
 	}
 
 	// Add classes to footer menu links

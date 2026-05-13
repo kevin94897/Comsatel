@@ -41,7 +41,7 @@
         </div>
 
         <!-- Form Content -->
-        <form id="cotizador-form" class="p-8 pt-6">
+        <form id="cotizador-form" class="p-8 pt-6" novalidate>
 
             <!-- STEP 1: Personal Information -->
             <div id="step-1" class="step-container space-y-6">
@@ -93,8 +93,8 @@
                         class="document-input-group flex border border-gray-200 rounded-md overflow-hidden focus-within:border-primary transition-colors">
                         <select name="tipo_doc"
                             class="w-24 sm:w-32 p-4 border-r border-gray-200 text-sm md:text-lg focus:outline-none appearance-none bg-no-repeat bg-[right_1rem_center] bg-[length:1em_1em] !rounded-r-none">
-                            <option value="DNI">DNI</option>
-                            <option value="RUC" selected>RUC</option>
+                            <option value="DNI" selected>DNI</option>
+                            <option value="RUC">RUC</option>
                             <option value="CE">CE</option>
                         </select>
 
@@ -104,7 +104,7 @@
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
+                    <div id="nombre-field-container">
                         <label class="flex items-center gap-3 mb-2">
                             <span
                                 class="flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-full bg-gray-100 text-dark font-medium text-sm">3</span>
@@ -113,23 +113,23 @@
                         <input type="text" name="nombre_completo" placeholder="Ej. Nombre Apellido"
                             class="w-full p-4 border-2 border-gray-200  focus:border-primary outline-none" required>
                     </div>
+                    <div id="razon-social-field-container" class="hidden">
+                        <label class="flex items-center gap-3 mb-2">
+                            <span
+                                class="flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-full bg-gray-100 text-dark font-medium text-sm">3</span>
+                            <span class="text-base md:text-lg font-medium text-dark">Razón Social</span>
+                        </label>
+                        <input type="text" name="razon_social" placeholder="Nombre de la empresa"
+                            class="w-full p-4 border-2 border-gray-200  focus:border-primary outline-none">
+                    </div>
                     <div id="phone-field-container">
                         <label class="flex items-center gap-3 mb-2">
                             <span
                                 class="flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-full bg-gray-100 text-dark font-medium text-sm">4</span>
                             <span class="text-base md:text-lg font-medium text-dark">Nro Teléfono</span>
                         </label>
-                        <input type="tel" name="telefono" placeholder="+51 9XX XXX XXX"
+                        <input type="tel" name="telefono" placeholder=""
                             class="w-full p-4 border-2 border-gray-200  focus:border-primary outline-none" required>
-                    </div>
-                    <div id="razon-social-field-container" class="hidden">
-                        <label class="flex items-center gap-3 mb-2">
-                            <span
-                                class="flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-full bg-gray-100 text-dark font-medium text-sm">4</span>
-                            <span class="text-base md:text-lg font-medium text-dark">Razón Social</span>
-                        </label>
-                        <input type="text" name="razon_social" placeholder="Nombre de la empresa"
-                            class="w-full p-4 border-2 border-gray-200  focus:border-primary outline-none">
                     </div>
                 </div>
 
@@ -188,7 +188,7 @@
                             <div class="product-category border-2 border-gray-200 rounded-md md:p-6 p-4 cursor-pointer overflow-hidden transition-all duration-300 h-fit"
                                 data-expanded="false">
                                 <div class="category-header flex justify-between items-center mb-0">
-                                    <span class="text-md font-medium">Monitoreo GPS</span>
+                                    <span class="text-md font-medium">Rastreo GPS</span>
                                     <svg width="37" height="45" viewBox="0 0 37 45" fill="none"
                                         xmlns="http://www.w3.org/2000/svg">
                                         <path fill-rule="evenodd" clip-rule="evenodd"
@@ -225,6 +225,12 @@
                                         class="product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
                                         data-required-group="productos">
                                     <span>Candado GPS</span>
+                                </label>
+                                <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
+                                    <input type="checkbox" name="productos[]" value="GPS Particular"
+                                        class="product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+                                        data-required-group="productos">
+                                    <span>GPS Particular</span>
                                 </label>
                             </div>
                         </div><!-- .category-item-container -->
@@ -332,6 +338,12 @@
                         <?php endforeach; ?>
                     </div>
                 </div>
+
+                <label class="flex items-start gap-3 cursor-pointer">
+                    <input type="checkbox" name="acepto_politica" required
+                        class="mt-0.5 w-4 h-4 flex-shrink-0 text-primary border-gray-300 rounded focus:ring-primary cursor-pointer">
+                    <span class="text-sm text-gray-600">Acepto la <a href="<?php echo esc_url( home_url( '/politica-de-datos/' ) ); ?>" target="_blank" rel="noopener" class="text-primary underline hover:no-underline">política de privacidad de datos</a></span>
+                </label>
 
                 <div class="flex flex-col-reverse md:flex-row justify-between gap-2 md:gap-4 pt-2">
                     <button type="button" id="prev-to-step-1"

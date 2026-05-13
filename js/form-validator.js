@@ -91,7 +91,7 @@ class ComsatelValidator {
                 if (!isValid) errorMessage = "Correo electrónico inválido.";
             } else if (input.type === 'tel' || input.name === 'telefono' || input.name === 'telefono_titular') {
                 isValid = this.validatePhone(input.value);
-                if (!isValid) errorMessage = "Debe empezar con 9 y tener 9 dígitos.";
+                if (!isValid) errorMessage = "Ingresa un número de teléfono válido.";
             } else if (input.name === 'numero_documento' || input.name === 'num_doc' || input.id === 'numero_documento' || input.name === 'nro_documento') {
                 const tipo = this.form.querySelector('[name="tipo_doc"], [name="tipo_documento"]')?.value || "DNI";
                 isValid = this.validateDocument(input.value, tipo);
@@ -101,7 +101,7 @@ class ComsatelValidator {
             }
         }
 
-        if (!isValid && input.value.trim() !== "") {
+        if (!isValid && errorMessage && input.value.trim() !== "") {
             this.showError(input, errorMessage);
         }
 
@@ -113,9 +113,9 @@ class ComsatelValidator {
     }
 
     validatePhone(phone) {
-        const cleanPhone = phone.replace(/\D/g, '');
-        // Allow +51 prefix but check core
-        return /^9\d{8}$/.test(cleanPhone) || (cleanPhone.startsWith('51') && /^519\d{8}$/.test(cleanPhone));
+        // Accept any international number: 7–15 digits (strip spaces, dashes, parens)
+        const clean = phone.replace(/[\s\-().+]/g, '');
+        return /^\d{7,15}$/.test(clean);
     }
 
     validateDocument(value, tipo) {
@@ -133,17 +133,18 @@ class ComsatelValidator {
 
     showError(input, message) {
         const group = input.closest('.document-input-group, .input-group');
-        const target = group || input;
+        const itiWrapper = input.closest('.iti');
+        const target = group || itiWrapper || input;
+        const errorParent = (itiWrapper && !group) ? itiWrapper.parentElement : target.parentElement;
 
         target.classList.add('border-accent-red', 'text-accent-red', 'animate-shake');
         target.classList.remove('border-gray-200', 'border-gray-300');
 
-        let errorDisplay = target.parentElement.querySelector(':scope > .error-msg');
+        let errorDisplay = errorParent.querySelector(':scope > .error-msg');
         if (!errorDisplay) {
             errorDisplay = document.createElement('span');
             errorDisplay.className = 'error-msg text-xs text-accent-red mt-1 block opacity-0 transition-opacity duration-300';
-            target.parentElement.appendChild(errorDisplay);
-            // Force reflow for animation
+            errorParent.appendChild(errorDisplay);
             setTimeout(() => errorDisplay.classList.remove('opacity-0'), 10);
         }
         errorDisplay.textContent = message;
@@ -151,16 +152,14 @@ class ComsatelValidator {
 
     clearError(input) {
         const group = input.closest('.document-input-group, .input-group');
-        const target = group || input;
+        const itiWrapper = input.closest('.iti');
+        const target = group || itiWrapper || input;
+        const errorParent = (itiWrapper && !group) ? itiWrapper.parentElement : target.parentElement;
 
         target.classList.remove('border-accent-red', 'text-accent-red', 'animate-shake');
-        if (group) {
-            target.classList.add('border-gray-200');
-        } else {
-            target.classList.add('border-gray-300'); // Fallback for standard inputs if needed
-        }
+        target.classList.add(group ? 'border-gray-200' : 'border-gray-300');
 
-        const errorDisplay = target.parentElement.querySelector(':scope > .error-msg');
+        const errorDisplay = errorParent.querySelector(':scope > .error-msg');
         if (errorDisplay) {
             errorDisplay.classList.add('opacity-0');
             setTimeout(() => errorDisplay.remove(), 300);
@@ -216,7 +215,8 @@ class ComsatelValidator {
 
     validateForm() {
         let isFormValid = true;
-        const requiredFields = this.form.querySelectorAll('[required]');
+        const requiredFields = Array.from(this.form.querySelectorAll('[required]'))
+            .filter(el => el.type !== 'search' && !el.classList.contains('iti__search-input') && !el.closest('.iti__dropdown-content'));
 
         requiredFields.forEach(field => {
             // Simple validation for required
@@ -258,6 +258,9 @@ class ComsatelValidator {
         return isFormValid;
     }
 
+    showLoader() { _showLoader(); }
+    hideLoader() { _hideLoader(); }
+
     // Alias for better naming
     isFormValid() {
         return this.validateForm();
@@ -273,7 +276,7 @@ class ComsatelValidator {
         // Handle step buttons visibility/state if needed
         this.nextButtons.forEach(btn => {
             // We check only the current visible step for "Next" buttons
-            const currentStep = btn.closest('.step-content, #step-1, #step-2');
+            const currentStep = btn.closest('.step-container');
             if (currentStep) {
                 const stepValid = this.validateStep(currentStep);
                 btn.disabled = !stepValid;
@@ -285,10 +288,14 @@ class ComsatelValidator {
 
     validateStep(stepElement) {
         let isValid = true;
-        const fields = stepElement.querySelectorAll('[required]');
+        const fields = Array.from(stepElement.querySelectorAll('[required]'))
+            .filter(el => el.type !== 'search' && !el.classList.contains('iti__search-input') && !el.closest('.iti__dropdown-content'));
         fields.forEach(field => {
+            if (field.type === 'checkbox') {
+                if (!field.checked) isValid = false;
+                return;
+            }
             if (!field.value.trim()) isValid = false;
-            // Add specific format checks per step if necessary
             if (field.type === 'email' && !this.validateEmail(field.value)) isValid = false;
             if ((field.type === 'tel' || field.name === 'telefono') && !this.validatePhone(field.value)) isValid = false;
             if (field.name === 'numero_documento' || field.id === 'numero_documento' || field.name === 'nro_documento') {
@@ -300,10 +307,39 @@ class ComsatelValidator {
     }
 }
 
+// ── Loader overlay ──────────────────────────────────────────────────────────
+function _showLoader() {
+    document.querySelector('.comsatel-form-loader')?.remove();
+    const el = document.createElement('div');
+    el.className = 'comsatel-form-loader fixed inset-0 z-[9998] flex items-center justify-center';
+    el.style.cssText = 'background:rgba(255,255,255,0.72);backdrop-filter:blur(4px);opacity:0;transition:opacity .25s;';
+    el.innerHTML = `
+        <div class="bg-white rounded-2xl shadow-2xl flex flex-col items-center gap-3 px-12 py-8">
+            <svg class="animate-spin w-12 h-12 text-primary" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+            </svg>
+            <span class="text-sm font-semibold text-gray-700">Enviando...</span>
+        </div>
+    `;
+    document.body.appendChild(el);
+    requestAnimationFrame(() => { el.style.opacity = '1'; });
+}
+
+function _hideLoader() {
+    const el = document.querySelector('.comsatel-form-loader');
+    if (!el) return;
+    el.style.opacity = '0';
+    setTimeout(() => el.remove(), 250);
+}
+
 // Global initialization helper
 window.initComsatelValidator = function (formId, options) {
     return new ComsatelValidator(formId, options);
 };
+
+window.comsatelShowLoader = _showLoader;
+window.comsatelHideLoader = _hideLoader;
 
 // Exponer clase globalmente para compatibilidad con ES modules (Vite HMR)
 window.ComsatelValidator = ComsatelValidator;

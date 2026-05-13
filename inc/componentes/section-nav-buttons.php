@@ -33,7 +33,7 @@ $component_id = 'scroll-buttons-' . uniqid();
     }
 
     .animated-nav-btn {
-        padding: 0.5rem 1rem;
+        padding: 0.8rem 1.4rem;
         font-size: 0.75rem;
         min-width: 40px;
     }
@@ -45,7 +45,7 @@ $component_id = 'scroll-buttons-' . uniqid();
             background-color: transparent !important;
             color: white;
             transition: color 0.3s ease;
-            font-size: 0.8rem;
+            font-size: 1rem;
         }
 
         .animated-nav-btn.active,

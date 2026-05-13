@@ -16,13 +16,12 @@ if (empty($banner) || empty($cards))
             <div class="swiper scrollCarouselSwiper w-full px-4">
                 <div class="swiper-wrapper">
                     <?php foreach ($cards as $index => $card): ?>
-                        <div class="swiper-slide !h-auto">
-                            <div
-                                class="bg-white rounded-2xl md:p-6 p-4 flex flex-col shadow-lg mb-10 !h-[300px] md:!h-[350px]">
+                        <div class="swiper-slide flex flex-col pb-8">
+                            <div class="bg-white rounded-2xl md:p-4 p-2 flex flex-col shadow-lg h-full">
 
                                 <!-- Image -->
                                 <?php if (!empty($card['image'])): ?>
-                                    <div class="rounded-lg overflow-hidden shrink-0 md:h-48 h-40">
+                                    <div class="rounded-lg overflow-hidden shrink-0 w-full aspect-square">
                                         <img src="<?php echo esc_url($card['image']); ?>"
                                             alt="<?php echo esc_attr(!empty($card['title']) ? $card['title'] : 'Carrousel Image'); ?>"
                                             class="w-full h-full object-cover">
@@ -30,22 +29,22 @@ if (empty($banner) || empty($cards))
                                 <?php endif; ?>
 
                                 <!-- Content -->
-                                <div class="mt-4 overflow-hidden flex flex-col h-full justify-between">
+                                <div class="mt-4 flex-1 flex flex-col justify-between">
                                     <div>
                                         <?php if (!empty($card['title'])): ?>
-                                            <h3 class="md:text-lg text-sm font-medium mb-2 text-gray-900 line-clamp-2">
+                                            <h3 class="md:text-lg text-sm !leading-tight font-medium mb-2 text-gray-900 line-clamp-2">
                                                 <?php echo wp_kses_post($card['title']); ?>
                                             </h3>
                                         <?php endif; ?>
 
                                         <?php if (!empty($card['description'])): ?>
-                                            <p class="md:text-base text-xs text-gray leading-relaxed line-clamp-3">
+                                            <p class="md:text-sm text-xs text-gray leading-relaxed line-clamp-3">
                                                 <?php echo wp_kses_post($card['description']); ?>
                                             </p>
                                         <?php endif; ?>
                                     </div>
 
-                                    <div class="text-right pr-2 md:pr-4">
+                                    <div class="text-right pr-2 md:pr-4 mt-4">
                                         <?php
                                         $boton = $card['boton'] ?? null;
                                         get_template_part('inc/componentes/button-arrow', null, array(
@@ -75,7 +74,13 @@ if (empty($banner) || empty($cards))
 </section>
 
 <style>
-    /* Carousel styles */
+    /* Iguala la altura de todos los slides al más alto */
+    .scrollCarouselSwiper .swiper-wrapper {
+        align-items: stretch !important;
+    }
+    .scrollCarouselSwiper .swiper-slide {
+        height: auto !important;
+    }
 </style>
 
 <script>
@@ -84,7 +89,7 @@ if (empty($banner) || empty($cards))
             loop: true,
             speed: 600,
             slidesPerView: 1.2,
-            spaceBetween: 20,
+            spaceBetween: 10,
             centeredSlides: false,
             autoplay: {
                 delay: 5000,
@@ -92,13 +97,17 @@ if (empty($banner) || empty($cards))
             },
             navigation: false,
             breakpoints: {
+                400: {
+                    slidesPerView: 2,
+                    spaceBetween: 15,
+                },
                 768: {
                     slidesPerView: 2.2,
-                    spaceBetween: 20,
+                    spaceBetween: 15,
                 },
                 1024: {
-                    slidesPerView: 3.2,
-                    spaceBetween: 30,
+                    slidesPerView: 4,
+                    spaceBetween: 20,
                 },
             },
         });

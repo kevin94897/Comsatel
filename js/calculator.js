@@ -350,17 +350,31 @@
             return;
         }
 
-        const params = new URLSearchParams({
-            vehicles: calculatorState.vehicles,
-            savings:  calculatorState.results.totalSavings.toFixed(2),
-        });
+        const r = calculatorState.results;
+        const whatsappNumber = window.comsatel_vars?.whatsapp_number || '';
+        
+        if (!whatsappNumber) {
+            console.error('WhatsApp number not configured');
+            // Fallback to contact page if WhatsApp is not set
+            window.location.href = (window.comsatel_vars?.home_url || '') + '/contacto';
+            return;
+        }
 
-        // Descomentar para redirigir a contacto:
-        // window.location.href = '/contacto?' + params.toString();
+        const message = `Hola, he usado la calculadora de ahorros y tengo una flota de ${calculatorState.vehicles} vehículos.
+Mis resultados son:
+- Ahorro estimado: S/ ${r.totalSavings.toFixed(2)}
+- Kilometraje mensual: ${calculatorState.kmPerMonth} km
+Me gustaría solicitar asesoría personalizada.`;
+
+        const whatsappUrl = `https://wa.me/${whatsappNumber.replace(/\D/g, '')}?text=${encodeURIComponent(message)}`;
 
         window.calculatorValidator
-            ? window.calculatorValidator.showNotification('Redirigiendo a formulario de contacto...', 'info')
-            : alert('Redirigiendo a formulario de contacto...');
+            ? window.calculatorValidator.showNotification('Redirigiendo a WhatsApp...', 'info')
+            : alert('Redirigiendo a WhatsApp...');
+
+        setTimeout(() => {
+            window.open(whatsappUrl, '_blank');
+        }, 1000);
     }
 
     // ─────────────────────────────────────────────────────────────

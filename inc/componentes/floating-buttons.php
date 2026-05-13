@@ -6,9 +6,10 @@
 ?>
 
 <div class="fixed right-4 top-1/2 -translate-y-1/2 z-[90] flex flex-col gap-3">
-    <!-- Botón Cotizador -->
+    <!-- Botón Cotizador (oculto en la página cotizador) -->
+    <?php if ( ! is_page_template( 'inc/template-cotizador.php' ) ) : ?>
     <button id="floating-open-cotizador"
-        class="w-14 h-14 bg-white rounded-md shadow-lg flex items-center justify-center border border-red-500/20 hover:border-red-500 transition-all group hover:scale-110 active:scale-95 duration-300 bg-transparent cursor-pointer">
+        class="w-14 h-14 bg-white rounded-md shadow-lg flex items-center justify-center border border-red-500 hover:border-red-500 transition-all group duration-300 bg-transparent cursor-pointer">
         <svg width="21" height="30" viewBox="0 0 21 30" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path
                 d="M9.5 12.9847C9.66348 13.2079 9.888 13.3657 10.1395 13.4342C10.708 13.5978 11.2675 13.3103 11.3893 12.7925C11.511 12.2742 11.071 11.7092 10.5027 11.5453C9.9345 11.3814 9.49425 10.8167 9.616 10.2986C9.73775 9.78056 10.297 9.49333 10.8655 9.65694C11.111 9.7225 11.333 9.87722 11.5 10.0992M10.5303 13.48V14M10.5303 9V9.61111"
@@ -24,11 +25,12 @@
         </svg>
 
     </button>
+    <?php endif; ?>
 
     <!-- Botón Scroll to Top -->
     <!-- Botón Scroll to Top -->
     <button id="scroll-to-top"
-        class="w-14 h-14 bg-white rounded-md shadow-lg flex items-center justify-center border border-primary hover:border-primary opacity-0 invisible translate-y-10 transition-all duration-300 group hover:scale-110 active:scale-95 bg-transparent cursor-pointer">
+        class="w-14 h-14 bg-white rounded-md shadow-lg flex items-center justify-center border border-primary hover:border-primary opacity-0 invisible translate-y-10 transition-all duration-300 group bg-transparent cursor-pointer">
 
         <svg width="29" height="29" viewBox="0 0 29 29" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M6.5 14.5L14.5 6.5M14.5 6.5L22.5 14.5M14.5 6.5V28.5M0.5 0.5H28.5" stroke="red"

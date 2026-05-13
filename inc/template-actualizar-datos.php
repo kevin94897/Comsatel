@@ -88,7 +88,7 @@ get_header();
                             <div>
                                 <label class="form-label" for="telefono">Teléfono</label>
                                 <input type="tel" id="telefono" name="telefono" class="form-input"
-                                    placeholder="+51 9XX XXX XXX" required>
+                                    placeholder="" required>
                             </div>
 
                             <!-- Correo (Full Width) -->
@@ -207,18 +207,13 @@ get_header();
                 </svg>
                 Actualizando...
             `;
+            window.comsatelShowLoader?.();
 
-            // Here you would normally send the data via AJAX
-            // For now, we'll just show the success message after a delay
             setTimeout(() => {
+                window.comsatelHideLoader?.();
                 form.classList.add('hidden');
                 successMessage.classList.remove('hidden');
-
-                // Scroll to success message
-                successMessage.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                });
+                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }, 1500);
         });
     });

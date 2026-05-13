@@ -206,7 +206,7 @@ $acf_tabs        = get_field('tabs');
                     <!-- Columna Derecha: Formulario -->
                     <div class="lg:col-span-2">
                         <div class="bg-white">
-                            <form id="page-cotizador-form" class="">
+                            <form id="page-cotizador-form" class="" novalidate>
                                 <!-- STEP 1: Personal Information -->
                                 <div id="page-step-1" class="step-container space-y-6">
                                     <!-- Tipo de Cliente -->
@@ -257,8 +257,8 @@ $acf_tabs        = get_field('tabs');
                                             class="document-input-group flex border border-gray-200 rounded-md overflow-hidden focus-within:border-primary transition-colors">
                                             <select name="tipo_doc"
                                                 class="w-24 sm:w-32 p-4 border-r border-gray-200 text-sm md:text-lg focus:outline-none appearance-none bg-no-repeat bg-[right_1rem_center] bg-[length:1em_1em] !rounded-r-none">
-                                                <option value="DNI">DNI</option>
-                                                <option value="RUC" selected>RUC</option>
+                                                <option value="DNI" selected>DNI</option>
+                                                <option value="RUC">RUC</option>
                                                 <option value="CE">CE</option>
                                             </select>
 
@@ -268,7 +268,7 @@ $acf_tabs        = get_field('tabs');
                                     </div>
 
                                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                                        <div>
+                                        <div id="page-nombre-field-container">
                                             <label class="flex items-center gap-3 mb-2">
                                                 <span
                                                     class="flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-full bg-gray-100 text-dark font-medium text-sm">3</span>
@@ -277,23 +277,23 @@ $acf_tabs        = get_field('tabs');
                                             <input type="text" name="nombre_completo" placeholder="Ej. Nombre Apellido"
                                                 class="w-full p-4 border-2 border-gray-200  focus:border-primary outline-none" required>
                                         </div>
+                                        <div id="page-razon-social-field-container" class="hidden">
+                                            <label class="flex items-center gap-3 mb-2">
+                                                <span
+                                                    class="flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-full bg-gray-100 text-dark font-medium text-sm">3</span>
+                                                <span class="text-base md:text-lg font-medium text-dark">Razón Social</span>
+                                            </label>
+                                            <input type="text" name="razon_social" placeholder="Nombre de la empresa"
+                                                class="w-full p-4 border-2 border-gray-200  focus:border-primary outline-none">
+                                        </div>
                                         <div id="page-phone-field-container">
                                             <label class="flex items-center gap-3 mb-2">
                                                 <span
                                                     class="flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-full bg-gray-100 text-dark font-medium text-sm">4</span>
                                                 <span class="text-base md:text-lg font-medium text-dark">Nro Teléfono</span>
                                             </label>
-                                            <input type="tel" name="telefono" placeholder="+51 9XX XXX XXX"
+                                            <input type="tel" name="telefono" placeholder=""
                                                 class="w-full p-4 border-2 border-gray-200  focus:border-primary outline-none" required>
-                                        </div>
-                                        <div id="page-razon-social-field-container" class="hidden">
-                                            <label class="flex items-center gap-3 mb-2">
-                                                <span
-                                                    class="flex items-center justify-center w-6 h-6 md:w-8 md:h-8 rounded-full bg-gray-100 text-dark font-medium text-sm">4</span>
-                                                <span class="text-base md:text-lg font-medium text-dark">Razón Social</span>
-                                            </label>
-                                            <input type="text" name="razon_social" placeholder="Nombre de la empresa"
-                                                class="w-full p-4 border-2 border-gray-200  focus:border-primary outline-none">
                                         </div>
                                     </div>
 
@@ -351,7 +351,7 @@ $acf_tabs        = get_field('tabs');
                                                 <div class="page-product-category border-2 border-gray-200 rounded-md md:p-6 p-4 cursor-pointer overflow-hidden transition-all duration-300 h-fit"
                                                     data-expanded="false">
                                                     <div class="category-header flex justify-between items-center mb-0">
-                                                        <span class="text-md font-medium">Monitoreo GPS</span>
+                                                        <span class="text-md font-medium">Rastreo GPS</span>
                                                         <svg width="37" height="45" viewBox="0 0 37 45" fill="none" xmlns="http://www.w3.org/2000/svg">
                                                             <path fill-rule="evenodd" clip-rule="evenodd" d="M14.2943 18.7432C9.36435 18.7726 8.85431 19.682 6.39198 27.1885C6.32022 27.4012 6.53501 27.5432 6.75917 27.5566C6.75917 27.5566 14.5828 28.251 18.5043 28.251C18.6636 28.251 18.863 28.2434 19.0346 28.2412C19.6545 26.1602 21.5876 24.6318 23.8637 24.6318C25.9376 24.6319 27.7279 25.9005 28.4984 27.7002C29.4969 27.6195 30.2247 27.5583 30.2445 27.5566C30.4691 27.5437 30.6844 27.4016 30.6127 27.1885C27.8944 19.9946 27.3256 19.002 22.6283 18.8398L24.5404 16.5957C27.2 16.9476 29.5255 17.7489 30.266 19.6328L33.2943 26.7393C33.4289 26.5861 33.605 26.4755 33.8012 26.4199L35.0209 26.0762C35.1549 26.0381 35.2956 26.0276 35.434 26.0439C35.5723 26.0603 35.7061 26.1038 35.8275 26.1719C35.9489 26.24 36.056 26.331 36.142 26.4404C36.2281 26.5501 36.292 26.6763 36.3295 26.8105L36.9642 29.0693C37.0022 29.2033 37.0137 29.3432 36.9975 29.4814C36.9811 29.6197 36.9376 29.7536 36.8695 29.875C36.8014 29.9965 36.7095 30.1034 36.6 30.1895C36.4905 30.2755 36.365 30.3395 36.2309 30.377L35.0111 30.7207C34.9705 30.7321 34.9297 30.7359 34.8891 30.7422C35.1217 31.3231 35.267 31.9618 35.267 32.3418V40.6006C35.267 41.0239 35.0903 41.2207 34.808 41.3125V43.5117C34.8083 43.7071 34.7703 43.9015 34.6957 44.082C34.6211 44.2624 34.5115 44.4265 34.3734 44.5645C34.2353 44.7025 34.0715 44.8122 33.891 44.8867C33.7104 44.9613 33.5161 44.9995 33.3207 44.999H29.3344C29.139 44.9994 28.9446 44.9613 28.7641 44.8867C28.5836 44.8122 28.4197 44.7025 28.2816 44.5645C28.1435 44.4263 28.034 44.2616 27.9594 44.0811C27.8849 43.9006 27.8467 43.7069 27.8471 43.5117V41.3926H9.15859V43.5117C9.15893 43.7069 9.12076 43.9007 9.04628 44.0811C8.9717 44.2616 8.86212 44.4264 8.72402 44.5645C8.58606 44.7024 8.42185 44.8112 8.24159 44.8857C8.06119 44.9603 7.86746 44.9993 7.67226 44.999H3.68398C3.48867 44.9994 3.29514 44.9603 3.11464 44.8857C2.93434 44.8112 2.77021 44.7024 2.63222 44.5645C2.49412 44.4264 2.38454 44.2616 2.30995 44.0811C2.23545 43.9006 2.19731 43.7069 2.19765 43.5117V41.3115C1.91567 41.2198 1.73769 41.0239 1.73769 40.6006V32.3408C1.73776 31.9607 1.88254 31.322 2.11562 30.7412C2.07506 30.7346 2.03411 30.7308 1.99355 30.7197L0.773821 30.377C0.639727 30.3395 0.514173 30.2755 0.40468 30.1895C0.295237 30.1035 0.204257 29.9964 0.136125 29.875C0.0679487 29.7535 0.0235783 29.6198 0.00721917 29.4814C-0.00913991 29.3431 0.00246115 29.2024 0.0404223 29.0684L0.676165 26.8096C0.713623 26.6754 0.77764 26.5499 0.863665 26.4404C0.949732 26.3309 1.05662 26.2391 1.17812 26.1709C1.29956 26.1028 1.4334 26.0593 1.57167 26.043C1.71007 26.0266 1.85068 26.0382 1.98476 26.0762L3.20351 26.4189C3.39999 26.4742 3.577 26.5856 3.71132 26.7393L6.73964 19.6328C7.45264 17.7177 9.75618 16.8816 12.4057 16.5273L14.2943 18.7432ZM5.43984 31.6553C4.66429 31.6687 3.77089 32.0907 3.77089 32.6309V34.9346C3.77072 35.0625 3.79526 35.1893 3.84413 35.3076C3.89307 35.426 3.96546 35.5335 4.05605 35.624C4.14662 35.7145 4.2541 35.7861 4.37245 35.835C4.49081 35.8838 4.61745 35.9094 4.7455 35.9092C6.65162 35.9018 11.3471 36.5334 11.3549 34.7139C11.3575 34.1736 10.8992 33.1905 10.3793 33.0439C10.3355 33.0292 6.21134 31.6428 5.43984 31.6553ZM31.5648 31.6553C30.789 31.6428 26.6254 33.0439 26.6254 33.0439C26.1055 33.1905 25.6482 34.1736 25.6508 34.7139C25.6586 36.5333 30.3532 35.9019 32.2592 35.9092C32.3873 35.9094 32.5148 35.8849 32.6332 35.8359C32.7515 35.787 32.859 35.7146 32.9496 35.624C33.0401 35.5335 33.1117 35.4259 33.1605 35.3076C33.2094 35.1893 33.235 35.0626 33.2348 34.9346V32.6309C33.2348 32.0906 32.3405 31.6682 31.5648 31.6553ZM3.44863 29.4658H3.56288C3.53334 29.4278 3.50745 29.3882 3.48085 29.3486L3.44863 29.4658ZM23.8637 26.3682C23.2508 26.3662 22.649 26.5357 22.1273 26.8574C21.6059 27.1791 21.1848 27.6401 20.9115 28.1885C22.8106 28.1104 24.8488 27.9761 26.6195 27.8447C26.3188 27.3893 25.9092 27.0156 25.4281 26.7578C24.9471 26.5001 24.4094 26.3664 23.8637 26.3682Z" fill="#B4B4B4" />
                                                             <path d="M18.5029 0C16.3445 0.00254629 14.2753 0.861083 12.7491 2.38728C11.2229 3.91348 10.3644 5.98271 10.3618 8.14108C10.3598 9.9048 10.9359 11.6206 12.0019 13.0257C12.0019 13.0257 12.2239 13.3181 12.2602 13.3603L18.5029 20.7228L24.7486 13.3566C24.7812 13.3173 25.0039 13.0257 25.0039 13.0257L25.0047 13.0235C26.0699 11.6189 26.6457 9.90396 26.644 8.14108C26.6414 5.98271 25.7829 3.91348 24.2567 2.38728C22.7305 0.861083 20.6613 0.00254629 18.5029 0ZM18.5029 11.1015C17.9174 11.1015 17.345 10.9278 16.8582 10.6026C16.3714 10.2773 15.9919 9.81492 15.7679 9.27398C15.5438 8.73303 15.4852 8.1378 15.5994 7.56354C15.7136 6.98928 15.9956 6.46179 16.4096 6.04777C16.8236 5.63375 17.3511 5.3518 17.9254 5.23757C18.4996 5.12334 19.0949 5.18197 19.6358 5.40603C20.1767 5.6301 20.6391 6.00954 20.9644 6.49638C21.2897 6.98321 21.4633 7.55557 21.4633 8.14108C21.4623 8.92593 21.1501 9.67834 20.5951 10.2333C20.0402 10.7883 19.2877 11.1005 18.5029 11.1015Z" fill="#B4B4B4" />
@@ -382,6 +382,12 @@ $acf_tabs        = get_field('tabs');
                                                             class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
                                                             data-required-group="productos">
                                                         <span>Candado GPS</span>
+                                                    </label>
+                                                    <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
+                                                        <input type="checkbox" name="productos[]" value="GPS Particular"
+                                                            class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+                                                            data-required-group="productos">
+                                                        <span>GPS Particular</span>
                                                     </label>
                                                 </div>
                                             </div><!-- .category-item-container -->
@@ -473,6 +479,12 @@ $acf_tabs        = get_field('tabs');
                                             <?php endforeach; ?>
                                         </div>
                                     </div>
+
+                                    <label class="flex items-start gap-3 cursor-pointer">
+                                        <input type="checkbox" name="acepto_politica" required
+                                            class="mt-0.5 w-4 h-4 flex-shrink-0 text-primary border-gray-300 rounded focus:ring-primary cursor-pointer">
+                                        <span class="text-sm text-gray-600">Acepto la <a href="<?php echo esc_url( home_url( '/politica-de-datos/' ) ); ?>" target="_blank" rel="noopener" class="text-primary underline hover:no-underline">política de privacidad de datos</a></span>
+                                    </label>
 
                                     <div class="flex flex-col-reverse md:flex-row justify-between gap-2 md:gap-4 pt-2">
                                         <button type="button" id="page-prev-to-step-1"
@@ -634,11 +646,19 @@ $acf_tabs        = get_field('tabs');
                 e.preventDefault();
                 if (!window.pageCotizadorValidator.isFormValid()) return;
 
+                // Normalize phone to E.164 before serializing
+                const phoneEl = form.querySelector('input[name="telefono"]');
+                if (phoneEl && window.comsatelGetPhoneIti) {
+                    const iti = window.comsatelGetPhoneIti(phoneEl);
+                    if (iti) phoneEl.value = iti.getNumber();
+                }
+
                 const formData = new FormData(this);
                 formData.append('action', 'submit_cotizacion_comsatel');
 
                 this.style.opacity = '0.7';
                 this.style.pointerEvents = 'none';
+                window.comsatelShowLoader?.();
 
                 fetch(comsatel_vars.ajax_url, {
                         method: 'POST',
@@ -650,10 +670,12 @@ $acf_tabs        = get_field('tabs');
                             // Redirigir a página de gracias
                             window.location.href = comsatel_vars.home_url + '/gracias';
                         } else {
+                            window.comsatelHideLoader?.();
                             window.pageCotizadorValidator.showNotification(data.data || 'Ocurrió un error.', 'error');
                         }
                     })
                     .catch(err => {
+                        window.comsatelHideLoader?.();
                         window.pageCotizadorValidator.showNotification('Error de conexión.', 'error');
                     })
                     .finally(() => {
@@ -685,28 +707,48 @@ $acf_tabs        = get_field('tabs');
                 });
             }
 
-            // Conditional Reason Social (Ported from cotizador.js)
+            // Conditional fields by tipo_cliente
             const tipoClienteInputs = form.querySelectorAll('input[name="tipo_cliente"]');
+            const nombreContainer = document.getElementById('page-nombre-field-container');
             const razonSocialContainer = document.getElementById('page-razon-social-field-container');
             const razonSocialInput = razonSocialContainer.querySelector('input');
             const phoneContainer = document.getElementById('page-phone-field-container');
+            const tipoDocSelect = form.querySelector('select[name="tipo_doc"]');
+
+            function syncTipoClienteFields(value) {
+                const isEmpresa = value === 'Empresa';
+
+                // Phone always visible and required
+                phoneContainer.querySelector('input[type="tel"]').setAttribute('required', 'required');
+
+                if (isEmpresa) {
+                    // Empresa: hide nombre, show [Teléfono | Razón Social]
+                    nombreContainer.classList.add('hidden');
+                    nombreContainer.querySelector('input').removeAttribute('required');
+                    razonSocialContainer.classList.remove('hidden');
+                    razonSocialInput.setAttribute('required', 'required');
+                    if (tipoDocSelect) tipoDocSelect.value = 'RUC';
+                } else {
+                    // Persona Natural: show [Nombre | Teléfono], hide Razón Social
+                    nombreContainer.classList.remove('hidden');
+                    nombreContainer.querySelector('input').setAttribute('required', 'required');
+                    razonSocialContainer.classList.add('hidden');
+                    razonSocialInput.removeAttribute('required');
+                    if (tipoDocSelect) tipoDocSelect.value = 'DNI';
+                }
+
+                if (window.pageCotizadorValidator) window.pageCotizadorValidator.validateForm();
+            }
 
             tipoClienteInputs.forEach(input => {
                 input.addEventListener('change', function() {
-                    if (this.value === 'Empresa') {
-                        razonSocialContainer.classList.remove('hidden');
-                        razonSocialInput.setAttribute('required', 'required');
-                        phoneContainer.classList.add('hidden');
-                        phoneContainer.querySelector('input').removeAttribute('required');
-                    } else {
-                        razonSocialContainer.classList.add('hidden');
-                        razonSocialInput.removeAttribute('required');
-                        phoneContainer.classList.remove('hidden');
-                        phoneContainer.querySelector('input').setAttribute('required', 'required');
-                    }
-                    if (window.pageCotizadorValidator) window.pageCotizadorValidator.validateForm();
+                    syncTipoClienteFields(this.value);
                 });
             });
+
+            // Init on load
+            const initialChecked = form.querySelector('input[name="tipo_cliente"]:checked');
+            if (initialChecked) syncTipoClienteFields(initialChecked.value);
         });
     </script>
 

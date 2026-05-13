@@ -650,6 +650,7 @@ get_header();
                 </svg>
                 Enviando...
             `;
+            window.comsatelShowLoader?.();
 
             // Preparar FormData
             const formData = new FormData(form);
@@ -664,18 +665,13 @@ get_header();
                 .then(response => response.json())
                 .then(data => {
                     if (data.success) {
-                        // Ocultar form y mostrar mensaje de éxito
+                        window.comsatelHideLoader?.();
                         form.classList.add('hidden');
                         successMessage.classList.remove('hidden');
-                        document.querySelector('.step-indicator-vertical').style.display = 'none'; // Opcional: ocultar steps
-
-                        // Scroll suave hacia el mensaje
-                        successMessage.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'center'
-                        });
-
+                        document.querySelector('.step-indicator-vertical').style.display = 'none';
+                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
                     } else {
+                        window.comsatelHideLoader?.();
                         if (window.reclamosValidator) {
                             window.reclamosValidator.showNotification('Error: ' + (data.data.message || 'Ocurrió un error inesperado.'));
                         } else {
@@ -685,6 +681,7 @@ get_header();
                 })
                 .catch(error => {
                     console.error('Error:', error);
+                    window.comsatelHideLoader?.();
                     if (window.reclamosValidator) {
                         window.reclamosValidator.showNotification('Ocurrió un error al procesar tu solicitud. Por favor intenta nuevamente.');
                     } else {
@@ -692,7 +689,6 @@ get_header();
                     }
                 })
                 .finally(() => {
-                    // Restaurar botón (solo si hubo error, si hubo éxito el form se oculta)
                     if (!form.classList.contains('hidden')) {
                         submitBtn.disabled = false;
                         submitBtn.innerHTML = originalBtnText;

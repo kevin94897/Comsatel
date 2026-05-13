@@ -111,7 +111,7 @@ function render_megamenu_icon($icono): void
 		<!-- Header -->
 		<header id="masthead"
 			data-transparent="<?php echo $is_transparent_header ? '1' : '0'; ?>"
-			class="absolute top-0 left-0 right-0 z-50 transition-all duration-300 <?php echo $header_bg_class; ?>">
+			class="fixed top-0 left-0 right-0 z-50 transition-all duration-300 <?php echo $header_bg_class; ?>">
 			<div class="container mx-auto px-4 lg:px-8">
 				<div class="flex items-center justify-between py-4 lg:py-6">
 
@@ -472,7 +472,7 @@ function render_megamenu_icon($icono): void
 						<!-- Iniciar Sesión Button -->
 						<?php if (!empty($acf_lista_de_enlaces)): ?>
 							<div class="relative inline-block group hidden xl:block">
-								<button class="btn flex items-center !px-3 gap-2 border !rounded-md transition-all duration-300 font-medium
+								<button class="btn flex items-center !px-3 gap-2 border !rounded-md transition-all duration-300
 			<?php echo $is_transparent_header ? 'btn-outline-white' : 'btn-outline'; ?> text-[14px]">
 									<?php if (!empty($label_sesion)): ?>
 										<span><?php echo esc_html($label_sesion); ?></span>

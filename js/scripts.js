@@ -82,32 +82,8 @@
     });
 
     /**
-     * Header Scroll Effect
+     * Header Scroll Effect — handled by vanilla JS sticky below
      */
-    const header = $('#masthead');
-    let lastScroll = 0;
-
-    $(window).on('scroll', function () {
-      const currentScroll = $(this).scrollTop();
-
-      // Add background when scrolled
-      if (currentScroll > 100) {
-        header.addClass('bg-dark bg-opacity-95 shadow-lg');
-      } else {
-        header.removeClass('bg-dark bg-opacity-95 shadow-lg');
-      }
-
-      // Hide/show header on scroll
-      if (currentScroll > lastScroll && currentScroll > 300) {
-        // Scrolling down
-        header.css('transform', 'translateY(-100%)');
-      } else {
-        // Scrolling up
-        header.css('transform', 'translateY(0)');
-      }
-
-      lastScroll = currentScroll;
-    });
 
     /**
      * Mega Menu Functionality
@@ -453,7 +429,7 @@
 // ── Sticky Header ────────────────────────────────────────────────────────────
 (function () {
   const header = document.getElementById('masthead');
-  if (!header || header.dataset.transparent !== '1') return;
+  if (!header) return;
 
   const THRESHOLD = 80;
   let ticking = false;

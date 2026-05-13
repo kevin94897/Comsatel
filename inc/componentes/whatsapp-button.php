@@ -17,14 +17,14 @@ if (strlen($clean_number) === 9) {
     $clean_number = '51' . $clean_number;
 }
 ?>
-<div id="whatsapp-widget" class="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-4 group">
+<div id="whatsapp-widget" class="fixed bottom-8 right-8 z-50 flex flex-col items-end gap-4 group pointer-events-none">
     <!-- Balloons Container -->
     <div id="whatsapp-balloons"
         class="flex flex-col items-end gap-2 mb-2 transition-all duration-300 transform translate-y-4 opacity-0 invisible"
         aria-hidden="true">
         <!-- Message Balloon -->
         <div
-            class="bg-white text-gray-800 shadow-xl p-4 rounded-2xl rounded-br-none text-sm font-medium relative max-w-[250px] border border-gray-100">
+            class="bg-white text-gray-800 shadow-xl p-4 rounded-2xl rounded-br-none text-sm font-medium relative max-w-[250px] border border-gray-100 pointer-events-auto">
             <p class="m-0 leading-snug" id="whatsapp-message-text"><?php echo esc_html($whatsapp_message); ?></p>
             <!-- Close button for balloon -->
             <button onclick="closeBalloon(event)"
@@ -39,7 +39,7 @@ if (strlen($clean_number) === 9) {
 
     <!-- Main Button -->
     <a href="https://wa.me/<?php echo esc_attr($clean_number); ?>" target="_blank" rel="noopener noreferrer"
-        class="flex items-center justify-center w-16 h-16 p-4 bg-primary text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 relative group overflow-hidden">
+        class="flex items-center justify-center w-16 h-16 p-4 bg-primary text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 relative group overflow-hidden pointer-events-auto">
 
         <!-- Ripple effect container -->
         <span

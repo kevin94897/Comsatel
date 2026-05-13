@@ -2,6 +2,48 @@
  * Cotizador Modal Functionality
  * Refactored to use ComsatelValidator (Vanilla JS)
  */
+import intlTelInput from 'intl-tel-input';
+import 'intl-tel-input/styles';
+
+// Phone instances keyed by input element
+const phoneInstances = new Map();
+
+function initPhoneInput(el) {
+    if (!el) return null;
+    const iti = intlTelInput(el, {
+        initialCountry: 'pe',
+        preferredCountries: ['pe', 'bo', 'co'],
+        separateDialCode: true,
+        loadUtils: () => import('intl-tel-input/utils').then(utils => {
+            // Once utils load, validate on blur with real country-aware check
+            el.addEventListener('blur', () => {
+                if (!el.value.trim()) return;
+                if (!iti.isValidNumber()) {
+                    el.closest('.iti')?.classList.add('iti--error');
+                } else {
+                    el.closest('.iti')?.classList.remove('iti--error');
+                }
+            });
+            el.addEventListener('input', () => {
+                el.closest('.iti')?.classList.remove('iti--error');
+            });
+            return utils;
+        }),
+    });
+    phoneInstances.set(el, iti);
+    return iti;
+}
+
+// Modules run after DOM parsing — initialize all cotizador phone inputs immediately
+const phoneEls = document.querySelectorAll(
+    '#cotizador-form input[name="telefono"], #page-cotizador-form input[name="telefono"]'
+);
+console.log('[cotizador] phone inputs found:', phoneEls.length, Array.from(phoneEls).map(el => el.id || el.name + ' in #' + el.closest('form')?.id));
+phoneEls.forEach(initPhoneInput);
+
+// Expose for template inline scripts
+window.comsatelGetPhoneIti = (el) => phoneInstances.get(el) || null;
+
 document.addEventListener('DOMContentLoaded', function () {
     const modal = document.getElementById('cotizador-modal');
     const openBtn = document.getElementById('open-cotizador');
@@ -35,23 +77,32 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // --- "Tipo de Cliente" Logic ---
     const tipoClienteRadios = form.querySelectorAll('input[name="tipo_cliente"]');
+    const nombreContainer = document.getElementById('nombre-field-container');
     const phoneContainer = document.getElementById('phone-field-container');
     const razonSocialContainer = document.getElementById('razon-social-field-container');
+    const tipoDocSelect = form.querySelector('select[name="tipo_doc"]');
 
     const toggleFields = () => {
         const checkedRadio = form.querySelector('input[name="tipo_cliente"]:checked');
         const isEmpresa = checkedRadio && checkedRadio.value === 'Empresa';
 
+        // Phone is always visible and required
+        phoneContainer?.querySelector('input[type="tel"]')?.setAttribute('required', 'required');
+
         if (isEmpresa) {
-            phoneContainer?.classList.add('hidden');
-            phoneContainer?.querySelector('input')?.removeAttribute('required');
+            // Empresa: hide nombre, show [Teléfono | Razón Social]
+            nombreContainer?.classList.add('hidden');
+            nombreContainer?.querySelector('input')?.removeAttribute('required');
             razonSocialContainer?.classList.remove('hidden');
             razonSocialContainer?.querySelector('input')?.setAttribute('required', 'required');
+            if (tipoDocSelect) tipoDocSelect.value = 'RUC';
         } else {
-            phoneContainer?.classList.remove('hidden');
-            phoneContainer?.querySelector('input')?.setAttribute('required', 'required');
+            // Persona Natural: show [Nombre | Teléfono], hide Razón Social
+            nombreContainer?.classList.remove('hidden');
+            nombreContainer?.querySelector('input')?.setAttribute('required', 'required');
             razonSocialContainer?.classList.add('hidden');
             razonSocialContainer?.querySelector('input')?.removeAttribute('required');
+            if (tipoDocSelect) tipoDocSelect.value = 'DNI';
         }
     };
 
@@ -209,6 +260,12 @@ document.addEventListener('DOMContentLoaded', function () {
         const originalText = submitBtn.textContent;
         submitBtn.disabled = true;
         submitBtn.textContent = 'Enviando...';
+        window.cotizadorValidator?.showLoader();
+
+        // Normalize phone to E.164 format before serializing
+        const phoneEl = form.querySelector('input[name="telefono"]');
+        const iti = phoneInstances.get(phoneEl);
+        if (iti && phoneEl) phoneEl.value = iti.getNumber();
 
         const formData = new FormData(form);
         formData.append('action', 'submit_cotizacion_comsatel');
@@ -226,6 +283,7 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (data.success) {
                     window.location.href = homeUrl + '/gracias';
                 } else {
+                    window.cotizadorValidator?.hideLoader();
                     window.cotizadorValidator.showNotification(data.data || 'Ocurrió un error al enviar el formulario.', 'error');
                     submitBtn.disabled = false;
                     submitBtn.textContent = originalText;
@@ -233,6 +291,7 @@ document.addEventListener('DOMContentLoaded', function () {
             })
             .catch(error => {
                 console.error('Error:', error);
+                window.cotizadorValidator?.hideLoader();
                 window.cotizadorValidator.showNotification('Error de conexión.', 'error');
                 submitBtn.disabled = false;
                 submitBtn.textContent = originalText;

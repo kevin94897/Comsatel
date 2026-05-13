@@ -104,7 +104,7 @@ html {
 
 body {
   font-family: var(--font-primary);
-  font-size: 16px;
+  font-size: 1rem;
   line-height: 1.6;
   color: var(--color-dark) !important;
   background-color: var(--color-white);
@@ -674,7 +674,7 @@ textarea,
   border-radius: var(--radius-md);
   transition: all var(--transition-base);
   outline: none;
-  min-height: 120px;
+  min-height: 7.5rem;
   resize: vertical;
 }
 
@@ -712,7 +712,7 @@ select,
   select,
   .form-select,
   input {
-    height: 40px;
+    height: 2.5rem;
     font-size: 0.875rem;
     padding: 0.5rem 1rem;
   }
@@ -723,7 +723,7 @@ select,
   select,
   .form-select,
   input {
-    height: 56px;
+    height: 3.5rem;
     /* font-size: 1.25rem; */
   }
 }
@@ -1212,10 +1212,11 @@ html {
   transition: background-color 0.35s ease, box-shadow 0.35s ease, padding 0.35s ease;
 }
 
-/* Estado sticky: fondo blanco + sombra */
+/* Estado sticky: fondo blur al hacer scroll */
 #masthead.is-sticky {
-  position: fixed !important;
-  background-color: #ffffff !important;
+  background-color: rgba(255, 255, 255, 0.88) !important;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
   box-shadow: 0 2px 24px rgba(0, 0, 0, 0.10);
 }
 
@@ -1277,4 +1278,33 @@ html {
     opacity: 1;
     transform: translateX(0);
   }
+}
+
+/* ==========================================================================
+   Laptop Scale Optimization (1024px – 1600px)
+   Mimics 90% browser zoom — scales all rem-based units proportionally
+   ========================================================================== */
+@media (min-width: 1024px) and (max-width: 1600px) {
+  html {
+    font-size: 90.625%; /* ~14.5px base, equivale al zoom 90% */
+  }
+}
+
+/* ==========================================================================
+   intl-tel-input overrides
+   ========================================================================== */
+.iti__search-input {
+  padding: .75rem 1.5rem .75rem 2rem !important;
+}
+
+.iti--show-flags {
+  width: 100% !important;
+}
+
+.iti--error .iti__tel-input {
+  border-color: var(--color-accent-red) !important;
+}
+
+.iti--error .iti__selected-country {
+  border-color: var(--color-accent-red) !important;
 }
