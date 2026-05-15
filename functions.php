@@ -33,28 +33,28 @@ add_action('after_setup_theme', 'comsatel_content_width', 0);
  */
 function comsatel_get_recipient_email($type = 'general')
 {
-    // [MODO DE PRUEБАS] Cambia esto a "false" cuando el sitio esté en Producción (en vivo)
-    $is_test_mode = true; 
-    
-    // Correo o correos que recibirán los formularios mientras $is_test_mode sea true
-    $test_emails = ['kevin.gomez@nerd.pe'];
+	// [MODO DE PRUEБАS] Cambia esto a "false" cuando el sitio esté en Producción (en vivo)
+	$is_test_mode = true;
 
-    if ($is_test_mode) {
-        return $test_emails;
-    }
+	// Correo o correos que recibirán los formularios mientras $is_test_mode sea true
+	$test_emails = ['kevin.gomez@nerd.pe'];
 
-    // Correos oficiales de producción (pueden ser uno o más añadiéndolos al array)
-    switch ($type) {
-        case 'contacto':
-            return ['atencionalcliente@comsatel.com.pe'];
-        case 'reclamo':
-            return ['atencionalcliente@comsatel.com.pe']; // Ejemplo
-        case 'cotizador':
-            return ['atencionalcliente@comsatel.com.pe']; // Cambiar/agregar el de ventas
-        case 'general':
-        default:
-            return ['atencionalcliente@comsatel.com.pe'];
-    }
+	if ($is_test_mode) {
+		return $test_emails;
+	}
+
+	// Correos oficiales de producción (pueden ser uno o más añadiéndolos al array)
+	switch ($type) {
+		case 'contacto':
+			return ['atencionalcliente@comsatel.com.pe'];
+		case 'reclamo':
+			return ['atencionalcliente@comsatel.com.pe']; // Ejemplo
+		case 'cotizador':
+			return ['atencionalcliente@comsatel.com.pe']; // Cambiar/agregar el de ventas
+		case 'general':
+		default:
+			return ['atencionalcliente@comsatel.com.pe'];
+	}
 }
 
 /**
@@ -355,10 +355,27 @@ function comsatel_scripts()
 		wp_enqueue_script('comment-reply');
 	}
 
+	// Build localized "Gracias" URL (Polylang-aware)
+	$gracias_url = home_url('/gracias/');
+	$gracias_page = get_page_by_path('gracias');
+	if ($gracias_page) {
+		if (function_exists('pll_get_post')) {
+			$translated_id = pll_get_post($gracias_page->ID);
+			if ($translated_id) {
+				$gracias_url = get_permalink($translated_id);
+			} else {
+				$gracias_url = get_permalink($gracias_page);
+			}
+		} else {
+			$gracias_url = get_permalink($gracias_page);
+		}
+	}
+
 	// Export global variables for all scripts
 	wp_localize_script('comsatel-validator-init', 'comsatel_vars', array(
 		'ajax_url' => admin_url('admin-ajax.php'),
 		'home_url' => home_url(),
+		'gracias_url' => $gracias_url,
 		'nonce_contacto' => wp_create_nonce('comsatel_contacto_nonce'),
 		'whatsapp_number' => get_theme_mod('comsatel_whatsapp_number', ''),
 	));
@@ -511,31 +528,31 @@ function comsatel_customize_register($wp_customize)
 
 	// --- Sección WhatsApp ---
 	$wp_customize->add_section('comsatel_whatsapp_section', array(
-		'title'    => __('WhatsApp', 'comsatel'),
+		'title' => __('WhatsApp', 'comsatel'),
 		'priority' => 35,
 	));
 
 	$wp_customize->add_setting('comsatel_whatsapp_number', array(
-		'default'           => '',
+		'default' => '',
 		'sanitize_callback' => 'sanitize_text_field',
-		'transport'         => 'refresh',
+		'transport' => 'refresh',
 	));
 	$wp_customize->add_control('comsatel_whatsapp_number', array(
-		'label'       => __('Número de WhatsApp', 'comsatel'),
+		'label' => __('Número de WhatsApp', 'comsatel'),
 		'description' => __('Incluye el código de país, ej: 51987654321', 'comsatel'),
-		'section'     => 'comsatel_whatsapp_section',
-		'type'        => 'text',
+		'section' => 'comsatel_whatsapp_section',
+		'type' => 'text',
 	));
 
 	$wp_customize->add_setting('comsatel_whatsapp_message', array(
-		'default'           => '¡Hola! ¿En qué podemos ayudarte?',
+		'default' => '¡Hola! ¿En qué podemos ayudarte?',
 		'sanitize_callback' => 'sanitize_text_field',
-		'transport'         => 'refresh',
+		'transport' => 'refresh',
 	));
 	$wp_customize->add_control('comsatel_whatsapp_message', array(
-		'label'   => __('Mensaje del globo', 'comsatel'),
+		'label' => __('Mensaje del globo', 'comsatel'),
 		'section' => 'comsatel_whatsapp_section',
-		'type'    => 'text',
+		'type' => 'text',
 	));
 }
 add_action('customize_register', 'comsatel_customize_register');
@@ -855,31 +872,142 @@ if (function_exists('acf_add_options_page')) {
 
 	// Megamenu - Perú
 	acf_add_options_sub_page(array(
-		'page_title'  => 'Megamenu - Perú',
-		'menu_title'  => 'Megamenu PE',
-		'menu_slug'   => 'megamenu-header',
-		'post_id'     => 'megamenu-header',
+		'page_title' => 'Megamenu - Perú',
+		'menu_title' => 'Megamenu PE',
+		'menu_slug' => 'megamenu-header',
+		'post_id' => 'megamenu-header',
 		'parent_slug' => 'theme-options',
-		'capability'  => 'edit_posts',
+		'capability' => 'edit_posts',
 	));
 
 	// Megamenu - Bolivia
 	acf_add_options_sub_page(array(
-		'page_title'  => 'Megamenu - Bolivia',
-		'menu_title'  => 'Megamenu BO',
-		'menu_slug'   => 'megamenu-header-bo',
-		'post_id'     => 'megamenu-header-bo',
+		'page_title' => 'Megamenu - Bolivia',
+		'menu_title' => 'Megamenu BO',
+		'menu_slug' => 'megamenu-header-bo',
+		'post_id' => 'megamenu-header-bo',
 		'parent_slug' => 'theme-options',
-		'capability'  => 'edit_posts',
+		'capability' => 'edit_posts',
 	));
 
 	// Megamenu - Colombia
 	acf_add_options_sub_page(array(
-		'page_title'  => 'Megamenu - Colombia',
-		'menu_title'  => 'Megamenu CO',
-		'menu_slug'   => 'megamenu-header-co',
-		'post_id'     => 'megamenu-header-co',
+		'page_title' => 'Megamenu - Colombia',
+		'menu_title' => 'Megamenu CO',
+		'menu_slug' => 'megamenu-header-co',
+		'post_id' => 'megamenu-header-co',
 		'parent_slug' => 'theme-options',
-		'capability'  => 'edit_posts',
+		'capability' => 'edit_posts',
 	));
 }
+
+/**
+ * Custom template tags for this theme
+ */
+if (!function_exists('comsatel_posted_on')):
+	function comsatel_posted_on()
+	{
+		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
+		if (get_the_time('U') !== get_the_modified_time('U')) {
+			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+		}
+
+		$time_string = sprintf(
+			$time_string,
+			esc_attr(get_the_date(DATE_W3C)),
+			esc_html(get_the_date())
+		);
+
+		$posted_on = sprintf(
+			/* translators: %s: post date. */
+			esc_html_x('Posted on %s', 'post date', 'comsatel'),
+			'<a href="' . esc_url(get_permalink()) . '" rel="bookmark">' . $time_string . '</a>'
+		);
+
+		echo '<span class="posted-on">' . $posted_on . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+endif;
+
+if (!function_exists('comsatel_posted_by')):
+	function comsatel_posted_by()
+	{
+		$byline = sprintf(
+			/* translators: %s: post author. */
+			esc_html_x('by %s', 'post author', 'comsatel'),
+			'<span class="author vcard"><a class="url fn n" href="' . esc_url(get_author_posts_url(get_the_author_meta('ID'))) . '">' . esc_html(get_the_author()) . '</a></span>'
+		);
+
+		echo '<span class="byline"> ' . $byline . '</span>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+	}
+endif;
+
+if (!function_exists('comsatel_entry_footer')):
+	function comsatel_entry_footer()
+	{
+		// Hide category and tag text for pages.
+		if ('post' === get_post_type()) {
+			/* translators: used between list items, there is a space after the comma */
+			$categories_list = get_the_category_list(esc_html__(', ', 'comsatel'));
+			if ($categories_list) {
+				/* translators: 1: list of categories. */
+				printf('<span class="cat-links">' . esc_html__('Posted in %1$s', 'comsatel') . '</span>', $categories_list); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
+
+			/* translators: used between list items, there is a space after the comma */
+			$tags_list = get_the_tag_list('', esc_html_x(', ', 'list item separator', 'comsatel'));
+			if ($tags_list) {
+				/* translators: 1: list of tags. */
+				printf('<span class="tags-links">' . esc_html__('Tagged %1$s', 'comsatel') . '</span>', $tags_list); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			}
+		}
+
+		edit_post_link(
+			sprintf(
+				wp_kses(
+					/* translators: %s: Name of current post. Only visible to screen readers */
+					__('Edit <span class="screen-reader-text">%s</span>', 'comsatel'),
+					array(
+						'span' => array(
+							'class' => array(),
+						),
+					)
+				),
+				wp_kses_post(get_the_title())
+			),
+			'<span class="edit-link">',
+			'</span>'
+		);
+	}
+endif;
+
+if (!function_exists('comsatel_post_thumbnail')):
+	function comsatel_post_thumbnail()
+	{
+		if (post_password_required() || is_attachment() || !has_post_thumbnail()) {
+			return;
+		}
+
+		if (is_singular()):
+			?>
+			<div class="post-thumbnail">
+				<?php the_post_thumbnail(); ?>
+			</div><!-- .post-thumbnail -->
+		<?php else: ?>
+			<a class="post-thumbnail" href="<?php echo esc_url(get_permalink()); ?>" aria-hidden="true" tabindex="-1">
+				<?php
+				the_post_thumbnail(
+					'post-thumbnail',
+					array(
+						'alt' => the_title_attribute(
+							array(
+								'echo' => false,
+							)
+						),
+					)
+				);
+				?>
+			</a>
+			<?php
+		endif; // End is_singular().
+	}
+endif;

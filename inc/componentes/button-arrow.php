@@ -72,7 +72,7 @@ foreach ($extras as $attr => $value) {
 
 <?php if (!empty($url) && !empty($text)): ?>
     <a <?php echo implode(' ', $link_attrs); ?>>
-        <span class="relative text-xs md:text-md font-semibold uppercase">
+        <span class="relative text-sm md:text-[15px] font-semibold uppercase">
             <?php echo $text; ?>
             <span
                 class="absolute left-0 bottom-0 h-0.5 w-0 bg-primary group-hover:w-full transition-all duration-300"></span>

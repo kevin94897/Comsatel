@@ -1,5 +1,5 @@
 <?php
-$cta_group = get_field('banner_cta');
+$cta_group = get_field('banner_cta', 'options');
 $titulo = $cta_group['titulo'] ?? null;
 $descripcion = $cta_group['descripcion'] ?? null;
 $btn_primario = $cta_group['boton_primario'] ?? null;

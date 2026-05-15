@@ -666,10 +666,9 @@ get_header();
                 .then(data => {
                     if (data.success) {
                         window.comsatelHideLoader?.();
-                        form.classList.add('hidden');
-                        successMessage.classList.remove('hidden');
-                        document.querySelector('.step-indicator-vertical').style.display = 'none';
-                        successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        const graciasUrl = (typeof comsatel_vars !== 'undefined' && comsatel_vars.gracias_url) ? comsatel_vars.gracias_url : '/gracias/';
+                        window.location.href = graciasUrl;
+                        return;
                     } else {
                         window.comsatelHideLoader?.();
                         if (window.reclamosValidator) {

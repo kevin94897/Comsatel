@@ -77,7 +77,7 @@ function comsatel_get_email_template($name, $data)
     $fuelUnitLabel = $data['fuelUnit'] === 'km_gl' ? 'KM/GL' : 'KM/L';
 
     ob_start();
-?>
+    ?>
     <!DOCTYPE html>
     <html lang="es">
 
@@ -218,7 +218,7 @@ function comsatel_get_email_template($name, $data)
             }
 
             .savings-card {
-                background-color: #1e1e1e;
+                background-color: #FFFFFF;
                 border: 2px solid #E31E25;
                 border-radius: 12px;
                 padding: 20px;
@@ -312,14 +312,16 @@ function comsatel_get_email_template($name, $data)
                 <p class="greeting">Hola <strong><?php echo esc_html($name); ?></strong>,</p>
 
                 <p class="intro-text">
-                    Gracias por usar nuestra calculadora de ahorros. Aquí está el análisis detallado de los ahorros potenciales que podrías obtener con nuestras soluciones de gestión de flotas.
+                    Gracias por usar nuestra calculadora de ahorros. Aquí está el análisis detallado de los ahorros
+                    potenciales que podrías obtener con nuestras soluciones de gestión de flotas.
                 </p>
 
                 <!-- Total Savings -->
                 <div class="results-box">
                     <h2>Ahorro Mensual Estimado</h2>
                     <div class="total-savings">S/ <?php echo number_format($data['totalSavings'], 2); ?></div>
-                    <p class="percentage">Equivalente a un <?php echo esc_html($data['savingsPercentage']); ?>% menos en costos operativos</p>
+                    <p class="percentage">Equivalente a un <?php echo esc_html($data['savingsPercentage']); ?>% menos en
+                        costos operativos</p>
                 </div>
 
                 <!-- Input Data -->
@@ -335,7 +337,8 @@ function comsatel_get_email_template($name, $data)
                     </div>
                     <div class="data-row">
                         <span class="data-label">Rendimiento de combustible</span>
-                        <span class="data-value"><?php echo number_format($data['kmPerGallon'], 1); ?> <?php echo esc_html($fuelUnitLabel); ?></span>
+                        <span class="data-value"><?php echo number_format($data['kmPerGallon'], 1); ?>
+                            <?php echo esc_html($fuelUnitLabel); ?></span>
                     </div>
                 </div>
 
@@ -388,6 +391,6 @@ function comsatel_get_email_template($name, $data)
     </body>
 
     </html>
-<?php
+    <?php
     return ob_get_clean();
 }

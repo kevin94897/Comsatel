@@ -15,7 +15,7 @@ $temas = get_field('temas') ?? [];
 <main id="primary" class="site-main bg-gray-50">
 
     <!-- Hero Banner -->
-    <section class="relative min-h-[500px] flex items-end">
+    <section class="relative min-h-[500px] flex items-end bg-dark-900">
         <?php $hero_img = get_the_post_thumbnail_url(get_the_ID(), 'full'); ?>
         <?php if ($hero_img): ?>
             <div class="absolute inset-0 bg-cover bg-center bg-no-repeat"

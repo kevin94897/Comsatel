@@ -5,6 +5,7 @@
 
 $whatsapp_number = get_theme_mod('comsatel_whatsapp_number', '');
 $whatsapp_message = get_theme_mod('comsatel_whatsapp_message', '¡Hola! ¿En qué podemos ayudarte?');
+$whatsapp_default_text = get_theme_mod('comsatel_whatsapp_default_text', 'Hola, me gustaría obtener más información.');
 
 if (empty($whatsapp_number)) {
     return;
@@ -38,7 +39,7 @@ if (strlen($clean_number) === 9) {
     </div>
 
     <!-- Main Button -->
-    <a href="https://wa.me/<?php echo esc_attr($clean_number); ?>" target="_blank" rel="noopener noreferrer"
+    <a href="https://wa.me/<?php echo esc_attr($clean_number); ?>?text=<?php echo rawurlencode($whatsapp_default_text); ?>" target="_blank" rel="noopener noreferrer"
         class="flex items-center justify-center w-16 h-16 p-4 bg-primary text-white rounded-full shadow-lg hover:shadow-xl hover:scale-110 transition-all duration-300 relative group overflow-hidden pointer-events-auto">
 
         <!-- Ripple effect container -->

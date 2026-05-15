@@ -90,6 +90,7 @@
      */
     const $megaMenu = $('#mega-menu');
     const $headerItems = $('.menu-item-has-children');
+    const $header = $('#masthead');
     let megaMenuTimer;
     let isMenuActive = false;
 
@@ -112,7 +113,7 @@
     // Mostrar megamenú al pasar sobre elementos del header
     $headerItems.on('mouseenter', function (e) {
       // Solo mostrar si el header está visible
-      const transform = header.css('transform');
+      const transform = $header.length ? $header.css('transform') : 'none';
       if (transform === 'none' || transform === 'matrix(1, 0, 0, 1, 0, 0)') {
         showMegaMenu();
       }
@@ -400,7 +401,11 @@
     const $cotizadorModal = $('#cotizador-modal');
 
     $(window).on('scroll', function () {
-      if ($(this).scrollTop() > 300) {
+      const scrollPosition = $(this).scrollTop();
+      const scrollLimit = $(document).height() - $(window).height();
+      
+      // Mostrar el botón cuando falte un 20% para llegar al final (o cuando se haya scrolleado el 80%)
+      if (scrollLimit > 0 && scrollPosition > scrollLimit * 0.8) {
         $scrollToTopBtn.removeClass('opacity-0 invisible translate-y-10')
           .addClass('opacity-100 visible translate-y-0');
       } else {

@@ -100,12 +100,22 @@ function comsatel_handle_submit_contacto()
 
     $headers = array('Content-Type: text/html; charset=UTF-8');
 
-    // Enviar correo
+    // Capturar razón real si wp_mail falla
+    $mail_error_reason = '';
+    $capture_error = function ($wp_error) use (&$mail_error_reason) {
+        $mail_error_reason = $wp_error->get_error_message();
+    };
+    add_action('wp_mail_failed', $capture_error);
+
     $sent = wp_mail($to, $subject, $message, $headers);
+
+    remove_action('wp_mail_failed', $capture_error);
 
     if ($sent) {
         wp_send_json_success(['message' => 'Tu solicitud se envió correctamente. Nos pondremos en contacto contigo pronto.']);
     } else {
-        wp_send_json_error(['message' => 'Hubo un error al enviar tu solicitud. Por favor intenta nuevamente.']);
+        error_log('[Comsatel contacto] wp_mail falló: ' . $mail_error_reason);
+        $debug_suffix = (defined('WP_DEBUG') && WP_DEBUG && $mail_error_reason) ? ' (' . $mail_error_reason . ')' : '';
+        wp_send_json_error(['message' => 'Hubo un error al enviar tu solicitud. Por favor intenta nuevamente.' . $debug_suffix]);
     }
 }

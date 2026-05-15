@@ -306,9 +306,9 @@
             submitBtn.disabled  = false;
 
             if (data.success) {
-                submitBtn.textContent = 'Reporte enviado exitosamente';
-                submitBtn.disabled    = true;
-                setTimeout(closeEmailModal, 3000);
+                const graciasUrl = (typeof comsatel_vars !== 'undefined' && comsatel_vars.gracias_url) ? comsatel_vars.gracias_url : '/gracias/';
+                window.location.href = graciasUrl;
+                return;
             } else {
                 const msg = 'Error al enviar el reporte: ' + (data.data || 'Inténtalo de nuevo');
                 window.calculatorValidator

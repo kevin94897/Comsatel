@@ -11,7 +11,7 @@ if (empty($acf_lista)) {
 ?>
 
 <!-- Trust Section -->
-<section class="py-16 lg:py-24 relative" id="testimonios">
+<section class="pt-16 lg:pt-24 relative" id="testimonios">
     <div class="container mx-auto px-4 lg:px-8">
 
         <div class="flex items-end">
@@ -23,7 +23,7 @@ if (empty($acf_lista)) {
                     </h2>
                 <?php endif; ?>
                 <?php if (!empty($acf_descripcion)): ?>
-                    <p class="mb-8">
+                    <p class="md:mb-8 mb-4">
                         <?php echo wp_kses_post($acf_descripcion); ?>
                     </p>
                 <?php endif; ?>
@@ -80,7 +80,8 @@ if (empty($acf_lista)) {
                             <div class="p-8 lg:p-12">
                                 <?php if (!empty($logo['url'])): ?>
                                     <img src="<?php echo esc_url($logo['url']); ?>"
-                                        alt="<?php echo esc_attr(!empty($logo['alt']) ? $logo['alt'] : ('Logo ' . ($nombre ?: 'Testimonio'))); ?>" class="">
+                                        alt="<?php echo esc_attr(!empty($logo['alt']) ? $logo['alt'] : ('Logo ' . ($nombre ?: 'Testimonio'))); ?>"
+                                        class="">
                                 <?php endif; ?>
 
                                 <?php if (!empty($descripcion)): ?>

@@ -273,6 +273,7 @@ document.addEventListener('DOMContentLoaded', function () {
         // Access global vars localized in functions.php
         const ajaxUrl = (typeof comsatel_vars !== 'undefined') ? comsatel_vars.ajax_url : '/wp-admin/admin-ajax.php';
         const homeUrl = (typeof comsatel_vars !== 'undefined') ? comsatel_vars.home_url : '';
+        const graciasUrl = (typeof comsatel_vars !== 'undefined' && comsatel_vars.gracias_url) ? comsatel_vars.gracias_url : (homeUrl + '/gracias');
 
         fetch(ajaxUrl, {
             method: 'POST',
@@ -281,7 +282,7 @@ document.addEventListener('DOMContentLoaded', function () {
             .then(response => response.json())
             .then(data => {
                 if (data.success) {
-                    window.location.href = homeUrl + '/gracias';
+                    window.location.href = graciasUrl;
                 } else {
                     window.cotizadorValidator?.hideLoader();
                     window.cotizadorValidator.showNotification(data.data || 'Ocurrió un error al enviar el formulario.', 'error');

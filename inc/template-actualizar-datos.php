@@ -24,8 +24,8 @@ get_header();
             <div class="">
                 <span class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"
                     data-aos="fade-right" data-aos-duration="800" data-aos-delay="200"></span>
-                <h1 class="heading-h1 font-bold text-white mb-10 leading-tight mt-2 uppercase"
-                    data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" data-aos-easing="ease-out-cubic">
+                <h1 class="heading-h1 font-bold text-white mb-10 leading-tight mt-2 uppercase" data-aos="fade-up"
+                    data-aos-duration="1000" data-aos-delay="400" data-aos-easing="ease-out-cubic">
                     Actualiza tus datos
                 </h1>
             </div>
@@ -87,8 +87,8 @@ get_header();
                             <!-- Teléfono -->
                             <div>
                                 <label class="form-label" for="telefono">Teléfono</label>
-                                <input type="tel" id="telefono" name="telefono" class="form-input"
-                                    placeholder="" required>
+                                <input type="tel" id="telefono" name="telefono" class="form-input" placeholder=""
+                                    required>
                             </div>
 
                             <!-- Correo (Full Width) -->
@@ -126,7 +126,7 @@ get_header();
                             <div>
                                 <label class="form-label" for="direccion">Dirección</label>
                                 <input type="text" id="direccion" name="direccion" class="form-input"
-                                    placeholder="Ej. correo@empresa.com" required>
+                                    placeholder="Ej. Av. Principal 123" required>
                             </div>
 
                         </div>
@@ -139,7 +139,7 @@ get_header();
                             </div>
                             <label for="acepta_politica" class="text-sm text-gray-600 leading-tight font-normal mb-0">
                                 Al enviar esta información, autorizas a Comsatel Perú a tratar tus datos personales.
-                                Conoce nuestra <a href="#"
+                                Conoce nuestra <a href="<?php echo home_url('/politicas-de-privacidad/'); ?>"
                                     class="text-black underline font-medium hover:text-primary transition-colors">Política
                                     de Privacidad</a>.
                             </label>
@@ -211,9 +211,8 @@ get_header();
 
             setTimeout(() => {
                 window.comsatelHideLoader?.();
-                form.classList.add('hidden');
-                successMessage.classList.remove('hidden');
-                successMessage.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                const graciasUrl = (typeof comsatel_vars !== 'undefined' && comsatel_vars.gracias_url) ? comsatel_vars.gracias_url : '/gracias/';
+                window.location.href = graciasUrl;
             }, 1500);
         });
     });

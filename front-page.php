@@ -128,7 +128,7 @@ get_header(); ?>
     <!-- Solutions Grid -->
     <?php $soluciones = get_field('soluciones'); ?>
     <section class="py-16 lg:py-24 bg-gray-50" id="soluciones">
-        <div class="container mx-auto px-4 lg:px-8">
+        <div class="container mx-auto px-4 lg:px-16">
             <div class="max-w-4xl mx-auto text-center mb-16">
                 <!-- <p class="text-sm text-gray uppercase tracking-wider mb-4" data-aos="fade-down" data-aos-delay="200">
                     Soluciones</p> -->
@@ -146,8 +146,10 @@ get_header(); ?>
                     $is_even = ($index % 2 === 0);
                     $is_last = ($index === $total_soluciones - 1);
                     $margin_class = $is_last ? '' : 'mb-12 lg:mb-20';
+                    $solucion_id = 'solucion_' . str_pad($index + 1, 2, '0', STR_PAD_LEFT);
                     ?>
-                    <div class="grid lg:grid-cols-2 gap-8 lg:gap-24 items-center <?php echo $margin_class; ?>">
+                    <div id="<?php echo esc_attr($solucion_id); ?>"
+                        class="grid lg:grid-cols-2 gap-8 lg:gap-24 items-center scroll-mt-32 <?php echo $margin_class; ?>">
                         <div class="<?php echo $is_even ? 'order-2 lg:order-1' : 'order-2'; ?>" data-aos="zoom-in"
                             data-aos-duration="1000">
                             <?php if (!empty($item['imagen'])): ?>
@@ -253,7 +255,7 @@ get_header(); ?>
     $aptitudes = get_field('aptitudes');
     if (!empty($aptitudes['lista_de_aptitudes'])): ?>
         <section class="py-16 lg:py-24 bg-gray-50" id="beneficios">
-            <div class="container mx-auto">
+            <div class="container mx-auto px-4 lg:px-6">
                 <?php if (!empty($aptitudes['titulo'])): ?>
                     <h2 class="heading-h2 font-medium text-center text-gray-800 md:mb-12 mb-6">
                         <?php echo wp_kses_post($aptitudes['titulo']); ?>
@@ -273,7 +275,7 @@ get_header(); ?>
                                     <?php endif; ?>
                                 </div>
                                 <h2
-                                    class="heading-h3 font-semibold text-primary mb-2 uppercase transition-colors duration-300 md:group-hover:!text-white">
+                                    class="heading-h4 font-semibold text-primary mb-2 uppercase transition-colors duration-300 md:group-hover:!text-white">
                                     <?php echo esc_html($apt['titulo']); ?>
                                 </h2>
                                 <p class="text-sm opacity-90 transition-colors duration-300 md:group-hover:!text-white mb-0">

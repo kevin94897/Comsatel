@@ -176,22 +176,23 @@ class ComsatelValidator {
         if (!container) {
             container = document.createElement('div');
             container.id = 'comsatel-notifications';
-            container.className = 'fixed top-5 right-5 z-[9999] flex flex-col gap-3 pointer-events-none';
+            container.className = 'fixed bottom-4 sm:bottom-6 left-1/2 -translate-x-1/2 z-[9999] flex flex-col gap-3 pointer-events-none w-full max-w-md px-4 sm:px-0 items-center';
             document.body.appendChild(container);
         }
 
         const toast = document.createElement('div');
-        const bgColor = type === 'success' ? 'bg-green-600' : (type === 'info' ? 'bg-blue-600' : 'bg-accent-red');
+        const bgColor = type === 'success' ? '#059669' : (type === 'info' ? '#2563EB' : '#DC2626');
 
-        toast.className = `${bgColor} text-white px-6 py-4 rounded-lg shadow-2xl flex items-center gap-3 transform translate-x-full transition-all duration-500 ease-out pointer-events-auto min-w-[300px] max-w-md`;
+        toast.className = `text-white px-5 sm:px-6 py-3 sm:py-4 rounded-lg shadow-2xl flex items-center gap-3 transform translate-y-[120%] opacity-0 transition-all duration-500 ease-out pointer-events-auto w-full sm:min-w-[300px] sm:w-auto sm:max-w-md`;
+        toast.style.backgroundColor = bgColor;
 
         const icon = type === 'success' ?
-            '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>' :
-            '<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
+            '<svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path></svg>' :
+            '<svg class="w-5 h-5 sm:w-6 sm:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>';
 
         toast.innerHTML = `
             <div class="flex-shrink-0">${icon}</div>
-            <div class="flex-grow font-medium">${message}</div>
+            <div class="flex-grow font-medium text-sm sm:text-base">${message}</div>
             <button class="flex-shrink-0 hover:opacity-70 transition-opacity bg-transparent cursor-pointer border-none">
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
             </button>
@@ -199,11 +200,13 @@ class ComsatelValidator {
 
         container.appendChild(toast);
 
-        // Animate in
-        setTimeout(() => toast.classList.remove('translate-x-full'), 10);
+        // Animate in (from bottom)
+        setTimeout(() => {
+            toast.classList.remove('translate-y-[120%]', 'opacity-0');
+        }, 10);
 
         const closeToast = () => {
-            toast.classList.add('translate-x-full', 'opacity-0');
+            toast.classList.add('translate-y-[120%]', 'opacity-0');
             setTimeout(() => toast.remove(), 500);
         };
 

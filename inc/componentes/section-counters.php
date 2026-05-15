@@ -17,13 +17,14 @@ $counters = $args['counters'] ?? null;
 ?>
 
 <?php if (!empty($counters)): ?>
-    <section class="py-12 md:py-24 overflow-hidden">
+    <section class="py-12 md:py-24 overflow-hidden bg-gray">
         <div class="container mx-auto px-4">
             <div class="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-4 lg:gap-8">
                 <?php foreach ($counters as $index => $counter): ?>
                     <div class="text-center" data-aos="fade-up" data-aos-delay="<?php echo $index * 100; ?>">
                         <div class="mb-2">
-                            <span class="text-3xl md:text-4xl lg:text-4xl font-medium text-primary flex items-center justify-center gap-1">
+                            <span
+                                class="text-3xl md:text-4xl lg:text-4xl font-medium text-primary flex items-center justify-center gap-1">
 
                                 <?php if (!empty($counter['prefix'])): ?>
                                     <span><?php echo esc_html($counter['prefix']); ?></span>

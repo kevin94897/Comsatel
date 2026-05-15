@@ -11,13 +11,13 @@ if (empty($banner) || empty($cards))
 <section class="py-4 bg-gray-50" id="slider-soluciones">
     <!-- Carousel Section -->
     <div class="scroll-view carousel-view" data-view="carousel">
-        <div class="container mx-auto px-4 lg:!px-0 h-full flex items-center relative">
+        <div class="container mx-auto px-4 lg:px-6 h-full flex items-center relative">
             <!-- Swiper Container -->
             <div class="swiper scrollCarouselSwiper w-full px-4">
-                <div class="swiper-wrapper">
+                <div class="swiper-wrapper mb-5">
                     <?php foreach ($cards as $index => $card): ?>
                         <div class="swiper-slide flex flex-col pb-8">
-                            <div class="bg-white rounded-2xl md:p-4 p-2 flex flex-col shadow-lg h-full">
+                            <div class="bg-white rounded-xl md:rounded-2xl md:p-4 p-2 flex flex-col shadow-lg h-full">
 
                                 <!-- Image -->
                                 <?php if (!empty($card['image'])): ?>
@@ -32,13 +32,14 @@ if (empty($banner) || empty($cards))
                                 <div class="mt-4 flex-1 flex flex-col justify-between">
                                     <div>
                                         <?php if (!empty($card['title'])): ?>
-                                            <h3 class="md:text-lg text-sm !leading-tight font-medium mb-2 text-gray-900 line-clamp-2">
+                                            <h3
+                                                class="md:text-lg text-sm !leading-tight font-medium mb-2 text-gray-900 line-clamp-2">
                                                 <?php echo wp_kses_post($card['title']); ?>
                                             </h3>
                                         <?php endif; ?>
 
                                         <?php if (!empty($card['description'])): ?>
-                                            <p class="md:text-sm text-xs text-gray leading-relaxed line-clamp-3">
+                                            <p class="md:text-sm text-xs text-gray leading-relaxed line-clamp-3 mb-0">
                                                 <?php echo wp_kses_post($card['description']); ?>
                                             </p>
                                         <?php endif; ?>
@@ -78,6 +79,7 @@ if (empty($banner) || empty($cards))
     .scrollCarouselSwiper .swiper-wrapper {
         align-items: stretch !important;
     }
+
     .scrollCarouselSwiper .swiper-slide {
         height: auto !important;
     }

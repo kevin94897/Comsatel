@@ -51,34 +51,75 @@ if (empty($banner_con_logos) && empty($logos_de_clientes)) {
     <?php endif; ?>
 
 
-    <div class="container mx-auto !pr-0 lg:!px-8 z-10">
-        <div class="
-        grid grid-flow-col auto-cols-[55%]
-        md:grid-flow-row 
-        md:auto-cols-auto
-        md:grid-cols-2 
-        lg:grid-cols-5
-        gap-6 
-        items-center 
-        justify-items-center 
-        pb-8 
-        pt-4
-        overflow-x-auto 
-        md:overflow-visible
-        scroll-smooth
-        scrollbar-hide
-    ">
-            <?php if (!empty($logos_de_clientes)): ?>
-                <?php foreach ($logos_de_clientes as $index => $item): ?>
-                    <div class="col-span-1 m-auto max-w-[150px]" data-aos="zoom-in"
-                        data-aos-delay="<?php echo ($index + 1) * 100; ?>">
-                        <?php if (!empty($item['logo']['url'])): ?>
-                            <img src="<?php echo esc_url($item['logo']['url']); ?>"
-                                alt="<?php echo esc_attr(!empty($item['logo']['alt']) ? $item['logo']['alt'] : 'Cliente Comsatel'); ?>">
-                        <?php endif; ?>
-                    </div>
-                <?php endforeach; ?>
-            <?php endif; ?>
+    <?php if (!empty($logos_de_clientes)): ?>
+        <div class="container mx-auto px-0 z-10 pb-8 pt-4">
+            <div class="clientes-marquee group">
+                <div class="clientes-marquee__track">
+                    <?php for ($i = 0; $i < 2; $i++): ?>
+                        <?php foreach ($logos_de_clientes as $item): ?>
+                            <?php if (!empty($item['logo']['url'])): ?>
+                                <div class="clientes-marquee__item">
+                                    <img src="<?php echo esc_url($item['logo']['url']); ?>"
+                                        alt="<?php echo esc_attr(!empty($item['logo']['alt']) ? $item['logo']['alt'] : 'Cliente Comsatel'); ?>"
+                                        loading="lazy" aria-hidden="<?php echo $i === 1 ? 'true' : 'false'; ?>">
+                                </div>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    <?php endfor; ?>
+                </div>
+            </div>
         </div>
-    </div>
+    <?php endif; ?>
 </section>
+
+<style>
+    .clientes-marquee {
+        overflow: hidden;
+        width: 100%;
+        position: relative;
+        -webkit-mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+        mask-image: linear-gradient(to right, transparent 0, #000 8%, #000 92%, transparent 100%);
+    }
+
+    .clientes-marquee__track {
+        display: flex;
+        align-items: center;
+        gap: 3rem;
+        width: max-content;
+        animation: clientes-marquee-scroll 35s linear infinite;
+    }
+
+    .clientes-marquee:hover .clientes-marquee__track {
+        animation-play-state: paused;
+    }
+
+    .clientes-marquee__item {
+        flex: 0 0 auto;
+        max-width: 150px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .clientes-marquee__item img {
+        max-height: 60px;
+        width: auto;
+        object-fit: contain;
+    }
+
+    @keyframes clientes-marquee-scroll {
+        from {
+            transform: translateX(0);
+        }
+
+        to {
+            transform: translateX(-50%);
+        }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+        .clientes-marquee__track {
+            animation: none;
+        }
+    }
+</style>

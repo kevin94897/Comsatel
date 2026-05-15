@@ -5,12 +5,12 @@ $acf_titulo = $acf_group['titulo'] ?? null;
 $acf_desc = $acf_group['descripcion'] ?? null;
 
 $productos_query = new WP_Query(array(
-    'post_type'      => 'producto',
+    'post_type' => 'producto',
     'posts_per_page' => -1,
-    'post_status'    => 'publish',
-    'post__not_in'   => array(get_the_ID()),
-    'orderby'        => 'menu_order',
-    'order'          => 'ASC',
+    'post_status' => 'publish',
+    'post__not_in' => array(get_the_ID()),
+    'orderby' => 'menu_order',
+    'order' => 'ASC',
 ));
 
 if (!$productos_query->have_posts())
@@ -57,12 +57,12 @@ if (!$productos_query->have_posts())
                     $p_desc = $p_encabezado['descripcion'] ?? get_the_excerpt();
                     ?>
                     <div class="swiper-slide">
-                        <div class="grid lg:grid-cols-2 gap-8 items-center bg-white rounded-2xl shadow-lg overflow-hidden my-4 p-4"
+                        <div class="grid lg:grid-cols-2 gap-8 items-center bg-dark rounded-2xl shadow-lg overflow-hidden my-4 p-4"
                             data-aos="fade-in" data-aos-delay="300" data-aos-duration="1000">
 
-                            <div class="p-8 lg:p-12">
+                            <div class="p-8 lg:p-12 text-white">
                                 <?php if ($p_titulo): ?>
-                                    <h3 class="text-2xl font-medium"><?php echo esc_html($p_titulo); ?></h3>
+                                    <h3 class="text-2xl font-medium text-white"><?php echo esc_html($p_titulo); ?></h3>
                                 <?php endif; ?>
 
                                 <?php if ($p_desc): ?>
@@ -76,8 +76,7 @@ if (!$productos_query->have_posts())
 
                             <?php if ($p_imagen): ?>
                                 <div>
-                                    <img src="<?php echo esc_url($p_imagen); ?>"
-                                        alt="<?php echo esc_attr($p_titulo); ?>"
+                                    <img src="<?php echo esc_url($p_imagen); ?>" alt="<?php echo esc_attr($p_titulo); ?>"
                                         class="w-full h-full object-cover rounded-md">
                                 </div>
                             <?php endif; ?>

@@ -314,18 +314,31 @@ $centros = $centros_group['centro'] ?? [];
                         </div>
 
                         <!-- Asunto (Dropdown) -->
+                        <?php
+                        $contacto_options = get_field('contacto', 'options');
+                        $opciones_asunto = $contacto_options['opciones_asunto'] ?? [];
+                        ?>
                         <div>
                             <label for="asunto" class="block text-sm text-dark mb-2">Asunto</label>
                             <select id="asunto" name="asunto"
                                 class="w-full px-4 py-3 text-sm rounded-md transition-all appearance-none bg-white cursor-pointer leading-[100%] border border-gray-300 focus:ring-2 focus:ring-primary focus:border-primary"
                                 required>
                                 <option value="">Motivo de contacto</option>
-                                <option value="Consulta General">Consulta General</option>
-                                <option value="Soporte Técnico">Soporte Técnico</option>
-                                <option value="Ventas">Ventas</option>
-                                <option value="Reclamo">Reclamo</option>
-                                <option value="Sugerencia">Sugerencia</option>
-                                <option value="Otro">Otro</option>
+                                <?php if (!empty($opciones_asunto)): ?>
+                                    <?php foreach ($opciones_asunto as $opt):
+                                        $valor = $opt['opcion'] ?? '';
+                                        if (!$valor) continue;
+                                        ?>
+                                        <option value="<?php echo esc_attr($valor); ?>"><?php echo esc_html($valor); ?></option>
+                                    <?php endforeach; ?>
+                                <?php else: ?>
+                                    <option value="Consulta General">Consulta General</option>
+                                    <option value="Soporte Técnico">Soporte Técnico</option>
+                                    <option value="Ventas">Ventas</option>
+                                    <option value="Reclamo">Reclamo</option>
+                                    <option value="Sugerencia">Sugerencia</option>
+                                    <option value="Otro">Otro</option>
+                                <?php endif; ?>
                             </select>
                         </div>
 
@@ -341,11 +354,12 @@ $centros = $centros_group['centro'] ?? [];
                         <!-- Política de Privacidad -->
                         <div class="flex items-start gap-3">
                             <input type="checkbox" id="acepta_politica" name="acepta_politica"
-                                class="w-4 h-4 mt-1 text-primary border-gray-300 focus:ring-primary" required>
-                            <label for="acepta_politica" class="text-sm text-black font-normal">
+                                class="w-4 h-4 text-primary border-gray-300 focus:ring-primary" required>
+                            <label for="acepta_politica" class="text-sm text-black font-normal mb-0">
                                 Al proporcionar esta información usted autoriza a Comsatel Perú el tratamiento de sus
                                 datos personales. Para mayor información conoce nuestra
-                                <a href="#" class="text-black underline hover:text-black-600 font-semibold">Política de
+                                <a href="<?php echo home_url('/politicas-de-privacidad'); ?>"
+                                    class="text-black underline hover:text-black-600 font-semibold">Política de
                                     Privacidad</a>
                             </label>
                         </div>
@@ -540,7 +554,8 @@ $centros = $centros_group['centro'] ?? [];
                 </div>
 
                 <!-- Información adicional -->
-                <div class="md:mt-2 mt-4 p-4 rounded-md max-w-xl absolute md:ml-2 md:top-5 top-0 md:top-5 bg-white">
+                <div
+                    class="md:mt-2 mt-4 p-4 rounded-md max-w-lg w-full absolute md:ml-2 md:top-5 top-0 md:top-5 bg-white">
                     <div class="flex items-start gap-1 mb-4">
                         <div>
                             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="20" viewBox="0 0 16 20"
@@ -732,13 +747,9 @@ $centros = $centros_group['centro'] ?? [];
                         .then(r => r.json())
                         .then(data => {
                             if (data.success) {
-                                window.comsatelHideLoader?.();
-                                form.classList.add('hidden');
-                                successMessage.classList.remove('hidden');
-                                successMessage.scrollIntoView({
-                                    behavior: 'smooth',
-                                    block: 'center'
-                                });
+                                const graciasUrl = (typeof comsatel_vars !== 'undefined' && comsatel_vars.gracias_url) ? comsatel_vars.gracias_url : '/gracias/';
+                                window.location.href = graciasUrl;
+                                return;
                             } else {
                                 window.comsatelHideLoader?.();
                                 window.contactoValidator.showNotification(data.data.message || 'Ocurrió un error inesperado.', 'error');

@@ -667,8 +667,8 @@ $acf_tabs        = get_field('tabs');
                     .then(res => res.json())
                     .then(data => {
                         if (data.success) {
-                            // Redirigir a página de gracias
-                            window.location.href = comsatel_vars.home_url + '/gracias';
+                            // Redirigir a página de gracias (idioma-aware via Polylang)
+                            window.location.href = comsatel_vars.gracias_url || (comsatel_vars.home_url + '/gracias');
                         } else {
                             window.comsatelHideLoader?.();
                             window.pageCotizadorValidator.showNotification(data.data || 'Ocurrió un error.', 'error');
