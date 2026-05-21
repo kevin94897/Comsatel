@@ -21,7 +21,7 @@ get_header(); ?>
         <!-- Content -->
         <div class="container mx-auto px-4 lg:px-8 relative z-10 h-full">
             <div class=" flex items-center h-full">
-                <div class="max-w-xl text-center md:text-left">
+                <div class="max-w-2xl text-center md:text-left">
                     <?php if (!empty($hero['titulo'])): ?>
                         <h1 class="heading-h1 font-medium text-white mb-6" data-aos="fade-up" data-aos-duration="1000">
                             <?php echo wp_kses_post($hero['titulo']); ?>

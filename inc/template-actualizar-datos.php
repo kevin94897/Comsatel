@@ -195,8 +195,8 @@ get_header();
         // Handle Form Submission
         form.addEventListener('submit', function (e) {
             e.preventDefault();
+            if (window.actualizarValidator && !window.actualizarValidator.isFormValid()) return;
 
-            // Simulate loading state
             const submitBtn = form.querySelector('button[type="submit"]');
             const originalBtnText = submitBtn.innerHTML;
             submitBtn.disabled = true;
@@ -209,11 +209,35 @@ get_header();
             `;
             window.comsatelShowLoader?.();
 
-            setTimeout(() => {
-                window.comsatelHideLoader?.();
-                const graciasUrl = (typeof comsatel_vars !== 'undefined' && comsatel_vars.gracias_url) ? comsatel_vars.gracias_url : '/gracias/';
-                window.location.href = graciasUrl;
-            }, 1500);
+            const formData = new FormData(form);
+            formData.append('action', 'enviar_actualizar_datos');
+            const ajaxUrl = (typeof comsatel_vars !== 'undefined') ? comsatel_vars.ajax_url : '/wp-admin/admin-ajax.php';
+            formData.append('security', (typeof comsatel_vars !== 'undefined') ? comsatel_vars.nonce_actualizar_datos : '');
+
+            fetch(ajaxUrl, {
+                method: 'POST',
+                body: formData
+            })
+                .then(r => r.json())
+                .then(data => {
+                    if (data.success) {
+                        window.comsatelHideLoader?.();
+                        const graciasUrl = (typeof comsatel_vars !== 'undefined' && comsatel_vars.gracias_url) ? comsatel_vars.gracias_url : '/gracias/';
+                        window.location.href = graciasUrl;
+                        return;
+                    }
+                    window.comsatelHideLoader?.();
+                    const msg = (data.data && data.data.message) ? data.data.message : 'Ocurrió un error inesperado.';
+                    if (window.actualizarValidator) window.actualizarValidator.showNotification(msg, 'error');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                })
+                .catch(() => {
+                    window.comsatelHideLoader?.();
+                    if (window.actualizarValidator) window.actualizarValidator.showNotification('Ocurrió un error al procesar tu solicitud.', 'error');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                });
         });
     });
 </script>

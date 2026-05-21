@@ -3,45 +3,18 @@
 /**
  * Section: Promociones
  *
- * Post Type: promociones (Assumed)
+ * Renderiza las promociones que NO tengan eventos (`tiene_eventos = false`).
+ * Los datos provienen de $GLOBALS['xp_promos_sin_eventos'] poblado en template-xperience.php.
  * Layout: Alternating grid (3-2-3-2)
  */
 
-// ── Campos ACF ────────────────────────────────────────────────────────────────
 $seccion_promos = $GLOBALS['xp_seccion_promos'] ?? null;
 $titulo_acf = $seccion_promos['titulo'] ?? null;
 $descripcion_acf = $seccion_promos['descripcion'] ?? null;
-$promociones_acf = $seccion_promos['promociones'] ?? null;
 
-// ACF puede devolver WP_Post suelto si se seleccionó solo uno; normalizar a array de IDs
-if ($promociones_acf instanceof WP_Post) {
-    $promociones_acf = [$promociones_acf->ID];
-} elseif (is_array($promociones_acf)) {
-    $promociones_acf = array_map(function ($p) {
-        return $p instanceof WP_Post ? $p->ID : intval($p);
-    }, $promociones_acf);
-} else {
-    $promociones_acf = [];
-}
+$all_posts = $GLOBALS['xp_promos_sin_eventos'] ?? [];
 
-// Query: si hay IDs seleccionados en ACF los usa, si no trae todos los publicados
-$args = [
-    'post_type' => ['Promocion', 'promocion', 'promociones'],
-    'posts_per_page' => -1,
-    'post_status' => 'publish',
-    'orderby' => 'date',
-    'order' => 'DESC',
-];
-
-if (!empty($promociones_acf)) {
-    $args['post__in'] = $promociones_acf;
-    $args['orderby'] = 'post__in'; // Respetar el orden del editor
-}
-
-$query = new WP_Query($args);
-
-if ($query->have_posts()):
-    $all_posts = $query->posts;
+if (!empty($all_posts)):
     ?>
     <section class="py-12 lg:py-16 bg-gray-50">
         <div class="container mx-auto px-4 lg:px-8">

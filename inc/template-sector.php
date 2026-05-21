@@ -152,7 +152,7 @@ get_header();
     $has_solutions_section = $bt_subtitulo || $bt_titulo || $bt_descripcion || $bt_bg_url || !empty($lista_soluciones);
     ?>
     <?php if ($has_solutions_section): ?>
-        <section class="pb-16 lg:pb-24 pt-8 bg-wwhite" id="soluciones">
+        <section class="pb-16 lg:pb-24 pt-8 bg-white" id="soluciones">
 
             <?php if ($bt_subtitulo || $bt_titulo || $bt_descripcion || $bt_bg_url): ?>
                 <div class="container-fluid py-6 lg:py-16 md:mb-20 mb-16 bg-cover bg-center bg-no-repeat" <?php if ($bt_bg_url): ?>style="background-image: url('<?php echo esc_url($bt_bg_url); ?>');" <?php endif; ?>>
@@ -180,7 +180,7 @@ get_header();
             <?php endif; ?>
 
             <?php if (!empty($lista_soluciones)): ?>
-                <div class="container mx-auto px-4 lg:px-8">
+                <div class="container mx-auto px-4 lg:px-16">
                     <?php
                     $counter = 0;
                     foreach ($lista_soluciones as $solucion):

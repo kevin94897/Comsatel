@@ -3,20 +3,18 @@
 /**
  * Componente: Sección Categorías de Eventos
  *
- * Las cards se renderizan SOLO con lo que esté en el repeater ACF (beneficios > beneficio).
- * Si hay 3 ítems en el repeater → 3 cards. No se autocompletá con términos.
+ * Renderiza las promociones que tengan `tiene_eventos = true` (ACF).
+ * Los datos provienen de $GLOBALS['xp_promos_con_eventos'] poblado en template-xperience.php.
  */
 
-// ── Campos ACF ────────────────────────────────────────────────────────────────
-$beneficios_group = $GLOBALS['xp_beneficios_group'] ?? null;
-$beneficios = $beneficios_group['beneficio'] ?? null;
+$promos_con_eventos = $GLOBALS['xp_promos_con_eventos'] ?? [];
 
 $encabezado = $GLOBALS['xp_encabezado'] ?? null;
 $subtitulo = $encabezado['subtitulo'] ?? null;
 $titulo = $encabezado['titulo'] ?? null;
 $descripcion = $encabezado['descripcion'] ?? null;
 
-if (empty($beneficios))
+if (empty($promos_con_eventos))
     return;
 ?>
 
@@ -48,20 +46,21 @@ if (empty($beneficios))
 
         <!-- Grid -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 auto-rows-[300px]">
-            <?php foreach ($beneficios as $item):
-                $imagen = $item['imagen_de_fondo'] ?? null;
-                $titulo_card = $item['titulo'] ?? null;
-                $boton = $item['boton'] ?? null;
-                $cantidad_eventos = $item['cantidad_de_eventos'] ?? null;
+            <?php foreach ($promos_con_eventos as $promo):
+                $promo_id = $promo->ID;
+                $titulo_card = get_the_title($promo);
 
-                // Omitir ítem si no tiene ningún dato útil
-                if (empty($imagen) && empty($titulo_card) && empty($boton) && empty($cantidad_eventos))
-                    continue;
+                $imagen = get_field('imagen', $promo_id);
+                if (!$imagen && has_post_thumbnail($promo)) {
+                    $image_url = get_the_post_thumbnail_url($promo, 'large');
+                } else {
+                    $image_url = is_array($imagen) ? ($imagen['url'] ?? null) : $imagen;
+                }
 
-                $image_url = $imagen['url'] ?? null;
-                $boton_text = $boton['title'] ?? null;
-                $boton_href = $boton['url'] ?? null;
-                $boton_target = $boton['target'] ?? '_self';
+                $cantidad_eventos = get_field('eventos', $promo_id);
+                $boton_href = get_permalink($promo);
+                $boton_text = 'Leer más';
+                $boton_target = '_self';
                 ?>
 
                 <!-- Card -->

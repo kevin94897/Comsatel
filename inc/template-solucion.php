@@ -128,7 +128,7 @@ get_header(); ?>
             <?php endif; ?>
 
             <?php if (!empty($lista_soluciones)): ?>
-                <div class="container mx-auto px-4 lg:px-8">
+                <div class="container mx-auto px-4 lg:px-16">
                     <?php foreach ($lista_soluciones as $index => $solucion):
                         $s_imagen = $solucion['imagen'] ?? null;
                         $s_subtitulo = $solucion['subtitulo'] ?? null;

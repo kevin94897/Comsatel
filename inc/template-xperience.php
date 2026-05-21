@@ -24,6 +24,31 @@ $GLOBALS['xp_encabezado'] = $encabezado;
 $GLOBALS['xp_beneficios_group'] = $beneficios_group;
 $GLOBALS['xp_alianzas_group'] = $alianzas_group;
 $GLOBALS['xp_seccion_promos'] = $seccion_promos;
+
+// Particionar promociones segun ACF `tiene_eventos`
+$promociones_query = new WP_Query([
+    'post_type'      => ['Promocion', 'promocion', 'promociones'],
+    'posts_per_page' => -1,
+    'post_status'    => 'publish',
+    'orderby'        => 'menu_order date',
+    'order'          => 'ASC',
+]);
+
+$xp_promos_con_eventos = [];
+$xp_promos_sin_eventos = [];
+if ($promociones_query->have_posts()) {
+    foreach ($promociones_query->posts as $promo_post) {
+        if (get_field('tiene_eventos', $promo_post->ID)) {
+            $xp_promos_con_eventos[] = $promo_post;
+        } else {
+            $xp_promos_sin_eventos[] = $promo_post;
+        }
+    }
+}
+wp_reset_postdata();
+
+$GLOBALS['xp_promos_con_eventos'] = $xp_promos_con_eventos;
+$GLOBALS['xp_promos_sin_eventos'] = $xp_promos_sin_eventos;
 ?>
 
 

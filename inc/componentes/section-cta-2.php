@@ -22,7 +22,7 @@ if (empty($titulo) && empty($descripcion) && empty($boton)) {
         </div>
     <?php endif; ?>
 
-    <div class="relative container mx-auto px-4" data-aos="zoom-in" data-aos-delay="200">
+    <div class="relative container mx-auto px-4" data-aos="fade-left" data-aos-delay="200">
         <div class="grid grid-cols-1 lg:grid-cols-2 items-center gap-8">
 
             <!-- Spacer / image side -->

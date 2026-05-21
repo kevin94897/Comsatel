@@ -55,8 +55,8 @@ $centros = $centros_group['centro'] ?? [];
     <!-- ── Sección de Tarjetas de Contacto ── -->
     <?php if (!empty($cards)): ?>
         <section class="py-12 lg:py-16 bg-[#F8F9FA]">
-            <div class="container mx-auto px-4">
-                <div class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8" data-aos="fade-up"
+            <div class="container mx-auto px-4 lg:px-16">
+                <div class="flex flex-col md:grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-4" data-aos="fade-up"
                     data-aos-duration="500" data-aos-easing="ease-out-cubic">
 
                     <?php foreach ($cards as $i => $card):
@@ -72,8 +72,8 @@ $centros = $centros_group['centro'] ?? [];
                         ?>
                         <div
                             class="<?php echo $is_featured
-                                ? 'transition md:scale-105 md:z-10 bg-white p-6 md:p-8 rounded-lg shadow-sm border-2 border-primary hover:shadow-md transition-all text-center group scale-105'
-                                : 'bg-white m-5 mb-0 p-8 rounded-lg shadow-sm border border-transparent hover:shadow-md transition-all text-center group'; ?>">
+                                ? 'bg-white p-6 md:p-8 rounded-lg shadow-sm border md:border-2 border-transparent md:border-primary text-center group md:scale-105 md:z-10 transition-[transform,box-shadow,border-color] duration-500 ease-out will-change-transform hover:shadow-2xl md:hover:shadow-comsatel-lg hover:-translate-y-2 md:hover:scale-[1.08]'
+                                : 'bg-white md:m-5 md:mb-0 p-6 md:p-8 rounded-lg shadow-sm border border-transparent text-center group transition-[transform,box-shadow,border-color] duration-500 ease-out will-change-transform hover:shadow-2xl hover:-translate-y-2'; ?>">
 
                             <?php if (!empty($card_img['url'])): ?>
                                 <div
@@ -128,12 +128,12 @@ $centros = $centros_group['centro'] ?? [];
     $has_cta_content = $cta_titulo || $cta_desc || $cta_telefono || $cta_correo || !empty($cta_boton['url']) || !empty($cta_imagen['url']);
     ?>
     <?php if ($has_cta_content): ?>
-        <section class="py-6 lg:py-12 bg-gray-50 overflow-hidden">
-            <div class="container mx-auto px-4 lg:px-8">
+        <section class="pt-6 lg:pt-12 bg-gray-50 overflow-hidden">
+            <div class="container mx-auto max-w-7xl px-4 lg:px-16">
                 <div class="flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-20">
 
                     <?php if ($cta_titulo || $cta_desc || $cta_telefono || $cta_correo || !empty($cta_boton['url'])): ?>
-                        <div class="lg:w-1/2" data-aos="fade-right">
+                        <div class="lg:w-1/2 mb-6 lg:mb-0" data-aos="fade-right">
 
                             <?php if ($cta_titulo): ?>
                                 <h2 class="text-xl lg:text-3xl font-medium text-black mb-6 leading-tight">
@@ -142,13 +142,13 @@ $centros = $centros_group['centro'] ?? [];
                             <?php endif; ?>
 
                             <?php if ($cta_desc): ?>
-                                <p class="text-gray text-lg mb-10 leading-relaxed max-w-xl">
+                                <p class="text-gray text-lg mb-5 leading-relaxed max-w-xl">
                                     <?php echo wp_kses_post($cta_desc); ?>
                                 </p>
                             <?php endif; ?>
 
                             <?php if ($cta_telefono || $cta_correo): ?>
-                                <div class="flex flex-wrap gap-4 md:gap-8 lg:gap-12 mb-10">
+                                <div class="flex flex-wrap gap-4 md:gap-8 lg:gap-12 mb-4 lg:mb-10">
 
                                     <?php if ($cta_telefono): ?>
                                         <div class="flex items-center gap-3">
@@ -203,11 +203,11 @@ $centros = $centros_group['centro'] ?? [];
     <?php endif; ?>
 
     <!-- Formulario de Contacto -->
-    <section class="py-16 md:py-18 relative">
+    <section class="pb-16 md:pb-18 relative">
         <div class="absolute inset-0 bg-auto bg-[center_left] bg-no-repeat"
             style="background-image: url('<?php echo get_template_directory_uri(); ?>/images/comsatel_vector.png');">
         </div>
-        <div class="container mx-auto px-4 z-10 relative">
+        <div class="container mx-auto px-4 lg:px-16 z-10 relative">
             <div class="">
 
                 <!-- Contenedor del Formulario -->
@@ -327,7 +327,8 @@ $centros = $centros_group['centro'] ?? [];
                                 <?php if (!empty($opciones_asunto)): ?>
                                     <?php foreach ($opciones_asunto as $opt):
                                         $valor = $opt['opcion'] ?? '';
-                                        if (!$valor) continue;
+                                        if (!$valor)
+                                            continue;
                                         ?>
                                         <option value="<?php echo esc_attr($valor); ?>"><?php echo esc_html($valor); ?></option>
                                     <?php endforeach; ?>
@@ -397,8 +398,8 @@ $centros = $centros_group['centro'] ?? [];
 
     <!-- ── Encabezado Centros de Atención ── -->
     <?php if (!empty($centros)): ?>
-        <section class="pb-8 md:pb-16 relative" id="centros-atencion">
-            <div class="container mx-auto px-4">
+        <section class="py-4 md:py-8 relative" id="centros-atencion">
+            <div class="container mx-auto px-4 lg:px-16">
                 <div class="max-w-4xl">
                     <h2 class="md:text-3xl text-2xl font-medium text-black mb-5 text-left">
                         <?php echo wp_kses_post($centros_titulo); ?>
@@ -412,7 +413,7 @@ $centros = $centros_group['centro'] ?? [];
 
         <!-- ── Grid de Centros de Atención ── -->
         <section class="pb-16 md:pb-32 relative">
-            <div class="container mx-auto px-4">
+            <div class="container mx-auto px-4 lg:px-16">
                 <div class="cards grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
 
                     <?php foreach ($centros as $i => $centro):

@@ -51,6 +51,8 @@ function comsatel_get_recipient_email($type = 'general')
 			return ['atencionalcliente@comsatel.com.pe']; // Ejemplo
 		case 'cotizador':
 			return ['atencionalcliente@comsatel.com.pe']; // Cambiar/agregar el de ventas
+		case 'actualizar_datos':
+			return ['teamsac@comsatelglobal.com'];
 		case 'general':
 		default:
 			return ['atencionalcliente@comsatel.com.pe'];
@@ -377,6 +379,7 @@ function comsatel_scripts()
 		'home_url' => home_url(),
 		'gracias_url' => $gracias_url,
 		'nonce_contacto' => wp_create_nonce('comsatel_contacto_nonce'),
+		'nonce_actualizar_datos' => wp_create_nonce('comsatel_actualizar_datos_nonce'),
 		'whatsapp_number' => get_theme_mod('comsatel_whatsapp_number', ''),
 	));
 
@@ -755,6 +758,11 @@ require get_template_directory() . '/inc/ajax-contacto.php';
  * Include AJAX handlers for Cotizador
  */
 require get_template_directory() . '/inc/ajax-cotizador.php';
+
+/**
+ * AJAX Handler: Actualizar Datos
+ */
+require get_template_directory() . '/inc/ajax-actualizar-datos.php';
 
 
 /**
