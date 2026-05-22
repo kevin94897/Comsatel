@@ -18,14 +18,16 @@ get_header();
                 data-aos-duration="1200">
             </div>
         <?php endif; ?>
+        <!-- Overlay oscuro -->
+        <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
 
         <!-- Content -->
         <div class="container mx-auto px-4 lg:px-8 relative z-10">
             <div class="">
                 <span class="border-t-4 border-[#FF4D4D] inline-block mr-2 w-full mb-2 md:max-w-[100px] max-w-[50px]"
                     data-aos="fade-right" data-aos-duration="800" data-aos-delay="200"></span>
-                <h1 class="heading-h1 font-bold text-white mb-10 leading-tight mt-2 uppercase"
-                    data-aos="fade-up" data-aos-duration="1000" data-aos-delay="400" data-aos-easing="ease-out-cubic">
+                <h1 class="heading-h1 font-bold text-white mb-10 leading-tight mt-2 uppercase" data-aos="fade-up"
+                    data-aos-duration="1000" data-aos-delay="400" data-aos-easing="ease-out-cubic">
                     Descargables
                 </h1>
             </div>
@@ -86,7 +88,7 @@ get_header();
                                 <?php if ($descargable):
                                     $file_url = is_array($descargable) ? $descargable['url'] : $descargable;
                                     ?>
-                                    <a href="<?php echo esc_url($file_url); ?>" target="_blank" download
+                                    <a href="<?php echo esc_url($file_url); ?>" target="_blank"
                                         class="inline-flex items-center gap-2 text-primary font-medium uppercase tracking-wider text-sm hover:translate-x-1 transition-transform group/link">
                                         DESCARGAR
                                         <svg xmlns="http://www.w3.org/2000/svg"

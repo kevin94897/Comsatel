@@ -28,6 +28,8 @@ $boton_modal = get_field('boton_modal') ?: 'Acceder al beneficio';
                 data-aos-duration="1200">
             </div>
         <?php endif; ?>
+        <!-- Overlay oscuro -->
+        <div class="absolute inset-0 bg-black/40 pointer-events-none"></div>
 
         <!-- Content -->
         <div class="container mx-auto px-4 lg:px-8 relative z-10">

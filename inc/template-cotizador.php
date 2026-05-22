@@ -346,6 +346,10 @@ $acf_tabs        = get_field('tabs');
                                             <span class="text-base md:text-lg font-medium text-dark">¿Qué productos desea cotizar?</span>
                                         </label>
                                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-4">
+                                            <?php
+                                            $activar_productos_reales = get_field('activar_productos_reales');
+                                            $categorias_de_producto = get_field('categorias_de_producto');
+                                            ?>
                                             <!-- Product Category 1 -->
                                             <div class="category-item-container flex flex-col gap-2 text-dark">
                                                 <div class="page-product-category border-2 border-gray-200 rounded-md md:p-6 p-4 cursor-pointer overflow-hidden transition-all duration-300 h-fit"
@@ -359,36 +363,47 @@ $acf_tabs        = get_field('tabs');
                                                     </div>
                                                 </div><!-- .page-product-category -->
                                                 <div class="page-category-content hidden space-y-3 bg-white rounded-md p-4 border-2 border-primary">
-                                                    <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
-                                                        <input type="checkbox" name="productos[]" value="GPS Portátil"
-                                                            class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
-                                                            data-required-group="productos">
-                                                        <span>GPS Portátil</span>
-                                                    </label>
-                                                    <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
-                                                        <input type="checkbox" name="productos[]" value="GPS Empresa/Corporativo"
-                                                            class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
-                                                            data-required-group="productos">
-                                                        <span>GPS Empresa/Corporativo</span>
-                                                    </label>
-                                                    <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
-                                                        <input type="checkbox" name="productos[]" value="GPS Satelital"
-                                                            class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
-                                                            data-required-group="productos">
-                                                        <span>GPS Satelital</span>
-                                                    </label>
-                                                    <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
-                                                        <input type="checkbox" name="productos[]" value="Candado GPS"
-                                                            class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
-                                                            data-required-group="productos">
-                                                        <span>Candado GPS</span>
-                                                    </label>
-                                                    <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
-                                                        <input type="checkbox" name="productos[]" value="GPS Particular"
-                                                            class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
-                                                            data-required-group="productos">
-                                                        <span>GPS Particular</span>
-                                                    </label>
+                                                    <?php if ($activar_productos_reales === 'Si' && !empty($categorias_de_producto['rastreo_gps'])): ?>
+                                                        <?php foreach ($categorias_de_producto['rastreo_gps'] as $prod): ?>
+                                                            <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
+                                                                <input type="checkbox" name="productos[]" value="<?php echo esc_attr(get_the_title($prod->ID)); ?>"
+                                                                    class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+                                                                    data-required-group="productos">
+                                                                <span><?php echo esc_html(get_the_title($prod->ID)); ?></span>
+                                                            </label>
+                                                        <?php endforeach; ?>
+                                                    <?php else: ?>
+                                                        <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
+                                                            <input type="checkbox" name="productos[]" value="GPS Portátil"
+                                                                class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+                                                                data-required-group="productos">
+                                                            <span>GPS Portátil</span>
+                                                        </label>
+                                                        <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
+                                                            <input type="checkbox" name="productos[]" value="GPS Empresa/Corporativo"
+                                                                class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+                                                                data-required-group="productos">
+                                                            <span>GPS Empresa/Corporativo</span>
+                                                        </label>
+                                                        <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
+                                                            <input type="checkbox" name="productos[]" value="GPS Satelital"
+                                                                class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+                                                                data-required-group="productos">
+                                                            <span>GPS Satelital</span>
+                                                        </label>
+                                                        <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
+                                                            <input type="checkbox" name="productos[]" value="Candado GPS"
+                                                                class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+                                                                data-required-group="productos">
+                                                            <span>Candado GPS</span>
+                                                        </label>
+                                                        <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
+                                                            <input type="checkbox" name="productos[]" value="GPS Particular"
+                                                                class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+                                                                data-required-group="productos">
+                                                            <span>GPS Particular</span>
+                                                        </label>
+                                                    <?php endif; ?>
                                                 </div>
                                             </div><!-- .category-item-container -->
                                             <!-- Product Category 2 -->
@@ -405,18 +420,29 @@ $acf_tabs        = get_field('tabs');
                                                     </div>
                                                 </div><!-- .page-product-category -->
                                                 <div class="page-category-content hidden space-y-3 bg-white rounded-md p-4 border-2 border-primary">
-                                                    <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
-                                                        <input type="checkbox" name="productos[]" value="Telemetría"
-                                                            class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
-                                                            data-required-group="productos">
-                                                        <span>Telemetría</span>
-                                                    </label>
-                                                    <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
-                                                        <input type="checkbox" name="productos[]" value="Control combustible"
-                                                            class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
-                                                            data-required-group="productos">
-                                                        <span>Control combustible</span>
-                                                    </label>
+                                                    <?php if ($activar_productos_reales === 'Si' && !empty($categorias_de_producto['eficiencia_y_control'])): ?>
+                                                        <?php foreach ($categorias_de_producto['eficiencia_y_control'] as $prod): ?>
+                                                            <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
+                                                                <input type="checkbox" name="productos[]" value="<?php echo esc_attr(get_the_title($prod->ID)); ?>"
+                                                                    class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+                                                                    data-required-group="productos">
+                                                                <span><?php echo esc_html(get_the_title($prod->ID)); ?></span>
+                                                            </label>
+                                                        <?php endforeach; ?>
+                                                    <?php else: ?>
+                                                        <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
+                                                            <input type="checkbox" name="productos[]" value="Telemetría"
+                                                                class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+                                                                data-required-group="productos">
+                                                            <span>Telemetría</span>
+                                                        </label>
+                                                        <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
+                                                            <input type="checkbox" name="productos[]" value="Control combustible"
+                                                                class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+                                                                data-required-group="productos">
+                                                            <span>Control combustible</span>
+                                                        </label>
+                                                    <?php endif; ?>
                                                 </div>
                                             </div><!-- .category-item-container -->
                                             <!-- Product Category 3 -->
@@ -435,18 +461,29 @@ $acf_tabs        = get_field('tabs');
                                                     </div>
                                                 </div><!-- .page-product-category -->
                                                 <div class="page-category-content hidden space-y-3 bg-white rounded-md p-4 border-2 border-primary">
-                                                    <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
-                                                        <input type="checkbox" name="productos[]" value="Cámara DASH"
-                                                            class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
-                                                            data-required-group="productos">
-                                                        <span>Cámara DASH</span>
-                                                    </label>
-                                                    <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
-                                                        <input type="checkbox" name="productos[]" value="Sensor de fatiga"
-                                                            class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
-                                                            data-required-group="productos">
-                                                        <span>Sensor de fatiga</span>
-                                                    </label>
+                                                    <?php if ($activar_productos_reales === 'Si' && !empty($categorias_de_producto['video_y_seguridad'])): ?>
+                                                        <?php foreach ($categorias_de_producto['video_y_seguridad'] as $prod): ?>
+                                                            <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
+                                                                <input type="checkbox" name="productos[]" value="<?php echo esc_attr(get_the_title($prod->ID)); ?>"
+                                                                    class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+                                                                    data-required-group="productos">
+                                                                <span><?php echo esc_html(get_the_title($prod->ID)); ?></span>
+                                                            </label>
+                                                        <?php endforeach; ?>
+                                                    <?php else: ?>
+                                                        <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
+                                                            <input type="checkbox" name="productos[]" value="Cámara DASH"
+                                                                class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+                                                                data-required-group="productos">
+                                                            <span>Cámara DASH</span>
+                                                        </label>
+                                                        <label class="flex items-center gap-2 cursor-pointer text-sm font-medium">
+                                                            <input type="checkbox" name="productos[]" value="Sensor de fatiga"
+                                                                class="page-product-checkbox w-4 h-4 text-primary border-gray-300 focus:ring-primary"
+                                                                data-required-group="productos">
+                                                            <span>Sensor de fatiga</span>
+                                                        </label>
+                                                    <?php endif; ?>
                                                 </div>
                                             </div><!-- .category-item-container -->
                                         </div>
