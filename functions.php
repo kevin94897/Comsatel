@@ -907,6 +907,16 @@ if (function_exists('acf_add_options_page')) {
 		'parent_slug' => 'theme-options',
 		'capability' => 'edit_posts',
 	));
+
+	// Cotizador - Opciones globales (traducibles por idioma via ACF Options for Polylang)
+	acf_add_options_sub_page(array(
+		'page_title' => 'Opciones del Cotizador',
+		'menu_title' => 'Cotizador',
+		'menu_slug' => 'cotizador-options',
+		'post_id'   => 'cotizador-options',
+		'parent_slug' => 'theme-options',
+		'capability' => 'edit_posts',
+	));
 }
 
 /**

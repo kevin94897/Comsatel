@@ -347,10 +347,10 @@ $acf_tabs        = get_field('tabs');
                                         </label>
                                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-4">
                                             <?php
-                                            $activar_productos_reales = get_field('activar_productos_reales');
-                                            
+                                            $activar_productos_reales = get_field('activar_productos_reales', 'cotizador-options');
+
                                             if ($activar_productos_reales === 'Si') {
-                                                $categorias_de_producto = get_field('categorias_de_producto');
+                                                $categorias_de_producto = get_field('categorias_de_producto', 'cotizador-options');
                                                 $cats = [
                                                     [
                                                         'titulo' => 'Rastreo GPS',
@@ -392,7 +392,7 @@ $acf_tabs        = get_field('tabs');
                                                     <?php
                                                 }
                                             } else {
-                                                $categorias_editables = get_field('categorias_editables');
+                                                $categorias_editables = get_field('categorias_editables', 'cotizador-options');
                                                 if (!empty($categorias_editables['lista_de_categorias'])) {
                                                     foreach ($categorias_editables['lista_de_categorias'] as $cat) {
                                                         // ACF puede retornar array (imagen normal) o entero (SVG sin metadatos)
@@ -684,7 +684,7 @@ $acf_tabs        = get_field('tabs');
                     const provinces = provincesByCountry[this.value] || [];
                     provinceSelect.innerHTML = '<option value="" selected disabled>Provincia</option>';
                     provinces.forEach(p => {
-                        const opt = document.createElement('option');
+                        const opt = document.createElement('cotizador-options');
                         opt.value = p;
                         opt.textContent = p;
                         provinceSelect.appendChild(opt);

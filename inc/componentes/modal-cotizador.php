@@ -184,18 +184,10 @@
                     </label>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-4">
                         <?php
-                        // Find the page ID with the template
-                        $cotizador_page = get_pages([
-                            'meta_key' => '_wp_page_template',
-                            'meta_value' => 'inc/template-cotizador.php',
-                            'number' => 1
-                        ]);
-                        $page_id = !empty($cotizador_page) ? $cotizador_page[0]->ID : null;
-                        
-                        $activar_productos_reales = get_field('activar_productos_reales', $page_id);
-                        
+                        $activar_productos_reales = get_field('activar_productos_reales', 'cotizador-options');
+
                         if ($activar_productos_reales === 'Si') {
-                            $categorias_de_producto = get_field('categorias_de_producto', $page_id);
+                            $categorias_de_producto = get_field('categorias_de_producto', 'cotizador-options');
                             $cats = [
                                 [
                                     'titulo' => 'Rastreo GPS',
@@ -237,7 +229,7 @@
                                 <?php
                             }
                         } else {
-                            $categorias_editables = get_field('categorias_editables', $page_id);
+                            $categorias_editables = get_field('categorias_editables', 'cotizador-options');
                             if (!empty($categorias_editables['lista_de_categorias'])) {
                                 foreach ($categorias_editables['lista_de_categorias'] as $cat) {
                                     // ACF puede retornar array (imagen normal) o entero (SVG sin metadatos)
