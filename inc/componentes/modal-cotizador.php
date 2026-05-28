@@ -184,10 +184,10 @@
                     </label>
                     <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 md:gap-4">
                         <?php
-                        $activar_productos_reales = get_field('activar_productos_reales', 'cotizador-options');
+                        $activar_productos_reales = get_field('activar_productos_reales', 'option');
 
                         if ($activar_productos_reales === 'Si') {
-                            $categorias_de_producto = get_field('categorias_de_producto', 'cotizador-options');
+                            $categorias_de_producto = get_field('categorias_de_producto', 'option');
                             $cats = [
                                 [
                                     'titulo' => 'Rastreo GPS',
@@ -229,7 +229,7 @@
                                 <?php
                             }
                         } else {
-                            $categorias_editables = get_field('categorias_editables', 'cotizador-options');
+                            $categorias_editables = get_field('categorias_editables', 'option');
                             if (!empty($categorias_editables['lista_de_categorias'])) {
                                 foreach ($categorias_editables['lista_de_categorias'] as $cat) {
                                     // ACF puede retornar array (imagen normal) o entero (SVG sin metadatos)

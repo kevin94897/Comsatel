@@ -878,45 +878,16 @@ if (function_exists('acf_add_options_page')) {
 		'redirect' => false
 	));
 
-	// Megamenu - Perú
+	// Megamenu (traducible por idioma via ACF Options for Polylang)
 	acf_add_options_sub_page(array(
-		'page_title' => 'Megamenu - Perú',
-		'menu_title' => 'Megamenu PE',
+		'page_title' => 'Megamenu',
+		'menu_title' => 'Megamenu',
 		'menu_slug' => 'megamenu-header',
 		'post_id' => 'megamenu-header',
 		'parent_slug' => 'theme-options',
 		'capability' => 'edit_posts',
 	));
 
-	// Megamenu - Bolivia
-	acf_add_options_sub_page(array(
-		'page_title' => 'Megamenu - Bolivia',
-		'menu_title' => 'Megamenu BO',
-		'menu_slug' => 'megamenu-header-bo',
-		'post_id' => 'megamenu-header-bo',
-		'parent_slug' => 'theme-options',
-		'capability' => 'edit_posts',
-	));
-
-	// Megamenu - Colombia
-	acf_add_options_sub_page(array(
-		'page_title' => 'Megamenu - Colombia',
-		'menu_title' => 'Megamenu CO',
-		'menu_slug' => 'megamenu-header-co',
-		'post_id' => 'megamenu-header-co',
-		'parent_slug' => 'theme-options',
-		'capability' => 'edit_posts',
-	));
-
-	// Cotizador - Opciones globales (traducibles por idioma via ACF Options for Polylang)
-	acf_add_options_sub_page(array(
-		'page_title' => 'Opciones del Cotizador',
-		'menu_title' => 'Cotizador',
-		'menu_slug' => 'cotizador-options',
-		'post_id'   => 'cotizador-options',
-		'parent_slug' => 'theme-options',
-		'capability' => 'edit_posts',
-	));
 }
 
 /**
